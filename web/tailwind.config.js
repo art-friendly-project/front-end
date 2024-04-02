@@ -131,7 +131,8 @@ module.exports = {
       },
       animation: {
         'spin-slow': 'spin-custom 2.5s ease-in-out',
-        appear: 'appear 2s',
+        appear: 'appear 0.5s linear',
+        disappear: 'disappear 2s',
       },
       keyframes: {
         'spin-custom': {
@@ -144,6 +145,12 @@ module.exports = {
           from: { opacity: 0 },
           to: {
             opacity: 1,
+          },
+        },
+        disappear: {
+          from: { opacity: 1 },
+          to: {
+            opacity: 0,
           },
         },
       },
