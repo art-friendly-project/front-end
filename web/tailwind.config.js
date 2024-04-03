@@ -125,23 +125,58 @@ module.exports = {
       ],
     },
     extend: {
+      height: {
+        '1/10': '10%',
+      },
+      width: {
+        92: '23rem',
+      },
       colors: {
         'orange-100': '#FF8645',
         'orange-50': '#FFD195',
+        kakaoYellow: '#F8D548',
+        kakaoBrown: '#47292B',
+        'gray-80': '#616161',
       },
       animation: {
-        'spin-slow': 'spin-custom 2.5s ease-in-out',
+        'spin-slow': 'spin-custom 2s linear infinite',
         appear: 'appear 0.5s linear',
+        'appear-mid': 'appear-mid 0.5s',
         disappear: 'disappear 2s',
+        'appear-slow': 'appear-slow 2.5s ease-in-out',
+        'move-top': 'move-top 3s linear',
       },
       keyframes: {
-        'spin-custom': {
-          from: { transform: 'rotate(0deg) translateY(0px)' },
+        'move-top': {
+          from: {
+            transform: 'translateY(0)',
+          },
           to: {
-            transform: 'rotate(180deg) translateY(100px)',
+            transform: 'translateY(-300px)',
+          },
+        },
+
+        'spin-custom': {
+          from: {
+            transform: 'rotate(0deg)',
+          },
+          to: {
+            transform: 'rotate(270deg)',
           },
         },
         appear: {
+          from: { opacity: 0 },
+          to: {
+            opacity: 1,
+          },
+        },
+        'appear-mid': {
+          from: { opacity: 0 },
+          to: {
+            opacity: 0.6,
+          },
+        },
+        'appear-slow': {
           from: { opacity: 0 },
           to: {
             opacity: 1,
@@ -153,6 +188,10 @@ module.exports = {
             opacity: 0,
           },
         },
+      },
+      boxShadow: {
+        custom:
+          'rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;',
       },
     },
   },
