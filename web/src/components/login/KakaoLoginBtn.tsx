@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import kakaoLogo from '../../assets/kakaoLogo.svg';
+import kakaoLogo from '../../assets/etc/kakaoLogo.svg';
 
 const KakaoLoginBtn = () => {
   const navigate = useNavigate();
