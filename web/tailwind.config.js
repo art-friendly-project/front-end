@@ -127,13 +127,24 @@ module.exports = {
     extend: {
       height: {
         '1/10': '10%',
+        '2/25': '8%',
+        '41/50': '82%',
+        '7/10': '70%',
+        '9/10': '90%',
       },
       width: {
         92: '23rem',
+        '9/10': '90%',
+        '3/10': '30%',
       },
       colors: {
-        'orange-100': '#FF8645',
+        'orange-100': '#FF955A',
+        'orange-90': '#FFA469',
+        'orange-70': '#FFC287',
         'orange-50': '#FFD195',
+        'orange-30': '#FFFEC3',
+        'orange-10': '#FFFFE1',
+        'orange-0': '#FFFFF0',
         kakaoYellow: '#F8D548',
         kakaoBrown: '#47292B',
         'gray-80': '#616161',
@@ -145,6 +156,7 @@ module.exports = {
         disappear: 'disappear 2s',
         'appear-slow': 'appear-slow 2.5s ease-in-out',
         'move-top': 'move-top 3s linear',
+        'move-top-mini': 'move-top-mini 2s linear',
       },
       keyframes: {
         'move-top': {
@@ -153,6 +165,14 @@ module.exports = {
           },
           to: {
             transform: 'translateY(-300px)',
+          },
+        },
+        'move-top-mini': {
+          from: {
+            transform: 'translateY(50px)',
+          },
+          to: {
+            transform: 'translateY(0)',
           },
         },
 
@@ -192,8 +212,10 @@ module.exports = {
       boxShadow: {
         custom:
           'rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;',
+        custom2:
+          'rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px',
       },
     },
   },
-  plugins: [],
+  plugins: [require('tailwind-scrollbar-hide')],
 };
