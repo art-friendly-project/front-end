@@ -1,5 +1,19 @@
+import BannerSection from 'components/home/banner/Banner';
+import NearbyShowInfoSection from 'components/home/nearbyShowInfo/NearbyShowInfoSection';
+import PopularShowSection from 'components/home/popularShow/PopularShowSection';
+import DeadlineShowSection from 'components/home/deadlineShow/DeadlineShowSection';
+import IsTestCheck from 'components/home/taste/IsTestCheck';
+
 const Home = () => {
-  return <div className="h-4/5">home</div>;
+  return (
+    <div className="relative w-full overflow-y-scroll h-41/50 scrollbar-hide">
+      <BannerSection />
+      <NearbyShowInfoSection />
+      <IsTestCheck />
+      <PopularShowSection />
+      <DeadlineShowSection />
+    </div>
+  );
 };
 
 export default Home;
