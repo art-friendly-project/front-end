@@ -1,18 +1,17 @@
-import homeIconGray from '../../assets/homeIconGray.svg';
-import listIconGray from '../../assets/listIconGray.svg';
-import calendarIconGray from '../../assets/calendarIconGray.svg';
-import profileIconGray from '../../assets/profileIconGray.svg';
-import homeIconOrange from '../../assets/homeIconOrange.svg';
-import listIconOrange from '../../assets/listIconOrange.svg';
-import calendarIconOrange from '../../assets/calendarIconOrange.svg';
-import profileIconOrange from '../../assets/profileIconOrange.svg';
+import homeIconGray from '../../assets/navigation/homeIconGray.svg';
+import listIconGray from '../../assets/navigation/listIconGray.svg';
+import calendarIconGray from '../../assets/navigation/calendarIconGray.svg';
+import profileIconGray from '../../assets/navigation/profileIconGray.svg';
+import homeIconOrange from '../../assets/navigation/homeIconOrange.svg';
+import listIconOrange from '../../assets/navigation/listIconOrange.svg';
+import calendarIconOrange from '../../assets/navigation/calendarIconOrange.svg';
+import profileIconOrange from '../../assets/navigation/profileIconOrange.svg';
 import { useNavigate } from 'react-router-dom';
-import { type SetStateAction } from 'react';
 
 interface navigationBtn {
   navigationName: string;
   active: boolean[];
-  setActive: React.Dispatch<SetStateAction<boolean[]>>;
+  setActive: React.Dispatch<React.SetStateAction<boolean[]>>;
   idx: number;
 }
 
