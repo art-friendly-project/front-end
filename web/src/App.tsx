@@ -11,8 +11,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 const App = () => {
   return (
     <BrowserRouter>
-      <div className="flex w-screen h-screen md:justify-center">
-        <div className="w-full h-full md:w-1/2 lg:w-1/2 xl:w-1/3 md:border md:border-black">
+      <div className="flex w-screen h-screen bg-gray-100 md:justify-center">
+        <div className="w-full h-full bg-white md:w-1/2 lg:w-1/2 xl:w-1/3">
           <Routes>
             <Route path="/" element={<Loading />} />
             <Route path="/login" element={<Login />} />
