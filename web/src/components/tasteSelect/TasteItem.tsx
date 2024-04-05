@@ -29,7 +29,7 @@ const TasteItem = ({ taste, tasteKr, setSelectedList }: tasteItem) => {
       onClick={selectBtnHandler}
     >
       {selected ? <SelectCover /> : null}
-      <img className="w-4/5 h-28 rounded-xl" src={taste} />
+      <img className="w-9/10 h-28 rounded-xl" src={taste} />
       <span className="mt-2 mb-4 text-Body3-M">{tasteKr}</span>
     </button>
   );
