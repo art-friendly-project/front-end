@@ -6,7 +6,7 @@ interface lodingAnimationlogo {
 
 const LodingAnimationLogo = ({ disappear }: lodingAnimationlogo) => {
   return (
-    <div className="flex items-center justify-center bg-orange-100 rounded-full w-44 h-44">
+    <div className="flex items-center justify-center overflow-hidden bg-orange-100 rounded-full w-44 h-44">
       {disappear ? null : (
         <div className="relative -left-[4rem] top-28 animate-move-top">
           <div className="absolute bg-white -left-8 rounded-[35%] rotate-[45deg] w-60 h-60 bottom-12 animate-spin-slow" />
