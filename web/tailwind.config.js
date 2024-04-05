@@ -126,6 +126,7 @@ module.exports = {
     },
     extend: {
       height: {
+        108: '27rem',
         '1/10': '10%',
         '2/25': '8%',
         '41/50': '82%',
@@ -154,8 +155,8 @@ module.exports = {
         appear: 'appear 0.5s linear',
         'appear-mid': 'appear-mid 0.5s',
         disappear: 'disappear 2s',
-        'appear-slow': 'appear-slow 2.5s ease-in-out',
-        'move-top': 'move-top 3s linear',
+        'appear-slow': 'appear-slow 2s ease-in-out',
+        'move-top': 'move-top 2s linear',
         'move-top-mini': 'move-top-mini 2s linear',
       },
       keyframes: {
