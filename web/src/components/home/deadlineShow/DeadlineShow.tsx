@@ -32,7 +32,7 @@ const DeadlineShow = ({
         </span>
         <img
           src={image}
-          className="object-contain w-24 h-32 bg-gray-100 rounded-xl"
+          className="w-24 h-32 bg-gray-100 object-fit rounded-xl"
         />
         <div className="flex flex-col items-start justify-center w-full h-32 ml-4">
           <span className="text-Body1-M">{sort}</span>
