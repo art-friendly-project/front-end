@@ -1,4 +1,4 @@
-import BannerSection from 'components/home/banner/Banner';
+import BannerSection from 'components/home/banner/BannerSection';
 import NearbyShowInfoSection from 'components/home/nearbyShowInfo/NearbyShowInfoSection';
 import PopularShowSection from 'components/home/popularShow/PopularShowSection';
 import DeadlineShowSection from 'components/home/deadlineShow/DeadlineShowSection';
