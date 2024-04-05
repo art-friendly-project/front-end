@@ -156,7 +156,7 @@ module.exports = {
         'appear-mid': 'appear-mid 0.5s',
         disappear: 'disappear 2s',
         'appear-slow': 'appear-slow 2s ease-in-out',
-        'move-top': 'move-top 2s linear',
+        'move-top': 'move-top 1.7s linear',
         'move-top-mini': 'move-top-mini 2s linear',
       },
       keyframes: {
