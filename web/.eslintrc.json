@@ -14,7 +14,7 @@
     "ecmaVersion": "latest",
     "project": "tsconfig.json",
     "sourceType": "module",
-    "tsconfigRootDir": "/users/a./downloads/coding/project/art-friendly/web"
+    "tsconfigRootDir": "__dirname"
   },
   "plugins": ["react", "@typescript-eslint", "prettier"],
   "rules": {
