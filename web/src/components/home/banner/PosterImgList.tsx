@@ -1,11 +1,12 @@
 import PosterImg from './PosterImg';
+import { type poster } from './PosterImgSlide';
 
 interface posterImgList {
-  posterImgs: string[];
+  posters: poster[];
   currentPosterNum: string;
 }
 
-const PosterImgList = ({ posterImgs, currentPosterNum }: posterImgList) => {
+const PosterImgList = ({ posters, currentPosterNum }: posterImgList) => {
   const currentPosterSlide = (num: string) => {
     return { transform: `translateX(-${num}00%)` };
   };
@@ -15,12 +16,16 @@ const PosterImgList = ({ posterImgs, currentPosterNum }: posterImgList) => {
       className="w-full h-full duration-500"
       style={currentPosterSlide(currentPosterNum)}
     >
-      {posterImgs.map((posterImg, idx) => (
+      {posters.map((poster, idx) => (
         <PosterImg
-          key={posterImg}
+          key={poster.id}
           idx={idx}
-          posterImg={posterImg}
-          posterImgLength={posterImgs.length}
+          image={poster.image}
+          term={poster.term}
+          name={poster.name}
+          place={poster.place}
+          location={poster.location}
+          posterLength={posters.length}
         />
       ))}
     </ul>

@@ -1,21 +1,22 @@
+import { type poster } from './PosterImgSlide';
 import SlideRadioInput from './SlideRadioInput';
 
 interface slideRadioInputList {
   currentPosterNum: string;
   setCurrentPosterNum: React.Dispatch<React.SetStateAction<string>>;
-  posterImgs: string[];
+  posters: poster[];
 }
 
 const SlideRadioInputList = ({
   currentPosterNum,
   setCurrentPosterNum,
-  posterImgs,
+  posters,
 }: slideRadioInputList) => {
   return (
     <div>
-      {posterImgs.map((posterImg, idx) => (
+      {posters.map((poster, idx) => (
         <SlideRadioInput
-          key={posterImg}
+          key={poster.id}
           posterNum={String(idx)}
           currentPosterNum={currentPosterNum}
           setCurrentPosterNum={setCurrentPosterNum}
