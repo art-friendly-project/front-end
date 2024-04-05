@@ -3,8 +3,8 @@ import LocationList from './LocationList';
 
 const NearbyShowInfoSection = () => {
   return (
-    <div className="flex flex-col items-center mb-6">
-      <span className="w-full pl-6 my-6 text-Headline">내 근처 전시/행사</span>
+    <div className="flex flex-col items-center mt-10 mb-6">
+      <span className="w-full mb-6 pl-7 text-Headline">내 근처 전시/행사</span>
       <BtnBasic name="내 주변" />
       <LocationList />
     </div>
