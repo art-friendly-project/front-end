@@ -2,24 +2,24 @@ import { useState } from 'react';
 import SelectCover from './SelectCover';
 
 interface tasteItem {
-  taste: string;
-  tasteKr: string;
+  tasteImg: string;
+  tasteName: string;
   setSelectedList: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
-const TasteItem = ({ taste, tasteKr, setSelectedList }: tasteItem) => {
+const TasteItem = ({ tasteImg, tasteName, setSelectedList }: tasteItem) => {
   const [selected, setSelected] = useState(false);
 
   const selectBtnHandler = () => {
     setSelected((prev) => !prev);
 
     if (selected) {
-      setSelectedList((prev) => prev.filter((item) => item !== taste));
+      setSelectedList((prev) => prev.filter((item) => item !== tasteImg));
       return;
     }
 
     if (!selected) {
-      setSelectedList((prev) => [...prev, taste]);
+      setSelectedList((prev) => [...prev, tasteImg]);
     }
   };
 
@@ -29,8 +29,8 @@ const TasteItem = ({ taste, tasteKr, setSelectedList }: tasteItem) => {
       onClick={selectBtnHandler}
     >
       {selected ? <SelectCover /> : null}
-      <img className="w-9/10 h-28 rounded-xl" src={taste} />
-      <span className="mt-2 mb-4 text-Body3-M">{tasteKr}</span>
+      <img className="w-9/10 h-28 rounded-xl" src={tasteImg} />
+      <span className="mt-2 mb-4 text-Body3-M">{tasteName}</span>
     </button>
   );
 };
