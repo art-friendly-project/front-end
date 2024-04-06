@@ -152,10 +152,10 @@ module.exports = {
       },
       animation: {
         'spin-slow': 'spin-custom 2s linear infinite',
-        appear: 'appear 0.5s linear',
         'appear-fast': 'appear-fast 0.5s',
-        disappear: 'disappear 2s',
         'appear-slow': 'appear-slow 2s ease-in-out',
+        'appear-little': 'appear-little 0.5s linear',
+        disappear: 'disappear 2s',
         'move-top': 'move-top 1.7s linear',
         'move-top-mini': 'move-top-mini 2s linear',
       },
@@ -185,10 +185,11 @@ module.exports = {
             transform: 'rotate(270deg)',
           },
         },
-        appear: {
-          from: { opacity: 0 },
+        'appear-little': {
+          from: { opacity: 0, transform: 'translateY(15px)' },
           to: {
             opacity: 1,
+            transform: 'translateY(0px)',
           },
         },
         'appear-fast': {
