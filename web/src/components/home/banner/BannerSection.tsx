@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import posterExample1 from '../../../assets/example/posterExample1.png';
 import posterExample2 from '../../../assets/example/posterExample2.png';
 import posterExample3 from '../../../assets/example/posterExample3.png';
-import PosterImgSlide from './PosterImgSlide';
+import PosterSlide from './PosterSlide';
 import PosterNum from './PosterNum';
 
 const BannerSection = () => {
@@ -22,7 +22,7 @@ const BannerSection = () => {
 
   return (
     <div>
-      <PosterImgSlide
+      <PosterSlide
         currentPosterNum={currentPosterNum}
         setCurrentPosterNum={setCurrentPosterNum}
         posters={posters}
