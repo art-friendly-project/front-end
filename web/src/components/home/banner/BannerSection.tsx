@@ -6,7 +6,7 @@ import PosterImgSlide from './PosterImgSlide';
 import PosterNum from './PosterNum';
 
 const BannerSection = () => {
-  const [currentPosterNum, setCurrentPosterNum] = useState('0');
+  const [currentPosterNum, setCurrentPosterNum] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -37,7 +37,7 @@ const BannerSection = () => {
 
 const posters = [
   {
-    id: '1',
+    id: 1,
     term: '24.03.01 ~ 24.06.01',
     name: 'Body, Love, Gender',
     place: '가나아트센터',
@@ -45,7 +45,7 @@ const posters = [
     image: posterExample1,
   },
   {
-    id: '2',
+    id: 2,
     term: '24.03.02 ~ 24.06.02',
     name: '멋진 전시회',
     place: '다라아트센터',
@@ -53,7 +53,7 @@ const posters = [
     image: posterExample2,
   },
   {
-    id: '3',
+    id: 3,
     term: '24.03.03 ~ 24.06.03',
     name: '아름다운 전시회',
     place: '마바아트센터',
