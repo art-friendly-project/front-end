@@ -9,14 +9,16 @@ const BannerSection = () => {
   const [currentPosterNum, setCurrentPosterNum] = useState('0');
 
   useEffect(() => {
-    setInterval(() => {
-      setCurrentPosterNum((prev) => {
-        const posterNum = Number(prev);
-
-        return String((posterNum + 1 + posters.length) % posters.length);
-      });
+    const interval = setInterval(() => {
+      setCurrentPosterNum(
+        (prev) => (prev + 1 + posters.length) % posters.length,
+      );
     }, 4000);
-  }, []);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [posters]);
 
   return (
     <div>
