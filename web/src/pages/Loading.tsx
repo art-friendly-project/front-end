@@ -10,7 +10,7 @@ const Loading = () => {
   useEffect(() => {
     setTimeout(() => {
       setDisappearLogo(true);
-    }, 1200);
+    }, 1700);
 
     setTimeout(() => {
       navigate('/login');

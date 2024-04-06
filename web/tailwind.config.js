@@ -153,7 +153,7 @@ module.exports = {
       animation: {
         'spin-slow': 'spin-custom 2s linear infinite',
         appear: 'appear 0.5s linear',
-        'appear-mid': 'appear-mid 0.5s',
+        'appear-fast': 'appear-fast 0.5s',
         disappear: 'disappear 2s',
         'appear-slow': 'appear-slow 2s ease-in-out',
         'move-top': 'move-top 1.7s linear',
@@ -191,10 +191,10 @@ module.exports = {
             opacity: 1,
           },
         },
-        'appear-mid': {
+        'appear-fast': {
           from: { opacity: 0 },
           to: {
-            opacity: 0.6,
+            opacity: 0.9,
           },
         },
         'appear-slow': {
