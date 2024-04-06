@@ -1,4 +1,4 @@
-const PopularShowInfo = () => {
+const PopularShowTitle = () => {
   return (
     <>
       <span className="w-full mb-2 pl-7 text-Headline">
@@ -11,4 +11,4 @@ const PopularShowInfo = () => {
   );
 };
 
-export default PopularShowInfo;
+export default PopularShowTitle;

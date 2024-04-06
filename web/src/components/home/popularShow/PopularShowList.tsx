@@ -21,19 +21,19 @@ const PopularShowList = () => {
 
 const popularShows = [
   {
-    id: '1',
+    id: 1,
     name: '일타 스캔들',
     image: posterExample1,
     upAndDown: '+5',
   },
   {
-    id: '2',
+    id: 2,
     name: '이타 스캔들',
     image: posterExample2,
     upAndDown: '-5',
   },
   {
-    id: '3',
+    id: 3,
     name: '삼타 스캔들',
     image: posterExample3,
     upAndDown: '+5',
