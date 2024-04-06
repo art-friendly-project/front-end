@@ -1,6 +1,6 @@
 import tasteTestIcon from '../../../../assets/etc/tasteTestIcon.svg';
 
-const TasteTestInfo = () => {
+const TasteTestTitle = () => {
   return (
     <>
       <span className="w-full mt-6 mb-2 pl-7 text-Headline">
@@ -14,4 +14,4 @@ const TasteTestInfo = () => {
   );
 };
 
-export default TasteTestInfo;
+export default TasteTestTitle;

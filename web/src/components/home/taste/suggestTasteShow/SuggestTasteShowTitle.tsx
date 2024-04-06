@@ -1,4 +1,4 @@
-const SuggestTasteShowInfo = () => {
+const SuggestTasteShowTitle = () => {
   return (
     <>
       <span className="w-full mt-6 mb-2 pl-7 text-Headline">
@@ -11,4 +11,4 @@ const SuggestTasteShowInfo = () => {
   );
 };
 
-export default SuggestTasteShowInfo;
+export default SuggestTasteShowTitle;
