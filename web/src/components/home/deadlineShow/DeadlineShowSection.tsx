@@ -1,10 +1,10 @@
-import DeadlineShowInfo from './DeadlineShowInfo';
+import DeadlineShowTitle from './DeadlineShowTitle';
 import DeadlineShowList from './DeadlineShowList';
 
 const DeadlineShowSection = () => {
   return (
     <div className="flex flex-col items-center w-full">
-      <DeadlineShowInfo />
+      <DeadlineShowTitle />
       <DeadlineShowList />
     </div>
   );

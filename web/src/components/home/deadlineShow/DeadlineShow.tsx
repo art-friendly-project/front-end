@@ -1,5 +1,7 @@
-import convertDegreeToColor from 'utils/convertDegreeToColor';
 import FavoriteBtn from './FavoriteBtn';
+import DegreeIndicator from './DegreeIndicator';
+import PosterImg from 'components/common/PosterImg';
+import PosterInfo from './PosterInfo';
 
 interface deadlineShow {
   sort: string;
@@ -20,26 +22,12 @@ const DeadlineShow = ({
   favorite,
   degree,
 }: deadlineShow) => {
-  const degreeColor = convertDegreeToColor(degree);
-
   return (
     <div className="relative w-full pl-6 mb-6">
       <button className="flex text-Body1-M">
-        <span
-          className={`absolute bottom-0 flex items-center justify-center h-6 w-14 rounded-2xl opacity-90 ${degreeColor}`}
-        >
-          {degree}
-        </span>
-        <img
-          src={image}
-          className="w-24 h-32 bg-gray-100 object-fit rounded-xl"
-        />
-        <div className="flex flex-col items-start justify-center w-full h-32 ml-4">
-          <span className="text-Body1-M">{sort}</span>
-          <span className="text-Body3">{name}</span>
-          <span className="text-Body2-M text-gray-80">{address}</span>
-          <span className="mt-2 text-Body2-M">{term}</span>
-        </div>
+        <DegreeIndicator degree={degree} />
+        <PosterImg width="24" height="32" bgColor="gray-100" image={image} />
+        <PosterInfo sort={sort} name={name} address={address} term={term} />
       </button>
       <FavoriteBtn favorite={favorite} />
     </div>
