@@ -1,9 +1,9 @@
-interface locationBtn {
+interface locationIconBtn {
   locationIcon: string;
   locationKr: string;
 }
 
-const LocationBtn = ({ locationIcon, locationKr }: locationBtn) => {
+const LocationIconBtn = ({ locationIcon, locationKr }: locationIconBtn) => {
   return (
     <div className="flex items-center justify-center w-1/4 mt-4">
       <button>
@@ -14,4 +14,4 @@ const LocationBtn = ({ locationIcon, locationKr }: locationBtn) => {
   );
 };
 
-export default LocationBtn;
+export default LocationIconBtn;

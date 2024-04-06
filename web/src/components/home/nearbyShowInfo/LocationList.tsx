@@ -1,4 +1,4 @@
-import LocationBtn from './LocationBtn';
+import LocationIconBtn from './locationIconBtn';
 
 import seoul from '../../../assets/location/seoul.svg';
 import gyeonggiIncheon from '../../../assets/location/gyeonggi-incheon.svg';
@@ -13,7 +13,7 @@ const LocationList = () => {
   return (
     <div className="flex flex-wrap w-full">
       {locationIcons.map((locationIcon, idx) => (
-        <LocationBtn
+        <LocationIconBtn
           key={locationIcon}
           locationIcon={locationIcon}
           locationKr={locationsKr[idx]}
