@@ -30,7 +30,12 @@ const Poster = ({
         posterLength={posterLength}
       />
       <GradientBackground />
-      <PosterImg width="full" height="full" bgColor="white" image={image} />
+      <PosterImg
+        width="w-full"
+        height="h-full"
+        bgColor="bg-white"
+        image={image}
+      />
       <RightArrowBtn
         setCurrentPosterNum={setCurrentPosterNum}
         posterLength={posterLength}

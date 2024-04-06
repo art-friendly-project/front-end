@@ -26,7 +26,12 @@ const DeadlineShow = ({
     <div className="relative w-full pl-6 mb-6">
       <button className="flex text-Body1-M">
         <DegreeIndicator degree={degree} />
-        <PosterImg width="24" height="32" bgColor="gray-100" image={image} />
+        <PosterImg
+          width="w-24"
+          height="h-32"
+          bgColor="bg-gray-100"
+          image={image}
+        />
         <PosterInfo sort={sort} name={name} address={address} term={term} />
       </button>
       <FavoriteBtn favorite={favorite} />

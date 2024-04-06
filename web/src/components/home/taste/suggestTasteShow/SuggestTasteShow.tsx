@@ -16,7 +16,12 @@ const SuggestTasteShow = ({
 }: suggestTasteShow) => {
   return (
     <button className="relative inline-block mr-10">
-      <PosterImg width="64" height="80" bgColor="gray-100" image={image} />
+      <PosterImg
+        width="w-64"
+        height="h-80"
+        bgColor="bg-gray-100"
+        image={image}
+      />
       <PosterInfo name={name} term={term} location={location} />
     </button>
   );

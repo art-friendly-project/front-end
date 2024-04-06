@@ -35,7 +35,12 @@ const PopularShow = ({ name, image, upAndDown, id }: popularShow) => {
       className="relative flex items-center px-4 py-2 mb-4 duration-1000 translate-y-[10px] opacity-0 rounded-xl shadow-custom2 w-9/10"
       ref={showRef}
     >
-      <PosterImg width="16" height="16" bgColor="gray-100" image={image} />
+      <PosterImg
+        width="w-16"
+        height="h-16"
+        bgColor="bg-gray-100"
+        image={image}
+      />
       <PosterInfo id={id} name={name} upAndDown={upAndDown} />
     </button>
   );
