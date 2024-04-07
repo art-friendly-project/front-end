@@ -1,15 +1,15 @@
 import BtnBasic from 'components/common/BtnBasic';
 import LocationList from './LocationList';
-import NearbyShowInfoTitle from './NearbyShowTitle';
+import NearbyShowTitle from './NearbyShowTitle';
 
-const NearbyShowInfoSection = () => {
+const NearbyShowSection = () => {
   return (
     <div className="flex flex-col items-center mt-10 mb-6">
-      <NearbyShowInfoTitle />
+      <NearbyShowTitle />
       <BtnBasic name="내 주변" />
       <LocationList />
     </div>
   );
 };
 
-export default NearbyShowInfoSection;
+export default NearbyShowSection;
