@@ -6,7 +6,9 @@ const MainLayout = () => {
   return (
     <>
       <Header />
-      <Outlet />
+      <div className="w-full overflow-y-scroll h-41/50 scrollbar-hide">
+        <Outlet />
+      </div>
       <NavigationBar />
     </>
   );

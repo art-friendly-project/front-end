@@ -21,7 +21,7 @@ const BannerSection = () => {
   }, [posters]);
 
   return (
-    <div>
+    <div className="relative">
       <PosterSlide
         currentPosterNum={currentPosterNum}
         setCurrentPosterNum={setCurrentPosterNum}
