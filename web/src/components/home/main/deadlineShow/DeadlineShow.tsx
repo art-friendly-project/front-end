@@ -1,7 +1,7 @@
-import FavoriteBtn from './FavoriteBtn';
 import DegreeIndicator from '../../../common/DegreeIndicator';
 import PosterImg from 'components/common/PosterImg';
 import PosterInfo from './PosterInfo';
+import FavoriteBtn from 'components/common/FavoriteBtn';
 
 interface deadlineShow {
   sort: string;
@@ -24,7 +24,7 @@ const DeadlineShow = ({
 }: deadlineShow) => {
   return (
     <div className="relative w-full pl-6 mb-6">
-      <button className="flex text-Body1-M">
+      <button className="flex">
         <DegreeIndicator degree={degree} />
         <PosterImg
           width="w-24"
