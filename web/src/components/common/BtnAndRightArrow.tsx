@@ -4,13 +4,13 @@ import { useNavigate } from 'react-router-dom';
 interface btnAndRightArrow {
   selectedList?: string[];
   setIsTest?: React.Dispatch<React.SetStateAction<boolean>>;
-  navi: string;
+  endpoint: string;
   name: string;
 }
 
 const BtnAndRightArrow = ({
   selectedList,
-  navi,
+  endpoint,
   name,
   setIsTest,
 }: btnAndRightArrow) => {
@@ -31,7 +31,7 @@ const BtnAndRightArrow = ({
       className={BtnStyle()}
       disabled={selectedList !== undefined ? !(selectedList.length > 0) : false}
       onClick={() => {
-        navigate(navi);
+        navigate(endpoint);
         setIsTest !== undefined && setIsTest(true);
       }}
     >
