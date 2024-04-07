@@ -1,3 +1,5 @@
+import NearbyAndLocationShow from 'components/home/detail/nearbyAndLocationShow/NearbyAndLocationShow';
+import DetailLayout from 'layout/DetailLayout';
 import MainLayout from 'layout/MainLayout';
 import Calendar from 'pages/Calendar';
 import Home from 'pages/Home';
@@ -22,6 +24,9 @@ const App = () => {
               <Route path="/list" element={<List />} />
               <Route path="/calendar" element={<Calendar />} />
               <Route path="/profile" element={<Profile />} />
+            </Route>
+            <Route element={<DetailLayout />}>
+              <Route path="/home/nearby" element={<NearbyAndLocationShow />} />
             </Route>
           </Routes>
         </div>
