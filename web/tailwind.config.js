@@ -149,6 +149,7 @@ module.exports = {
         kakaoYellow: '#F8D548',
         kakaoBrown: '#47292B',
         'gray-80': '#616161',
+        'gray-20': '#D9D9D9',
       },
       animation: {
         'spin-slow': 'spin-custom 2s linear infinite',
