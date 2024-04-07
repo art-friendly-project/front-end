@@ -1,6 +1,6 @@
 import BtnBasic from 'components/common/BtnBasic';
 import LocationList from './LocationList';
-import NearbyShowInfoTitle from './NearbyShowInfoTitle';
+import NearbyShowInfoTitle from './NearbyShowTitle';
 
 const NearbyShowInfoSection = () => {
   return (

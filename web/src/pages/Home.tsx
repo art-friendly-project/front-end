@@ -1,5 +1,5 @@
 import BannerSection from 'components/home/banner/BannerSection';
-import NearbyShowInfoSection from 'components/home/nearbyShowInfo/NearbyShowInfoSection';
+import NearbyShowInfoSection from 'components/home/nearbyShow/NearbyShowSection';
 import PopularShowSection from 'components/home/popularShow/PopularShowSection';
 import DeadlineShowSection from 'components/home/deadlineShow/DeadlineShowSection';
 import IsTestCheck from 'components/home/taste/IsTestCheck';
