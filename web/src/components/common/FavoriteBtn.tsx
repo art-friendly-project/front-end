@@ -18,7 +18,7 @@ const FavoriteBtn = ({ favorite }: favoriteBtn) => {
   };
 
   return (
-    <button className="absolute right-7 top-2" onClick={favoriteBtnHandler}>
+    <button className="absolute right-6 top-2" onClick={favoriteBtnHandler}>
       {isFavorite ? (
         <IoHeart className="w-6 h-6 text-orange-100" />
       ) : (
