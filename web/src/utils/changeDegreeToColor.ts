@@ -1,4 +1,4 @@
-const convertDegreeToColor = (degree: string) => {
+const changeDegreeToColor = (degree: string) => {
   const degreeNum = Number(degree.slice(0, -1));
 
   if (degreeNum >= 0 && degreeNum <= 20) return 'bg-orange-10';
@@ -8,4 +8,4 @@ const convertDegreeToColor = (degree: string) => {
   if (degreeNum > 80 && degreeNum <= 100) return 'bg-orange-90';
 };
 
-export default convertDegreeToColor;
+export default changeDegreeToColor;
