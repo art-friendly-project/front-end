@@ -9,7 +9,11 @@ const TasteTestSeciton = ({ setIsTest }: tasteTestSeciton) => {
   return (
     <div className="relative flex flex-col items-center w-full pb-6 bg-orange-0">
       <TasteTestTitle />
-      <BtnAndRightArrow navi="" name="테스트 하러가기" setIsTest={setIsTest} />
+      <BtnAndRightArrow
+        endpoint=""
+        name="테스트 하러가기"
+        setIsTest={setIsTest}
+      />
     </div>
   );
 };

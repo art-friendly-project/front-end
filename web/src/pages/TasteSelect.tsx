@@ -12,7 +12,7 @@ const TasteSelect = () => {
       <TasteList setSelectedList={setSelectedList} />
       <BtnAndRightArrow
         selectedList={selectedList}
-        navi="/home"
+        endpoint="/home"
         name="저장하기"
       />
     </div>
