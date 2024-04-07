@@ -1,4 +1,4 @@
-import tasteTestIcon from '../../../../assets/etc/tasteTestIcon.svg';
+import tasteTestIcon from '../../../../../assets/etc/tasteTestIcon.svg';
 
 const TasteTestTitle = () => {
   return (

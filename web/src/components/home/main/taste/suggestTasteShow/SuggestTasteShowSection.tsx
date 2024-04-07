@@ -1,5 +1,4 @@
 import SuggestTasteShowTitle from './SuggestTasteShowTitle';
-
 import SuggestTasteShowList from './SuggestTasteShowList';
 
 const SuggestTasteShowSection = () => {

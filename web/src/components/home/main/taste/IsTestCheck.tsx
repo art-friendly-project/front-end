@@ -1,4 +1,4 @@
-import TasteTestSeciton from 'components/home/taste/tasteTest/TasteTestSeciton';
+import TasteTestSeciton from 'components/home/main/taste/tasteTest/TasteTestSeciton';
 import { useState } from 'react';
 import SuggestTasteShowSection from './suggestTasteShow/SuggestTasteShowSection';
 

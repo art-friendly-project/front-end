@@ -1,5 +1,5 @@
 import FavoriteBtn from './FavoriteBtn';
-import DegreeIndicator from '../../common/DegreeIndicator';
+import DegreeIndicator from '../../../common/DegreeIndicator';
 import PosterImg from 'components/common/PosterImg';
 import PosterInfo from './PosterInfo';
 

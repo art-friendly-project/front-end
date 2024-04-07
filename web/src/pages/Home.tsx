@@ -1,8 +1,8 @@
-import BannerSection from 'components/home/banner/BannerSection';
-import NearbyShowInfoSection from 'components/home/nearbyShow/NearbyShowSection';
-import PopularShowSection from 'components/home/popularShow/PopularShowSection';
-import DeadlineShowSection from 'components/home/deadlineShow/DeadlineShowSection';
-import IsTestCheck from 'components/home/taste/IsTestCheck';
+import BannerSection from 'components/home/main/banner/BannerSection';
+import NearbyShowInfoSection from 'components/home/main/nearbyShow/NearbyShowSection';
+import PopularShowSection from 'components/home/main/popularShow/PopularShowSection';
+import DeadlineShowSection from 'components/home/main/deadlineShow/DeadlineShowSection';
+import IsTestCheck from 'components/home/main/taste/IsTestCheck';
 
 const Home = () => {
   return (

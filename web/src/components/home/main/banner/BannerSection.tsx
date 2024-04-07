@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import posterExample1 from '../../../assets/example/posterExample1.png';
-import posterExample2 from '../../../assets/example/posterExample2.png';
-import posterExample3 from '../../../assets/example/posterExample3.png';
+import posterExample1 from '../../../../assets/example/posterExample1.png';
+import posterExample2 from '../../../../assets/example/posterExample2.png';
+import posterExample3 from '../../../../assets/example/posterExample3.png';
 import PosterSlide from './PosterSlide';
 import PosterNum from './PosterNum';
 
