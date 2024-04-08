@@ -16,7 +16,7 @@ const FilterList = ({
   setIsModalOpen,
 }: filterList) => {
   return (
-    <div className="flex w-full h-16 pl-4 mt-2">
+    <div className="flex w-full h-16 pl-6 mt-2">
       <LocationFilter location={location} setIsModalOpen={setIsModalOpen} />
       <ShowTypeFilter showType={showType} setIsModalOpen={setIsModalOpen} />
       <PriorityFilter priority={priority} setIsModalOpen={setIsModalOpen} />
