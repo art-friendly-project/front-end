@@ -137,6 +137,7 @@ module.exports = {
         92: '23rem',
         '9/10': '90%',
         '3/10': '30%',
+        '23/50': '46%',
       },
       colors: {
         'orange-100': '#FF955A',
@@ -150,6 +151,8 @@ module.exports = {
         kakaoBrown: '#47292B',
         'gray-80': '#616161',
         'gray-20': '#D9D9D9',
+        'gray-00': '#F7F7F7',
+        'gray-110': '#111111',
       },
       animation: {
         'spin-slow': 'spin-custom 2s linear infinite',
@@ -159,6 +162,7 @@ module.exports = {
         disappear: 'disappear 2s',
         'move-top': 'move-top 1.7s linear',
         'move-top-mini': 'move-top-mini 2s linear',
+        'move-top-regular': 'move-top-regular 0.5s',
       },
       keyframes: {
         'move-top': {
@@ -177,7 +181,14 @@ module.exports = {
             transform: 'translateY(0)',
           },
         },
-
+        'move-top-regular': {
+          from: {
+            transform: 'translateY(100%)',
+          },
+          to: {
+            transform: 'translateY(0)',
+          },
+        },
         'spin-custom': {
           from: {
             transform: 'rotate(0deg)',
