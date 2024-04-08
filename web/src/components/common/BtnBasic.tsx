@@ -1,19 +1,11 @@
-import { useNavigate } from 'react-router-dom';
-
 interface btnBasic {
   name: string;
-  endpoint: string;
+  fn: () => void;
 }
 
-const BtnBasic = ({ name, endpoint }: btnBasic) => {
-  const navigation = useNavigate();
+const BtnBasic = ({ name, fn }: btnBasic) => {
   return (
-    <button
-      className="h-12 bg-orange-100 rounded-lg w-9/10"
-      onClick={() => {
-        navigation(endpoint);
-      }}
-    >
+    <button className="h-12 bg-orange-100 rounded-lg w-9/10" onClick={fn}>
       <span className="text-white text-Subhead">{name}</span>
     </button>
   );
