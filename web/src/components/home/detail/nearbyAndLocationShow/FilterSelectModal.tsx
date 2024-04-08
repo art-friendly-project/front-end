@@ -18,15 +18,18 @@ const FilterSelectModal = ({
   setIsModalOpen,
 }: filterSelectModal) => {
   return (
-    <div className="absolute bottom-0 z-20 flex flex-col w-full pt-8 pb-10 pl-6 bg-white rounded-t-xl animate-move-top-regular">
-      <FilterSelectModalTitle title1={title1} title2={title2} />
-      <ModalCloseBtn setIsModalOpen={setIsModalOpen} />
-      <SelectList
-        selects={selects}
-        setState={setState}
-        setIsModalOpen={setIsModalOpen}
-      />
-    </div>
+    <>
+      <div className="absolute top-0 z-10 w-full bg-black opacity-50 h-9/10" />
+      <div className="absolute bottom-0 z-20 flex flex-col w-full pt-8 pb-10 pl-6 bg-white rounded-t-xl animate-move-top-regular">
+        <FilterSelectModalTitle title1={title1} title2={title2} />
+        <ModalCloseBtn setIsModalOpen={setIsModalOpen} />
+        <SelectList
+          selects={selects}
+          setState={setState}
+          setIsModalOpen={setIsModalOpen}
+        />
+      </div>
+    </>
   );
 };
 

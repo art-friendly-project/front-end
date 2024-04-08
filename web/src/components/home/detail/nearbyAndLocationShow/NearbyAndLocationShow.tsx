@@ -51,16 +51,13 @@ const NearbyAndLocationShow = () => {
   return (
     <>
       {isModalOpen.includes(true) ? (
-        <>
-          <div className="absolute top-0 z-10 w-full bg-black opacity-50 h-9/10" />
-          <FilterSelectModal
-            title1={selectModalInfos[openModalIndex].title1}
-            title2={selectModalInfos[openModalIndex].title2}
-            selects={selectModalInfos[openModalIndex].selects}
-            setState={selectModalInfos[openModalIndex].setState}
-            setIsModalOpen={setIsModalOpen}
-          />
-        </>
+        <FilterSelectModal
+          title1={selectModalInfos[openModalIndex].title1}
+          title2={selectModalInfos[openModalIndex].title2}
+          selects={selectModalInfos[openModalIndex].selects}
+          setState={selectModalInfos[openModalIndex].setState}
+          setIsModalOpen={setIsModalOpen}
+        />
       ) : null}
       <FilterList
         location={location}
