@@ -4,9 +4,9 @@ import PosterInfo from './PosterInfo';
 import FavoriteBtn from 'components/common/FavoriteBtn';
 
 interface deadlineShow {
-  sort: string;
+  showType: string;
   name: string;
-  address: string;
+  location: string;
   term: string;
   image: string;
   favorite: boolean;
@@ -14,9 +14,9 @@ interface deadlineShow {
 }
 
 const DeadlineShow = ({
-  sort,
+  showType,
   name,
-  address,
+  location,
   term,
   image,
   favorite,
@@ -32,7 +32,12 @@ const DeadlineShow = ({
           bgColor="bg-gray-100"
           image={image}
         />
-        <PosterInfo sort={sort} name={name} address={address} term={term} />
+        <PosterInfo
+          showType={showType}
+          name={name}
+          location={location}
+          term={term}
+        />
       </button>
       <FavoriteBtn favorite={favorite} />
     </div>
