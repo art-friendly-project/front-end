@@ -2,12 +2,24 @@ import LocationFilter from './LocationFilter';
 import PriorityFilter from './PriorityFilter';
 import ShowTypeFilter from './ShowTypeFilter';
 
-const FilterList = () => {
+interface filterList {
+  location: string;
+  showType: string;
+  priority: string;
+  setIsModalOpen: React.Dispatch<React.SetStateAction<boolean[]>>;
+}
+
+const FilterList = ({
+  location,
+  showType,
+  priority,
+  setIsModalOpen,
+}: filterList) => {
   return (
     <div className="flex w-full h-16 pl-4 mt-2">
-      <LocationFilter />
-      <ShowTypeFilter />
-      <PriorityFilter />
+      <LocationFilter location={location} setIsModalOpen={setIsModalOpen} />
+      <ShowTypeFilter showType={showType} setIsModalOpen={setIsModalOpen} />
+      <PriorityFilter priority={priority} setIsModalOpen={setIsModalOpen} />
     </div>
   );
 };

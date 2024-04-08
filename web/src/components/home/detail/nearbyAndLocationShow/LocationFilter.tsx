@@ -1,9 +1,22 @@
 import { IoIosArrowDown } from 'react-icons/io';
+import translateLocationToKorean from 'utils/translateLocationToKorean';
 
-const LocationFilter = () => {
+interface locationFilter {
+  location: string;
+  setIsModalOpen: React.Dispatch<React.SetStateAction<boolean[]>>;
+}
+
+const LocationFilter = ({ location, setIsModalOpen }: locationFilter) => {
+  const locationKr = translateLocationToKorean(location);
+
   return (
-    <button className="flex items-center justify-center w-24 h-8 border rounded-lg border-gray-20">
-      <span className="mr-1 text-Body2-M">서울</span>
+    <button
+      className="flex items-center justify-center w-24 h-8 border rounded-lg border-gray-20"
+      onClick={() => {
+        setIsModalOpen([true, false, false]);
+      }}
+    >
+      <span className="mr-1 text-Body2-M">{locationKr}</span>
       <IoIosArrowDown />
     </button>
   );

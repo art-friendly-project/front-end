@@ -1,10 +1,10 @@
 import Show from './Show';
 
 interface showList {
-  shows: show[];
+  nearbyShows: nearbyShow[];
 }
 
-interface show {
+interface nearbyShow {
   id: number;
   name: string;
   type: string;
@@ -15,10 +15,10 @@ interface show {
   image: string;
 }
 
-const ShowList = ({ shows }: showList) => {
+const ShowList = ({ nearbyShows }: showList) => {
   return (
     <div className="flex flex-col">
-      {shows.map((show) => (
+      {nearbyShows.map((show) => (
         <Show
           key={show.id}
           name={show.name}

@@ -1,119 +1,76 @@
+import { useState } from 'react';
 import FilterList from './FilterList';
 import ShowList from './ShowList';
-import posterExample1 from '../../../../assets/example/posterExample1.png';
-import posterExample2 from '../../../../assets/example/posterExample2.png';
-import posterExample3 from '../../../../assets/example/posterExample3.png';
+import FilterSelectModal from './FilterSelectModal';
+import { nearbyShows } from 'mock/mockData';
 
 const NearbyAndLocationShow = () => {
+  const [isModalOpen, setIsModalOpen] = useState([false, false, false]);
+  const [location, setLocation] = useState('seoul');
+  const [showType, setShowType] = useState('exhibition');
+  const [priority, setPriority] = useState('popularity');
+
+  const openModalIndex = isModalOpen.indexOf(true);
+
+  const selectModalInfos = [
+    {
+      title1: '내 근처 전시/행사',
+      title2: '전시/행사를 보고 싶은 지역을 선택해보세요',
+      selects: [
+        ['seoul', '서울'],
+        ['gyeonggi-incheon', '경기/인천'],
+        ['gangwon', '강원'],
+        ['gyeongnam-busan', '경남/부산'],
+        ['gyeongbuk-daegu', '경북/대구'],
+        ['chungcheong-daejeon', '충청/대전'],
+        ['jeolla-gwangju', '전라/광주'],
+        ['jeju', '제주'],
+      ],
+      setState: setLocation,
+    },
+    {
+      title1: '전시/행사',
+      title2: '전시와 행사 중 어떤 것을 보고 싶으신가요?',
+      selects: [
+        ['exhibition', '전시'],
+        ['event', '행사'],
+      ],
+      setState: setShowType,
+    },
+    {
+      title1: '인기순/최신순',
+      title2: '선택한 순으로 전시회를 알려드려요',
+      selects: [
+        ['popularity', '인기순'],
+        ['latest', '최신순'],
+      ],
+      setState: setPriority,
+    },
+  ];
+
   return (
     <>
-      <FilterList />
-      <ShowList shows={shows} />
+      {isModalOpen.includes(true) ? (
+        <>
+          <div className="absolute top-0 z-10 w-full bg-black opacity-50 h-9/10" />
+          <FilterSelectModal
+            title1={selectModalInfos[openModalIndex].title1}
+            title2={selectModalInfos[openModalIndex].title2}
+            selects={selectModalInfos[openModalIndex].selects}
+            setState={selectModalInfos[openModalIndex].setState}
+            setIsModalOpen={setIsModalOpen}
+          />
+        </>
+      ) : null}
+      <FilterList
+        location={location}
+        priority={priority}
+        showType={showType}
+        setIsModalOpen={setIsModalOpen}
+      />
+      <ShowList nearbyShows={nearbyShows} />
     </>
   );
 };
 
 export default NearbyAndLocationShow;
-
-const shows = [
-  {
-    id: 1,
-    name: '전시회일',
-    type: '전시',
-    address: '서울특별시 동작구 사당동',
-    term: '24.01.01 ~ 23.02.02',
-    degree: '17도',
-    favorite: false,
-    image: posterExample1,
-  },
-  {
-    id: 2,
-    name: '전시회이',
-    type: '행사',
-    address: '서울특별시 동작구 사당동',
-    term: '24.01.01 ~ 23.02.02',
-    degree: '80도',
-    favorite: true,
-    image: posterExample2,
-  },
-  {
-    id: 3,
-    name: '전시회삼',
-    type: '전시',
-    address: '서울특별시 동작구 사당동',
-    term: '24.01.01 ~ 23.02.02',
-    degree: '21도',
-    favorite: false,
-    image: posterExample3,
-  },
-  {
-    id: 4,
-    name: '전시회사',
-    type: '행사',
-    address: '서울특별시 동작구 사당동',
-    term: '24.01.01 ~ 23.02.02',
-    degree: '80도',
-    favorite: true,
-    image: posterExample1,
-  },
-  {
-    id: 5,
-    name: '전시회오',
-    type: '전시',
-    address: '서울특별시 동작구 사당동',
-    term: '24.01.01 ~ 23.02.02',
-    degree: '12도',
-    favorite: false,
-    image: posterExample2,
-  },
-  {
-    id: 6,
-    name: '전시회육',
-    type: '전시',
-    address: '서울특별시 동작구 사당동',
-    term: '24.01.01 ~ 23.02.02',
-    degree: '45도',
-    favorite: false,
-    image: posterExample3,
-  },
-  {
-    id: 7,
-    name: '전시회칠',
-    type: '전시',
-    address: '서울특별시 동작구 사당동',
-    term: '24.01.01 ~ 23.02.02',
-    degree: '62도',
-    favorite: false,
-    image: posterExample1,
-  },
-  {
-    id: 8,
-    name: '전시회팔',
-    type: '전시',
-    address: '서울특별시 동작구 사당동',
-    term: '24.01.01 ~ 23.02.02',
-    degree: '45도',
-    favorite: false,
-    image: posterExample2,
-  },
-  {
-    id: 9,
-    name: '전시회구',
-    type: '전시',
-    address: '서울특별시 동작구 사당동',
-    term: '24.01.01 ~ 23.02.02',
-    degree: '45도',
-    favorite: false,
-    image: posterExample3,
-  },
-  {
-    id: 10,
-    name: '전시회십',
-    type: '전시',
-    address: '서울특별시 동작구 사당동',
-    term: '24.01.01 ~ 23.02.02',
-    degree: '45도',
-    favorite: false,
-    image: posterExample1,
-  },
-];
