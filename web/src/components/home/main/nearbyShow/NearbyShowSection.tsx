@@ -7,7 +7,7 @@ const NearbyShowSection = () => {
   const navigate = useNavigate();
 
   const BtnHandler = () => {
-    navigate('');
+    navigate('nearby');
   };
 
   return (
