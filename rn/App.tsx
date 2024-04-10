@@ -1,12 +1,11 @@
-import React, {useRef} from 'react';
+import React from 'react';
 import {SafeAreaView} from 'react-native';
-import {WebView} from 'react-native-webview';
-const App = () => {
-  let webviewRef = useRef<WebView>(null);
+import WebViewcontainer from './src/components/webView/WebViewContainer';
 
+const App = () => {
   return (
     <SafeAreaView className="flex-1">
-      <WebView ref={webviewRef} source={{uri: 'http://192.168.0.80:3000'}} />
+      <WebViewcontainer />
     </SafeAreaView>
   );
 };
