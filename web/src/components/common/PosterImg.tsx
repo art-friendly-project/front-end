@@ -9,7 +9,7 @@ const PosterImg = ({ width, height, bgColor, image }: posterImg) => {
   return (
     <img
       src={image}
-      className={`object-scale-down rounded-md ${width} ${height} ${bgColor}`}
+      className={`object-cover rounded-lg ${width} ${height} ${bgColor}`}
     />
   );
 };
