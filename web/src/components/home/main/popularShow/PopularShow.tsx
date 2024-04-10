@@ -28,7 +28,7 @@ const PopularShow = ({ name, image, upAndDown, id }: popularShow) => {
     if (showRef.current !== null) {
       observer.observe(showRef.current);
     }
-  }, [showRef]);
+  }, [showRef.current]);
 
   return (
     <button
