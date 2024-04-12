@@ -3,3 +3,7 @@ interface Window {
     postMessage: (message: string) => void;
   };
 }
+
+interface DocumentEventMap {
+  message: MessageEvent;
+}
