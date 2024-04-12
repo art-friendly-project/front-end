@@ -17,5 +17,5 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src", "tailwind.config.js", "react-native-webview.d.ts"]
+  "include": ["src", "tailwind.config.js", "src/react-native-webview.d.ts"]
 }
