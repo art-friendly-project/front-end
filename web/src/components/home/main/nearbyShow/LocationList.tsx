@@ -37,7 +37,7 @@ const locationIcons = [
 const locationsKr = [
   '서울',
   '경기/인천',
-  '강원도',
+  '강원',
   '경남/부산',
   '경북/대구',
   '충청/대전',
