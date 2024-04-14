@@ -1,5 +1,4 @@
 import { IoIosArrowDown } from 'react-icons/io';
-import translateLocationToKorean from 'utils/translateLocationToKorean';
 
 interface locationFilter {
   location: string;
@@ -7,8 +6,6 @@ interface locationFilter {
 }
 
 const LocationFilter = ({ location, setIsModalOpen }: locationFilter) => {
-  const locationKr = translateLocationToKorean(location);
-
   return (
     <button
       className="flex items-center justify-center w-24 h-8 border rounded-lg border-gray-20"
@@ -16,7 +13,7 @@ const LocationFilter = ({ location, setIsModalOpen }: locationFilter) => {
         setIsModalOpen([true, false, false]);
       }}
     >
-      <span className="mr-1 text-Body2-M">{locationKr}</span>
+      <span className="mr-1 text-Body2-M">{location}</span>
       <IoIosArrowDown />
     </button>
   );
