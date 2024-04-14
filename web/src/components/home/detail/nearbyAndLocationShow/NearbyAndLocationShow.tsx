@@ -3,13 +3,16 @@ import FilterList from './FilterList';
 import ShowList from './ShowList';
 import FilterSelectModal from './FilterSelectModal';
 import { nearbyShows } from 'mock/mockData';
+import { useAppDispatch, useAppSelector } from 'hooks';
+import { selectLocation } from 'store/modules/location';
 
 const NearbyAndLocationShow = () => {
   const [isModalOpen, setIsModalOpen] = useState([false, false, false]);
-  const [location, setLocation] = useState('seoul');
+  const location = useAppSelector(selectLocation);
   const [showType, setShowType] = useState('exhibition');
   const [priority, setPriority] = useState('popularity');
 
+  const dispatch = useAppDispatch();
   const openModalIndex = isModalOpen.indexOf(true);
 
   const selectModalInfos = [
@@ -26,7 +29,7 @@ const NearbyAndLocationShow = () => {
         ['jeolla-gwangju', '전라/광주'],
         ['jeju', '제주'],
       ],
-      setState: setLocation,
+      setState: dispatch,
     },
     {
       title1: '전시/행사',
