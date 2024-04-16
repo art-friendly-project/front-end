@@ -1,5 +1,5 @@
 import LoginTitle from 'components/login/LoginTitle';
-import character from '../assets/art-friendly/character.svg';
+import character from '../assets/images/art-friendly/character.svg';
 import KakaoLoginBtn from 'components/login/KakaoLoginBtn';
 
 const Login = () => {

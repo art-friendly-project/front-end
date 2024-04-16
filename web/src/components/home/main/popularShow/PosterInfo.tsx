@@ -1,5 +1,5 @@
-import upIcon from '../../../../assets/etc/upIcon.svg';
-import downIcon from '../../../../assets/etc/downIcon.svg';
+import upIcon from '../../../../assets/images/etc/upIcon.svg';
+import downIcon from '../../../../assets/images/etc/downIcon.svg';
 
 interface posterInfo {
   id: number;

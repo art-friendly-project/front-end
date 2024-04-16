@@ -1,16 +1,21 @@
 import NavigationBtn from './NavigationBtn';
-import homeIconGray from '../../assets/navigation/homeIconGray.svg';
-import listIconGray from '../../assets/navigation/listIconGray.svg';
-import calendarIconGray from '../../assets/navigation/calendarIconGray.svg';
-import profileIconGray from '../../assets/navigation/profileIconGray.svg';
-import homeIconOrange from '../../assets/navigation/homeIconOrange.svg';
-import listIconOrange from '../../assets/navigation/listIconOrange.svg';
-import calendarIconOrange from '../../assets/navigation/calendarIconOrange.svg';
-import profileIconOrange from '../../assets/navigation/profileIconOrange.svg';
+import homeIconGray from '../../assets/images/navigation/homeIconGray.svg';
+import listIconGray from '../../assets/images/navigation/listIconGray.svg';
+import calendarIconGray from '../../assets/images/navigation/calendarIconGray.svg';
+import profileIconGray from '../../assets/images/navigation/profileIconGray.svg';
+import homeIconOrange from '../../assets/images/navigation/homeIconOrange.svg';
+import listIconOrange from '../../assets/images/navigation/listIconOrange.svg';
+import calendarIconOrange from '../../assets/images/navigation/calendarIconOrange.svg';
+import profileIconOrange from '../../assets/images/navigation/profileIconOrange.svg';
+import { useAppSelector } from 'hooks';
+import { selectToast } from 'store/modules/toast';
 
 const NavigationBar = () => {
+  const toast = useAppSelector(selectToast)[0];
+  const isFavorite = useAppSelector(selectToast)[1];
+
   return (
-    <div className="flex w-full shadow-custom h-1/10 rounded-t-2xl">
+    <div className="relative flex w-full shadow-custom h-1/10 rounded-t-2xl">
       {navigations.map((navigation) => (
         <NavigationBtn
           key={navigation.name}
