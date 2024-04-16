@@ -1,7 +1,8 @@
 import { selectCloseNavigate } from 'store/modules/closeNavigate';
-import { useAppSelector } from 'hooks';
-import { useNavigate } from 'react-router-dom';
+import { useAppDispatch, useAppSelector } from 'hooks';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { type Dispatch, type SetStateAction } from 'react';
+import { tasteTestActions } from 'store/modules/tasteTest';
 
 interface closeConfirmModal {
   setIsModal: Dispatch<SetStateAction<boolean>>;
@@ -9,7 +10,19 @@ interface closeConfirmModal {
 
 const CloseConfirmModal = ({ setIsModal }: closeConfirmModal) => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const pathname = location.pathname;
   const closeNavigate = useAppSelector(selectCloseNavigate);
+  const dispatch = useAppDispatch();
+
+  const clearTest = () => {
+    if (
+      pathname === '/home/taste-test/questions' ||
+      pathname === '/home/taste-test/result'
+    ) {
+      dispatch(tasteTestActions.clear());
+    }
+  };
 
   return (
     <>
@@ -23,6 +36,7 @@ const CloseConfirmModal = ({ setIsModal }: closeConfirmModal) => {
             className="w-32 h-10 mr-2 text-white bg-orange-100 rounded-xl"
             onClick={() => {
               navigate(closeNavigate);
+              clearTest();
             }}
           >
             확인
