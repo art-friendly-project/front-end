@@ -2,24 +2,24 @@ import { type PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { type RootState } from 'store';
 
 interface StateType {
-  closeNavigate: string;
+  nav: string;
 }
 
 const initialState: StateType = {
-  closeNavigate: '/home',
+  nav: '/home',
 };
 
 export const closeNavigateSlice = createSlice({
   name: 'closeNavigate',
   initialState,
   reducers: {
-    setCloseNavigate: (state, action: PayloadAction<string>) => {
-      state.closeNavigate = action.payload;
+    current: (state, action: PayloadAction<string>) => {
+      state.nav = action.payload;
     },
   },
 });
 
 export const closeNavigateActions = closeNavigateSlice.actions;
 export const selectCloseNavigate = (state: RootState) =>
-  state.closeNavigate.closeNavigate;
+  state.closeNavigate.nav;
 export default closeNavigateSlice.reducer;

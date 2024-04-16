@@ -13,11 +13,11 @@ export const toastSlice = createSlice({
   name: 'toast',
   initialState,
   reducers: {
-    setToast: (state, action: PayloadAction<boolean>) => {
+    active: (state, action: PayloadAction<boolean>) => {
       state.toast[0] = action.payload;
     },
 
-    setIsFavorite: (state, action: PayloadAction<boolean>) => {
+    isFavorite: (state, action: PayloadAction<boolean>) => {
       state.toast[1] = action.payload;
     },
   },
