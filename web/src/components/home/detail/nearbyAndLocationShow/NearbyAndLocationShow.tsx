@@ -66,6 +66,7 @@ const NearbyAndLocationShow = () => {
         location={location}
         priority={priority}
         showType={showType}
+        isModalOpen={isModalOpen}
         setIsModalOpen={setIsModalOpen}
       />
       <ShowList nearbyShows={nearbyShows} />
