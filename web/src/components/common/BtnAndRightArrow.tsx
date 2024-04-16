@@ -1,26 +1,16 @@
 import { IoIosArrowForward } from 'react-icons/io';
 
 interface btnAndRightArrow {
-  selectedList?: string[];
   fn: () => void;
   name: string;
+  disable: boolean;
 }
 
-const BtnAndRightArrow = ({ selectedList, fn, name }: btnAndRightArrow) => {
-  const BtnStyle = () => {
-    if (selectedList === undefined) {
-      return `flex items-center justify-center h-12 text-white rounded-md w-9/10 bg-orange-100`;
-    }
-
-    if (selectedList !== undefined) {
-      return `flex items-center justify-center h-12 text-white rounded-md w-9/10 ${selectedList.length > 0 ? 'bg-orange-100' : 'bg-orange-50'}`;
-    }
-  };
-
+const BtnAndRightArrow = ({ fn, name, disable }: btnAndRightArrow) => {
   return (
     <button
-      className={BtnStyle()}
-      disabled={selectedList !== undefined ? !(selectedList.length > 0) : false}
+      className={`flex items-center justify-center h-12 text-white rounded-md w-9/10 ${disable ? 'bg-orange-50' : 'bg-orange-100'}`}
+      disabled={disable}
       onClick={fn}
     >
       <span className="mr-1 text-Subhead">{name}</span>
