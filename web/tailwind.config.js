@@ -2,6 +2,15 @@
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
+    borderWidth: {
+      DEFAULT: '1px',
+      2: '2px',
+      3: '3px',
+      4: '4px',
+      6: '6px',
+      8: '8px',
+      10: '10px',
+    },
     fontSize: {
       Display3: [
         '38px',
@@ -126,6 +135,7 @@ module.exports = {
     },
     extend: {
       height: {
+        34.4: '8.6rem',
         108: '27rem',
         '1/10': '10%',
         '2/25': '8%',
@@ -135,7 +145,9 @@ module.exports = {
         '9/10': '90%',
       },
       width: {
+        34.4: '8.6rem',
         92: '23rem',
+        '7/10': '70%',
         '9/10': '90%',
         '3/10': '30%',
         '23/50': '46%',
@@ -164,10 +176,13 @@ module.exports = {
         kakaoYellow: '#F8D548',
         kakaoBrown: '#47292B',
         'gray-80': '#616161',
+        'gray-70': '#757575',
         'gray-60': '#888888',
+        'gray-30': '#C5C5C5',
         'gray-20': '#D9D9D9',
         'gray-00': '#F7F7F7',
         'gray-110': '#111111',
+        'purple-90': '#AC5AFF',
       },
       animation: {
         'spin-slow': 'spin-custom 2s linear infinite',
