@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from './modules/location';
+import locationReducer from './modules/location';
+import toastReducer from './modules/toast';
 
 const store = configureStore({
   reducer: {
-    location: counterReducer,
+    location: locationReducer,
+    toast: toastReducer,
   },
 });
 
