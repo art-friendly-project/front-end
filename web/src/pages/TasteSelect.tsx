@@ -16,7 +16,7 @@ const TasteSelect = () => {
       <TasteSelectTitle />
       <TasteList setSelectedList={setSelectedList} />
       <BtnAndRightArrow
-        selectedList={selectedList}
+        disable={selectedList.length === 0}
         fn={btnHandler}
         name="저장하기"
       />
