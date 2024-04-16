@@ -1,5 +1,8 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import NearbyAndLocationShow from 'components/home/detail/nearbyAndLocationShow/NearbyAndLocationShow';
+import TasteTestMain from 'components/home/detail/tasteTest/TasteTestMain';
 import DetailLayout from 'layout/DetailLayout';
+import DetailLayoutWithoutNav from 'layout/DetailLayoutWithoutNav';
 import MainLayout from 'layout/MainLayout';
 import Calendar from 'pages/Calendar';
 import Home from 'pages/Home';
@@ -8,7 +11,7 @@ import Loading from 'pages/Loading';
 import Login from 'pages/Login';
 import Profile from 'pages/Profile';
 import TasteSelect from 'pages/TasteSelect';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import TasteTest from 'components/home/detail/tasteTest/TasteTest';
 
 const App = () => {
   return (
@@ -27,6 +30,10 @@ const App = () => {
             </Route>
             <Route element={<DetailLayout />}>
               <Route path="/home/nearby" element={<NearbyAndLocationShow />} />
+            </Route>
+            <Route element={<DetailLayoutWithoutNav />}>
+              <Route path="/home/taste-test" element={<TasteTestMain />} />
+              <Route path="/home/taste-test/:id" element={<TasteTest />} />
             </Route>
           </Routes>
         </div>
