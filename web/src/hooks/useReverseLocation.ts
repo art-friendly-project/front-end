@@ -1,6 +1,6 @@
 import axios from 'axios';
+import { useAppDispatch } from 'hooks';
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 import { locationActions } from 'store/modules/location';
 import {
   translateLocationEngToKor,
@@ -13,7 +13,7 @@ interface reverseLocation {
 }
 
 const useReverseLocation = (geolocation: reverseLocation) => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     const locationRequest = async () => {
