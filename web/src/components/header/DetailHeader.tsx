@@ -10,6 +10,7 @@ const DetailHeader = () => {
   const selectBackBtnOrCloseBtn = () => {
     if (pathname === '/home/taste-test') return true;
     if (pathname === '/home/nearby') return true;
+    if (pathname === '/prepare-service') return true;
 
     return false;
   };
