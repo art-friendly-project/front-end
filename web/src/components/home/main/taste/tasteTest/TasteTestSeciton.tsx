@@ -1,19 +1,21 @@
 import BtnAndRightArrow from 'components/common/BtnAndRightArrow';
 import TasteTestTitle from './TasteTestTitle';
+import { useNavigate } from 'react-router-dom';
+import { useAppDispatch } from 'hooks';
+import { closeNavigateActions } from 'store/modules/closeNavigate';
 
-interface tasteTestSeciton {
-  setIsTest: React.Dispatch<React.SetStateAction<boolean>>;
-}
+const TasteTestSeciton = () => {
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+  const btnHandler = () => {
+    dispatch(closeNavigateActions.setCloseNavigate('/home'));
+    navigate('/home/taste-test');
+  };
 
-const TasteTestSeciton = ({ setIsTest }: tasteTestSeciton) => {
   return (
     <div className="relative flex flex-col items-center w-full pb-6 bg-orange-0">
       <TasteTestTitle />
-      <BtnAndRightArrow
-        endpoint=""
-        name="테스트 하러가기"
-        setIsTest={setIsTest}
-      />
+      <BtnAndRightArrow fn={btnHandler} name="테스트 하러가기" />
     </div>
   );
 };
