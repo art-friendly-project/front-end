@@ -6,6 +6,7 @@ interface filterList {
   location: string;
   showType: string;
   priority: string;
+  isModalOpen: boolean[];
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean[]>>;
 }
 
@@ -13,13 +14,26 @@ const FilterList = ({
   location,
   showType,
   priority,
+  isModalOpen,
   setIsModalOpen,
 }: filterList) => {
   return (
     <div className="flex w-full h-16 pl-6 mt-2">
-      <LocationFilter location={location} setIsModalOpen={setIsModalOpen} />
-      <ShowTypeFilter showType={showType} setIsModalOpen={setIsModalOpen} />
-      <PriorityFilter priority={priority} setIsModalOpen={setIsModalOpen} />
+      <LocationFilter
+        location={location}
+        isModalOpen={isModalOpen}
+        setIsModalOpen={setIsModalOpen}
+      />
+      <ShowTypeFilter
+        showType={showType}
+        isModalOpen={isModalOpen}
+        setIsModalOpen={setIsModalOpen}
+      />
+      <PriorityFilter
+        priority={priority}
+        isModalOpen={isModalOpen}
+        setIsModalOpen={setIsModalOpen}
+      />
     </div>
   );
 };
