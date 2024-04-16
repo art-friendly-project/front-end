@@ -8,14 +8,18 @@ const TasteTestSeciton = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const btnHandler = () => {
-    dispatch(closeNavigateActions.setCloseNavigate('/home'));
+    dispatch(closeNavigateActions.current('/home'));
     navigate('/home/taste-test');
   };
 
   return (
     <div className="relative flex flex-col items-center w-full pb-6 bg-orange-0">
       <TasteTestTitle />
-      <BtnAndRightArrow fn={btnHandler} name="테스트 하러가기" />
+      <BtnAndRightArrow
+        fn={btnHandler}
+        name="테스트 하러가기"
+        disable={false}
+      />
     </div>
   );
 };

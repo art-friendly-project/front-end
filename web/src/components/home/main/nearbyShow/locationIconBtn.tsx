@@ -11,7 +11,7 @@ const LocationIconBtn = ({ locationIcon, locationKr }: locationIconBtn) => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const locationBtnHandler = () => {
-    dispatch(locationActions.setLocation(locationKr));
+    dispatch(locationActions.current(locationKr));
     navigate('/home/nearby');
   };
 

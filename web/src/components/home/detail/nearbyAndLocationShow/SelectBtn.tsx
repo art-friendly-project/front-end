@@ -17,7 +17,7 @@ const SelectBtn = ({ select, setState, setIsModalOpen }: selectBtn) => {
       onClick={() => {
         setState === dispatch
           ? dispatch(
-              locationActions.setLocation(translateLocationEngToKor(select[0])),
+              locationActions.current(translateLocationEngToKor(select[0])),
             )
           : setState(select[0]);
         setIsModalOpen([false, false, false]);

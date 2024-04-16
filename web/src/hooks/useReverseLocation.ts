@@ -30,7 +30,7 @@ const useReverseLocation = (geolocation: reverseLocation) => {
           result?.data?.documents[0]?.address?.region_1depth_name as string,
         );
         const locationKor = translateLocationEngToKor(region);
-        dispatch(locationActions.setLocation(locationKor));
+        dispatch(locationActions.current(locationKor));
       } catch (err) {
         console.error(err);
       }

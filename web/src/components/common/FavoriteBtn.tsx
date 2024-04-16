@@ -18,11 +18,11 @@ const FavoriteBtn = ({ favorite }: favoriteBtn) => {
 
   const favoriteBtnHandler = () => {
     setIsFavorite((prev) => !prev);
-    dispatch(toastActions.setIsFavorite(isFavorite));
-    dispatch(toastActions.setToast(true));
+    dispatch(toastActions.isFavorite(isFavorite));
+    dispatch(toastActions.active(true));
 
     setTimeout(() => {
-      dispatch(toastActions.setToast(false));
+      dispatch(toastActions.active(false));
     }, 2000);
   };
 
