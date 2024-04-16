@@ -43,7 +43,7 @@ const NearbyShowSection = () => {
   return (
     <div className="flex flex-col items-center mt-10 mb-6">
       <NearbyShowTitle />
-      <BtnBasic name="내 주변" fn={BtnHandler} />
+      <BtnBasic name="내 주변" fn={BtnHandler} disable={false} />
       <LocationList />
     </div>
   );
