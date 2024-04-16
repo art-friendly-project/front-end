@@ -2,7 +2,7 @@ import LodingAnimationLogo from 'components/loding/LodingAnimationLogo';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const Loading = () => {
+const OpenLoading = () => {
   const [disappear, setDisappearLogo] = useState(false);
 
   const navigate = useNavigate();
@@ -24,4 +24,4 @@ const Loading = () => {
   );
 };
 
-export default Loading;
+export default OpenLoading;
