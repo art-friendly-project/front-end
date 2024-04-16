@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux';
+import { useAppDispatch } from 'hooks';
 import { useNavigate } from 'react-router-dom';
 import { locationActions } from 'store/modules/location';
 
@@ -9,7 +9,7 @@ interface locationIconBtn {
 
 const LocationIconBtn = ({ locationIcon, locationKr }: locationIconBtn) => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const locationBtnHandler = () => {
     dispatch(locationActions.setLocation(locationKr));
     navigate('/home/nearby');
