@@ -7,7 +7,7 @@ interface rankSection {
 
 const RankSection = ({ rank }: rankSection) => {
   return (
-    <div className="w-full mt-8 border-b-10 border-b-gray-00">
+    <div className="w-full mt-8 border-b-10 border-b-gray-10">
       <RankTitle />
       <RankList rank={rank} />
     </div>
