@@ -12,7 +12,7 @@ const TestResultTitleAndProfile = ({
   return (
     <div className="relative flex mt-10">
       <div className="flex flex-col pl-6">
-        <span className="text-Headline-M">{title1}</span>
+        <span className="text-Subhead-M">{title1}</span>
         <span className="mt-2 text-Display1">{title2}</span>
         <span className="flex items-center justify-center w-40 h-8 mt-2 text-white bg-orange-100 rounded-3xl text-Body1">
           전체 테스트 유형 중 2.5%
