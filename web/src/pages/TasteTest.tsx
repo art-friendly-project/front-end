@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import TasteTestProgessBar from './TasteTestProgessBar';
-import TasteTestTitle from './TasteTestTitle';
+import TasteTestProgessBar from '../components/home/detail/tasteTest/questions/TasteTestProgessBar';
+import TasteTestTitle from '../components/home/detail/tasteTest/questions/TasteTestTitle';
 import { tasteTestQuestions } from 'assets/data/tasteTestData';
-import TasteTestAnswers from './TasteTestAnswers';
-import BtnContainer from './BtnContainer';
+import TasteTestAnswers from '../components/home/detail/tasteTest/questions/TasteTestAnswers';
+import BtnContainer from '../components/home/detail/tasteTest/questions/BtnContainer';
 import { selectTasteTest } from 'store/modules/tasteTest';
 import { useAppSelector } from 'hooks';
 

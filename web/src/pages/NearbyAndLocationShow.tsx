@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import FilterList from './FilterList';
-import ShowList from './ShowList';
-import FilterSelectModal from './FilterSelectModal';
+import FilterList from '../components/home/detail/nearbyAndLocationShow/FilterList';
+import ShowList from '../components/home/detail/nearbyAndLocationShow/ShowList';
+import FilterSelectModal from '../components/home/detail/nearbyAndLocationShow/FilterSelectModal';
 import { nearbyShows } from 'mock/mockData';
 import { useAppDispatch, useAppSelector } from 'hooks';
 import { selectLocation } from 'store/modules/location';

@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import NearbyAndLocationShow from 'components/home/detail/nearbyAndLocationShow/NearbyAndLocationShow';
-import TasteTestMain from 'components/home/detail/tasteTest/questions/TasteTestMain';
+import NearbyAndLocationShow from 'pages/NearbyAndLocationShow';
+import TasteTestMain from 'pages/TasteTestMain';
 import DetailLayout from 'layout/DetailLayout';
 import DetailLayoutWithoutNav from 'layout/DetailLayoutWithoutNav';
 import MainLayout from 'layout/MainLayout';
@@ -11,11 +11,11 @@ import OpenLoading from 'pages/OpenLoading';
 import Login from 'pages/Login';
 import Profile from 'pages/Profile';
 import TasteSelect from 'pages/TasteSelect';
-import TasteTest from 'components/home/detail/tasteTest/questions/TasteTest';
-import TasteTestResult from 'components/home/detail/tasteTest/result/TasteTestResult';
-import Loading from 'components/home/detail/tasteTest/loading/Loading';
-import PrepareService from 'components/prepareService/PrepareService';
-import ShowDetail from 'components/showDetail/ShowDetail';
+import TasteTest from 'pages/TasteTest';
+import TasteTestResult from 'pages/TasteTestResult';
+import Loading from 'pages/Loading';
+import PrepareService from 'pages/PrepareService';
+import ShowDetail from 'pages/ShowDetail';
 
 const App = () => {
   return (

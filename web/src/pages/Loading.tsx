@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import { IoIosArrowDropdownCircle } from 'react-icons/io';
-import Spineer from './Spineer';
+import Spineer from '../components/home/detail/tasteTest/loading/Spineer';
 import { useNavigate } from 'react-router-dom';
+import LoadingComplete from 'components/loding/LoadingComplete';
 
 const Loading = () => {
   const [isComplete, setIsComplete] = useState(false);
@@ -20,10 +20,7 @@ const Loading = () => {
     <div className="flex flex-col items-center justify-center w-full h-full">
       {isComplete ? (
         <>
-          <IoIosArrowDropdownCircle className="w-34.4 h-34.4 text-orange-100 animate-appear-fast" />
-          <span className="h-20 mt-12 leading-relaxed text-center text-Display1">
-            취향 분석이 완료되었습니다.
-          </span>
+          <LoadingComplete />
         </>
       ) : (
         <Spineer />

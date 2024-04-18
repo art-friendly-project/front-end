@@ -1,6 +1,6 @@
-import TestResultExplain from './TestResultExplain';
-import TestResultTitleAndProfile from './TestResultTitleAndProfile';
-import TestFitOrNotFit from './TestFitOrNotFit';
+import TestResultExplain from '../components/home/detail/tasteTest/result/TestResultExplain';
+import TestResultTitleAndProfile from '../components/home/detail/tasteTest/result/TestResultTitleAndProfile';
+import TestFitOrNotFit from '../components/home/detail/tasteTest/result/TestFitOrNotFit';
 import BtnBasic from 'components/common/BtnBasic';
 import AnalyzeTestResult from 'utils/AnalyzeTestResult';
 import { mbtiType } from 'assets/data/tasteTestData';

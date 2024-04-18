@@ -1,7 +1,7 @@
 import BtnBasic from 'components/common/BtnBasic';
 import character2 from '../../../../../assets/images/art-friendly/character2.svg';
 import { useNavigate } from 'react-router-dom';
-import TasteTestMainTitle from './TasteTestMainTitle';
+import TasteTestMainTitle from '../components/home/detail/tasteTest/questions/TasteTestMainTitle';
 import { useEffect } from 'react';
 import { useAppDispatch } from 'hooks';
 import { tasteTestActions } from 'store/modules/tasteTest';
