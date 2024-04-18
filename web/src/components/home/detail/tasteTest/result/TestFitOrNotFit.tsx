@@ -1,36 +1,30 @@
 import { useState } from 'react';
 import TestFitOrNotFitMenu from './TestFitOrNotFitMenu';
 import TestFitOrNotFitContents from './TestFitOrNotFitContents';
-import changeMbtiToIdx from 'utils/changeMbtiToIdx';
-import { tasteTestType } from 'assets/data/tasteTestData';
+import { mbtiType } from 'assets/data/tasteTestData';
 
 interface testFitOrNotFit {
-  result: result;
+  mbti: mbti;
 }
 
-export interface result {
-  id: number;
-  type: string;
+export interface mbti {
   title1: string;
   title2: string;
   explain: string;
-  fit: string;
-  notFit: string;
+  fit: string[];
+  notFit: string[];
   image: string;
 }
 
-const TestFitOrNotFit = ({ result }: testFitOrNotFit) => {
+const TestFitOrNotFit = ({ mbti }: testFitOrNotFit) => {
   const [active, setActive] = useState([true, false]);
-
-  const fitIdx = changeMbtiToIdx(result.fit);
-  const notFitIdx = changeMbtiToIdx(result.notFit);
-  const fit = tasteTestType[fitIdx];
-  const notFit = tasteTestType[notFitIdx];
+  const fits = mbti.fit.map((m) => mbtiType[m]);
+  const notFits = mbti.notFit.map((m) => mbtiType[m]);
 
   return (
     <div className="flex flex-col items-center">
       <TestFitOrNotFitMenu active={active} setActive={setActive} />
-      <TestFitOrNotFitContents active={active} fit={fit} notFit={notFit} />
+      <TestFitOrNotFitContents active={active} fits={fits} notFits={notFits} />
     </div>
   );
 };
