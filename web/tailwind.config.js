@@ -175,13 +175,14 @@ module.exports = {
         'orange-0': '#FFFFF0',
         kakaoYellow: '#F8D548',
         kakaoBrown: '#47292B',
+        'gray-110': '#111111',
+        'gray-90': '#393939',
         'gray-80': '#616161',
         'gray-70': '#757575',
         'gray-60': '#888888',
         'gray-30': '#C5C5C5',
         'gray-20': '#D9D9D9',
         'gray-00': '#F7F7F7',
-        'gray-110': '#111111',
         'purple-90': '#AC5AFF',
       },
       animation: {
@@ -250,7 +251,7 @@ module.exports = {
         'appear-toast': {
           from: { opacity: 0 },
           to: {
-            opacity: 0.8,
+            opacity: 0.9,
           },
         },
         disappear: {
