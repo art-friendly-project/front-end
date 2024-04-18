@@ -1,5 +1,5 @@
 import ShowDetailImg from './ShowDetailImg';
-import ShowDetailTitle from '../ShowDetailTitle';
+import ShowDetailTitle from './ShowDetailTitle';
 import Thermometer from './Thermometer';
 import FavoriteAndShareBtn from 'components/showDetail/posterSection/FavoriteAndShareBtn';
 
