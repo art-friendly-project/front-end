@@ -13,7 +13,7 @@ const ShowInformationSection = ({ show }: showInformationSection) => {
   };
 
   return (
-    <div className="flex flex-col mt-52">
+    <div className="flex flex-col mt-72">
       <ShowInformationTitle />
       <ShowInformationText
         showType={show.showType}
