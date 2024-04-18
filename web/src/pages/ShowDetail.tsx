@@ -1,8 +1,9 @@
 import { homeShows } from 'mock/mockData';
 import { useParams } from 'react-router-dom';
-import PosterSection from '../components/showDetail/posterSection/PosterSection';
-import ShowInformationSection from '../components/showDetail/InformationSection/ShowInformationSection';
-import RankSection from '../components/showDetail/rankSection/RankSection';
+import ReviewSection from 'components/showDetail/reviewSection/ReviewSection';
+import RankSection from 'components/showDetail/rankSection/RankSection';
+import ShowInformationSection from 'components/showDetail/InformationSection/ShowInformationSection';
+import PosterSection from 'components/showDetail/posterSection/PosterSection';
 
 const ShowDetail = () => {
   const params = useParams();
