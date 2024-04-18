@@ -11,16 +11,20 @@ const Loading = () => {
     setTimeout(() => {
       setIsComplete(true);
     }, 2000);
-
     setTimeout(() => {
       navigate('/home/taste-test/result');
     }, 4000);
   }, []);
 
   return (
-    <div className="flex items-center justify-center w-full h-full">
+    <div className="flex flex-col items-center justify-center w-full h-full">
       {isComplete ? (
-        <IoIosArrowDropdownCircle className="absolute w-34.4 h-34.4 text-orange-100 animate-appear-fast" />
+        <>
+          <IoIosArrowDropdownCircle className="w-34.4 h-34.4 text-orange-100 animate-appear-fast" />
+          <span className="h-20 mt-12 leading-relaxed text-center text-Display1">
+            취향 분석이 완료되었습니다.
+          </span>
+        </>
       ) : (
         <Spineer />
       )}
