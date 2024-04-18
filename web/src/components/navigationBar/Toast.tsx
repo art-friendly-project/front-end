@@ -1,11 +1,12 @@
-interface toast {
-  isFavorite: boolean;
-}
+import { useAppSelector } from 'hooks';
+import { selectToast } from 'store/modules/toast';
 
-const Toast = ({ isFavorite }: toast) => {
+const Toast = () => {
+  const isFavorite = useAppSelector(selectToast)[1];
+
   return (
     <div
-      className={`absolute -top-14 flex items-center justify-center h-12 left-[5%] w-9/10 rounded-3xl opacity-80 animate-appear-toast ${isFavorite ? 'bg-gray-60' : 'bg-purple-90'}`}
+      className={`absolute -top-14 flex items-center justify-center h-12 left-[5%] w-9/10 rounded-3xl opacity-90 animate-appear-toast ${isFavorite ? 'bg-gray-60' : 'bg-purple-90'}`}
     >
       <span className="text-white text-Body3-120">
         {isFavorite
