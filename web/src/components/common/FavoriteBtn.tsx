@@ -10,7 +10,7 @@ interface favoriteBtn {
 
 const FavoriteBtn = ({ favorite }: favoriteBtn) => {
   const [isFavorite, setIsFavorite] = useState(false);
-  const [isTimeout, setIsTimeout] = useState(false);
+  const [isNotTimeout, setIsNotTimeout] = useState(true);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -18,18 +18,17 @@ const FavoriteBtn = ({ favorite }: favoriteBtn) => {
   }, [favorite]);
 
   const favoriteBtnHandler = () => {
-    setIsTimeout(true);
-
-    if (!isTimeout) {
+    if (isNotTimeout) {
       setTimeout(() => {
         dispatch(toastActions.active(false));
-        setIsTimeout(false);
+        setIsNotTimeout(true);
       }, 2000);
     }
 
     setIsFavorite((prev) => !prev);
     dispatch(toastActions.isFavorite(isFavorite));
     dispatch(toastActions.active(true));
+    setIsNotTimeout(false);
   };
 
   return (
