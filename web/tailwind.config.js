@@ -191,7 +191,7 @@ module.exports = {
         'appear-fast': 'appear-fast 0.5s',
         'appear-slow': 'appear-slow 2s ease-in-out',
         'appear-little': 'appear-little 0.5s linear',
-        'appear-toast': 'appear-toast 1s',
+        'appear-toast': 'appear-toast 2s',
         disappear: 'disappear 2s',
         'move-top': 'move-top 1.7s linear',
         'move-top-mini': 'move-top-mini 2s linear',
@@ -250,10 +250,9 @@ module.exports = {
           },
         },
         'appear-toast': {
-          from: { opacity: 0 },
-          to: {
-            opacity: 0.9,
-          },
+          '0%': { opacity: 0 },
+          '50%': { opacity: 0.9 },
+          '100%': { opacity: 0 },
         },
         disappear: {
           from: { opacity: 1 },
