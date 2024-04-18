@@ -13,7 +13,6 @@ import Toast from './Toast';
 
 const NavigationBar = () => {
   const toast = useAppSelector(selectToast)[0];
-  const isFavorite = useAppSelector(selectToast)[1];
 
   return (
     <div className="relative flex w-full shadow-custom h-1/10 rounded-t-2xl">
@@ -26,7 +25,7 @@ const NavigationBar = () => {
           activeIcon={navigation.activeIcon}
         />
       ))}
-      {toast ? <Toast isFavorite={isFavorite} /> : null}
+      {toast ? <Toast /> : null}
     </div>
   );
 };
