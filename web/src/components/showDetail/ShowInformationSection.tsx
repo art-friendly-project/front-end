@@ -1,5 +1,5 @@
 import BtnAndRightArrow from 'components/common/BtnAndRightArrow';
-import { type show } from './PosterSection';
+import { type show } from './posterSection/PosterSection';
 import ShowInformationText from './ShowInformationText';
 import ShowInformationTitle from './ShowInformationTitle';
 

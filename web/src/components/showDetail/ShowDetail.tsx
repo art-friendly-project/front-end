@@ -1,6 +1,6 @@
 import { homeShows } from 'mock/mockData';
 import { useParams } from 'react-router-dom';
-import PosterSection from './PosterSection';
+import PosterSection from './posterSection/PosterSection';
 import ShowInformationSection from './ShowInformationSection';
 import RankSection from './RankSection';
 

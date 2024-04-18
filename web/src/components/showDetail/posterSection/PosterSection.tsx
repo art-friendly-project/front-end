@@ -1,7 +1,7 @@
 import ShowDetailImg from './ShowDetailImg';
-import ShowDetailTitle from './ShowDetailTitle';
+import ShowDetailTitle from '../ShowDetailTitle';
 import Thermometer from './Thermometer';
-import FavoriteAndShareBtn from 'components/showDetail/FavoriteAndShareBtn';
+import FavoriteAndShareBtn from 'components/showDetail/posterSection/FavoriteAndShareBtn';
 
 interface posterSection {
   show: show;
