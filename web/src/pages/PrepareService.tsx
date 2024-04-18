@@ -1,4 +1,4 @@
-import character3 from '../../assets/images/art-friendly/character3.svg';
+import character3 from '../assets/images/art-friendly/character3.svg';
 
 const PrepareService = () => {
   return (
