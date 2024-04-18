@@ -10,11 +10,12 @@ const ShowDetail = () => {
   const show = homeShows[id];
 
   return (
-    <>
+    <div className="relative w-full h-full overflow-y-scroll scrollbar-hide">
       <PosterSection show={show} />
       <ShowInformationSection show={show} />
       <RankSection rank={show.rank} />
-    </>
+      <ReviewSection id={id} />
+    </div>
   );
 };
 
