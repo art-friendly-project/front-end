@@ -2,12 +2,20 @@ import BtnBasic from 'components/common/BtnBasic';
 import character2 from '../../../../../assets/images/art-friendly/character2.svg';
 import { useNavigate } from 'react-router-dom';
 import TasteTestMainTitle from './TasteTestMainTitle';
+import { useEffect } from 'react';
+import { useAppDispatch } from 'hooks';
+import { tasteTestActions } from 'store/modules/tasteTest';
 
 const TasteTestMain = () => {
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const btnHandler = () => {
     navigate('/home/taste-test/questions');
   };
+
+  useEffect(() => {
+    dispatch(tasteTestActions.clear());
+  }, []);
 
   return (
     <>
