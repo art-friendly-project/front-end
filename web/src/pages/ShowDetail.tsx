@@ -6,8 +6,8 @@ import RankSection from '../components/showDetail/rankSection/RankSection';
 
 const ShowDetail = () => {
   const params = useParams();
-  const id = Number(params.id) - 1;
-  const show = homeShows[id];
+  const id = Number(params.id);
+  const show = homeShows[id - 1];
 
   return (
     <div className="relative w-full h-full overflow-y-scroll scrollbar-hide">
