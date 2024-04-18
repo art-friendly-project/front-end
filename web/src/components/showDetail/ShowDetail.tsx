@@ -13,7 +13,7 @@ const ShowDetail = () => {
     <>
       <PosterSection show={show} />
       <ShowInformationSection show={show} />
-      <RankSection />
+      <RankSection rank={show.rank} />
     </>
   );
 };

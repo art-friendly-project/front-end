@@ -1,8 +1,15 @@
-const RankSection = () => {
+import RankTitle from './RankTitle';
+import RankList from './RankIconList';
+
+interface rankSection {
+  rank: number;
+}
+
+const RankSection = ({ rank }: rankSection) => {
   return (
-    <div className="w-full mt-10 border-b-10 border-b-gray-00">
-      <span className="pl-6 text-Headline">이 전시회 가고 싶으신가요?</span>
-      <div className="mt-10"></div>
+    <div className="w-full mt-8 border-b-10 border-b-gray-00">
+      <RankTitle />
+      <RankList rank={rank} />
     </div>
   );
 };
