@@ -15,6 +15,7 @@ import TasteTest from 'components/home/detail/tasteTest/questions/TasteTest';
 import TasteTestResult from 'components/home/detail/tasteTest/result/TasteTestResult';
 import Loading from 'components/home/detail/tasteTest/loading/Loading';
 import PrepareService from 'components/prepareService/PrepareService';
+import ShowDetail from 'components/showDetail/ShowDetail';
 
 const App = () => {
   return (
@@ -44,6 +45,7 @@ const App = () => {
                 path="/home/taste-test/result"
                 element={<TasteTestResult />}
               />
+              <Route path="/shows/:id" element={<ShowDetail />} />
               <Route path="/prepare-service" element={<PrepareService />} />
             </Route>
             <Route path="/loading" element={<Loading />} />
