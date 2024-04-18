@@ -1,4 +1,4 @@
-import DegreeIndicator from '../../../common/DegreeIndicator';
+import DegreeIndicator from '../../../common/TemperatureIndicator';
 import PosterImg from 'components/common/PosterImg';
 import PosterInfo from './PosterInfo';
 import FavoriteBtn from 'components/common/FavoriteBtn';
@@ -12,7 +12,7 @@ interface deadlineShow {
   term: string;
   image: string;
   favorite: boolean;
-  degree: string;
+  temperature: string;
 }
 
 const DeadlineShow = ({
@@ -23,7 +23,7 @@ const DeadlineShow = ({
   term,
   image,
   favorite,
-  degree,
+  temperature,
 }: deadlineShow) => {
   const navigate = useNavigate();
 
