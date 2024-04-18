@@ -7,13 +7,9 @@ import homeIconOrange from '../../assets/images/navigation/homeIconOrange.svg';
 import listIconOrange from '../../assets/images/navigation/listIconOrange.svg';
 import calendarIconOrange from '../../assets/images/navigation/calendarIconOrange.svg';
 import profileIconOrange from '../../assets/images/navigation/profileIconOrange.svg';
-import { useAppSelector } from 'hooks';
-import { selectToast } from 'store/modules/toast';
 import Toast from './Toast';
 
 const NavigationBar = () => {
-  const toast = useAppSelector(selectToast)[0];
-
   return (
     <div className="relative flex w-full shadow-custom h-1/10 rounded-t-2xl">
       {navigations.map((navigation) => (
@@ -25,7 +21,7 @@ const NavigationBar = () => {
           activeIcon={navigation.activeIcon}
         />
       ))}
-      {toast ? <Toast /> : null}
+      <Toast />
     </div>
   );
 };
