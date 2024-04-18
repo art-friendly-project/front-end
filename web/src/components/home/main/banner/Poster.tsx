@@ -5,6 +5,7 @@ import GradientBackground from './GradientBackground';
 import PosterImg from 'components/common/PosterImg';
 
 interface poster {
+  id: number;
   image: string;
   term: string;
   name: string;
@@ -15,6 +16,7 @@ interface poster {
 }
 
 const Poster = ({
+  id,
   image,
   term,
   name,
@@ -40,7 +42,13 @@ const Poster = ({
         setCurrentPosterNum={setCurrentPosterNum}
         posterLength={posterLength}
       />
-      <PosterInfo term={term} name={name} place={place} location={location} />
+      <PosterInfo
+        id={id}
+        term={term}
+        name={name}
+        place={place}
+        location={location}
+      />
     </li>
   );
 };

@@ -20,6 +20,7 @@ const PosterList = ({
       {posters.map((poster) => (
         <Poster
           key={poster.id}
+          id={poster.id}
           image={poster.image}
           term={poster.term}
           name={poster.name}

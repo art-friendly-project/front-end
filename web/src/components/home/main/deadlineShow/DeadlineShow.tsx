@@ -2,8 +2,10 @@ import DegreeIndicator from '../../../common/DegreeIndicator';
 import PosterImg from 'components/common/PosterImg';
 import PosterInfo from './PosterInfo';
 import FavoriteBtn from 'components/common/FavoriteBtn';
+import { useNavigate } from 'react-router-dom';
 
 interface deadlineShow {
+  id: number;
   showType: string;
   name: string;
   location: string;
@@ -14,6 +16,7 @@ interface deadlineShow {
 }
 
 const DeadlineShow = ({
+  id,
   showType,
   name,
   location,
@@ -22,10 +25,17 @@ const DeadlineShow = ({
   favorite,
   degree,
 }: deadlineShow) => {
+  const navigate = useNavigate();
+
   return (
     <div className="relative w-full pl-6 mb-6">
-      <button className="flex">
-        <DegreeIndicator degree={degree} />
+      <button
+        className="flex"
+        onClick={() => {
+          navigate(`/shows/${id}`);
+        }}
+      >
+        <DegreeIndicator temperature={temperature} />
         <PosterImg
           width="w-24"
           height="h-32"

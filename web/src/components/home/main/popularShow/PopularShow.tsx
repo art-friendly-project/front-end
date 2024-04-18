@@ -1,6 +1,7 @@
 import PosterImg from 'components/common/PosterImg';
 import PosterInfo from './PosterInfo';
 import { useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 interface popularShow {
   id: number;
@@ -10,6 +11,7 @@ interface popularShow {
 }
 
 const PopularShow = ({ name, image, upAndDown, id }: popularShow) => {
+  const navigate = useNavigate();
   const showRef = useRef<HTMLButtonElement>(null);
 
   const observer = new IntersectionObserver((entries) => {
@@ -34,6 +36,9 @@ const PopularShow = ({ name, image, upAndDown, id }: popularShow) => {
     <button
       className="relative flex items-center px-4 py-2 mb-4 duration-1000 translate-y-[10px] opacity-0 rounded-xl shadow-custom2 w-9/10"
       ref={showRef}
+      onClick={() => {
+        navigate(`/shows/${id}`);
+      }}
     >
       <PosterImg
         width="w-16"
