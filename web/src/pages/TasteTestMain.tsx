@@ -1,5 +1,5 @@
 import BtnBasic from 'components/common/BtnBasic';
-import character2 from '../../../../../assets/images/art-friendly/character2.svg';
+import character2 from '../assets/images/art-friendly/character2.svg';
 import { useNavigate } from 'react-router-dom';
 import TasteTestMainTitle from '../components/home/detail/tasteTest/questions/TasteTestMainTitle';
 import { useEffect } from 'react';
