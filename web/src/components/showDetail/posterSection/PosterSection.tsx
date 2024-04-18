@@ -1,3 +1,4 @@
+import ShowDetailBackBtn from './ShowDetailBackBtn';
 import ShowDetailImg from './ShowDetailImg';
 import ShowDetailTitle from './ShowDetailTitle';
 import Thermometer from './Thermometer';
@@ -25,6 +26,7 @@ export interface show {
 const PosterSection = ({ show }: posterSection) => {
   return (
     <>
+      <ShowDetailBackBtn />
       <FavoriteAndShareBtn favorite={show.favorite} />
       <ShowDetailImg image={show.image} />
       <ShowDetailTitle
