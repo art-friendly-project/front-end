@@ -7,13 +7,14 @@ const DeadlineShowList = () => {
       {homeShows.map((show) => (
         <DeadlineShow
           key={show.id}
+          id={show.id}
           showType={show.showType}
           name={show.name}
           location={show.location}
           term={show.term}
           image={show.image}
           favorite={show.favorite}
-          degree={show.degree}
+          temperature={show.temperature}
         />
       ))}
     </div>

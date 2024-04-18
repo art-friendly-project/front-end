@@ -11,7 +11,7 @@ interface nearbyShow {
   type: string;
   address: string;
   term: string;
-  degree: string;
+  temperature: string;
   favorite: boolean;
   image: string;
 }
@@ -24,12 +24,13 @@ const ShowList = ({ nearbyShows }: showList) => {
       ) : (
         nearbyShows.map((show) => (
           <Show
+            id={show.id}
             key={show.id}
             name={show.name}
             type={show.type}
             address={show.address}
             term={show.term}
-            degree={show.degree}
+            temperature={show.temperature}
             favorite={show.favorite}
             image={show.image}
           />
