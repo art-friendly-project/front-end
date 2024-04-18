@@ -6,20 +6,22 @@ import CloseBtn from './CloseBtn';
 const DetailHeader = () => {
   const location = useLocation();
   const pathname = location.pathname;
+  const showPage = pathname.includes('shows');
 
-  const selectBackBtnOrCloseBtn = () => {
+  const outputHeaderBtn = () => {
     if (pathname === '/home/taste-test') return true;
     if (pathname === '/home/nearby') return true;
     if (pathname === '/prepare-service') return true;
+    if (showPage) return true;
 
     return false;
   };
 
   return (
-    <div className="relative flex items-center justify-center w-full h-2/25">
-      {selectBackBtnOrCloseBtn() ? <BackBtn /> : null}
+    <div className="relative z-20 flex items-center justify-center w-full h-2/25">
+      {outputHeaderBtn() ? <BackBtn /> : null}
       <HeaderTitle />
-      {selectBackBtnOrCloseBtn() ? null : <CloseBtn />}
+      {outputHeaderBtn() ? null : <CloseBtn />}
     </div>
   );
 };
