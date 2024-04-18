@@ -1,6 +1,5 @@
 import { useAppSelector } from 'hooks';
 import { selectTasteTest } from 'store/modules/tasteTest';
-import changeMbtiToIdx from './changeMbtiToIdx';
 
 interface mbti {
   ei: string[];
@@ -87,9 +86,7 @@ const AnalyzeTestResult = () => {
     }
   }
 
-  const idx = changeMbtiToIdx(result);
-
-  return { result, idx };
+  return { result };
 };
 
 export default AnalyzeTestResult;
