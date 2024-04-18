@@ -164,6 +164,7 @@ module.exports = {
         '11/12': '91.6%',
         '12/12': '100%',
         '19/25': '76%',
+        '43/100': '43%',
       },
       colors: {
         'orange-100': '#FF955A',
@@ -176,6 +177,7 @@ module.exports = {
         kakaoYellow: '#F8D548',
         kakaoBrown: '#47292B',
         'gray-110': '#111111',
+        'gray-100': '#252525',
         'gray-90': '#393939',
         'gray-80': '#616161',
         'gray-70': '#757575',
@@ -266,6 +268,8 @@ module.exports = {
           'rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px',
         custom2:
           'rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px',
+        custom3:
+          'rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px',
       },
     },
   },
