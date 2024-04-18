@@ -45,9 +45,9 @@ const App = () => {
                 path="/home/taste-test/result"
                 element={<TasteTestResult />}
               />
-              <Route path="/shows/:id" element={<ShowDetail />} />
               <Route path="/prepare-service" element={<PrepareService />} />
             </Route>
+            <Route path="/shows/:id" element={<ShowDetail />} />
             <Route path="/loading" element={<Loading />} />
           </Routes>
         </div>
