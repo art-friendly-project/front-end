@@ -16,6 +16,7 @@ export const homeShows = [
     favorite: false,
     temperature: '100도',
     upAndDown: '+5',
+    rank: 5,
   },
   {
     id: 2,
@@ -30,6 +31,7 @@ export const homeShows = [
     favorite: true,
     temperature: '19도',
     upAndDown: '-5',
+    rank: 0,
   },
   {
     id: 3,
@@ -44,6 +46,7 @@ export const homeShows = [
     favorite: false,
     temperature: '24도',
     upAndDown: '0',
+    rank: 3,
   },
 ];
 
