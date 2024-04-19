@@ -10,11 +10,7 @@ const ReviewList = ({ reviews }: reviewList) => {
     <div className="inline-block w-full">
       <div className="flex flex-wrap justify-center w-full pl-6">
         {reviews.map((review) => (
-          <Review
-            key={review.id}
-            title={review.title}
-            content={review.content}
-          />
+          <Review key={review.id} review={review} />
         ))}
       </div>
     </div>

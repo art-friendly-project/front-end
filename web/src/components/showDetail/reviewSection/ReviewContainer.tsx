@@ -11,10 +11,15 @@ interface reviewList {
 }
 
 export interface review {
-  id: number;
+  id?: number;
   title: string;
   content: string;
   createdAt: string;
+  user: {
+    id: number;
+    nickName: string;
+    profileImage: string;
+  };
 }
 
 const MAX_PAGE = 3;
