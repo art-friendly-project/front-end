@@ -6,14 +6,12 @@ import CloseBtn from './CloseBtn';
 const DetailHeader = () => {
   const location = useLocation();
   const pathname = location.pathname;
-  const showPage = pathname.includes('shows');
 
   const outputHeaderBtn = () => {
     if (pathname === '/home/taste-test') return true;
     if (pathname === '/home/nearby') return true;
     if (pathname === '/prepare-service') return true;
-    if (showPage) return true;
-
+    if (pathname.includes('reviews')) return true;
     return false;
   };
 
