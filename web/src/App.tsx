@@ -16,6 +16,7 @@ import TasteTestResult from 'pages/TasteTestResult';
 import Loading from 'pages/Loading';
 import PrepareService from 'pages/PrepareService';
 import ShowDetail from 'pages/ShowDetail';
+import Reviews from 'pages/Reviews';
 
 const App = () => {
   return (
@@ -46,6 +47,7 @@ const App = () => {
                 element={<TasteTestResult />}
               />
               <Route path="/prepare-service" element={<PrepareService />} />
+              <Route path="/shows/:id/reviews" element={<Reviews />} />
             </Route>
             <Route path="/shows/:id" element={<ShowDetail />} />
             <Route path="/loading" element={<Loading />} />
