@@ -1,4 +1,7 @@
 import tape from 'assets/images/etc/tape.svg';
+import ReviewTitle from './ReviewTitle';
+import ReviewContent from './ReviewContent';
+import { useNavigate } from 'react-router-dom';
 
 interface review {
   title: string;
@@ -6,16 +9,17 @@ interface review {
 }
 
 const Review = ({ title, content }: review) => {
+  const navigate = useNavigate();
   return (
-    <button className="relative flex flex-col items-center justify-center mb-8 mr-6 h-44 w-43/100 shadow-custom3 rounded-xl">
+    <button
+      className="relative flex flex-col items-center justify-center mb-8 mr-6 h-44 w-43/100 shadow-custom3 rounded-xl"
+      onClick={() => {
+        navigate('reviews');
+      }}
+    >
       <img src={tape} className="absolute -top-3" />
-      <span className="w-10/12 h-10 mt-4 truncate text-Body3 text-start">
-        {title}
-      </span>
-      <span className="w-10/12 h-10 overflow-hidden whitespace-break-spaces text-Body2-M text-ellipsis">
-        {content}
-      </span>
-      <span>...</span>
+      <ReviewTitle title={title} />
+      <ReviewContent content={content} />
     </button>
   );
 };
