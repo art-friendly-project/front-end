@@ -7,7 +7,7 @@ import homeIconOrange from '../../assets/images/navigation/homeIconOrange.svg';
 import listIconOrange from '../../assets/images/navigation/listIconOrange.svg';
 import calendarIconOrange from '../../assets/images/navigation/calendarIconOrange.svg';
 import profileIconOrange from '../../assets/images/navigation/profileIconOrange.svg';
-import Toast from './Toast';
+import FavoriteToast from './FavoriteToast';
 
 const NavigationBar = () => {
   return (
@@ -21,7 +21,7 @@ const NavigationBar = () => {
           activeIcon={navigation.activeIcon}
         />
       ))}
-      <Toast />
+      <FavoriteToast />
     </div>
   );
 };
