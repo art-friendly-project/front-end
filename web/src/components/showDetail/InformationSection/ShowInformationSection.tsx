@@ -1,7 +1,7 @@
 import BtnAndRightArrow from 'components/common/BtnAndRightArrow';
 import { type show } from '../posterSection/PosterSection';
-import ShowInformationText from './ShowInformationText';
 import ShowInformationTitle from './ShowInformationTitle';
+import ShowInformationContent from './ShowInformationContent';
 
 interface showInformationSection {
   show: show;
@@ -15,7 +15,7 @@ const ShowInformationSection = ({ show }: showInformationSection) => {
   return (
     <div className="flex flex-col mt-72">
       <ShowInformationTitle />
-      <ShowInformationText
+      <ShowInformationContent
         showType={show.showType}
         place={show.place}
         location={show.location}
