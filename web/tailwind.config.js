@@ -138,6 +138,7 @@ module.exports = {
         'memo-pad': 'url(assets/images/etc/memoPad.svg)',
       },
       height: {
+        18: '4.5rem',
         34.4: '8.6rem',
         108: '27rem',
         140: '35rem',
@@ -149,6 +150,7 @@ module.exports = {
         '9/10': '90%',
       },
       width: {
+        18: '4.5rem',
         34.4: '8.6rem',
         92: '23rem',
         100: '25rem',
