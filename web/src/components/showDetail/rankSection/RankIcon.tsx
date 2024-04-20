@@ -3,23 +3,39 @@ import { type Dispatch, type SetStateAction } from 'react';
 interface rankIcon {
   idx: number;
   icon: string[];
-  selectedRank: boolean[];
-  setSelectedRank: Dispatch<SetStateAction<boolean[]>>;
+  isSelectedRank: boolean;
+  setIsSelectedRanks: Dispatch<SetStateAction<boolean[]>>;
+  setIsModal: Dispatch<SetStateAction<boolean>>;
+  setCancelIdx: Dispatch<SetStateAction<number>>;
 }
 
-const RankIcon = ({ idx, icon, selectedRank, setSelectedRank }: rankIcon) => {
+const RankIcon = ({
+  idx,
+  icon,
+  isSelectedRank,
+  setIsSelectedRanks,
+  setIsModal,
+  setCancelIdx,
+}: rankIcon) => {
+  const btnHandler = () => {
+    if (isSelectedRank) {
+      setCancelIdx(idx);
+      setIsModal(true);
+    }
+
+    if (!isSelectedRank) {
+      setIsSelectedRanks((prev) =>
+        prev.map((_, i) => {
+          if (i === idx) return true;
+          else return false;
+        }),
+      );
+    }
+  };
+
   return (
-    <button
-      onClick={() => {
-        setSelectedRank((prev) =>
-          prev.map((_, i) => {
-            if (i === idx) return true;
-            else return false;
-          }),
-        );
-      }}
-    >
-      <img src={selectedRank[idx] ? icon[1] : icon[0]} />
+    <button onClick={btnHandler}>
+      <img src={isSelectedRank ? icon[1] : icon[0]} />
     </button>
   );
 };

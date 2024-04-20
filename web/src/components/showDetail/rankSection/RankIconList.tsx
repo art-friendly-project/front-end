@@ -10,13 +10,16 @@ import fourActive from '../../../assets/images/rank/fourActive.svg';
 import fiveActive from '../../../assets/images/rank/fiveActive.svg';
 import RankIcon from './RankIcon';
 import { useEffect, useState } from 'react';
+import CancelModal from './CancelModal';
 
 interface rankIconList {
   rank: number;
 }
 
 const RankIconList = ({ rank }: rankIconList) => {
-  const [selectedRank, setSelectedRank] = useState([
+  const [isModal, setIsModal] = useState(false);
+  const [cancelIdx, setCancelIdx] = useState(0);
+  const [isSelectedRanks, setIsSelectedRanks] = useState([
     false,
     false,
     false,
@@ -25,7 +28,7 @@ const RankIconList = ({ rank }: rankIconList) => {
   ]);
 
   useEffect(() => {
-    setSelectedRank((prev) =>
+    setIsSelectedRanks((prev) =>
       prev.map((_, i) => {
         if (5 - rank === i) return true;
         else return false;
@@ -34,16 +37,25 @@ const RankIconList = ({ rank }: rankIconList) => {
   }, []);
 
   return (
-    <div className="flex justify-around w-full px-4 mt-8 mb-8">
+    <div className="relative flex justify-around w-full px-4 mt-8 mb-8">
       {icons.map((icon, idx) => (
         <RankIcon
           key={idx}
           idx={idx}
           icon={icon}
-          selectedRank={selectedRank}
-          setSelectedRank={setSelectedRank}
+          isSelectedRank={isSelectedRanks[idx]}
+          setIsSelectedRanks={setIsSelectedRanks}
+          setIsModal={setIsModal}
+          setCancelIdx={setCancelIdx}
         />
       ))}
+      {isModal ? (
+        <CancelModal
+          setIsModal={setIsModal}
+          setIsSelectedRanks={setIsSelectedRanks}
+          cancelIdx={cancelIdx}
+        />
+      ) : null}
     </div>
   );
 };

@@ -33,21 +33,21 @@ const CloseConfirmModal = ({ setIsModal }: closeConfirmModal) => {
         </span>
         <div className="flex mt-12">
           <button
-            className="w-32 h-10 mr-2 text-white bg-orange-100 rounded-xl"
+            className="w-32 h-10 mr-2 border-2 border-orange-100 rounded-xl"
+            onClick={() => {
+              setIsModal(false);
+            }}
+          >
+            취소
+          </button>
+          <button
+            className="w-32 h-10 text-white bg-orange-100 rounded-xl"
             onClick={() => {
               navigate(closeNavigate);
               clearTest();
             }}
           >
             확인
-          </button>
-          <button
-            className="w-32 h-10 border-2 border-orange-100 rounded-xl"
-            onClick={() => {
-              setIsModal(false);
-            }}
-          >
-            취소
           </button>
         </div>
       </div>
