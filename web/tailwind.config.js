@@ -134,9 +134,13 @@ module.exports = {
       ],
     },
     extend: {
+      backgroundImage: {
+        'memo-pad': 'url(assets/images/etc/memoPad.svg)',
+      },
       height: {
         34.4: '8.6rem',
         108: '27rem',
+        140: '35rem',
         '1/10': '10%',
         '2/25': '8%',
         '23/25': '92%',
@@ -147,6 +151,7 @@ module.exports = {
       width: {
         34.4: '8.6rem',
         92: '23rem',
+        100: '25rem',
         '7/10': '70%',
         '9/10': '90%',
         '3/10': '30%',
@@ -165,6 +170,7 @@ module.exports = {
         '12/12': '100%',
         '19/25': '76%',
         '43/100': '43%',
+        '17/20': '85%',
       },
       colors: {
         'orange-100': '#FF955A',
@@ -182,6 +188,7 @@ module.exports = {
         'gray-80': '#616161',
         'gray-70': '#757575',
         'gray-60': '#888888',
+        'gray-40': '#B1B1B1',
         'gray-30': '#C5C5C5',
         'gray-20': '#D9D9D9',
         'gray-10': '#EDEDED',
