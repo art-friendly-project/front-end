@@ -1,7 +1,7 @@
 import { useAppSelector } from 'hooks';
 import { selectToast } from 'store/modules/toast';
 
-const Toast = () => {
+const FavoriteToast = () => {
   const isToast = useAppSelector(selectToast)[0];
   const isFavorite = useAppSelector(selectToast)[1];
 
@@ -18,4 +18,4 @@ const Toast = () => {
   );
 };
 
-export default Toast;
+export default FavoriteToast;
