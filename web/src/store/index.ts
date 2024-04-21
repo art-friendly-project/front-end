@@ -2,7 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import locationReducer from './modules/location';
 import toastReducer from './modules/toast';
 import isTestReducer from './modules/isTest';
-import closeNavigateReducer from './modules/closeNavigate';
+import endpointReducer from './modules/endpoint';
 import tasteTestReducer from './modules/tasteTest';
 
 const store = configureStore({
@@ -10,7 +10,7 @@ const store = configureStore({
     location: locationReducer,
     toast: toastReducer,
     isTest: isTestReducer,
-    closeNavigate: closeNavigateReducer,
+    endpoint: endpointReducer,
     tasteTest: tasteTestReducer,
   },
 });

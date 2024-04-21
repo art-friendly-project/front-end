@@ -2,13 +2,13 @@ import BtnAndRightArrow from 'components/common/BtnAndRightArrow';
 import TasteTestTitle from './TasteTestTitle';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from 'hooks';
-import { closeNavigateActions } from 'store/modules/closeNavigate';
+import { endpointActions } from 'store/modules/endpoint';
 
 const TasteTestSeciton = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const btnHandler = () => {
-    dispatch(closeNavigateActions.current('/home'));
+    dispatch(endpointActions.current('/home'));
     navigate('/home/taste-test');
   };
 
