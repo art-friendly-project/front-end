@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import ReviewList from './ReviewList';
 import ReviewSectionTitle from './ReviewSectionTitle';
-import ReviewWriteBtn from './ReviewWriteBtn';
+import ReviewPostBtn from './ReviewPostBtn';
 import LeftArrowBtn from './LeftArrowBtn';
 import RightArrowBtn from './RightArrowBtn';
 import PageIndicator from './PageIndicator';
@@ -38,7 +38,7 @@ const ReviewContainer = ({ reviews }: reviewList) => {
 
   return (
     <>
-      <ReviewWriteBtn />
+      <ReviewPostBtn />
       <ReviewSectionTitle />
       <LeftArrowBtn
         setCurrentPage={setCurrentPage}
