@@ -1,8 +1,12 @@
 import BtnAndRightArrow from 'components/common/BtnAndRightArrow';
 import review from 'assets/images/etc/review.svg';
+import { useNavigate } from 'react-router-dom';
 
 const NoReview = () => {
-  const btnHandler = () => {};
+  const navigate = useNavigate();
+  const btnHandler = () => {
+    navigate('review-post');
+  };
 
   return (
     <>

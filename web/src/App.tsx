@@ -17,6 +17,7 @@ import Loading from 'pages/Loading';
 import PrepareService from 'pages/PrepareService';
 import ShowDetail from 'pages/ShowDetail';
 import Reviews from 'pages/Reviews';
+import ReviewPost from 'pages/ReviewPost';
 
 const App = () => {
   return (
@@ -48,6 +49,7 @@ const App = () => {
               />
               <Route path="/prepare-service" element={<PrepareService />} />
               <Route path="/shows/:id/reviews" element={<Reviews />} />
+              <Route path="/shows/:id/review-post" element={<ReviewPost />} />
             </Route>
             <Route path="/shows/:id" element={<ShowDetail />} />
             <Route path="/loading" element={<Loading />} />
