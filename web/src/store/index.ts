@@ -4,6 +4,7 @@ import toastReducer from './modules/toast';
 import isTestReducer from './modules/isTest';
 import endpointReducer from './modules/endpoint';
 import tasteTestReducer from './modules/tasteTest';
+import isPostEmptyReducer from './modules/isPostEmpty';
 
 const store = configureStore({
   reducer: {
@@ -12,6 +13,7 @@ const store = configureStore({
     isTest: isTestReducer,
     endpoint: endpointReducer,
     tasteTest: tasteTestReducer,
+    isPostEmpty: isPostEmptyReducer,
   },
 });
 
