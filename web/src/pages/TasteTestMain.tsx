@@ -20,10 +20,10 @@ const TasteTestMain = () => {
   return (
     <>
       <TasteTestMainTitle />
-      <div className="flex flex-col items-center mt-32">
-        <img src={character2} className="mb-32" />
-        <BtnBasic name="시작하기" fn={btnHandler} disable={false} />
+      <div className="flex justify-center">
+        <img src={character2} className="mt-32 mb-32" />
       </div>
+      <BtnBasic name="시작하기" fn={btnHandler} disable={false} />
     </>
   );
 };

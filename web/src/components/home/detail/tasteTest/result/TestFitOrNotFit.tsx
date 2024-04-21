@@ -22,7 +22,7 @@ const TestFitOrNotFit = ({ mbti }: testFitOrNotFit) => {
   const notFits = mbti.notFit.map((m) => mbtiType[m]);
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center mb-16">
       <TestFitOrNotFitMenu active={active} setActive={setActive} />
       <TestFitOrNotFitContents active={active} fits={fits} notFits={notFits} />
     </div>

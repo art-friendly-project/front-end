@@ -6,13 +6,15 @@ interface btnBasic {
 
 const BtnBasic = ({ name, fn, disable }: btnBasic) => {
   return (
-    <button
-      className={`h-12 rounded-lg w-9/10 ${disable ? 'bg-orange-50' : 'bg-orange-100'}`}
-      onClick={fn}
-      disabled={disable}
-    >
-      <span className="text-white text-Subhead">{name}</span>
-    </button>
+    <div className="flex justify-center w-full">
+      <button
+        className={`h-12 rounded-lg w-9/10 ${disable ? 'bg-orange-50' : 'bg-orange-100'}`}
+        onClick={fn}
+        disabled={disable}
+      >
+        <span className="text-white text-Subhead">{name}</span>
+      </button>
+    </div>
   );
 };
 

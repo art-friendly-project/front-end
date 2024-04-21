@@ -20,9 +20,7 @@ const TasteTestResult = () => {
       />
       <TestResultExplain explain={mbti.explain} />
       <TestFitOrNotFit mbti={mbti} />
-      <div className="flex justify-center mt-16">
-        <BtnBasic name="결과 공유하기" fn={btnhandler} disable={false} />
-      </div>
+      <BtnBasic name="결과 공유하기" fn={btnhandler} disable={false} />
     </>
   );
 };
