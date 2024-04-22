@@ -15,7 +15,7 @@ const CloseBtn = ({ setIsModal, setCurrent }: closeBtn) => {
         setCurrent(false);
       }}
     >
-      <IoIosClose className="w-8 h-8 " />
+      <IoIosClose className="w-12 h-12" />
     </button>
   );
 };
