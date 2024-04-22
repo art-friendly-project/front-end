@@ -20,7 +20,7 @@ const BackBtn = () => {
 
   return (
     <button
-      className="absolute left-2"
+      className="absolute left-2 top-4"
       onClick={() => {
         moveNavigate();
       }}
