@@ -18,7 +18,7 @@ const MemoPad = ({ review, setReview }: memoPad) => {
 
   return (
     <>
-      <div className="relative bg-cover w-100 h-140 bg-memo-pad">
+      <div className="relative bg-cover w-100 h-140 bg-memo-pad shrink-0">
         <PiTrashSimple className="absolute w-6 h-6 top-24 right-10" />
         <div className="absolute flex flex-col overflow-y-scroll left-12 top-20 h-92 w-78 scrollbar-hide">
           <Profile user={review.user} createdAt={review.createdAt} />
