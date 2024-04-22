@@ -8,7 +8,7 @@ const ShowDetailBackBtn = () => {
     <button
       className="absolute z-20 left-2 top-3"
       onClick={() => {
-        navigate('/home');
+        navigate(-1);
       }}
     >
       <IoIosArrowBack className="w-10 h-10 text-white" />
