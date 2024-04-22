@@ -4,6 +4,9 @@ import posterExample3 from '../assets/images/example/posterExample3.png';
 import ENFJ from 'assets/images/tasteTestProfile/ENFJ.svg';
 import ENFP from 'assets/images/tasteTestProfile/ENFP.svg';
 import INTP from 'assets/images/tasteTestProfile/INTP.svg';
+import smile from 'assets/images/sticker/smile.svg';
+import heart from 'assets/images/sticker/heart.svg';
+import sun from 'assets/images/sticker/sun.svg';
 
 export const homeShows = [
   {
@@ -165,6 +168,24 @@ export const reviewDatas = [
       content:
         '이번 전시회 진짜 좋았어 사람들도 적당히 있었고 나도 기분 좋게 봤던 것 같아 역시 전시 보는 이유가 있단 말이야~\n남들도 추천추천함 나는 그 부분이 제일 좋더라 작품 중에 알 수 없는 계절이라는 작품이 있었는데 괜찮더라고 아직 못 본 사람들도 얼른가서 봐봐 ㅎㅎ',
       createdAt: '24.04.16',
+      stickers: [
+        {
+          id: 1,
+          sticker: smile,
+          comments:
+            'ㅋㅋㅋㅋㅋㅋ저도 공감합니다. 전시회 굿이에요 감성 충전하고 온 것 같은 느낌이에요ㅎㅎ',
+        },
+        {
+          id: 2,
+          sticker: heart,
+          comments: '아주 좋았습니다!',
+        },
+        {
+          id: 3,
+          sticker: sun,
+          comments: '',
+        },
+      ],
       user: {
         id: 1,
         nickName: '고래',
@@ -177,6 +198,7 @@ export const reviewDatas = [
       content:
         '이번 전시회 진짜 좋았어 사람들도 적당히 있었고 나도 기분 좋게 봤던 것 같아 역시 전시 보는 이유가 있단 말이야~\n남들도 추천추천함 나는 그 부분이 제일 좋더라 작품 중에 알 수 없는 계절이라는 작품이 있었는데 괜찮더라고 아직 못 본 사람들도 얼른가서 봐봐 ㅎㅎ',
       createdAt: '24.04.16',
+      stickers: [],
       user: {
         id: 2,
         nickName: '사자',
@@ -189,6 +211,7 @@ export const reviewDatas = [
       content:
         '이번 전시회 진짜 좋았어 사람들도 적당히 있었고 나도 기분 좋게 봤던 것 같아 역시 전시 보는 이유가 있단 말이야~\n남들도 추천추천함 나는 그 부분이 제일 좋더라 작품 중에 알 수 없는 계절이라는 작품이 있었는데 괜찮더라고 아직 못 본 사람들도 얼른가서 봐봐 ㅎㅎ',
       createdAt: '24.04.16',
+      stickers: [],
       user: {
         id: 3,
         nickName: '호랑이',
@@ -201,6 +224,7 @@ export const reviewDatas = [
       content:
         '이번 전시회 진짜 좋았어 사람들도 적당히 있었고 나도 기분 좋게 봤던 것 같아 역시 전시 보는 이유가 있단 말이야~\n남들도 추천추천함 나는 그 부분이 제일 좋더라 작품 중에 알 수 없는 계절이라는 작품이 있었는데 괜찮더라고 아직 못 본 사람들도 얼른가서 봐봐 ㅎㅎ',
       createdAt: '24.04.16',
+      stickers: [],
       user: {
         id: 4,
         nickName: '앵무새',
@@ -213,6 +237,7 @@ export const reviewDatas = [
       content:
         '이번 전시회 진짜 좋았어 사람들도 적당히 있었고 나도 기분 좋게 봤던 것 같아 역시 전시 보는 이유가 있단 말이야~\n남들도 추천추천함 나는 그 부분이 제일 좋더라 작품 중에 알 수 없는 계절이라는 작품이 있었는데 괜찮더라고 아직 못 본 사람들도 얼른가서 봐봐 ㅎㅎ',
       createdAt: '24.04.16',
+      stickers: [],
       user: {
         id: 5,
         nickName: '잉무새',
@@ -225,6 +250,7 @@ export const reviewDatas = [
       content:
         '이번 전시회 진짜 좋았어 사람들도 적당히 있었고 나도 기분 좋게 봤던 것 같아 역시 전시 보는 이유가 있단 말이야~\n남들도 추천추천함 나는 그 부분이 제일 좋더라 작품 중에 알 수 없는 계절이라는 작품이 있었는데 괜찮더라고 아직 못 본 사람들도 얼른가서 봐봐 ㅎㅎ',
       createdAt: '24.04.16',
+      stickers: [],
       user: {
         id: 6,
         nickName: '벌',
@@ -237,6 +263,7 @@ export const reviewDatas = [
       content:
         '이번 전시회 진짜 좋았어 사람들도 적당히 있었고 나도 기분 좋게 봤던 것 같아 역시 전시 보는 이유가 있단 말이야~\n남들도 추천추천함 나는 그 부분이 제일 좋더라 작품 중에 알 수 없는 계절이라는 작품이 있었는데 괜찮더라고 아직 못 본 사람들도 얼른가서 봐봐 ㅎㅎ',
       createdAt: '24.04.16',
+      stickers: [],
       user: {
         id: 7,
         nickName: '별',
@@ -249,6 +276,7 @@ export const reviewDatas = [
       content:
         '이번 전시회 진짜 좋았어 사람들도 적당히 있었고 나도 기분 좋게 봤던 것 같아 역시 전시 보는 이유가 있단 말이야~\n남들도 추천추천함 나는 그 부분이 제일 좋더라 작품 중에 알 수 없는 계절이라는 작품이 있었는데 괜찮더라고 아직 못 본 사람들도 얼른가서 봐봐 ㅎㅎ',
       createdAt: '24.04.16',
+      stickers: [],
       user: {
         id: 8,
         nickName: '달',
@@ -261,6 +289,7 @@ export const reviewDatas = [
       content:
         '이번 전시회 진짜 좋았어 사람들도 적당히 있었고 나도 기분 좋게 봤던 것 같아 역시 전시 보는 이유가 있단 말이야~\n남들도 추천추천함 나는 그 부분이 제일 좋더라 작품 중에 알 수 없는 계절이라는 작품이 있었는데 괜찮더라고 아직 못 본 사람들도 얼른가서 봐봐 ㅎㅎ',
       createdAt: '24.04.16',
+      stickers: [],
       user: {
         id: 9,
         nickName: '해',
@@ -273,6 +302,7 @@ export const reviewDatas = [
       content:
         '이번 전시회 진짜 좋았어 사람들도 적당히 있었고 나도 기분 좋게 봤던 것 같아 역시 전시 보는 이유가 있단 말이야~\n남들도 추천추천함 나는 그 부분이 제일 좋더라 작품 중에 알 수 없는 계절이라는 작품이 있었는데 괜찮더라고 아직 못 본 사람들도 얼른가서 봐봐 ㅎㅎ',
       createdAt: '24.04.16',
+      stickers: [],
       user: {
         id: 10,
         nickName: '말',
@@ -285,6 +315,7 @@ export const reviewDatas = [
       content:
         '이번 전시회 진짜 좋았어 사람들도 적당히 있었고 나도 기분 좋게 봤던 것 같아 역시 전시 보는 이유가 있단 말이야~\n남들도 추천추천함 나는 그 부분이 제일 좋더라 작품 중에 알 수 없는 계절이라는 작품이 있었는데 괜찮더라고 아직 못 본 사람들도 얼른가서 봐봐 ㅎㅎ',
       createdAt: '24.04.16',
+      stickers: [],
       user: {
         id: 11,
         nickName: '얼룩말',
@@ -297,6 +328,7 @@ export const reviewDatas = [
       content:
         '이번 전시회 진짜 좋았어 사람들도 적당히 있었고 나도 기분 좋게 봤던 것 같아 역시 전시 보는 이유가 있단 말이야~\n남들도 추천추천함 나는 그 부분이 제일 좋더라 작품 중에 알 수 없는 계절이라는 작품이 있었는데 괜찮더라고 아직 못 본 사람들도 얼른가서 봐봐 ㅎㅎ',
       createdAt: '24.04.16',
+      stickers: [],
       user: {
         id: 12,
         nickName: '치타',
