@@ -29,7 +29,7 @@ const Reviews = () => {
 
   return (
     <>
-      <div className="flex flex-col items-center w-full h-full pt-10">
+      <div className="flex flex-col items-center w-full h-full pt-10 overflow-y-scroll scrollbar-hide">
         <MemoPad review={review} setReview={setReview} />
         <BtnContainer
           setIsModal={setIsModal}

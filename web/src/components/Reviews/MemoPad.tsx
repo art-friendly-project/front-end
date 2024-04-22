@@ -1,9 +1,9 @@
+import { type Dispatch, type SetStateAction, useState } from 'react';
 import { PiTrashSimple } from 'react-icons/pi';
 import Profile from './Profile';
 import Title from './Title';
 import Content from './Content';
 import MemoPadStickerList from './MemoPadStickerList';
-import { type Dispatch, type SetStateAction, useState } from 'react';
 import MemoPadStickerComments from './MemoPadStickerComments';
 
 interface memoPad {
