@@ -3,6 +3,8 @@ import PosterImg from 'components/common/PosterImg';
 import PosterInfo from './PosterInfo';
 import FavoriteBtn from 'components/common/FavoriteBtn';
 import { useNavigate } from 'react-router-dom';
+import { useAppDispatch } from 'hooks';
+import { endpointActions } from 'store/modules/endpoint';
 
 interface show {
   id: number;
@@ -26,11 +28,14 @@ const Show = ({
   image,
 }: show) => {
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+
   return (
     <div className="relative w-full pl-6 mb-8">
       <button
         className="flex"
         onClick={() => {
+          dispatch(endpointActions.current('/home/nearby'));
           navigate(`/shows/${id}`);
         }}
       >
