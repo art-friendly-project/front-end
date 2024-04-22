@@ -23,7 +23,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <div className="flex w-screen h-screen bg-gray-100 md:justify-center">
-        <div className="relative w-full h-full bg-white md:w-1/2 lg:w-1/2 xl:w-1/3">
+        <div className="relative flex flex-col w-full h-full bg-white md:w-1/2 lg:w-1/2 xl:w-1/3">
           <Routes>
             <Route path="/" element={<OpenLoading />} />
             <Route path="/login" element={<Login />} />

@@ -16,7 +16,7 @@ const DetailHeader = () => {
   };
 
   return (
-    <div className="relative z-20 flex items-center justify-center w-full h-2/25">
+    <div className="relative z-20 flex items-center justify-center flex-shrink-0 w-full h-18">
       {outputHeaderBtn() ? <BackBtn /> : null}
       <HeaderTitle />
       {outputHeaderBtn() ? null : <CloseBtn />}

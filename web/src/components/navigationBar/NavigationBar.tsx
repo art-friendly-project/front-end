@@ -11,7 +11,7 @@ import FavoriteToast from './FavoriteToast';
 
 const NavigationBar = () => {
   return (
-    <div className="relative flex w-full shadow-custom h-1/10 rounded-t-2xl">
+    <div className="relative flex flex-shrink-0 w-full h-22.8 shadow-custom rounded-t-2xl">
       {navigations.map((navigation) => (
         <NavigationBtn
           key={navigation.name}

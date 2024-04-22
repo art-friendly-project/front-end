@@ -9,7 +9,7 @@ interface closeBtn {
 const CloseBtn = ({ setIsModal, setCurrent }: closeBtn) => {
   return (
     <button
-      className="absolute right-2 top-2"
+      className="absolute right-1 top-1"
       onClick={() => {
         setIsModal(false);
         setCurrent(false);
