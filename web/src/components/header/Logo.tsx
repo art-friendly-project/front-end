@@ -10,7 +10,7 @@ const Logo = () => {
         navigate('/');
       }}
     >
-      <img src={logo2} className="ml-4" />
+      <img src={logo2} className="absolute top-2 left-4" />
     </button>
   );
 };

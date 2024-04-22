@@ -28,7 +28,7 @@ const DeadlineShow = ({
   const navigate = useNavigate();
 
   return (
-    <div className="relative w-full pl-6 mb-6">
+    <div className="relative w-full mb-6">
       <button
         className="flex"
         onClick={() => {

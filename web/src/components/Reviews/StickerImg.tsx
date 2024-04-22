@@ -9,6 +9,7 @@ interface stickerImg {
 const StickerImg = ({ sticker, setSticker, setCurrent }: stickerImg) => {
   return (
     <button
+      className="flex items-center justify-center w-1/4"
       onClick={() => {
         setSticker(sticker);
         setCurrent(true);

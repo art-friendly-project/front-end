@@ -31,7 +31,7 @@ const Show = ({
   const dispatch = useAppDispatch();
 
   return (
-    <div className="relative w-full pl-6 mb-8">
+    <div className="relative mb-8 w-9/10">
       <button
         className="flex"
         onClick={() => {

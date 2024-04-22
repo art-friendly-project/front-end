@@ -11,7 +11,7 @@ import FavoriteToast from './FavoriteToast';
 
 const NavigationBar = () => {
   return (
-    <div className="relative flex flex-shrink-0 w-full h-22.8 shadow-custom rounded-t-2xl">
+    <div className="relative bottom-0 flex shrink-0 w-full h-22.8 shadow-custom rounded-t-2xl">
       {navigations.map((navigation) => (
         <NavigationBtn
           key={navigation.name}
@@ -34,7 +34,7 @@ const navigations = [
     activeIcon: homeIconOrange,
   },
   {
-    name: '전시 목록',
+    name: '전시/행사 목록',
     endpoint: '/list',
     inActiveIcon: listIconGray,
     activeIcon: listIconOrange,

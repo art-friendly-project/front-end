@@ -30,7 +30,7 @@ const App = () => {
             <Route path="/taste-select" element={<TasteSelect />} />
             <Route element={<MainLayout />}>
               <Route path="/home" element={<Home />} />
-              <Route path="/list" element={<List />} />
+              <Route path="/List" element={<List />} />
               <Route path="/calendar" element={<Calendar />} />
               <Route path="/profile" element={<Profile />} />
             </Route>

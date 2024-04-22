@@ -18,7 +18,7 @@ interface nearbyShow {
 
 const ShowList = ({ nearbyShows }: showList) => {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col items-center mt-20">
       {nearbyShows.length === 0 ? (
         <ShowEmptyMessage />
       ) : (

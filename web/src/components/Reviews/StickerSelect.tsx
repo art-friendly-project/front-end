@@ -24,7 +24,7 @@ interface stickerSelect {
 
 const StickerSelect = ({ setSticker, setCurrent }: stickerSelect) => {
   return (
-    <div className="flex flex-wrap justify-around mx-4 mt-10 overflow-y-scroll scrollbar-hide">
+    <div className="flex flex-wrap mt-10 overflow-y-scroll scrollbar-hide">
       {stickers.map((sticker) => (
         <StickerImg
           key={sticker}

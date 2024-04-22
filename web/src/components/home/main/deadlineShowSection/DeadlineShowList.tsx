@@ -3,7 +3,7 @@ import DeadlineShow from './DeadlineShow';
 
 const DeadlineShowList = () => {
   return (
-    <div className="flex flex-col items-center w-full">
+    <div className="flex flex-col items-center w-9/10">
       {homeShows.map((show) => (
         <DeadlineShow
           key={show.id}

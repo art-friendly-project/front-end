@@ -18,7 +18,7 @@ const FilterList = ({
   setIsModalOpen,
 }: filterList) => {
   return (
-    <div className="flex w-full h-16 pl-6 mt-2">
+    <div className="flex items-center absolute z-10 bg-white w-full h-16 pl-[5%] mt-2 top-16">
       <LocationFilter
         location={location}
         isModalOpen={isModalOpen}

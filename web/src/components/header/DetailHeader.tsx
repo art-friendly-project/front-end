@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import BackBtn from './BackBtn';
-import HeaderTitle from './HeaderTitle';
+import DetailHeaderTitle from './DetailHeaderTitle';
 import CloseBtn from './CloseBtn';
 
 const DetailHeader = () => {
@@ -18,7 +18,7 @@ const DetailHeader = () => {
   return (
     <div className="relative z-20 flex items-center justify-center flex-shrink-0 w-full h-18">
       {outputHeaderBtn() ? <BackBtn /> : null}
-      <HeaderTitle />
+      <DetailHeaderTitle />
       {outputHeaderBtn() ? null : <CloseBtn />}
     </div>
   );

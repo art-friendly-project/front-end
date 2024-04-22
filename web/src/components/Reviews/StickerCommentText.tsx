@@ -21,7 +21,7 @@ const StickerCommentText = ({ text, setText }: stickerCommentText) => {
         value={text}
         onChange={handleChange}
       />
-      <div className="flex justify-end w-full pr-5">
+      <div className="flex justify-end w-full pr-[5%]">
         <span className="text-Body2-M text-gray-60">{`${text.length}/40자`}</span>
       </div>
     </>

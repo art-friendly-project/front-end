@@ -12,7 +12,7 @@ const ShowInformationContent = ({
   phone,
 }: showInformationContent) => {
   return (
-    <div className="flex pl-6 mt-6">
+    <div className="flex pl-[5%] mt-6">
       <div className="flex flex-col w-24 text-Body2-M text-gray-90">
         <span>전시 종류</span>
         <span className="mt-3">장소</span>
