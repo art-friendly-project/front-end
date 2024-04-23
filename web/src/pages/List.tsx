@@ -74,7 +74,7 @@ const List = () => {
           setIsModalOpen={setIsModalOpen}
         />
       </div>
-      <div className="mt-28">
+      <div className="mt-8">
         <ShowList nearbyShows={nearbyShows} />
       </div>
     </>
