@@ -5,9 +5,11 @@ import { useAppDispatch, useAppSelector } from 'hooks';
 import { useState } from 'react';
 import { selectLocation } from 'store/modules/location';
 import { nearbyShows } from 'mock/mockData';
+import DurationList from 'components/list/DurationList';
 
 const List = () => {
   const [isModalOpen, setIsModalOpen] = useState([false, false, false]);
+  const [duration, setDuration] = useState('ongoing');
   const [showType, setShowType] = useState('exhibition');
   const [priority, setPriority] = useState('popularity');
 
@@ -62,14 +64,19 @@ const List = () => {
           setIsModalOpen={setIsModalOpen}
         />
       ) : null}
-      <FilterList
-        location={location}
-        priority={priority}
-        showType={showType}
-        isModalOpen={isModalOpen}
-        setIsModalOpen={setIsModalOpen}
-      />
-      <ShowList nearbyShows={nearbyShows} />
+      <DurationList duration={duration} setDuration={setDuration} />
+      <div className="absolute w-full top-[1.8rem]">
+        <FilterList
+          location={location}
+          priority={priority}
+          showType={showType}
+          isModalOpen={isModalOpen}
+          setIsModalOpen={setIsModalOpen}
+        />
+      </div>
+      <div className="mt-28">
+        <ShowList nearbyShows={nearbyShows} />
+      </div>
     </>
   );
 };
