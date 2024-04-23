@@ -342,3 +342,27 @@ export const reviewDatas = [
   [],
   [],
 ];
+
+export const likeList = [
+  {
+    id: 1,
+    term: '24.01.01 ~ 24.04.29',
+    name: 'Body, Love, Gender',
+    image: posterExample1,
+    favorite: true,
+  },
+  {
+    id: 2,
+    term: '24.03.02 ~ 24.05.18',
+    name: '멋진 전시회',
+    image: posterExample2,
+    favorite: true,
+  },
+  {
+    id: 3,
+    term: '24.03.03 ~ 24.04.21',
+    name: '아름다운 행사',
+    image: posterExample3,
+    favorite: true,
+  },
+];
