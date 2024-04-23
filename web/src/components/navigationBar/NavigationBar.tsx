@@ -1,11 +1,11 @@
 import NavigationBtn from './NavigationBtn';
 import homeIconGray from '../../assets/images/navigation/homeIconGray.svg';
 import listIconGray from '../../assets/images/navigation/listIconGray.svg';
-import calendarIconGray from '../../assets/images/navigation/calendarIconGray.svg';
+import favoriteIconGray from '../../assets/images/navigation/favoriteIconGray.svg';
 import profileIconGray from '../../assets/images/navigation/profileIconGray.svg';
 import homeIconOrange from '../../assets/images/navigation/homeIconOrange.svg';
 import listIconOrange from '../../assets/images/navigation/listIconOrange.svg';
-import calendarIconOrange from '../../assets/images/navigation/calendarIconOrange.svg';
+import favoriteIconOrange from '../../assets/images/navigation/favoriteIconOrange.svg';
 import profileIconOrange from '../../assets/images/navigation/profileIconOrange.svg';
 import FavoriteToast from './FavoriteToast';
 
@@ -40,10 +40,10 @@ const navigations = [
     activeIcon: listIconOrange,
   },
   {
-    name: '캘린더',
-    endpoint: '/calendar',
-    inActiveIcon: calendarIconGray,
-    activeIcon: calendarIconOrange,
+    name: '관심 목록',
+    endpoint: '/like',
+    inActiveIcon: favoriteIconGray,
+    activeIcon: favoriteIconOrange,
   },
   {
     name: '프로필',

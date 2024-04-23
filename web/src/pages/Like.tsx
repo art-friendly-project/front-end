@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const Calendar = () => {
+const Like = () => {
   const navigate = useNavigate();
   useEffect(() => {
     navigate('/prepare-service');
@@ -10,4 +10,4 @@ const Calendar = () => {
   return <>Calendar</>;
 };
 
-export default Calendar;
+export default Like;

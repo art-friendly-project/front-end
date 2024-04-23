@@ -4,7 +4,7 @@ import TasteTestMain from 'pages/TasteTestMain';
 import DetailLayout from 'layout/DetailLayout';
 import DetailLayoutWithoutNav from 'layout/DetailLayoutWithoutNav';
 import MainLayout from 'layout/MainLayout';
-import Calendar from 'pages/Calendar';
+import Like from 'pages/Like';
 import Home from 'pages/Home';
 import List from 'pages/List';
 import OpenLoading from 'pages/OpenLoading';
@@ -31,7 +31,7 @@ const App = () => {
             <Route element={<MainLayout />}>
               <Route path="/home" element={<Home />} />
               <Route path="/List" element={<List />} />
-              <Route path="/calendar" element={<Calendar />} />
+              <Route path="/like" element={<Like />} />
               <Route path="/profile" element={<Profile />} />
             </Route>
             <Route element={<DetailLayout />}>
