@@ -14,6 +14,7 @@ interface memoPad {
 const MemoPad = ({ review, setReview }: memoPad) => {
   const [stickerComments, setStickerComments] = useState('');
   const [stickerIdx, setStickerIdx] = useState(0);
+  const [stickerUserId, setStickerUserId] = useState(0);
   const [isCommentModal, setIsCommentModal] = useState(false);
 
   return (
@@ -30,6 +31,7 @@ const MemoPad = ({ review, setReview }: memoPad) => {
           setStickerComments={setStickerComments}
           setStickerIdx={setStickerIdx}
           setIsCommentModal={setIsCommentModal}
+          setStickerUserId={setStickerUserId}
         />
         {isCommentModal ? (
           <MemoPadStickerComments
@@ -37,6 +39,7 @@ const MemoPad = ({ review, setReview }: memoPad) => {
             setIsCommentModal={setIsCommentModal}
             setReview={setReview}
             stickerIdx={stickerIdx}
+            stickerUserId={stickerUserId}
           />
         ) : null}
       </div>

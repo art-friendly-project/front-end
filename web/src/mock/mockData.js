@@ -171,17 +171,20 @@ export const reviewDatas = [
       stickers: [
         {
           id: 1,
+          userId: 1,
           sticker: smile,
           comments:
             'ㅋㅋㅋㅋㅋㅋ저도 공감합니다. 전시회 굿이에요 감성 충전하고 온 것 같은 느낌이에요ㅎㅎ',
         },
         {
           id: 2,
+          userId: 2,
           sticker: heart,
           comments: '아주 좋았습니다!',
         },
         {
           id: 3,
+          userId: 3,
           sticker: sun,
           comments: '',
         },

@@ -1,4 +1,5 @@
 import { type Dispatch, type SetStateAction } from 'react';
+import { userid } from './MemoPadSticker';
 
 interface stickerCommentBtnContainer {
   text: string;
@@ -23,6 +24,7 @@ const StickerCommentBtnContainer = ({
       prev.stickers.push({
         id: prev.stickers.length + 1,
         sticker,
+        userId: userid,
         comments: '',
       });
 
@@ -38,6 +40,7 @@ const StickerCommentBtnContainer = ({
       prev.stickers.push({
         id: prev.stickers.length + 1,
         sticker,
+        userId: userid,
         comments: text,
       });
 

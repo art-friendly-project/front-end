@@ -9,6 +9,7 @@ interface review {
 
 interface sticker {
   id: number;
+  userId: number;
   sticker: string;
   comments: string;
 }
