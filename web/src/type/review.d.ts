@@ -4,7 +4,7 @@ interface review {
   content: string;
   createdAt: string;
   stickers: sticker[];
-  user: user;
+  user: ReviewUser;
 }
 
 interface sticker {
@@ -14,7 +14,7 @@ interface sticker {
   comments: string;
 }
 
-interface user {
+interface ReviewUser {
   id: number;
   nickName: string;
   profileImage: string;
