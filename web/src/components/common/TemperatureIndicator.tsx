@@ -9,7 +9,7 @@ const TemperatureIndicator = ({ temperature }: temperatureIndicator) => {
 
   return (
     <span
-      className={`absolute bottom-0 text-Body1-M flex items-center justify-center h-6 w-14 rounded-2xl opacity-90 ${temperatureColor}`}
+      className={`absolute bottom-0 text-Body1-M flex items-center justify-center h-6 w-14 rounded-2xl ${temperatureColor}`}
     >
       {temperature}
     </span>

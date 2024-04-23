@@ -4,9 +4,9 @@ import KakaoLoginBtn from 'components/login/KakaoLoginBtn';
 
 const Login = () => {
   return (
-    <div className="flex flex-col items-center pt-32">
+    <div className="flex flex-col items-center w-full h-full pt-32">
       <LoginTitle />
-      <img src={character} className="w-44" />
+      <img src={character} className="absolute top-[40%] w-44" />
       <KakaoLoginBtn />
     </div>
   );

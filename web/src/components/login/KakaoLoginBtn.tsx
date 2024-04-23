@@ -5,7 +5,7 @@ const KakaoLoginBtn = () => {
   const navigate = useNavigate();
   return (
     <button
-      className="relative flex items-center justify-center h-16 mt-20 rounded-md w-9/10 bg-kakaoYellow"
+      className="absolute flex items-center justify-center h-16 rounded-md bottom-[5%] w-9/10 bg-kakaoYellow"
       onClick={() => {
         navigate('/taste-select');
       }}
