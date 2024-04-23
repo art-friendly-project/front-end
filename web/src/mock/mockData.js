@@ -366,3 +366,20 @@ export const likeList = [
     favorite: true,
   },
 ];
+
+export const userData = {
+  id: 1,
+  nickName: '물감만세',
+  profileImage: ENFJ,
+  isTest: false,
+  testTitle: '',
+  introduce: '안녕하세요. 저는 전시에 관심이 많아요.',
+  interest: ['미술', '전시', '사진'],
+  reviews: [
+    {
+      showId: 1,
+      reviewId: 1,
+      image: posterExample1,
+    },
+  ],
+};
