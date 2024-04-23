@@ -187,6 +187,7 @@ module.exports = {
         'orange-50': '#FFD195',
         'orange-30': '#FFFEC3',
         'orange-10': '#FFFFE1',
+        'orange-00': '#FFFFEF',
         'orange-0': '#FFFFF0',
         kakaoYellow: '#F8D548',
         kakaoBrown: '#47292B',
