@@ -7,7 +7,7 @@ interface interestSection {
 
 const InterestSection = ({ interests }: interestSection) => {
   return (
-    <div className="flex flex-col pl-[5%] mt-8 w-full overflow-x-scroll">
+    <div className="shrink-0 flex flex-col pl-[5%] mt-8 w-full overflow-x-scroll scrollbar-hide">
       <InterestSectionTitle />
       <InterestList interests={interests} />
     </div>

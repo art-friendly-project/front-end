@@ -14,8 +14,13 @@ interface sticker {
   comments: string;
 }
 
-interface ReviewUser {
+interface reviewUser {
   id: number;
   nickName: string;
   profileImage: string;
+}
+
+interface myReview {
+  id: number;
+  image: string;
 }

@@ -7,7 +7,7 @@ const ViewedShowAndReviewsSection = () => {
   const [currentMenu, setCurrentMenu] = useState(true);
 
   return (
-    <div className="flex flex-col mt-8">
+    <div className="flex flex-col w-full mt-8 shrink-0">
       <ViewedShowAndReviewsSectionMenu
         currentMenu={currentMenu}
         setCurrentMenu={setCurrentMenu}

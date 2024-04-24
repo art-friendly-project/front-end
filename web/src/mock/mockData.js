@@ -383,3 +383,24 @@ export const userData = {
     },
   ],
 };
+
+export const myReviews = [
+  { id: 1, image: posterExample1 },
+  {
+    id: 2,
+    image: posterExample2,
+  },
+  {
+    id: 3,
+    image: posterExample3,
+  },
+  { id: 4, image: posterExample1 },
+  {
+    id: 5,
+    image: posterExample2,
+  },
+  {
+    id: 6,
+    image: posterExample3,
+  },
+];

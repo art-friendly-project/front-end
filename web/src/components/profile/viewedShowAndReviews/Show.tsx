@@ -1,10 +1,10 @@
-import TemperatureIndicator from 'components/common/TemperatureIndicator';
-import PosterImg from 'components/common/PosterImg';
-import PosterInfo from './PosterInfo';
 import FavoriteBtn from 'components/common/FavoriteBtn';
+import PosterImg from 'components/common/PosterImg';
+import TemperatureIndicator from 'components/common/TemperatureIndicator';
+import PosterInfo from 'components/home/main/deadlineShowSection/PosterInfo';
 import { useNavigate } from 'react-router-dom';
 
-const DeadlineShow = ({
+const Show = ({
   id,
   showType,
   name,
@@ -17,7 +17,7 @@ const DeadlineShow = ({
   const navigate = useNavigate();
 
   return (
-    <div className="relative w-full mb-6">
+    <div className="relative mb-6 w-9/10">
       <button
         className="flex"
         onClick={() => {
@@ -43,4 +43,4 @@ const DeadlineShow = ({
   );
 };
 
-export default DeadlineShow;
+export default Show;

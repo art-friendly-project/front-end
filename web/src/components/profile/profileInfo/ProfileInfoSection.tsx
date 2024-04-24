@@ -18,7 +18,7 @@ const ProfileInfoSection = ({
   testTitle,
 }: profileInfoSection) => {
   return (
-    <div className="flex flex-col px-[5%] pt-6 w-full h-76 bg-orange-00">
+    <div className="shrink-0 flex flex-col px-[5%] pt-6 w-full h-76 bg-orange-00">
       <ProfileTitle
         profileImage={profileImage}
         nickName={nickName}
