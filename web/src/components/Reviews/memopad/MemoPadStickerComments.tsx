@@ -1,7 +1,7 @@
 import { type Dispatch, type SetStateAction } from 'react';
 import MemoPadCloseBtn from './MemoPadCloseBtn';
-import StickerDeleteBtn from './StickerDeleteBtn';
 import { userid } from './MemoPadSticker';
+import StickerDeleteBtn from './StickerDeleteBtn';
 
 interface memoPadStickerComments {
   stickerComments: string;

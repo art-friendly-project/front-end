@@ -1,6 +1,6 @@
-import upIcon from '../../../../assets/images/etc/upIcon.svg';
-import downIcon from '../../../../assets/images/etc/downIcon.svg';
-import minusIcon from '../../../../assets/images/etc/minusIcon.svg';
+import upIcon from 'assets/images/etc/upIcon.svg';
+import downIcon from 'assets/images/etc/downIcon.svg';
+import minusIcon from 'assets/images/etc/minusIcon.svg';
 
 interface posterInfo {
   id: number;

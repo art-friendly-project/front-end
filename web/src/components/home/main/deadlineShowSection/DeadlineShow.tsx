@@ -1,4 +1,4 @@
-import DegreeIndicator from '../../../common/TemperatureIndicator';
+import TemperatureIndicator from 'components/common/TemperatureIndicator';
 import PosterImg from 'components/common/PosterImg';
 import PosterInfo from './PosterInfo';
 import FavoriteBtn from 'components/common/FavoriteBtn';
@@ -35,7 +35,7 @@ const DeadlineShow = ({
           navigate(`/shows/${id}`);
         }}
       >
-        <DegreeIndicator temperature={temperature} />
+        <TemperatureIndicator temperature={temperature} />
         <PosterImg
           width="w-24"
           height="h-32"

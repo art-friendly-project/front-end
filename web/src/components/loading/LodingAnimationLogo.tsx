@@ -1,4 +1,4 @@
-import innerLogo from '../../assets/images/art-friendly/innerLogo.svg';
+import innerLogo from 'assets/images/art-friendly/innerLogo.svg';
 
 interface lodingAnimationlogo {
   disappear: boolean;

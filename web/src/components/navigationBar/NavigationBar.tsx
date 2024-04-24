@@ -1,12 +1,12 @@
 import NavigationBtn from './NavigationBtn';
-import homeIconGray from '../../assets/images/navigation/homeIconGray.svg';
-import listIconGray from '../../assets/images/navigation/listIconGray.svg';
-import favoriteIconGray from '../../assets/images/navigation/favoriteIconGray.svg';
-import profileIconGray from '../../assets/images/navigation/profileIconGray.svg';
-import homeIconOrange from '../../assets/images/navigation/homeIconOrange.svg';
-import listIconOrange from '../../assets/images/navigation/listIconOrange.svg';
-import favoriteIconOrange from '../../assets/images/navigation/favoriteIconOrange.svg';
-import profileIconOrange from '../../assets/images/navigation/profileIconOrange.svg';
+import homeIconGray from 'assets/images/navigation/homeIconGray.svg';
+import listIconGray from 'assets/images/navigation/listIconGray.svg';
+import favoriteIconGray from 'assets/images/navigation/favoriteIconGray.svg';
+import profileIconGray from 'assets/images/navigation/profileIconGray.svg';
+import homeIconOrange from 'assets/images/navigation/homeIconOrange.svg';
+import listIconOrange from 'assets/images/navigation/listIconOrange.svg';
+import favoriteIconOrange from 'assets/images/navigation/favoriteIconOrange.svg';
+import profileIconOrange from 'assets/images/navigation/profileIconOrange.svg';
 import FavoriteToast from './FavoriteToast';
 
 const NavigationBar = () => {
