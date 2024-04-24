@@ -229,7 +229,7 @@ export const reviewDatas = [
       createdAt: '24.04.16',
       stickers: [],
       user: {
-        id: 4,
+        id: 2,
         nickName: '앵무새',
         profileImage: ENFP,
       },
@@ -242,9 +242,9 @@ export const reviewDatas = [
       createdAt: '24.04.16',
       stickers: [],
       user: {
-        id: 5,
-        nickName: '잉무새',
-        profileImage: ENFJ,
+        id: 2,
+        nickName: '앵무새',
+        profileImage: ENFP,
       },
     },
     {
@@ -255,9 +255,9 @@ export const reviewDatas = [
       createdAt: '24.04.16',
       stickers: [],
       user: {
-        id: 6,
-        nickName: '벌',
-        profileImage: INTP,
+        id: 2,
+        nickName: '앵무새',
+        profileImage: ENFP,
       },
     },
     {
@@ -268,8 +268,8 @@ export const reviewDatas = [
       createdAt: '24.04.16',
       stickers: [],
       user: {
-        id: 7,
-        nickName: '별',
+        id: 2,
+        nickName: '앵무새',
         profileImage: ENFP,
       },
     },
@@ -281,7 +281,7 @@ export const reviewDatas = [
       createdAt: '24.04.16',
       stickers: [],
       user: {
-        id: 8,
+        id: 3,
         nickName: '달',
         profileImage: INTP,
       },
@@ -294,9 +294,9 @@ export const reviewDatas = [
       createdAt: '24.04.16',
       stickers: [],
       user: {
-        id: 9,
-        nickName: '해',
-        profileImage: ENFJ,
+        id: 3,
+        nickName: '달',
+        profileImage: INTP,
       },
     },
     {
@@ -307,9 +307,9 @@ export const reviewDatas = [
       createdAt: '24.04.16',
       stickers: [],
       user: {
-        id: 10,
-        nickName: '말',
-        profileImage: ENFP,
+        id: 3,
+        nickName: '달',
+        profileImage: INTP,
       },
     },
     {
@@ -320,8 +320,8 @@ export const reviewDatas = [
       createdAt: '24.04.16',
       stickers: [],
       user: {
-        id: 11,
-        nickName: '얼룩말',
+        id: 3,
+        nickName: '달',
         profileImage: INTP,
       },
     },
@@ -333,9 +333,9 @@ export const reviewDatas = [
       createdAt: '24.04.16',
       stickers: [],
       user: {
-        id: 12,
-        nickName: '치타',
-        profileImage: ENFJ,
+        id: 3,
+        nickName: '달',
+        profileImage: INTP,
       },
     },
   ],
@@ -367,22 +367,89 @@ export const likeList = [
   },
 ];
 
-export const userData = {
-  id: 1,
-  nickName: '물감만세',
-  profileImage: ENFJ,
-  isTest: false,
-  testTitle: '',
-  introduce: '안녕하세요. 저는 전시에 관심이 많아요.',
-  interests: ['미술', '전시', '사진'],
-  reviews: [
-    {
-      showId: 1,
-      reviewId: 1,
-      image: posterExample1,
-    },
-  ],
-};
+export const userData = [
+  {
+    id: 1,
+    nickName: '물감만세',
+    profileImage: ENFJ,
+    isTest: false,
+    testTitle: '',
+    introduce: '안녕하세요. 저는 전시에 관심이 많아요.',
+    interests: ['미술', '전시', '사진'],
+    reviews: [
+      { id: 1, showId: 1, image: posterExample1 },
+      {
+        id: 2,
+        showId: 1,
+        image: posterExample1,
+      },
+      {
+        id: 3,
+        showId: 1,
+        image: posterExample1,
+      },
+    ],
+  },
+  {
+    id: 2,
+    nickName: '앵무새',
+    profileImage: ENFP,
+    isTest: false,
+    testTitle: '',
+    introduce: '안녕하세요. 저는 미술 관심이 많아요.',
+    interests: ['미술'],
+    reviews: [
+      { id: 4, showId: 1, image: posterExample1 },
+      {
+        id: 5,
+        showId: 1,
+        image: posterExample1,
+      },
+      {
+        id: 6,
+        showId: 1,
+        image: posterExample1,
+      },
+      {
+        id: 7,
+        showId: 1,
+        image: posterExample1,
+      },
+    ],
+  },
+  {
+    id: 3,
+    nickName: '달',
+    profileImage: INTP,
+    isTest: true,
+    testTitle: '논리를 분석하는 철학가',
+    introduce: '안녕하세요. 저는 음악에 관심이 많아요.',
+    interests: ['음악'],
+    reviews: [
+      { id: 8, showId: 1, image: posterExample1 },
+      {
+        id: 9,
+        showId: 1,
+        image: posterExample1,
+      },
+      {
+        id: 10,
+        showId: 1,
+        image: posterExample1,
+      },
+      {
+        id: 11,
+        showId: 1,
+        image: posterExample1,
+      },
+      {
+        id: 12,
+        showId: 1,
+        image: posterExample1,
+      },
+    ],
+  },
+];
 
 export const myReviews = [
   { id: 1, showId: 1, image: posterExample1 },

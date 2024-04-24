@@ -6,11 +6,11 @@ interface user {
   testTitle: string;
   introduce: string;
   interests: string[];
-  reviews: userReview[];
+  reviews: myReview[];
 }
 
-interface userReview {
+interface myReview {
+  id: number;
   showId: number;
-  reviewId: number;
   image: string;
 }

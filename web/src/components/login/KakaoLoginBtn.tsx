@@ -1,8 +1,14 @@
 import { useNavigate } from 'react-router-dom';
 import kakaoLogo from 'assets/images/etc/kakaoLogo.svg';
+import { useEffect } from 'react';
 
 const KakaoLoginBtn = () => {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    localStorage.setItem('userId', '1');
+  }, []);
+
   return (
     <button
       className="absolute flex items-center justify-center h-16 rounded-md bottom-[5%] w-9/10 bg-kakaoYellow"

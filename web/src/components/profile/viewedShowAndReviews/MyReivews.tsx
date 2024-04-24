@@ -1,14 +1,9 @@
-import { useEffect, useState } from 'react';
 import Review from './Review';
-import { myReviews } from 'mock/mockData';
 
-const MyReivews = () => {
-  const [reviews, setReviews] = useState<myReview[]>([]);
-
-  useEffect(() => {
-    setReviews(myReviews);
-  }, [myReviews]);
-
+interface viewedShowAndReviewsSection {
+  reviews: myReview[];
+}
+const MyReivews = ({ reviews }: viewedShowAndReviewsSection) => {
   return (
     <div className="flex justify-center w-full mt-8">
       <div className="flex flex-wrap justify-center w-9/10">

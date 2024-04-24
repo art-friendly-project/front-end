@@ -5,7 +5,13 @@ import MyReivews from './MyReivews';
 import { useAppSelector } from 'hooks';
 import { selectEndpoint } from 'store/modules/endpoint';
 
-const ViewedShowAndReviewsSection = () => {
+interface viewedShowAndReviewsSection {
+  reviews: myReview[];
+}
+
+const ViewedShowAndReviewsSection = ({
+  reviews,
+}: viewedShowAndReviewsSection) => {
   const [currentMenu, setCurrentMenu] = useState(true);
 
   const endpoint = useAppSelector(selectEndpoint);
@@ -22,7 +28,7 @@ const ViewedShowAndReviewsSection = () => {
         currentMenu={currentMenu}
         setCurrentMenu={setCurrentMenu}
       />
-      {currentMenu ? <ViewedShow /> : <MyReivews />}
+      {currentMenu ? <ViewedShow /> : <MyReivews reviews={reviews} />}
     </div>
   );
 };

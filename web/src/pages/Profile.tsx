@@ -3,8 +3,14 @@ import ProfileInfoSection from 'components/profile/profileInfo/ProfileInfoSectio
 import InterestSection from '../components/profile/interest/InterestSection';
 import ViewedShowAndReviewsSection from '../components/profile/viewedShowAndReviews/ViewedShowAndReviewsSection';
 import { userData } from 'mock/mockData';
+import ReviewSection from 'components/profile/review/ReviewSection';
+import { useLocation } from 'react-router-dom';
 
 const Profile = () => {
+  const location = useLocation();
+  const id = location.state;
+  const myId = Number(localStorage.getItem('userId'));
+
   const [user, setUser] = useState<user>({
     id: 0,
     nickName: '',
@@ -13,16 +19,11 @@ const Profile = () => {
     testTitle: '',
     introduce: '',
     interests: [],
-    reviews: [
-      {
-        showId: 0,
-        reviewId: 0,
-        image: '',
-      },
-    ],
+    reviews: [],
   });
+
   useEffect(() => {
-    setUser(userData);
+    setUser(userData[id - 1]);
   }, [userData]);
 
   return (
@@ -35,7 +36,11 @@ const Profile = () => {
         testTitle={user.testTitle}
       />
       <InterestSection interests={user.interests} />
-      <ViewedShowAndReviewsSection />
+      {user.id === myId ? (
+        <ViewedShowAndReviewsSection reviews={user.reviews} />
+      ) : (
+        <ReviewSection reviews={user.reviews} />
+      )}
     </>
   );
 };
