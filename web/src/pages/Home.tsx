@@ -9,6 +9,7 @@ import { endpointActions } from 'store/modules/endpoint';
 
 const Home = () => {
   const dispatch = useAppDispatch();
+
   useEffect(() => {
     dispatch(endpointActions.current('/home'));
   }, [endpointActions]);

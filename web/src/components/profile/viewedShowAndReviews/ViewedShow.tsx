@@ -1,18 +1,25 @@
 import { useEffect, useState } from 'react';
 import ResetBtn from './ResetBtn';
-import { homeShows } from 'mock/mockData';
 import Show from './Show';
 
 const ViewedShow = () => {
   const [shows, setShows] = useState<deadlineShow[]>([]);
 
   useEffect(() => {
-    setShows(homeShows);
-  }, [homeShows]);
+    const localViewedShowList = localStorage.getItem('viewedShowList');
+
+    if (localViewedShowList !== null) {
+      const viewedShowList = JSON.parse(localViewedShowList);
+
+      for (const key in viewedShowList) {
+        setShows((prev) => [...prev, viewedShowList[key]]);
+      }
+    }
+  }, []);
 
   return (
     <div className="relative flex flex-col items-center w-full pt-10">
-      <ResetBtn />
+      <ResetBtn setShows={setShows} />
       {shows.length === 0 ? (
         <span className="my-10">조회한 전시/행사가 없어요</span>
       ) : (
