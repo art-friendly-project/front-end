@@ -25,8 +25,6 @@ const ShowDetail = () => {
 
   const scrollHeight = useScrollHeight(showDetailRef);
 
-  useSaveViewedShow(show);
-
   useEffect(() => {
     if (endpoint.includes('reviews') || endpoint === 'myReivew') {
       showDetailRef.current?.scrollTo({
@@ -39,6 +37,8 @@ const ShowDetail = () => {
   useEffect(() => {
     dispatch(endpointActions.current(pathname));
   }, [pathname]);
+
+  useSaveViewedShow(show);
 
   return (
     <div

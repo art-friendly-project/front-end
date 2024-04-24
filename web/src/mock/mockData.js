@@ -11,7 +11,7 @@ import sun from 'assets/images/sticker/sun.svg';
 export const homeShows = [
   {
     id: 1,
-    term: '24.03.01 ~ 24.06.01',
+    term: '24.01.01 ~ 24.04.29',
     name: 'Body, Love, Gender',
     showType: '전시',
     place: '가나아트센터',
@@ -26,7 +26,7 @@ export const homeShows = [
   },
   {
     id: 2,
-    term: '24.03.02 ~ 24.06.02',
+    term: '24.03.02 ~ 24.05.18',
     name: '멋진 전시회',
     showType: '전시',
     place: '다라아트센터',
@@ -41,7 +41,7 @@ export const homeShows = [
   },
   {
     id: 3,
-    term: '24.03.03 ~ 24.06.03',
+    term: '24.03.03 ~ 24.04.21',
     name: '아름다운 행사',
     showType: '행사',
     place: '마바아트센터',
@@ -59,30 +59,30 @@ export const homeShows = [
 export const nearbyShows = [
   {
     id: 1,
-    name: '전시회일',
+    name: 'Body, Love, Gender',
     type: '전시',
     address: '서울',
-    term: '24.01.01 ~ 23.02.02',
+    term: '24.01.01 ~ 24.04.29',
     temperature: '17도',
     favorite: false,
     image: posterExample1,
   },
   {
     id: 2,
-    name: '전시회이',
+    name: '멋진 전시회',
     type: '행사',
     address: '경기',
-    term: '24.01.01 ~ 23.02.02',
+    term: '24.03.02 ~ 24.05.18',
     temperature: '80도',
     favorite: true,
     image: posterExample2,
   },
   {
     id: 3,
-    name: '전시회삼',
+    name: '아름다운 행사',
     type: '전시',
     address: '인천',
-    term: '24.01.01 ~ 23.02.02',
+    term: '24.03.03 ~ 24.04.21',
     temperature: '21도',
     favorite: false,
     image: posterExample3,
