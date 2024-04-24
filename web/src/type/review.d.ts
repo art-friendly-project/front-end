@@ -22,5 +22,6 @@ interface reviewUser {
 
 interface myReview {
   id: number;
+  showId: number;
   image: string;
 }

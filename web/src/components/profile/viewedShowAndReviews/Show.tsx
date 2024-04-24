@@ -1,8 +1,8 @@
+import { useNavigate } from 'react-router-dom';
 import FavoriteBtn from 'components/common/FavoriteBtn';
 import PosterImg from 'components/common/PosterImg';
 import TemperatureIndicator from 'components/common/TemperatureIndicator';
 import PosterInfo from 'components/home/main/deadlineShowSection/PosterInfo';
-import { useNavigate } from 'react-router-dom';
 
 const Show = ({
   id,

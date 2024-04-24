@@ -15,7 +15,7 @@ const Review = ({ review }: reviewProps) => {
     <button
       className="relative flex flex-col items-center justify-center mb-8 mr-6 h-44 w-43/100 shadow-custom3 rounded-xl"
       onClick={() => {
-        navigate('reviews', { state: { review } });
+        navigate(`reviews/${review.id}`);
       }}
     >
       <img src={tape} className="absolute -top-3" />

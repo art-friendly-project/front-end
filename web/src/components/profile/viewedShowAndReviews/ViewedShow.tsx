@@ -21,7 +21,9 @@ const ViewedShow = () => {
     <div className="relative flex flex-col items-center w-full pt-10">
       <ResetBtn setShows={setShows} />
       {shows.length === 0 ? (
-        <span className="my-10">조회한 전시/행사가 없어요</span>
+        <span className="my-10 text-Body3 texr-gray-110">
+          조회한 전시/행사가 없어요
+        </span>
       ) : (
         shows.map((show) => (
           <Show

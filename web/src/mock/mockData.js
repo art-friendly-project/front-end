@@ -191,7 +191,7 @@ export const reviewDatas = [
       ],
       user: {
         id: 1,
-        nickName: '고래',
+        nickName: '물감만세',
         profileImage: ENFJ,
       },
     },
@@ -203,9 +203,9 @@ export const reviewDatas = [
       createdAt: '24.04.16',
       stickers: [],
       user: {
-        id: 2,
-        nickName: '사자',
-        profileImage: ENFP,
+        id: 1,
+        nickName: '물감만세',
+        profileImage: ENFJ,
       },
     },
     {
@@ -216,9 +216,9 @@ export const reviewDatas = [
       createdAt: '24.04.16',
       stickers: [],
       user: {
-        id: 3,
-        nickName: '호랑이',
-        profileImage: INTP,
+        id: 1,
+        nickName: '물감만세',
+        profileImage: ENFJ,
       },
     },
     {
@@ -385,22 +385,15 @@ export const userData = {
 };
 
 export const myReviews = [
-  { id: 1, image: posterExample1 },
+  { id: 1, showId: 1, image: posterExample1 },
   {
     id: 2,
-    image: posterExample2,
+    showId: 1,
+    image: posterExample1,
   },
   {
     id: 3,
-    image: posterExample3,
-  },
-  { id: 4, image: posterExample1 },
-  {
-    id: 5,
-    image: posterExample2,
-  },
-  {
-    id: 6,
-    image: posterExample3,
+    showId: 1,
+    image: posterExample1,
   },
 ];

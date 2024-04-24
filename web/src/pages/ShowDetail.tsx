@@ -1,22 +1,28 @@
 import { homeShows } from 'mock/mockData';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import ReviewSection from 'components/showDetail/reviewSection/ReviewSection';
 import RankSection from 'components/showDetail/rankSection/RankSection';
 import ShowInformationSection from 'components/showDetail/InformationSection/ShowInformationSection';
 import PosterSection from 'components/showDetail/posterSection/PosterSection';
 import { useEffect, useRef } from 'react';
-import { useAppSelector } from 'hooks';
-import { selectEndpoint } from 'store/modules/endpoint';
+import { useAppDispatch, useAppSelector } from 'hooks';
+import { endpointActions, selectEndpoint } from 'store/modules/endpoint';
 import useScrollHeight from 'hooks/useScrollHeight';
 
 const ShowDetail = () => {
   const showDetailRef = useRef<HTMLDivElement>(null);
+
+  const location = useLocation();
+  const pathname = location.pathname;
+
+  const endpoint = useAppSelector(selectEndpoint);
+  const dispatch = useAppDispatch();
+
   const params = useParams();
   const id = Number(params.id);
-  const endpoint = useAppSelector(selectEndpoint);
-  const scrollHeight = useScrollHeight(showDetailRef);
-
   const show = homeShows[id - 1];
+
+  const scrollHeight = useScrollHeight(showDetailRef);
 
   useEffect(() => {
     const localViewedShowList = localStorage.getItem('viewedShowList');
@@ -48,13 +54,17 @@ const ShowDetail = () => {
   }, [show]);
 
   useEffect(() => {
-    if (endpoint.includes('reviews')) {
+    if (endpoint.includes('reviews') || endpoint === 'myReivew') {
       showDetailRef.current?.scrollTo({
         top: scrollHeight,
         behavior: 'smooth',
       });
     }
   }, [endpoint, scrollHeight]);
+
+  useEffect(() => {
+    dispatch(endpointActions.current(pathname));
+  }, [pathname]);
 
   return (
     <div

@@ -1,8 +1,9 @@
 import BtnContainer from 'components/Reviews/btnContainer/BtnContainer';
 import MemoPad from 'components/Reviews/memopad/MemoPad';
 import StickerModal from 'components/Reviews/stickerModal/StickerModal';
+import { reviewDatas } from 'mock/mockData';
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 
 const Reviews = () => {
   const [review, setReview] = useState<review>({
@@ -17,9 +18,14 @@ const Reviews = () => {
       profileImage: '',
     },
   });
-
   const location = useLocation();
-  const reviewData: review = location.state.review;
+  const pathname = location.pathname;
+  const showId = Number(pathname.slice(7)[0]);
+
+  const params = useParams();
+  const id = Number(params.id);
+
+  const reviewData = reviewDatas[showId][id - 1];
   const [isModal, setIsModal] = useState(false);
   const [isStickerOk, setIsStickerOk] = useState(false);
 
