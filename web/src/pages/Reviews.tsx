@@ -1,6 +1,6 @@
-import BtnContainer from 'components/Reviews/BtnContainer';
-import MemoPad from 'components/Reviews/MemoPad';
-import StickerModal from 'components/Reviews/StickerModal';
+import BtnContainer from 'components/Reviews/btnContainer/BtnContainer';
+import MemoPad from 'components/Reviews/memopad/MemoPad';
+import StickerModal from 'components/Reviews/stickerModal/StickerModal';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 

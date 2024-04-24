@@ -1,6 +1,6 @@
 import { type Dispatch, type SetStateAction, useState } from 'react';
-import StickerBtn from 'components/Reviews/StickerBtn';
-import BookmarkBtn from 'components/Reviews/BookmarkBtn';
+import StickerBtn from 'components/Reviews/btnContainer/StickerBtn';
+import BookmarkBtn from 'components/Reviews/btnContainer/BookmarkBtn';
 import ReviewToast from './ReviewToast';
 
 interface btnContainer {

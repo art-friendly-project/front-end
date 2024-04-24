@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import ProfileInfoSection from 'components/profile/ProfileInfoSection';
-import InterestSection from '../components/profile/InterestSection';
-import ViewedShowAndReviewsSection from '../components/profile/ViewedShowAndReviewsSection';
+import ProfileInfoSection from 'components/profile/profileInfo/ProfileInfoSection';
+import InterestSection from '../components/profile/interest/InterestSection';
+import ViewedShowAndReviewsSection from '../components/profile/viewedShowAndReviews/ViewedShowAndReviewsSection';
 import { userData } from 'mock/mockData';
 
 const Profile = () => {

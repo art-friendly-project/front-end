@@ -8,6 +8,7 @@ const HeaderTitle = () => {
   const changeEndpointTotitle = () => {
     if (pathname === '/list') return '전시/행사 목록';
     if (pathname === '/like') return '관심 목록';
+    if (pathname === '/profile') return '프로필';
   };
 
   return (

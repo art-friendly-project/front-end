@@ -1,4 +1,4 @@
-import LodingAnimationLogo from 'components/loding/LodingAnimationLogo';
+import LodingAnimationLogo from 'components/loading/LodingAnimationLogo';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Spineer from '../components/home/detail/tasteTest/loading/Spineer';
 import { useNavigate } from 'react-router-dom';
-import LoadingComplete from 'components/loding/LoadingComplete';
+import LoadingComplete from 'components/loading/LoadingComplete';
 
 const Loading = () => {
   const [isComplete, setIsComplete] = useState(false);

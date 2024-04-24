@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom';
-import DetailHeader from 'components/header/DetailHeader';
+import DetailHeader from 'components/header/detail/DetailHeader';
 import NavigationBar from 'components/navigationBar/NavigationBar';
 
 const DetailLayout = () => {

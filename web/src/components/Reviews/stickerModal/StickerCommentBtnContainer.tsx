@@ -1,5 +1,5 @@
 import { type Dispatch, type SetStateAction } from 'react';
-import { userid } from './MemoPadSticker';
+import { userid } from '../memopad/MemoPadSticker';
 
 interface stickerCommentBtnContainer {
   text: string;
