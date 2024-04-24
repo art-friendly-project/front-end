@@ -29,12 +29,6 @@ const NavigationBtn = ({
   const btnHandler = () => {
     if (endpoint === '/list') dispatch(locationActions.current('서울'));
 
-    if (endpoint === '/profile') {
-      const userId = localStorage.getItem('userId');
-      navigate(endpoint, { state: Number(userId) });
-
-      return;
-    }
     navigate(endpoint);
   };
 

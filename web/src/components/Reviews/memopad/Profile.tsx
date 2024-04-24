@@ -17,7 +17,7 @@ const Profile = ({ user, createdAt }: profile) => {
     <button
       className="relative flex items-center mb-8"
       onClick={() => {
-        navigate('/profile', { state: user.id });
+        navigate(`/profile/${user.id}`);
       }}
     >
       <img src={user.profileImage} className="w-14 h-14" />

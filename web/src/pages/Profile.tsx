@@ -4,13 +4,11 @@ import InterestSection from '../components/profile/interest/InterestSection';
 import ViewedShowAndReviewsSection from '../components/profile/viewedShowAndReviews/ViewedShowAndReviewsSection';
 import { userData } from 'mock/mockData';
 import ReviewSection from 'components/profile/review/ReviewSection';
-import { useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 const Profile = () => {
-  const location = useLocation();
-  const id = location.state;
-  const myId = Number(localStorage.getItem('userId'));
-
+  const params = useParams();
+  const id = Number(params.id);
   const [user, setUser] = useState<user>({
     id: 0,
     nickName: '',
@@ -22,7 +20,14 @@ const Profile = () => {
     reviews: [],
   });
 
+  const myId = Number(sessionStorage.getItem('myId'));
+
   useEffect(() => {
+    if (params.id === undefined) {
+      setUser(userData[myId - 1]);
+      return;
+    }
+
     setUser(userData[id - 1]);
   }, [userData]);
 
