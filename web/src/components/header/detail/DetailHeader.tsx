@@ -12,6 +12,8 @@ const DetailHeader = () => {
     if (pathname === '/home/nearby') return true;
     if (pathname === '/prepare-service') return true;
     if (pathname.includes('reviews')) return true;
+    if (pathname === '/settings') return true;
+
     return false;
   };
 

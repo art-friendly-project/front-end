@@ -18,6 +18,7 @@ import PrepareService from 'pages/PrepareService';
 import ShowDetail from 'pages/ShowDetail';
 import Reviews from 'pages/Reviews';
 import ReviewPost from 'pages/ReviewPost';
+import Settings from 'pages/Settings';
 
 const App = () => {
   return (
@@ -28,6 +29,9 @@ const App = () => {
             <Route path="/" element={<OpenLoading />} />
             <Route path="/login" element={<Login />} />
             <Route path="/taste-select" element={<TasteSelect />} />
+            <Route path="/shows/:id" element={<ShowDetail />} />
+            <Route path="/loading" element={<Loading />} />
+
             <Route element={<MainLayout />}>
               <Route path="/home" element={<Home />} />
               <Route path="/List" element={<List />} />
@@ -35,9 +39,11 @@ const App = () => {
               <Route path="/profile" element={<Profile />} />
               <Route path="/profile/:id" element={<Profile />} />
             </Route>
+
             <Route element={<DetailLayout />}>
               <Route path="/home/nearby" element={<NearbyAndLocationShow />} />
             </Route>
+
             <Route element={<DetailLayoutWithoutNav />}>
               <Route path="/home/taste-test" element={<TasteTestMain />} />
               <Route
@@ -51,9 +57,8 @@ const App = () => {
               <Route path="/prepare-service" element={<PrepareService />} />
               <Route path="/shows/:id/reviews/:id" element={<Reviews />} />
               <Route path="/shows/:id/review-post" element={<ReviewPost />} />
+              <Route path="/settings" element={<Settings />} />
             </Route>
-            <Route path="/shows/:id" element={<ShowDetail />} />
-            <Route path="/loading" element={<Loading />} />
           </Routes>
         </div>
       </div>
