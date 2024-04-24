@@ -6,7 +6,7 @@ interface viewedShowAndReviewsSection {
 const MyReivews = ({ reviews }: viewedShowAndReviewsSection) => {
   return (
     <div className="flex justify-center w-full mt-8">
-      <div className="flex flex-wrap justify-center w-9/10">
+      <div className="flex flex-wrap w-9/10">
         {reviews.length === 0 ? (
           <>
             <span className="mt-10 mb-2 text-Body3 texr-gray-110 bg-">
