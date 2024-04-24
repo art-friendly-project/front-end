@@ -34,6 +34,7 @@ const Profile = () => {
   return (
     <>
       <ProfileInfoSection
+        isMyAccount={user.id === myId}
         profileImage={user.profileImage}
         nickName={user.nickName}
         introduce={user.introduce}

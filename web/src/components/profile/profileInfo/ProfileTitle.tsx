@@ -1,6 +1,7 @@
 import TestSuggestBtn from './TestSuggestBtn';
 
 interface profileTitle {
+  isMyAccount: boolean;
   profileImage: string;
   nickName: string;
   isTest: boolean;
@@ -8,6 +9,7 @@ interface profileTitle {
 }
 
 const ProfileTitle = ({
+  isMyAccount,
   profileImage,
   nickName,
   isTest,
@@ -21,7 +23,7 @@ const ProfileTitle = ({
         {isTest ? (
           <span className="text-Body2-M text-gray-110">{testTitle}</span>
         ) : (
-          <TestSuggestBtn />
+          <TestSuggestBtn isMyAccount={isMyAccount} />
         )}
       </div>
     </div>

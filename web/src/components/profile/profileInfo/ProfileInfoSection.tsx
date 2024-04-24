@@ -3,6 +3,7 @@ import Introduce from './Introduce';
 import ProfileTitle from './ProfileTitle';
 
 interface profileInfoSection {
+  isMyAccount: boolean;
   profileImage: string;
   nickName: string;
   introduce: string;
@@ -11,6 +12,7 @@ interface profileInfoSection {
 }
 
 const ProfileInfoSection = ({
+  isMyAccount,
   profileImage,
   nickName,
   introduce,
@@ -20,6 +22,7 @@ const ProfileInfoSection = ({
   return (
     <div className="shrink-0 flex flex-col px-[5%] pt-6 w-full h-76 bg-orange-00">
       <ProfileTitle
+        isMyAccount={isMyAccount}
         profileImage={profileImage}
         nickName={nickName}
         isTest={isTest}
