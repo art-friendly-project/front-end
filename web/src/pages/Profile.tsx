@@ -1,13 +1,43 @@
-import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import ProfileInfoSection from 'components/profile/ProfileInfoSection';
+import InterestSection from '../components/profile/InterestSection';
+import ViewedShowAndReviewsSection from '../components/profile/ViewedShowAndReviewsSection';
+import { userData } from 'mock/mockData';
 
 const Profile = () => {
-  const navigate = useNavigate();
+  const [user, setUser] = useState<user>({
+    id: 0,
+    nickName: '',
+    profileImage: '',
+    isTest: false,
+    testTitle: '',
+    introduce: '',
+    interests: [],
+    reviews: [
+      {
+        showId: 0,
+        reviewId: 0,
+        image: '',
+      },
+    ],
+  });
   useEffect(() => {
-    navigate('/prepare-service');
-  }, []);
+    setUser(userData);
+  }, [userData]);
 
-  return <>Profile</>;
+  return (
+    <>
+      <ProfileInfoSection
+        profileImage={user.profileImage}
+        nickName={user.nickName}
+        introduce={user.introduce}
+        isTest={user.isTest}
+        testTitle={user.testTitle}
+      />
+      <InterestSection interests={user.interests} />
+      <ViewedShowAndReviewsSection />
+    </>
+  );
 };
 
 export default Profile;

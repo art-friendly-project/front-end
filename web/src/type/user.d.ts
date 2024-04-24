@@ -5,7 +5,7 @@ interface user {
   isTest: boolean;
   testTitle: string;
   introduce: string;
-  interest: string[];
+  interests: string[];
   reviews: userReview[];
 }
 
