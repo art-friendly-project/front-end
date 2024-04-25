@@ -2,6 +2,5 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  -webkit-touch-callout : none;
+@supports (-webkit-touch-callout: none) {
 }
