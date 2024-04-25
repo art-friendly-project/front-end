@@ -9,15 +9,16 @@ import threeActive from 'assets/images/rank/threeActive.svg';
 import fourActive from 'assets/images/rank/fourActive.svg';
 import fiveActive from 'assets/images/rank/fiveActive.svg';
 import RankIcon from './RankIcon';
-import { useEffect, useState } from 'react';
+import { type Dispatch, type SetStateAction, useEffect, useState } from 'react';
 import CancelModal from './CancelModal';
 
 interface rankIconList {
   rank: number;
+  isModal: boolean;
+  setIsModal: Dispatch<SetStateAction<boolean>>;
 }
 
-const RankIconList = ({ rank }: rankIconList) => {
-  const [isModal, setIsModal] = useState(false);
+const RankIconList = ({ rank, isModal, setIsModal }: rankIconList) => {
   const [cancelIdx, setCancelIdx] = useState(0);
   const [isSelectedRanks, setIsSelectedRanks] = useState([
     false,
