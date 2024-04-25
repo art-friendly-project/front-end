@@ -15,7 +15,7 @@ const Profile = ({ user, createdAt }: profile) => {
   const navigate = useNavigate();
   return (
     <button
-      className="relative flex items-center mb-8"
+      className="relative flex items-center w-48 mb-8"
       onClick={() => {
         navigate(`/profile/${user.id}`);
       }}
