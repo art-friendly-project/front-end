@@ -55,7 +55,6 @@ const MemoPadSticker = ({
           onContextMenu={(e) => {
             e.preventDefault();
           }}
-          style={{ WebkitTouchCallout: 'none' }}
         />
       ) : null}
       <img src={sticker} className="w-14 h-14" />
