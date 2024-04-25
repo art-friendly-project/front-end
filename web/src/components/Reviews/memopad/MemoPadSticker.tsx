@@ -1,5 +1,6 @@
 import { type Dispatch, type SetStateAction } from 'react';
 import purpleStar from 'assets/images/sticker/purpleStar.svg';
+import { useLongPress } from 'use-long-press';
 
 interface memoPadSticker {
   idx: number;
@@ -10,6 +11,7 @@ interface memoPadSticker {
   setStickerIdx: Dispatch<SetStateAction<number>>;
   setStickerUserId: Dispatch<SetStateAction<number>>;
   setIsCommentModal: Dispatch<SetStateAction<boolean>>;
+  setIsDeleteModalOpen: Dispatch<SetStateAction<boolean>>;
 }
 
 const MemoPadSticker = ({
@@ -21,6 +23,7 @@ const MemoPadSticker = ({
   setStickerIdx,
   setStickerUserId,
   setIsCommentModal,
+  setIsDeleteModalOpen,
 }: memoPadSticker) => {
   const btnHandler = () => {
     setStickerComments(comments);
@@ -29,8 +32,21 @@ const MemoPadSticker = ({
     setIsCommentModal((prev) => !prev);
   };
 
+  const bind = useLongPress(
+    () => {
+      setIsDeleteModalOpen(true);
+    },
+    {
+      threshold: 700,
+    },
+  );
+
   return (
-    <button className="relative mr-2 shrink-0" onClick={btnHandler}>
+    <button
+      className="relative mr-2 shrink-0 active:scale-90"
+      {...bind()}
+      onClick={btnHandler}
+    >
       {userid === userId ? (
         <img
           src={purpleStar}

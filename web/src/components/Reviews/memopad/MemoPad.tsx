@@ -41,6 +41,7 @@ const MemoPad = ({ review, setReview }: memoPad) => {
           setStickerIdx={setStickerIdx}
           setIsCommentModal={setIsCommentModal}
           setStickerUserId={setStickerUserId}
+          setIsDeleteModalOpen={setIsDeleteModalOpen}
         />
         {isCommentModal ? (
           <MemoPadStickerComments

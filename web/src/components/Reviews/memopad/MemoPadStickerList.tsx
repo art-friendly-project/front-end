@@ -7,6 +7,7 @@ interface stickerList {
   setStickerIdx: Dispatch<SetStateAction<number>>;
   setIsCommentModal: Dispatch<SetStateAction<boolean>>;
   setStickerUserId: Dispatch<SetStateAction<number>>;
+  setIsDeleteModalOpen: Dispatch<SetStateAction<boolean>>;
 }
 
 const MemoPadStickerList = ({
@@ -15,6 +16,7 @@ const MemoPadStickerList = ({
   setStickerIdx,
   setIsCommentModal,
   setStickerUserId,
+  setIsDeleteModalOpen,
 }: stickerList) => {
   return (
     <div className="absolute flex h-18 items-end overflow-x-scroll scrollbar-hide bottom-10 left-5 w-91.2">
@@ -29,6 +31,7 @@ const MemoPadStickerList = ({
           setStickerIdx={setStickerIdx}
           setStickerUserId={setStickerUserId}
           setIsCommentModal={setIsCommentModal}
+          setIsDeleteModalOpen={setIsDeleteModalOpen}
         />
       ))}
     </div>
