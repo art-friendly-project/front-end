@@ -1,4 +1,4 @@
-import { type MouseEvent, type Dispatch, type SetStateAction } from 'react';
+import { type Dispatch, type SetStateAction } from 'react';
 import purpleStar from 'assets/images/sticker/purpleStar.svg';
 import { useLongPress } from 'use-long-press';
 
@@ -25,8 +25,7 @@ const MemoPadSticker = ({
   setSelectStickerIdx,
   myId,
 }: memoPadSticker) => {
-  const btnHandler = (e: MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
+  const btnHandler = () => {
     setStickerComments(comments);
     setIsCommentModal((prev) => !prev);
   };
@@ -53,6 +52,10 @@ const MemoPadSticker = ({
         <img
           src={purpleStar}
           className="absolute w-4 h-4 -top-4 left-[1.3rem]"
+          onContextMenu={(e) => {
+            e.preventDefault();
+          }}
+          style={{ WebkitTouchCallout: 'none' }}
         />
       ) : null}
       <img src={sticker} className="w-14 h-14" />
