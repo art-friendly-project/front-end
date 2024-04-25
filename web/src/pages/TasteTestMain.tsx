@@ -21,9 +21,11 @@ const TasteTestMain = () => {
     <>
       <TasteTestMainTitle />
       <div className="flex justify-center">
-        <img src={character2} className="mt-32 mb-32" />
+        <img src={character2} className="my-[10%] absolute bottom-[20%]" />
       </div>
-      <BtnBasic name="시작하기" fn={btnHandler} disable={false} />
+      <div className="absolute w-full bottom-[10%]">
+        <BtnBasic name="시작하기" fn={btnHandler} disable={false} />
+      </div>
     </>
   );
 };
