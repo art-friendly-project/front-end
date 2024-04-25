@@ -19,7 +19,12 @@ const FilterSelectModal = ({
 }: filterSelectModal) => {
   return (
     <>
-      <div className="absolute top-0 z-20 w-full h-screen bg-black opacity-50" />
+      <button
+        className="absolute top-0 z-20 w-full h-screen bg-black opacity-50"
+        onClick={() => {
+          setIsModalOpen([false, false, false]);
+        }}
+      />
       <div className="absolute bottom-0 z-30 flex flex-col w-full pt-8 pb-10 pl-6 bg-white rounded-t-xl animate-move-top-regular">
         <FilterSelectModalTitle title1={title1} title2={title2} />
         <ModalCloseBtn setIsModalOpen={setIsModalOpen} />

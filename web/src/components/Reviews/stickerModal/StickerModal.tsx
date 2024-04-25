@@ -19,7 +19,12 @@ const StickerModal = ({
   const [text, setText] = useState('');
   return (
     <>
-      <div className="absolute bottom-0 z-10 w-full h-screen bg-black opacity-50" />
+      <button
+        className="absolute bottom-0 z-10 w-full h-screen bg-black opacity-50"
+        onClick={() => {
+          setIsModal(false);
+        }}
+      />
       <div className="absolute bottom-0 z-20 flex w-full bg-white h-1/2 rounded-t-2xl animate-move-top-regular">
         <CloseBtn setIsModal={setIsModal} setCurrent={setCurrent} />
         {current ? (
