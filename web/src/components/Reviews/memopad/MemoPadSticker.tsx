@@ -3,61 +3,60 @@ import purpleStar from 'assets/images/sticker/purpleStar.svg';
 import { useLongPress } from 'use-long-press';
 
 interface memoPadSticker {
-  idx: number;
   userId: number;
   sticker: string;
   comments: string;
   setStickerComments: Dispatch<SetStateAction<string>>;
-  setStickerIdx: Dispatch<SetStateAction<number>>;
-  setStickerUserId: Dispatch<SetStateAction<number>>;
   setIsCommentModal: Dispatch<SetStateAction<boolean>>;
-  setIsDeleteModalOpen: Dispatch<SetStateAction<boolean>>;
+  setIsStickerDeleteModal: Dispatch<SetStateAction<boolean>>;
+  idx: number;
+  setSelectStickerIdx: Dispatch<SetStateAction<number>>;
+  myId: number;
 }
 
 const MemoPadSticker = ({
-  idx,
   userId,
   sticker,
   comments,
   setStickerComments,
-  setStickerIdx,
-  setStickerUserId,
   setIsCommentModal,
-  setIsDeleteModalOpen,
+  setIsStickerDeleteModal,
+  idx,
+  setSelectStickerIdx,
+  myId,
 }: memoPadSticker) => {
   const btnHandler = () => {
     setStickerComments(comments);
-    setStickerUserId(userId);
-    setStickerIdx(idx);
     setIsCommentModal((prev) => !prev);
   };
 
-  const bind = useLongPress(
-    () => {
-      setIsDeleteModalOpen(true);
-    },
+  const onPressHandler = useLongPress(
+    userId === myId
+      ? () => {
+          setIsStickerDeleteModal(true);
+          setSelectStickerIdx(idx);
+        }
+      : null,
     {
-      threshold: 700,
+      threshold: 500,
     },
   );
 
   return (
     <button
-      className="relative mr-2 shrink-0 active:scale-90"
-      {...bind()}
+      className={`relative mr-2 duration-700 shrink-0 ${userId === myId ? 'active:scale-125' : ''} `}
+      {...onPressHandler()}
       onClick={btnHandler}
     >
-      {userid === userId ? (
+      {userId === myId ? (
         <img
           src={purpleStar}
           className="absolute w-4 h-4 -top-4 left-[1.3rem]"
         />
       ) : null}
-      <img src={sticker} className={`w-14 h-14`} />
+      <img src={sticker} className="w-14 h-14" />
     </button>
   );
 };
-
-export const userid = 1;
 
 export default MemoPadSticker;

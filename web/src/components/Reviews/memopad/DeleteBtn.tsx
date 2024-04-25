@@ -2,14 +2,14 @@ import { type Dispatch, type SetStateAction } from 'react';
 import { PiTrashSimple } from 'react-icons/pi';
 
 interface deleteBtn {
-  setIsDeleteModalOpen: Dispatch<SetStateAction<boolean>>;
+  setIsReviewDeleteModal: Dispatch<SetStateAction<boolean>>;
 }
 
-const DeleteBtn = ({ setIsDeleteModalOpen }: deleteBtn) => {
+const DeleteBtn = ({ setIsReviewDeleteModal }: deleteBtn) => {
   return (
     <button
       onClick={() => {
-        setIsDeleteModalOpen(true);
+        setIsReviewDeleteModal(true);
       }}
       className="absolute z-10 top-24 right-10"
     >

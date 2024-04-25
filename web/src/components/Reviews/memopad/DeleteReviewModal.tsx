@@ -1,16 +1,16 @@
 import { type Dispatch, type SetStateAction } from 'react';
 
-interface deleteModal {
-  setIsDeleteModalOpen: Dispatch<SetStateAction<boolean>>;
+interface deleteReviewModal {
+  setIsReviewDeleteModal: Dispatch<SetStateAction<boolean>>;
 }
 
-const DeleteModal = ({ setIsDeleteModalOpen }: deleteModal) => {
+const DeleteReviewModal = ({ setIsReviewDeleteModal }: deleteReviewModal) => {
   return (
     <>
       <button
         className="absolute bottom-0 z-20 w-full h-screen bg-black opacity-50"
         onClick={() => {
-          setIsDeleteModalOpen(false);
+          setIsReviewDeleteModal(false);
         }}
       />
       <div className="rounded-2xl absolute z-30 w-72 h-48 bg-white top-[30%] flex flex-col justify-center items-center">
@@ -20,7 +20,7 @@ const DeleteModal = ({ setIsDeleteModalOpen }: deleteModal) => {
         <button
           className="absolute h-10 border-2 border-orange-100 rounded-lg w-28 left-7 bottom-4 text-Subhead text-gray-110"
           onClick={() => {
-            setIsDeleteModalOpen(false);
+            setIsReviewDeleteModal(false);
           }}
         >
           닫기
@@ -33,4 +33,4 @@ const DeleteModal = ({ setIsDeleteModalOpen }: deleteModal) => {
   );
 };
 
-export default DeleteModal;
+export default DeleteReviewModal;

@@ -1,5 +1,4 @@
 import { type Dispatch, type SetStateAction } from 'react';
-import { userid } from '../memopad/MemoPadSticker';
 
 interface stickerCommentBtnContainer {
   text: string;
@@ -16,6 +15,8 @@ const StickerCommentBtnContainer = ({
   setIsStickerOk,
   setReview,
 }: stickerCommentBtnContainer) => {
+  const id = localStorage.getItem('userId');
+  const myId = Number(id);
   const StickerAndCommentsBtnHandler = () => {
     setIsModal(false);
     setIsStickerOk(true);
@@ -24,7 +25,7 @@ const StickerCommentBtnContainer = ({
       prev.stickers.push({
         id: prev.stickers.length + 1,
         sticker,
-        userId: userid,
+        userId: myId,
         comments: text,
       });
 
