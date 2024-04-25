@@ -31,7 +31,7 @@ const BtnContainer = ({
   };
 
   return (
-    <div className="absolute flex justify-center w-full bottom-[10%]">
+    <div className="absolute flex justify-center w-full bottom-[5%]">
       {currentQuestion === LAST_QUESTION_NUM ? (
         <BtnBasic
           name="테스트 완료"
