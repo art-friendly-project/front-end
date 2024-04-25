@@ -27,7 +27,7 @@ const TasteTestAnswers = ({
   };
 
   return (
-    <div className="flex flex-col items-center justify-center mt-20 h-72">
+    <div className="absolute flex flex-col items-center top-[34%] w-full justify-center h-72">
       <button
         className={`relative flex items-center h-32 w-9/10 rounded-xl ${checked[0] ? 'bg-orange-10' : 'bg-gray-00 '}`}
         onClick={firstBtnHandler}
