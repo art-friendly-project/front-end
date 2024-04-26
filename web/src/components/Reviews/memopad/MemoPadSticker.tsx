@@ -5,25 +5,25 @@ import { useAppDispatch } from 'hooks';
 import { isModalActions } from 'store/modules/isModal';
 
 interface memoPadSticker {
-  userId: number;
+  stickerUserId: number;
   sticker: string;
   comments: string;
   setStickerComments: Dispatch<SetStateAction<string>>;
   setIsCommentModal: Dispatch<SetStateAction<boolean>>;
   idx: number;
   setSelectStickerIdx: Dispatch<SetStateAction<number>>;
-  myId: number;
+  userId: number;
 }
 
 const MemoPadSticker = ({
-  userId,
+  stickerUserId,
   sticker,
   comments,
   setStickerComments,
   setIsCommentModal,
   idx,
   setSelectStickerIdx,
-  myId,
+  userId,
 }: memoPadSticker) => {
   const dispatch = useAppDispatch();
 
@@ -33,7 +33,7 @@ const MemoPadSticker = ({
   };
 
   const onPressHandler = useLongPress(
-    userId === myId
+    userId === stickerUserId
       ? () => {
           setSelectStickerIdx(idx);
           dispatch(isModalActions.setIsModal(true));
@@ -46,11 +46,11 @@ const MemoPadSticker = ({
 
   return (
     <button
-      className={`relative mr-2 duration-500 shrink-0 ${userId === myId ? 'active:scale-110' : ''} `}
+      className={`relative mr-2 duration-500 shrink-0 ${stickerUserId === userId ? 'active:scale-110' : ''} `}
       {...onPressHandler()}
       onClick={btnHandler}
     >
-      {userId === myId ? (
+      {stickerUserId === userId ? (
         <img
           src={purpleStar}
           className="absolute w-4 h-4 -top-4 left-[1.3rem]"

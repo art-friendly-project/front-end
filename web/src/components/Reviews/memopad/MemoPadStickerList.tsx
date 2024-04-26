@@ -6,7 +6,7 @@ interface stickerList {
   setStickerComments: Dispatch<SetStateAction<string>>;
   setIsCommentModal: Dispatch<SetStateAction<boolean>>;
   setSelectStickerIdx: Dispatch<SetStateAction<number>>;
-  myId: number;
+  userId: number;
 }
 
 const MemoPadStickerList = ({
@@ -14,21 +14,21 @@ const MemoPadStickerList = ({
   setStickerComments,
   setIsCommentModal,
   setSelectStickerIdx,
-  myId,
+  userId,
 }: stickerList) => {
   return (
     <div className="absolute flex h-24 items-end overflow-x-scroll scrollbar-hide bottom-10 left-5 w-91.2">
       {stickers.map((sticker, idx) => (
         <MemoPadSticker
           key={sticker.id}
-          userId={sticker.userId}
+          stickerUserId={sticker.userId}
           sticker={sticker.sticker}
           comments={sticker.comments}
           setStickerComments={setStickerComments}
           setIsCommentModal={setIsCommentModal}
           idx={idx}
           setSelectStickerIdx={setSelectStickerIdx}
-          myId={myId}
+          userId={userId}
         />
       ))}
     </div>

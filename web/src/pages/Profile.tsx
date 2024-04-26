@@ -22,11 +22,11 @@ const Profile = () => {
     reviews: [],
   });
 
-  const myId = Number(sessionStorage.getItem('myId'));
+  const userId = Number(sessionStorage.getItem('userId'));
 
   useEffect(() => {
     if (params.id === undefined) {
-      setUser(userData[myId - 1]);
+      setUser(userData[userId - 1]);
       return;
     }
 
@@ -46,7 +46,7 @@ const Profile = () => {
       />
       <div className="flex flex-col w-full h-full">
         <ProfileInfoSection
-          isMyAccount={user.id === myId}
+          isMyAccount={user.id === userId}
           profileImage={user.profileImage}
           nickName={user.nickName}
           introduce={user.introduce}
@@ -54,7 +54,7 @@ const Profile = () => {
           testTitle={user.testTitle}
         />
         <InterestSection interests={user.interests} />
-        {user.id === myId ? (
+        {user.id === userId ? (
           <ViewedShowAndReviewsSection
             reviews={user.reviews}
             shows={shows}

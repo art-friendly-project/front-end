@@ -15,13 +15,12 @@ const MemoPad = ({ review, setSelectStickerIdx }: memoPad) => {
   const [stickerComments, setStickerComments] = useState('');
   const [isCommentModal, setIsCommentModal] = useState(false);
 
-  const id = sessionStorage.getItem('userId');
-  const myId = Number(id);
+  const userId = Number(sessionStorage.getItem('userId'));
 
   return (
     <>
       <div className="relative bg-cover w-100 h-140 bg-memo-pad shrink-0">
-        {Number(myId) === review.user.id ? <DeleteBtn /> : null}
+        {userId === review.user.id ? <DeleteBtn /> : null}
         <div className="absolute flex flex-col overflow-y-scroll left-12 top-20 h-92 w-78 scrollbar-hide">
           <Profile user={review.user} createdAt={review.createdAt} />
           <Title title={review.title} />
@@ -32,7 +31,7 @@ const MemoPad = ({ review, setSelectStickerIdx }: memoPad) => {
           setStickerComments={setStickerComments}
           setIsCommentModal={setIsCommentModal}
           setSelectStickerIdx={setSelectStickerIdx}
-          myId={myId}
+          userId={userId}
         />
         {isCommentModal ? (
           <MemoPadStickerComments
