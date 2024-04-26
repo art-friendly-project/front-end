@@ -5,8 +5,10 @@ import ViewedShowAndReviewsSection from '../components/profile/viewedShowAndRevi
 import { userData } from 'mock/mockData';
 import ReviewSection from 'components/profile/review/ReviewSection';
 import { useParams } from 'react-router-dom';
+import ConfirmModal from 'components/common/ConfirmModal';
 
 const Profile = () => {
+  const [shows, setShows] = useState<deadlineShow[]>([]);
   const params = useParams();
   const id = Number(params.id);
   const [user, setUser] = useState<user>({
@@ -31,22 +33,37 @@ const Profile = () => {
     setUser(userData[id - 1]);
   }, [userData]);
 
+  const conformModalFn = () => {
+    localStorage.removeItem('viewedShowList');
+    setShows([]);
+  };
+
   return (
     <>
-      <ProfileInfoSection
-        isMyAccount={user.id === myId}
-        profileImage={user.profileImage}
-        nickName={user.nickName}
-        introduce={user.introduce}
-        isTest={user.isTest}
-        testTitle={user.testTitle}
+      <ConfirmModal
+        text={`조회한 전시/행사를\n초기화할까요?`}
+        fn={conformModalFn}
       />
-      <InterestSection interests={user.interests} />
-      {user.id === myId ? (
-        <ViewedShowAndReviewsSection reviews={user.reviews} />
-      ) : (
-        <ReviewSection reviews={user.reviews} />
-      )}
+      <div className="flex flex-col w-full h-full">
+        <ProfileInfoSection
+          isMyAccount={user.id === myId}
+          profileImage={user.profileImage}
+          nickName={user.nickName}
+          introduce={user.introduce}
+          isTest={user.isTest}
+          testTitle={user.testTitle}
+        />
+        <InterestSection interests={user.interests} />
+        {user.id === myId ? (
+          <ViewedShowAndReviewsSection
+            reviews={user.reviews}
+            shows={shows}
+            setShows={setShows}
+          />
+        ) : (
+          <ReviewSection reviews={user.reviews} />
+        )}
+      </div>
     </>
   );
 };

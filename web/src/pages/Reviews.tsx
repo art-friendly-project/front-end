@@ -1,11 +1,14 @@
 import BtnContainer from 'components/Reviews/btnContainer/BtnContainer';
 import MemoPad from 'components/Reviews/memopad/MemoPad';
 import StickerModal from 'components/Reviews/stickerModal/StickerModal';
+import ConfirmModal from 'components/common/ConfirmModal';
 import { reviewDatas } from 'mock/mockData';
 import { useEffect, useState } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 
 const Reviews = () => {
+  const [selectStickerIdx, setSelectStickerIdx] = useState(Infinity);
+
   const [review, setReview] = useState<review>({
     id: 0,
     title: '',
@@ -18,6 +21,7 @@ const Reviews = () => {
       profileImage: '',
     },
   });
+
   const location = useLocation();
   const pathname = location.pathname;
   const showId = Number(pathname.slice(7)[0]);
@@ -29,14 +33,43 @@ const Reviews = () => {
   const [isModal, setIsModal] = useState(false);
   const [isStickerOk, setIsStickerOk] = useState(false);
 
+  const confirmModalFn = () => {
+    if (selectStickerIdx === Infinity) {
+      return null;
+    } else {
+      setReview((prev) => {
+        return {
+          id: prev.id,
+          title: prev.title,
+          content: prev.content,
+          createdAt: prev.createdAt,
+          stickers: prev.stickers.filter((_, i) => i !== selectStickerIdx),
+          user: prev.user,
+        };
+      });
+      setSelectStickerIdx(Infinity);
+    }
+  };
+
+  const confirmModalCancelFn = () => {
+    setSelectStickerIdx(Infinity);
+  };
+
   useEffect(() => {
     setReview(reviewData);
   }, [reviewData]);
 
   return (
     <>
+      {
+        <ConfirmModal
+          text={`${selectStickerIdx === Infinity ? '남긴 담벼락을 삭제할까요?' : '남긴 스티커를 삭제할까요?'}`}
+          fn={confirmModalFn}
+          cancelFn={confirmModalCancelFn}
+        />
+      }
       <div className="flex flex-col items-center w-full h-full pt-10">
-        <MemoPad review={review} setReview={setReview} />
+        <MemoPad review={review} setSelectStickerIdx={setSelectStickerIdx} />
         <BtnContainer
           setIsModal={setIsModal}
           isStickerOk={isStickerOk}

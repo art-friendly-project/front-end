@@ -18,7 +18,7 @@ const TasteTestMain = () => {
   }, []);
 
   return (
-    <>
+    <div className="flex flex-col w-full h-full">
       <TasteTestMainTitle />
       <div className="flex justify-center">
         <img src={character2} className="my-[10%] absolute bottom-[20%]" />
@@ -26,7 +26,7 @@ const TasteTestMain = () => {
       <div className="absolute w-full bottom-[10%]">
         <BtnBasic name="시작하기" fn={btnHandler} disable={false} />
       </div>
-    </>
+    </div>
   );
 };
 

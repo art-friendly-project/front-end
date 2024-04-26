@@ -54,7 +54,7 @@ const List = () => {
   ];
 
   return (
-    <>
+    <div className="flex flex-col w-full h-full">
       {isModalOpen.includes(true) ? (
         <FilterSelectModal
           title1={selectModalInfos[openModalIndex].title1}
@@ -77,7 +77,7 @@ const List = () => {
       <div className="mt-8">
         <ShowList nearbyShows={nearbyShows} />
       </div>
-    </>
+    </div>
   );
 };
 

@@ -6,7 +6,7 @@ const KakaoLoginBtn = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    sessionStorage.setItem('myId', '1');
+    sessionStorage.setItem('userId', '1');
   }, []);
 
   return (

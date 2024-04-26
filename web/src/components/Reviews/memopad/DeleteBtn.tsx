@@ -1,15 +1,13 @@
-import { type Dispatch, type SetStateAction } from 'react';
+import { useAppDispatch } from 'hooks';
 import { PiTrashSimple } from 'react-icons/pi';
+import { isModalActions } from 'store/modules/isModal';
 
-interface deleteBtn {
-  setIsReviewDeleteModal: Dispatch<SetStateAction<boolean>>;
-}
-
-const DeleteBtn = ({ setIsReviewDeleteModal }: deleteBtn) => {
+const DeleteBtn = () => {
+  const dispatch = useAppDispatch();
   return (
     <button
       onClick={() => {
-        setIsReviewDeleteModal(true);
+        dispatch(isModalActions.setIsModal(true));
       }}
       className="absolute z-10 top-24 right-10"
     >

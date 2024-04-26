@@ -10,7 +10,7 @@ const Like = () => {
   }, [likeList]);
 
   return (
-    <div className="flex flex-col px-[5%]">
+    <div className="flex flex-col px-[5%] w-full h-full">
       {shows.map((show) => (
         <FavoriteShow
           key={show.id}

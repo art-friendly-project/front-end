@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { type Dispatch, type SetStateAction, useEffect, useState } from 'react';
 import ViewedShowAndReviewsSectionMenu from './ViewedShowAndReviewsSectionMenu';
 import ViewedShow from './ViewedShow';
 import MyReivews from './MyReivews';
@@ -7,10 +7,14 @@ import { selectEndpoint } from 'store/modules/endpoint';
 
 interface viewedShowAndReviewsSection {
   reviews: myReview[];
+  shows: deadlineShow[];
+  setShows: Dispatch<SetStateAction<deadlineShow[]>>;
 }
 
 const ViewedShowAndReviewsSection = ({
   reviews,
+  shows,
+  setShows,
 }: viewedShowAndReviewsSection) => {
   const [currentMenu, setCurrentMenu] = useState(true);
 
@@ -28,7 +32,11 @@ const ViewedShowAndReviewsSection = ({
         currentMenu={currentMenu}
         setCurrentMenu={setCurrentMenu}
       />
-      {currentMenu ? <ViewedShow /> : <MyReivews reviews={reviews} />}
+      {currentMenu ? (
+        <ViewedShow shows={shows} setShows={setShows} />
+      ) : (
+        <MyReivews reviews={reviews} />
+      )}
     </div>
   );
 };

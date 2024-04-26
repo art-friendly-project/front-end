@@ -1,17 +1,15 @@
-import { type Dispatch, type SetStateAction } from 'react';
+import { useAppDispatch } from 'hooks';
 import { IoRefreshOutline } from 'react-icons/io5';
+import { isModalActions } from 'store/modules/isModal';
 
-interface resetBtn {
-  setShows: Dispatch<SetStateAction<deadlineShow[]>>;
-}
+const ResetBtn = () => {
+  const dispatch = useAppDispatch();
 
-const ResetBtn = ({ setShows }: resetBtn) => {
   return (
     <button
       className="absolute flex items-center text-gray-80 right-[5%] top-2"
       onClick={() => {
-        localStorage.removeItem('viewedShowList');
-        setShows([]);
+        dispatch(isModalActions.setIsModal(true));
       }}
     >
       <span className="text-Body2-M rotate">목록 초기화</span>

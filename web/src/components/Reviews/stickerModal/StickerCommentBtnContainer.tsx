@@ -15,7 +15,7 @@ const StickerCommentBtnContainer = ({
   setIsStickerOk,
   setReview,
 }: stickerCommentBtnContainer) => {
-  const id = localStorage.getItem('userId');
+  const id = sessionStorage.getItem('userId');
   const myId = Number(id);
   const StickerAndCommentsBtnHandler = () => {
     setIsModal(false);

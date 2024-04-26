@@ -34,13 +34,6 @@ const DeleteStickerModal = ({
         <button
           className="absolute h-10 text-white bg-orange-100 rounded-lg w-28 right-7 bottom-4 text-Subhead"
           onClick={() => {
-            setReview((prev) => {
-              prev.stickers = prev.stickers.filter(
-                (_, i) => i !== selectStickerIdx,
-              );
-
-              return prev;
-            });
             setIsStickerDeleteModal(false);
           }}
         >

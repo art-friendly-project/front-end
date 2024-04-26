@@ -1,6 +1,8 @@
 import { type Dispatch, type SetStateAction } from 'react';
 import purpleStar from 'assets/images/sticker/purpleStar.svg';
 import { useLongPress } from 'use-long-press';
+import { useAppDispatch } from 'hooks';
+import { isModalActions } from 'store/modules/isModal';
 
 interface memoPadSticker {
   userId: number;
@@ -8,7 +10,6 @@ interface memoPadSticker {
   comments: string;
   setStickerComments: Dispatch<SetStateAction<string>>;
   setIsCommentModal: Dispatch<SetStateAction<boolean>>;
-  setIsStickerDeleteModal: Dispatch<SetStateAction<boolean>>;
   idx: number;
   setSelectStickerIdx: Dispatch<SetStateAction<number>>;
   myId: number;
@@ -20,11 +21,12 @@ const MemoPadSticker = ({
   comments,
   setStickerComments,
   setIsCommentModal,
-  setIsStickerDeleteModal,
   idx,
   setSelectStickerIdx,
   myId,
 }: memoPadSticker) => {
+  const dispatch = useAppDispatch();
+
   const btnHandler = () => {
     setStickerComments(comments);
     setIsCommentModal((prev) => !prev);
@@ -33,8 +35,8 @@ const MemoPadSticker = ({
   const onPressHandler = useLongPress(
     userId === myId
       ? () => {
-          setIsStickerDeleteModal(true);
           setSelectStickerIdx(idx);
+          dispatch(isModalActions.setIsModal(true));
         }
       : null,
     {
@@ -44,7 +46,7 @@ const MemoPadSticker = ({
 
   return (
     <button
-      className={`relative mr-2 duration-700 shrink-0 ${userId === myId ? 'active:scale-125' : ''} `}
+      className={`relative mr-2 duration-500 shrink-0 ${userId === myId ? 'active:scale-110' : ''} `}
       {...onPressHandler()}
       onClick={btnHandler}
     >

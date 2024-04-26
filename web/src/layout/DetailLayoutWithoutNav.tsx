@@ -5,7 +5,7 @@ const DetailLayoutWithoutNav = () => {
   return (
     <>
       <DetailHeader />
-      <div className="flex flex-col w-full overflow-y-scroll h-23/25 scrollbar-hide">
+      <div className="flex flex-col items-center justify-center w-full h-full overflow-y-scroll scrollbar-hide">
         <Outlet />
       </div>
     </>

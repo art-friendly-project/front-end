@@ -15,13 +15,13 @@ const Home = () => {
   }, [endpointActions]);
 
   return (
-    <>
+    <div className="flex flex-col w-full h-full">
       <BannerSection />
       <NearbyShowInfoSection />
       <IsTestCheck />
       <PopularShowSection />
       <DeadlineShowSection />
-    </>
+    </div>
   );
 };
 

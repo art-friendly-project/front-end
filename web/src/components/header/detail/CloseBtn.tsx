@@ -1,29 +1,22 @@
-import { useState } from 'react';
 import { IoIosClose } from 'react-icons/io';
-import CloseConfirmModal from './CloseConfirmModal';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { useAppSelector } from 'hooks';
-import { selectIsPostEmpty } from 'store/modules/isPostEmpty';
+import { useAppDispatch, useAppSelector } from 'hooks';
+import { isModalActions } from 'store/modules/isModal';
+import { selectIsReviewText } from 'store/modules/isReviewText';
+import { useNavigate } from 'react-router-dom';
 
 const CloseBtn = () => {
-  const [isModal, setIsModal] = useState(false);
   const navigate = useNavigate();
-  const location = useLocation();
-  const pathname = location.pathname;
-  const isPostEmpty = useAppSelector(selectIsPostEmpty);
+  const dispatch = useAppDispatch();
+
+  const isReviewText = useAppSelector(selectIsReviewText);
 
   const btnHandler = () => {
-    if (pathname.includes('review-post')) {
-      if (isPostEmpty) {
-        navigate(-1);
-      } else {
-        setIsModal(true);
-      }
-
+    if (isReviewText) {
+      navigate(-1);
       return;
     }
 
-    setIsModal(true);
+    dispatch(isModalActions.setIsModal(true));
   };
 
   return (
@@ -31,7 +24,6 @@ const CloseBtn = () => {
       <button className="absolute top-2 right-3" onClick={btnHandler}>
         <IoIosClose className="w-12 h-12" />
       </button>
-      {isModal ? <CloseConfirmModal setIsModal={setIsModal} /> : null}
     </>
   );
 };

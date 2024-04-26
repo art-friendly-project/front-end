@@ -5,7 +5,6 @@ interface stickerList {
   stickers: sticker[];
   setStickerComments: Dispatch<SetStateAction<string>>;
   setIsCommentModal: Dispatch<SetStateAction<boolean>>;
-  setIsStickerDeleteModal: Dispatch<SetStateAction<boolean>>;
   setSelectStickerIdx: Dispatch<SetStateAction<number>>;
   myId: number;
 }
@@ -14,7 +13,6 @@ const MemoPadStickerList = ({
   stickers,
   setStickerComments,
   setIsCommentModal,
-  setIsStickerDeleteModal,
   setSelectStickerIdx,
   myId,
 }: stickerList) => {
@@ -28,7 +26,6 @@ const MemoPadStickerList = ({
           comments={sticker.comments}
           setStickerComments={setStickerComments}
           setIsCommentModal={setIsCommentModal}
-          setIsStickerDeleteModal={setIsStickerDeleteModal}
           idx={idx}
           setSelectStickerIdx={setSelectStickerIdx}
           myId={myId}
