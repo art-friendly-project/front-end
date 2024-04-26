@@ -19,6 +19,7 @@ import ShowDetail from 'pages/ShowDetail';
 import Reviews from 'pages/Reviews';
 import ReviewPost from 'pages/ReviewPost';
 import Settings from 'pages/Settings';
+import AccessGuidance from 'pages/AccessGuidance';
 
 const App = () => {
   return (
@@ -29,6 +30,7 @@ const App = () => {
             <Route path="/" element={<OpenLoading />} />
             <Route path="/login" element={<Login />} />
             <Route path="/taste-select" element={<TasteSelect />} />
+            <Route path="/access" element={<AccessGuidance />} />
             <Route path="/shows/:id" element={<ShowDetail />} />
             <Route path="/loading" element={<Loading />} />
 

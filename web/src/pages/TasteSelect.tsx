@@ -8,7 +8,7 @@ const TasteSelect = () => {
   const [selectedList, setSelectedList] = useState<string[]>([]);
   const navigate = useNavigate();
   const btnHandler = () => {
-    navigate('/home');
+    navigate('/access');
   };
 
   return (

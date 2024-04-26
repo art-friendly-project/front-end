@@ -6,9 +6,23 @@ import IsTestCheck from 'components/home/main/tasteSection/IsTestCheck';
 import { useEffect } from 'react';
 import { useAppDispatch } from 'hooks';
 import { endpointActions } from 'store/modules/endpoint';
+import useGeolocation from 'hooks/useGeolocation';
+import useReverseLocation from 'hooks/useReverseLocation';
+import isApp from 'utils/isApp';
 
 const Home = () => {
   const dispatch = useAppDispatch();
+
+  const { geolocation } = useGeolocation();
+  useReverseLocation(geolocation);
+
+  useEffect(() => {
+    if (isApp()) {
+      window.ReactNativeWebView?.postMessage(
+        JSON.stringify({ type: 'LOCATION_PERMISSION' }),
+      );
+    }
+  }, []);
 
   useEffect(() => {
     dispatch(endpointActions.current('/home'));

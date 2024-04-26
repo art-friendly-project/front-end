@@ -4,21 +4,10 @@ import NearbyShowTitle from './NearbyShowTitle';
 import { useNavigate } from 'react-router-dom';
 import useGeolocation from 'hooks/useGeolocation';
 import isApp from 'utils/isApp';
-import useReverseLocation from 'hooks/useReverseLocation';
-import { useEffect } from 'react';
 
 const NearbyShowSection = () => {
   const navigate = useNavigate();
-  const { geolocation, geolocationAccess } = useGeolocation();
-  useReverseLocation(geolocation);
-
-  useEffect(() => {
-    if (isApp()) {
-      window.ReactNativeWebView?.postMessage(
-        JSON.stringify({ type: 'LOCATION_PERMISSION' }),
-      );
-    }
-  }, []);
+  const { geolocationAccess } = useGeolocation();
 
   const BtnHandler = () => {
     if (!geolocationAccess) {
