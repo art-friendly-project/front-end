@@ -7,7 +7,7 @@ import homeIconOrange from 'assets/images/navigation/homeIconOrange.svg';
 import listIconOrange from 'assets/images/navigation/listIconOrange.svg';
 import favoriteIconOrange from 'assets/images/navigation/favoriteIconOrange.svg';
 import profileIconOrange from 'assets/images/navigation/profileIconOrange.svg';
-import FavoriteToast from './FavoriteToast';
+import Toast from '../common/Toast';
 
 const NavigationBar = () => {
   return (
@@ -21,7 +21,9 @@ const NavigationBar = () => {
           activeIcon={navigation.activeIcon}
         />
       ))}
-      <FavoriteToast />
+      <Toast
+        text={['좋아요 목록에 추가했어요', '좋아요 목록에서 취소했어요']}
+      />
     </div>
   );
 };

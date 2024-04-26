@@ -17,7 +17,7 @@ export const toastSlice = createSlice({
       state.toast[0] = action.payload;
     },
 
-    isFavorite: (state, action: PayloadAction<boolean>) => {
+    isCheckOrCancel: (state, action: PayloadAction<boolean>) => {
       state.toast[1] = action.payload;
     },
   },

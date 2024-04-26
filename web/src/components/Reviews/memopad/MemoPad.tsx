@@ -9,9 +9,14 @@ import DeleteBtn from './DeleteBtn';
 interface memoPad {
   review: review;
   setSelectStickerIdx: Dispatch<SetStateAction<number>>;
+  setSelectedToast: Dispatch<SetStateAction<number>>;
 }
 
-const MemoPad = ({ review, setSelectStickerIdx }: memoPad) => {
+const MemoPad = ({
+  review,
+  setSelectStickerIdx,
+  setSelectedToast,
+}: memoPad) => {
   const [stickerComments, setStickerComments] = useState('');
   const [isCommentModal, setIsCommentModal] = useState(false);
 
@@ -32,6 +37,7 @@ const MemoPad = ({ review, setSelectStickerIdx }: memoPad) => {
           setIsCommentModal={setIsCommentModal}
           setSelectStickerIdx={setSelectStickerIdx}
           userId={userId}
+          setSelectedToast={setSelectedToast}
         />
         {isCommentModal ? (
           <MemoPadStickerComments

@@ -8,7 +8,6 @@ interface stickerComment {
   text: string;
   setText: Dispatch<SetStateAction<string>>;
   setIsModal: Dispatch<SetStateAction<boolean>>;
-  setIsStickerOk: Dispatch<SetStateAction<boolean>>;
   setReview: Dispatch<SetStateAction<review>>;
 }
 
@@ -17,7 +16,6 @@ const StickerComment = ({
   text,
   setText,
   setIsModal,
-  setIsStickerOk,
   setReview,
 }: stickerComment) => {
   return (
@@ -28,7 +26,6 @@ const StickerComment = ({
         text={text}
         sticker={sticker}
         setIsModal={setIsModal}
-        setIsStickerOk={setIsStickerOk}
         setReview={setReview}
       />
     </div>

@@ -2,13 +2,16 @@ import BtnContainer from 'components/Reviews/btnContainer/BtnContainer';
 import MemoPad from 'components/Reviews/memopad/MemoPad';
 import StickerModal from 'components/Reviews/stickerModal/StickerModal';
 import ConfirmModal from 'components/common/ConfirmModal';
+import useToastHandler from 'hooks/useToastHandler';
 import { reviewDatas } from 'mock/mockData';
 import { useEffect, useState } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 
 const Reviews = () => {
   const [selectStickerIdx, setSelectStickerIdx] = useState(Infinity);
+  const [selectedToast, setSelectedToast] = useState(0);
 
+  const [isModal, setIsModal] = useState(false);
   const [review, setReview] = useState<review>({
     id: 0,
     title: '',
@@ -22,6 +25,8 @@ const Reviews = () => {
     },
   });
 
+  const toastHandler = useToastHandler(true);
+
   const location = useLocation();
   const pathname = location.pathname;
   const showId = Number(pathname.slice(7)[0]);
@@ -30,8 +35,6 @@ const Reviews = () => {
   const id = Number(params.id);
 
   const reviewData = reviewDatas[showId][id - 1];
-  const [isModal, setIsModal] = useState(false);
-  const [isStickerOk, setIsStickerOk] = useState(false);
 
   const confirmModalFn = () => {
     if (selectStickerIdx === Infinity) {
@@ -48,6 +51,7 @@ const Reviews = () => {
         };
       });
       setSelectStickerIdx(Infinity);
+      toastHandler();
     }
   };
 
@@ -69,18 +73,18 @@ const Reviews = () => {
         />
       }
       <div className="flex flex-col items-center w-full h-full pt-10">
-        <MemoPad review={review} setSelectStickerIdx={setSelectStickerIdx} />
+        <MemoPad
+          review={review}
+          setSelectStickerIdx={setSelectStickerIdx}
+          setSelectedToast={setSelectedToast}
+        />
         <BtnContainer
           setIsModal={setIsModal}
-          isStickerOk={isStickerOk}
-          setIsStickerOk={setIsStickerOk}
+          selectedToast={selectedToast}
+          setSelectedToast={setSelectedToast}
         />
         {isModal ? (
-          <StickerModal
-            setIsModal={setIsModal}
-            setIsStickerOk={setIsStickerOk}
-            setReview={setReview}
-          />
+          <StickerModal setIsModal={setIsModal} setReview={setReview} />
         ) : null}
       </div>
     </>

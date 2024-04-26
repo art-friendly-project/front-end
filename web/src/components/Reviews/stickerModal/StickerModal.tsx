@@ -5,15 +5,10 @@ import StickerComment from './StickerComment';
 
 interface stickerModal {
   setIsModal: Dispatch<SetStateAction<boolean>>;
-  setIsStickerOk: Dispatch<SetStateAction<boolean>>;
   setReview: Dispatch<SetStateAction<review>>;
 }
 
-const StickerModal = ({
-  setIsModal,
-  setIsStickerOk,
-  setReview,
-}: stickerModal) => {
+const StickerModal = ({ setIsModal, setReview }: stickerModal) => {
   const [current, setCurrent] = useState(false);
   const [sticker, setSticker] = useState('');
   const [text, setText] = useState('');
@@ -33,7 +28,6 @@ const StickerModal = ({
             text={text}
             setText={setText}
             setIsModal={setIsModal}
-            setIsStickerOk={setIsStickerOk}
             setReview={setReview}
           />
         ) : (

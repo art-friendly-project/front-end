@@ -17,7 +17,7 @@ const DetailShowFavoriteBtn = ({ favorite }: detailShowFavoriteBtn) => {
 
   const favoriteBtnHandler = () => {
     setIsFavorite((prev) => !prev);
-    dispatch(toastActions.isFavorite(isFavorite));
+    dispatch(toastActions.isCheckOrCancel(isFavorite));
     dispatch(toastActions.active(true));
 
     setTimeout(() => {

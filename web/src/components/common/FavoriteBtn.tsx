@@ -1,8 +1,6 @@
-import { useAppDispatch } from 'hooks';
 import { useEffect, useState } from 'react';
-
 import { IoHeartOutline, IoHeart } from 'react-icons/io5';
-import { toastActions } from 'store/modules/toast';
+import useToastHandler from 'hooks/useToastHandler';
 
 interface favoriteBtn {
   favorite: boolean;
@@ -10,30 +8,25 @@ interface favoriteBtn {
 
 const FavoriteBtn = ({ favorite }: favoriteBtn) => {
   const [isFavorite, setIsFavorite] = useState(false);
-  const [isNotTimeout, setIsNotTimeout] = useState(true);
-  const dispatch = useAppDispatch();
+  const toastHandler = useToastHandler(isFavorite);
 
   useEffect(() => {
     setIsFavorite(favorite);
   }, [favorite]);
 
   const favoriteBtnHandler = () => {
-    if (isNotTimeout) {
-      setTimeout(() => {
-        dispatch(toastActions.active(false));
-        setIsNotTimeout(true);
-      }, 2000);
-    }
-
     setIsFavorite((prev) => !prev);
-    dispatch(toastActions.isFavorite(isFavorite));
-    dispatch(toastActions.active(true));
-    setIsNotTimeout(false);
   };
 
   return (
     <>
-      <button className="absolute right-0 top-2" onClick={favoriteBtnHandler}>
+      <button
+        className="absolute right-0 top-2"
+        onClick={() => {
+          favoriteBtnHandler();
+          toastHandler();
+        }}
+      >
         {isFavorite ? (
           <IoHeart className="w-6 h-6 text-orange-100" />
         ) : (

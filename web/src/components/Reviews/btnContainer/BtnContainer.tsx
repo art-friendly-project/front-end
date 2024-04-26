@@ -1,33 +1,34 @@
 import { type Dispatch, type SetStateAction, useState } from 'react';
 import StickerBtn from 'components/Reviews/btnContainer/StickerBtn';
 import BookmarkBtn from 'components/Reviews/btnContainer/BookmarkBtn';
-import ReviewToast from './ReviewToast';
+import Toast from 'components/common/Toast';
 
 interface btnContainer {
   setIsModal: Dispatch<SetStateAction<boolean>>;
-  setIsStickerOk: Dispatch<SetStateAction<boolean>>;
-  isStickerOk: boolean;
+  selectedToast: number;
+  setSelectedToast: Dispatch<SetStateAction<number>>;
 }
 
 const BtnContainer = ({
   setIsModal,
-  isStickerOk,
-  setIsStickerOk,
+  selectedToast,
+  setSelectedToast,
 }: btnContainer) => {
   const [isBookmarkChecked, setIsBookmarkChecked] = useState(false);
 
   return (
     <div className="relative flex mt-16 w-9/10">
-      <StickerBtn setIsModal={setIsModal} setIsStickerOk={setIsStickerOk} />
+      <StickerBtn setIsModal={setIsModal} setSelectedToast={setSelectedToast} />
       <BookmarkBtn
         isBookmarkChecked={isBookmarkChecked}
         setIsBookmarkChecked={setIsBookmarkChecked}
+        setSelectedToast={setSelectedToast}
       />
-      {isStickerOk ? (
-        <ReviewToast isCheck={isStickerOk} text="스티커를 붙였어요." />
+      {selectedToast === 0 ? (
+        <Toast text={['스티커를 붙이기를 완료했어요', '스티커를 지웠어요']} />
       ) : null}
-      {isBookmarkChecked ? (
-        <ReviewToast isCheck={isBookmarkChecked} text="담벼락을 저장했어요." />
+      {selectedToast === 1 ? (
+        <Toast text={['담벼락을 저장했어요', '담벼락 저장을 취소했어요']} />
       ) : null}
     </div>
   );

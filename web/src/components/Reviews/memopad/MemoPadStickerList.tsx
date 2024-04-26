@@ -7,6 +7,7 @@ interface stickerList {
   setIsCommentModal: Dispatch<SetStateAction<boolean>>;
   setSelectStickerIdx: Dispatch<SetStateAction<number>>;
   userId: number;
+  setSelectedToast: Dispatch<SetStateAction<number>>;
 }
 
 const MemoPadStickerList = ({
@@ -15,6 +16,7 @@ const MemoPadStickerList = ({
   setIsCommentModal,
   setSelectStickerIdx,
   userId,
+  setSelectedToast,
 }: stickerList) => {
   return (
     <div className="absolute flex h-24 items-end overflow-x-scroll scrollbar-hide bottom-10 left-5 w-91.2">
@@ -29,6 +31,7 @@ const MemoPadStickerList = ({
           idx={idx}
           setSelectStickerIdx={setSelectStickerIdx}
           userId={userId}
+          setSelectedToast={setSelectedToast}
         />
       ))}
     </div>

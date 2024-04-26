@@ -212,7 +212,7 @@ module.exports = {
         'appear-fast': 'appear-fast 0.5s',
         'appear-slow': 'appear-slow 2s ease-in-out',
         'appear-little': 'appear-little 0.5s linear',
-        'appear-toast': 'appear-toast 2s',
+        'appear-toast': 'appear-toast 2.2s',
         disappear: 'disappear 2s',
         'move-top': 'move-top 1.7s linear',
         'move-top-mini': 'move-top-mini 2s linear',
