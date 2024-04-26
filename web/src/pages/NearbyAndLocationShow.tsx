@@ -52,7 +52,7 @@ const NearbyAndLocationShow = () => {
   ];
 
   return (
-    <>
+    <div className="flex flex-col w-full h-full">
       {isModalOpen.includes(true) ? (
         <FilterSelectModal
           title1={selectModalInfos[openModalIndex].title1}
@@ -70,7 +70,7 @@ const NearbyAndLocationShow = () => {
         setIsModalOpen={setIsModalOpen}
       />
       <ShowList nearbyShows={nearbyShows} />
-    </>
+    </div>
   );
 };
 
