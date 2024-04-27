@@ -1,17 +1,19 @@
 import { useAppDispatch } from 'hooks';
 import { useNavigate } from 'react-router-dom';
+import { isNearbyActions } from 'store/modules/isNearby';
 import { locationActions } from 'store/modules/location';
 
 interface locationIconBtn {
   locationIcon: string;
-  locationKr: string;
+  location: string[];
 }
 
-const LocationIconBtn = ({ locationIcon, locationKr }: locationIconBtn) => {
+const LocationIconBtn = ({ locationIcon, location }: locationIconBtn) => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const locationBtnHandler = () => {
-    dispatch(locationActions.current(locationKr));
+    dispatch(isNearbyActions.current(false));
+    dispatch(locationActions.current(location[0]));
     navigate('/home/nearby');
   };
 
@@ -19,7 +21,7 @@ const LocationIconBtn = ({ locationIcon, locationKr }: locationIconBtn) => {
     <div className="flex items-center justify-center w-1/4 mt-4">
       <button onClick={locationBtnHandler}>
         <img src={locationIcon} className="w-16 h-16" />
-        <span className="text-Body2-M">{locationKr}</span>
+        <span className="text-Body2-M">{location[1]}</span>
       </button>
     </div>
   );

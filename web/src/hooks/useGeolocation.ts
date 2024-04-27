@@ -1,35 +1,45 @@
+import { useAppSelector } from 'hooks';
 import { useEffect, useState } from 'react';
+import { selectIsNearby } from 'store/modules/isNearby';
 import isApp from 'utils/isApp';
 
 const useGeolocation = () => {
   const [geolocation, setGeolocation] = useState({
-    latitude: 0,
     longitude: 0,
+    latitude: 0,
   });
-  const [geolocationAccess, setGeolocationAccess] = useState(false);
+  const isNearby = useAppSelector(selectIsNearby);
 
   useEffect(() => {
     if (isApp()) {
-      const location = (e: MessageEvent<string>) => {
-        const data: { latitude: number; longitude: number } = JSON.parse(
-          e.data,
+      if (isNearby) {
+        window.ReactNativeWebView?.postMessage(
+          JSON.stringify({ type: 'GEOLOCATION' }),
         );
 
-        if (data.latitude !== 0 && data.longitude !== 0) {
-          setGeolocation(data);
-          setGeolocationAccess(true);
-        }
-      };
+        const geolocation = (e: MessageEvent<string>) => {
+          const data: {
+            geolocation: {
+              longitude: number;
+              latitude: number;
+            };
+          } = JSON.parse(e.data);
 
-      document.addEventListener('message', location);
+          if (data.geolocation !== undefined) {
+            setGeolocation(data.geolocation);
+          }
+        };
 
-      return () => {
-        document.removeEventListener('message', location);
-      };
+        document.addEventListener('message', geolocation);
+
+        return () => {
+          document.removeEventListener('message', geolocation);
+        };
+      }
     }
-  }, [location]);
+  }, [isNearby]);
 
-  return { geolocation, geolocationAccess };
+  return geolocation;
 };
 
 export default useGeolocation;

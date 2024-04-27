@@ -16,7 +16,7 @@ const LocationList = () => {
         <LocationIconBtn
           key={locationIcon}
           locationIcon={locationIcon}
-          locationKr={locationsKr[idx]}
+          location={locations[idx]}
         />
       ))}
     </div>
@@ -34,15 +34,15 @@ const locationIcons = [
   jeju,
 ];
 
-const locationsKr = [
-  '서울',
-  '경기/인천',
-  '강원',
-  '경남/부산',
-  '경북/대구',
-  '충청/대전',
-  '전라/광주',
-  '제주',
+const locations = [
+  ['seoul', '서울'],
+  ['gyeonggi-incheon', '경기/인천'],
+  ['gangwon', '강원'],
+  ['gyeongnam-busan', '경남/부산'],
+  ['gyeongbuk-daegu', '경북/대구'],
+  ['chungcheong-daejeon', '충청/대전'],
+  ['jeolla-gwangju', '전라/광주'],
+  ['jeju', '제주'],
 ];
 
 export default LocationList;

@@ -8,7 +8,7 @@ interface mbti {
   pj: string[];
 }
 
-const AnalyzeTestResult = () => {
+const analyzeTestResult = () => {
   let result = '';
 
   const testResult = useAppSelector(selectTasteTest);
@@ -89,4 +89,4 @@ const AnalyzeTestResult = () => {
   return { result };
 };
 
-export default AnalyzeTestResult;
+export default analyzeTestResult;

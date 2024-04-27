@@ -6,7 +6,7 @@ interface StateType {
 }
 
 const initialState: StateType = {
-  location: '서울',
+  location: 'seoul',
 };
 
 export const locationSlice = createSlice({

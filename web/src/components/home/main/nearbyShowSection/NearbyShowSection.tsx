@@ -2,24 +2,31 @@ import BtnBasic from 'components/common/BtnBasic';
 import LocationList from './LocationList';
 import NearbyShowTitle from './NearbyShowTitle';
 import { useNavigate } from 'react-router-dom';
-import { useAppSelector } from 'hooks';
+import { useAppDispatch, useAppSelector } from 'hooks';
 import { selectAccessPermissions } from 'store/modules/accessPermissions';
 import isApp from 'utils/isApp';
+import { isNearbyActions } from 'store/modules/isNearby';
 
 const NearbyShowSection = () => {
-  const lcationPermission = useAppSelector(selectAccessPermissions).location;
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
+
+  const locationPermission = useAppSelector(selectAccessPermissions).location;
 
   const BtnHandler = () => {
     if (isApp()) {
-      if (lcationPermission !== 'granted') {
+      if (locationPermission !== 'granted') {
         window.ReactNativeWebView?.postMessage(
           JSON.stringify({ type: 'LOCATION_PERMISSION' }),
         );
 
         return;
       }
-      navigate('/home/nearby');
+
+      if (locationPermission === 'granted') {
+        dispatch(isNearbyActions.current(true));
+        navigate('/home/nearby');
+      }
     }
   };
 

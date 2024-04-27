@@ -2,11 +2,11 @@ import TestResultExplain from '../components/home/detail/tasteTest/result/TestRe
 import TestResultTitleAndProfile from '../components/home/detail/tasteTest/result/TestResultTitleAndProfile';
 import TestFitOrNotFit from '../components/home/detail/tasteTest/result/TestFitOrNotFit';
 import BtnBasic from 'components/common/BtnBasic';
-import AnalyzeTestResult from 'utils/AnalyzeTestResult';
 import { mbtiType } from 'assets/data/tasteTestData';
+import analyzeTestResult from 'utils/analyzeTestResult';
 
 const TasteTestResult = () => {
-  const { result } = AnalyzeTestResult();
+  const { result } = analyzeTestResult();
   const mbti = mbtiType[result];
 
   const btnhandler = () => {};

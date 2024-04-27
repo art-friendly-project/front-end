@@ -6,40 +6,12 @@ import IsTestCheck from 'components/home/main/tasteSection/IsTestCheck';
 import { useEffect } from 'react';
 import { useAppDispatch } from 'hooks';
 import { endpointActions } from 'store/modules/endpoint';
-import isApp from 'utils/isApp';
-import { accessPermissionsActions } from 'store/modules/accessPermissions';
+import useAccessPermissions from 'hooks/useAccessPermissions';
 
 const Home = () => {
   const dispatch = useAppDispatch();
 
-  useEffect(() => {
-    if (isApp()) {
-      window.ReactNativeWebView?.postMessage(
-        JSON.stringify({ type: 'ACCESS_PERMISSION' }),
-      );
-
-      const accessPermissions = (e: MessageEvent<string>) => {
-        const data: {
-          permissions: {
-            location: string;
-            calendar: string;
-            images: string;
-            notifications: string;
-          };
-        } = JSON.parse(e.data);
-
-        if (data.permissions !== undefined) {
-          dispatch(accessPermissionsActions.current(data.permissions));
-        }
-      };
-
-      document.addEventListener('message', accessPermissions);
-
-      return () => {
-        document.removeEventListener('message', accessPermissions);
-      };
-    }
-  }, []);
+  useAccessPermissions();
 
   useEffect(() => {
     dispatch(endpointActions.current('/home'));

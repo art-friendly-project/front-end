@@ -1,9 +1,10 @@
-import React, {useEffect, useRef} from 'react';
-// import {AppState} from 'react-native';
+import React, {useEffect, useRef, useState} from 'react';
 import {WebView, WebViewMessageEvent} from 'react-native-webview';
 import useBackBtnHandler from '../../hooks/useBackBtnHandler';
 import accessPermissions from '../../utils/accessPermissions';
-import useGeolocation from '../../hooks/useGeolocation';
+import findGeolocation from '../../utils/findGeolocation';
+import locationPermission from '../../utils/locationPermission';
+import useLocationPermission from '../../hooks/useLocationPermission';
 
 interface navType {
   url: string;
@@ -11,10 +12,12 @@ interface navType {
 }
 
 const WebViewcontainer = () => {
+  const [geolocation, setGeolocation] = useState({latitude: 0, longitude: 0});
+
   const webViewRef = useRef<WebView>(null);
   const setNavState = useBackBtnHandler(currentIp, webViewRef);
 
-  const {findGeolocation, geolocation} = useGeolocation();
+  useLocationPermission(webViewRef);
 
   useEffect(() => {
     webViewRef.current?.postMessage(JSON.stringify({geolocation}));
@@ -30,7 +33,8 @@ const WebViewcontainer = () => {
       }}
       onMessage={(e: WebViewMessageEvent) => {
         accessPermissions(e, webViewRef);
-        findGeolocation(e);
+        findGeolocation(e, setGeolocation);
+        locationPermission(e);
       }}
     />
   );
@@ -48,25 +52,3 @@ const currentIp = 'http://192.168.13.9:3000';
 // const currentIp = 'http://192.168.0.30:3000';
 
 export default WebViewcontainer;
-
-// const appState = useRef(AppState.currentState);
-
-// useEffect(() => {
-//   const subscription = AppState.addEventListener('change', nextAppState => {
-//     if (appState.current.match(/background/) && nextAppState === 'active') {
-//       if (geoLcationReAccess) {
-//         setGeoLocatonAccess(true);
-//       }
-
-//       if (geoLocationAccess) {
-//         findLocation(setGeoLocation);
-//       }
-//     }
-
-//     appState.current = nextAppState;
-//   });
-
-//   return () => {
-//     subscription.remove();
-//   };
-// }, [geoLocationAccess, geoLcationReAccess]);
