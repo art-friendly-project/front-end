@@ -3,10 +3,10 @@ import TestResultTitleAndProfile from '../components/home/detail/tasteTest/resul
 import TestFitOrNotFit from '../components/home/detail/tasteTest/result/TestFitOrNotFit';
 import BtnBasic from 'components/common/BtnBasic';
 import { mbtiType } from 'assets/data/tasteTestData';
-import analyzeTestResult from 'utils/analyzeTestResult';
+import testResult from 'utils/testResult';
 
 const TasteTestResult = () => {
-  const { result } = analyzeTestResult();
+  const { result } = testResult();
   const mbti = mbtiType[result];
 
   const btnhandler = () => {};

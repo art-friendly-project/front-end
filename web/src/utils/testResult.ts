@@ -8,10 +8,10 @@ interface mbti {
   pj: string[];
 }
 
-const analyzeTestResult = () => {
+const testResult = () => {
   let result = '';
 
-  const testResult = useAppSelector(selectTasteTest);
+  const Result = useAppSelector(selectTasteTest);
 
   const mbti: mbti = {
     ei: [],
@@ -20,7 +20,7 @@ const analyzeTestResult = () => {
     pj: [],
   };
 
-  testResult.forEach((result, i) => {
+  Result.forEach((result, i) => {
     if (i === 0 || i === 1 || i === 4) {
       if (result === 0) mbti.ei.push('E');
       else mbti.ei.push('I');
@@ -89,4 +89,4 @@ const analyzeTestResult = () => {
   return { result };
 };
 
-export default analyzeTestResult;
+export default testResult;
