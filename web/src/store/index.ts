@@ -6,6 +6,7 @@ import endpointReducer from './modules/endpoint';
 import tasteTestReducer from './modules/tasteTest';
 import isModalReducer from './modules/isModal';
 import isReviewTextReducer from './modules/isReviewText';
+import accessPermissionsReducer from './modules/accessPermissions';
 
 const store = configureStore({
   reducer: {
@@ -16,6 +17,7 @@ const store = configureStore({
     tasteTest: tasteTestReducer,
     isModal: isModalReducer,
     isReviewText: isReviewTextReducer,
+    accessPermissions: accessPermissionsReducer,
   },
 });
 

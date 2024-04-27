@@ -1,4 +1,5 @@
 import { IoIosArrowDown } from 'react-icons/io';
+import { translateLocationEngToKor } from 'utils/translateLocation';
 
 interface locationFilter {
   location: string;
@@ -21,7 +22,7 @@ const LocationFilter = ({
       <span
         className={`mr-1 text-Body2-M ${isModalOpen[0] ? 'text-white' : ''}`}
       >
-        {location}
+        {translateLocationEngToKor(location)}
       </span>
       <IoIosArrowDown className={isModalOpen[0] ? 'text-white' : ''} />
     </button>

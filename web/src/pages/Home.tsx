@@ -6,21 +6,38 @@ import IsTestCheck from 'components/home/main/tasteSection/IsTestCheck';
 import { useEffect } from 'react';
 import { useAppDispatch } from 'hooks';
 import { endpointActions } from 'store/modules/endpoint';
-import useGeolocation from 'hooks/useGeolocation';
-import useReverseLocation from 'hooks/useReverseLocation';
 import isApp from 'utils/isApp';
+import { accessPermissionsActions } from 'store/modules/accessPermissions';
 
 const Home = () => {
   const dispatch = useAppDispatch();
 
-  const { geolocation } = useGeolocation();
-  useReverseLocation(geolocation);
-
   useEffect(() => {
     if (isApp()) {
       window.ReactNativeWebView?.postMessage(
-        JSON.stringify({ type: 'LOCATION_PERMISSION' }),
+        JSON.stringify({ type: 'ACCESS_PERMISSION' }),
       );
+
+      const accessPermissions = (e: MessageEvent<string>) => {
+        const data: {
+          permissions: {
+            location: string;
+            calendar: string;
+            images: string;
+            notifications: string;
+          };
+        } = JSON.parse(e.data);
+
+        if (data.permissions !== undefined) {
+          dispatch(accessPermissionsActions.current(data.permissions));
+        }
+      };
+
+      document.addEventListener('message', accessPermissions);
+
+      return () => {
+        document.removeEventListener('message', accessPermissions);
+      };
     }
   }, []);
 

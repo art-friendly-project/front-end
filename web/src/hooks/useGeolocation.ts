@@ -27,31 +27,7 @@ const useGeolocation = () => {
         document.removeEventListener('message', location);
       };
     }
-
-    if (!isApp()) {
-      const handleSuccess = (pos: GeolocationPosition) => {
-        const { latitude, longitude } = pos.coords;
-
-        setGeolocation({
-          latitude,
-          longitude,
-        });
-        setGeolocationAccess(true);
-      };
-
-      const handleError = (err: GeolocationPositionError) => {
-        console.error(err);
-      };
-
-      const { geolocation } = navigator;
-
-      if (geolocation === undefined) {
-        return;
-      }
-
-      geolocation.getCurrentPosition(handleSuccess, handleError);
-    }
-  }, []);
+  }, [location]);
 
   return { geolocation, geolocationAccess };
 };
