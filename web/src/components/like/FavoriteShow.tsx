@@ -3,6 +3,7 @@ import PosterImg from 'components/common/PosterImg';
 import ShowInfo from './ShowInfo';
 import FavoriteBtn from 'components/common/FavoriteBtn';
 import AddScheduleBtn from './AddScheduleBtn';
+import { type Dispatch, type SetStateAction } from 'react';
 
 interface favoriteShow {
   id: number;
@@ -10,9 +11,19 @@ interface favoriteShow {
   term: string;
   image: string;
   favorite: boolean;
+  setCalendars: Dispatch<SetStateAction<calendar[]>>;
+  setIsModal: Dispatch<SetStateAction<boolean>>;
 }
 
-const FavoriteShow = ({ id, name, term, image, favorite }: favoriteShow) => {
+const FavoriteShow = ({
+  id,
+  name,
+  term,
+  image,
+  favorite,
+  setCalendars,
+  setIsModal,
+}: favoriteShow) => {
   const navigate = useNavigate();
 
   return (
@@ -32,7 +43,7 @@ const FavoriteShow = ({ id, name, term, image, favorite }: favoriteShow) => {
         <ShowInfo name={name} term={term} />
       </button>
       <FavoriteBtn favorite={favorite} />
-      <AddScheduleBtn />
+      <AddScheduleBtn setCalendars={setCalendars} setIsModal={setIsModal} />
     </div>
   );
 };

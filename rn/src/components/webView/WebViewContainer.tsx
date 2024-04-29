@@ -5,6 +5,7 @@ import accessPermissions from '../../utils/accessPermissions';
 import findGeolocation from '../../utils/findGeolocation';
 import locationPermission from '../../utils/locationPermission';
 import useLocationPermission from '../../hooks/useLocationPermission';
+import requestCalendars from '../../utils/requestCalendars';
 
 interface navType {
   url: string;
@@ -35,6 +36,7 @@ const WebViewcontainer = () => {
         accessPermissions(e, webViewRef);
         findGeolocation(e, setGeolocation);
         locationPermission(e);
+        requestCalendars(e, webViewRef);
       }}
     />
   );

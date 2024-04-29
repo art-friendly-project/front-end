@@ -23,6 +23,7 @@
     "src/type/react-native-webview.d.ts",
     "src/type/review.d.ts",
     "src/type/show.d.ts",
-    "src/type/user.d.ts"
+    "src/type/user.d.ts",
+    "src/type/calendar.d.ts"
   ]
 }
