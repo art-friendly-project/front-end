@@ -19,7 +19,7 @@ const CalendarSelectModal = ({
           setIsModal(false);
         }}
       />
-      <div className="absolute bottom-0 z-20 flex flex-col w-full pt-6 pb-6 pl-6 bg-white rounded-t-xl animate-move-top-regular">
+      <div className="absolute bottom-0 z-20 flex flex-col w-full pt-6 pb-6 bg-white rounded-t-xl animate-move-top-regular">
         <CalendarSelectModalTitle />
         <CalendarList calendars={calendars} />
       </div>

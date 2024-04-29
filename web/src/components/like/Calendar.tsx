@@ -11,7 +11,7 @@ interface calendar {
 
 const Calendar = ({ value, setValue, id, title, color }: calendar) => {
   return (
-    <label className="relative flex items-center mb-2">
+    <label className="relative flex items-center pl-[5%] mb-3">
       <input
         type="radio"
         value={id}

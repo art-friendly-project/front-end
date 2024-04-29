@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Calendar from './Calendar';
+import BtnBasic from 'components/common/BtnBasic';
 
 interface calendarList {
   calendars: calendar[];
@@ -8,8 +9,10 @@ interface calendarList {
 const CalendarList = ({ calendars }: calendarList) => {
   const [value, setValue] = useState('');
   console.log(value);
+  const btnHandler = () => {};
+
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col w-full">
       {calendars.map((calendar) => (
         <Calendar
           key={calendar.id}
@@ -20,6 +23,13 @@ const CalendarList = ({ calendars }: calendarList) => {
           color={calendar.color}
         />
       ))}
+      <div className="mt-5">
+        <BtnBasic
+          name="일정추가"
+          fn={btnHandler}
+          disable={value.length === 0}
+        />
+      </div>
     </div>
   );
 };
