@@ -37,8 +37,8 @@ const ConfirmModal = ({ text, fn, cancelFn }: confirmModal) => {
             <button
               className="absolute w-32 h-10 text-white bg-orange-100 rounded-lg right-7 bottom-4 text-Subhead"
               onClick={() => {
-                dispatch(isModalActions.setIsModal(false));
                 fn();
+                dispatch(isModalActions.setIsModal(false));
               }}
             >
               확인
