@@ -4,8 +4,8 @@ interface stickerSelectImg {
 
 const StickerSelectImg = ({ sticker }: stickerSelectImg) => {
   return (
-    <div className="flex justify-center w-full h-24 mt-4">
-      {sticker.length > 0 ? <img src={sticker} className="w-24 h-24" /> : null}
+    <div className="flex justify-center w-full mb-4 h-28">
+      {sticker.length > 0 ? <img src={sticker} className="w-28 h-28" /> : null}
     </div>
   );
 };

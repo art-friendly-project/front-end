@@ -2,14 +2,14 @@ import { type Dispatch, type SetStateAction } from 'react';
 import StickerImg from './StickerImg';
 
 interface stickerList {
-  stickers: string[];
+  stickerList: string[];
   setSticker: Dispatch<SetStateAction<string>>;
 }
 
-const StickerList = ({ stickers, setSticker }: stickerList) => {
+const StickerList = ({ stickerList, setSticker }: stickerList) => {
   return (
-    <div className="flex h-40 overflow-x-scroll mb-28 scrollbar-hide">
-      {stickers.map((sticker) => (
+    <div className="flex flex-wrap w-full h-44 shrink-0">
+      {stickerList.map((sticker) => (
         <StickerImg key={sticker} sticker={sticker} setSticker={setSticker} />
       ))}
     </div>
