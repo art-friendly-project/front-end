@@ -1,6 +1,4 @@
-import { useAppDispatch } from 'hooks';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { locationActions } from 'store/modules/location';
 
 interface navigationBtn {
   name: string;
@@ -19,16 +17,12 @@ const NavigationBtn = ({
   const location = useLocation();
   const pathname = location.pathname;
 
-  const dispatch = useAppDispatch();
-
   const changeInActiveOrActiveIcon = () => {
     if (!pathname.includes(endpoint)) return inActiveIcon;
     else return activeIcon;
   };
 
   const btnHandler = () => {
-    if (endpoint === '/list') dispatch(locationActions.current('서울'));
-
     navigate(endpoint);
   };
 

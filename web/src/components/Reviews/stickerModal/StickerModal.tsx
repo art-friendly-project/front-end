@@ -1,5 +1,4 @@
 import { useState, type Dispatch, type SetStateAction } from 'react';
-import CloseBtn from './CloseBtn';
 import StickerSelect from './StickerSelect';
 import StickerComment from './StickerComment';
 
@@ -18,22 +17,25 @@ const StickerModal = ({ setIsModal, setReview }: stickerModal) => {
         className="absolute bottom-0 z-10 w-full h-screen bg-black opacity-50"
         onClick={() => {
           setIsModal(false);
+          setCurrent(false);
         }}
       />
-      <div className="absolute bottom-0 z-20 flex w-full bg-white h-1/2 rounded-t-2xl animate-move-top-regular">
-        <CloseBtn setIsModal={setIsModal} setCurrent={setCurrent} />
-        {current ? (
-          <StickerComment
-            sticker={sticker}
-            text={text}
-            setText={setText}
-            setIsModal={setIsModal}
-            setReview={setReview}
-          />
-        ) : (
-          <StickerSelect setSticker={setSticker} setCurrent={setCurrent} />
-        )}
-      </div>
+      {current ? (
+        <StickerComment
+          sticker={sticker}
+          text={text}
+          setText={setText}
+          setIsModal={setIsModal}
+          setReview={setReview}
+        />
+      ) : (
+        <StickerSelect
+          setSticker={setSticker}
+          setIsModal={setIsModal}
+          setCurrent={setCurrent}
+          sticker={sticker}
+        />
+      )}
     </>
   );
 };

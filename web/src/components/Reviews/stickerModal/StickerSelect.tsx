@@ -15,24 +15,33 @@ import spring from 'assets/images/sticker/spring.svg';
 import star from 'assets/images/sticker/star.svg';
 import sun from 'assets/images/sticker/sun.svg';
 import vertical from 'assets/images/sticker/vertical.svg';
-import StickerImg from './StickerImg';
+import StickerSelectTitle from './StickerSelectTitle';
+import StickerSelectBtnContainer from './StickerSelectBtnContainer';
+import StickerSelectImg from './StickerSelectImg';
+import StickerList from './StickerList';
 
 interface stickerSelect {
   setSticker: Dispatch<SetStateAction<string>>;
+  setIsModal: Dispatch<SetStateAction<boolean>>;
   setCurrent: Dispatch<SetStateAction<boolean>>;
+  sticker: string;
 }
 
-const StickerSelect = ({ setSticker, setCurrent }: stickerSelect) => {
+const StickerSelect = ({
+  setSticker,
+  setCurrent,
+  setIsModal,
+  sticker,
+}: stickerSelect) => {
   return (
-    <div className="flex flex-wrap mt-10 overflow-y-scroll scrollbar-hide">
-      {stickers.map((sticker) => (
-        <StickerImg
-          key={sticker}
-          sticker={sticker}
-          setSticker={setSticker}
-          setCurrent={setCurrent}
-        />
-      ))}
+    <div className="absolute bottom-0 z-20 flex flex-col w-full pt-8 bg-white rounded-t-2xl animate-move-top-regular">
+      <StickerSelectTitle />
+      <StickerSelectImg sticker={sticker} />
+      <StickerList stickers={stickers} setSticker={setSticker} />
+      <StickerSelectBtnContainer
+        setIsModal={setIsModal}
+        setCurrent={setCurrent}
+      />
     </div>
   );
 };
