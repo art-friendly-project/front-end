@@ -14,7 +14,7 @@ const LocationFilter = ({
 }: locationFilter) => {
   return (
     <button
-      className={`flex items-center justify-center w-24 h-8 border rounded-lg border-gray-20 ${isModalOpen[0] ? 'bg-orange-100' : ''}`}
+      className={`flex items-center active:bg-gray-00 justify-center w-24 h-8 border rounded-lg border-gray-20 ${isModalOpen[0] ? 'bg-orange-100' : ''}`}
       onClick={() => {
         setIsModalOpen([true, false, false]);
       }}

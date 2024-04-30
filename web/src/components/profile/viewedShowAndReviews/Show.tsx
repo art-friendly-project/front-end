@@ -23,7 +23,7 @@ const Show = ({
   return (
     <div className="relative mb-6 w-9/10">
       <button
-        className="flex"
+        className="flex w-full rounded-lg active:bg-gray-00"
         onClick={() => {
           dispatch(endpointActions.current(pathname));
           navigate(`/shows/${id}`);

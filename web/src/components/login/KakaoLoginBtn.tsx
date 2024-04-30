@@ -11,7 +11,7 @@ const KakaoLoginBtn = () => {
 
   return (
     <button
-      className="absolute flex items-center justify-center h-16 rounded-md bottom-[5%] w-9/10 bg-kakaoYellow"
+      className="absolute active:bg-kakaoDarkYellow flex items-center justify-center h-16 rounded-md bottom-[5%] w-9/10 bg-kakaoYellow"
       onClick={() => {
         navigate('/taste-select');
       }}

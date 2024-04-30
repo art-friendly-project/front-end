@@ -13,7 +13,7 @@ const LeftArrowBtn = ({ setCurrentPosterNum, posterLength }: leftArrowBtn) => {
       }}
       className="absolute top-[8.5rem] z-10"
     >
-      <IoIosArrowBack className="w-10 h-10 text-white opacity-50" />
+      <IoIosArrowBack className="w-10 h-10 text-white opacity-50 active:opacity-80" />
     </button>
   );
 };

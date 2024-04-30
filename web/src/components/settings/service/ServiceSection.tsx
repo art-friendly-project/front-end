@@ -5,7 +5,7 @@ import ServiceSectionTitle from './ServiceSectionTitle';
 
 const ServiceSection = () => {
   return (
-    <div className="flex flex-col pb-10 border-b-10 border-b-gray-00 pl-[5%]">
+    <div className="flex flex-col pb-10 border-b-10 border-b-gray-00">
       <ServiceSectionTitle />
       <AgreeUseService />
       <ImprovementComments />

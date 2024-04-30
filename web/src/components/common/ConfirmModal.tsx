@@ -26,7 +26,7 @@ const ConfirmModal = ({ text, fn, cancelFn }: confirmModal) => {
               {text}
             </span>
             <button
-              className="absolute w-32 h-10 border-2 border-orange-100 rounded-lg left-7 bottom-4 text-Subhead text-gray-110"
+              className="absolute w-32 h-10 border-2 border-orange-100 rounded-lg active:bg-gray-acitve-100 left-7 bottom-4 text-Subhead text-gray-110"
               onClick={() => {
                 dispatch(isModalActions.setIsModal(false));
                 if (cancelFn !== undefined) cancelFn();
@@ -35,7 +35,7 @@ const ConfirmModal = ({ text, fn, cancelFn }: confirmModal) => {
               취소
             </button>
             <button
-              className="absolute w-32 h-10 text-white bg-orange-100 rounded-lg right-7 bottom-4 text-Subhead"
+              className="absolute w-32 h-10 text-white bg-orange-100 rounded-lg active:bg-orange-dark-100 right-7 bottom-4 text-Subhead"
               onClick={() => {
                 fn();
                 dispatch(isModalActions.setIsModal(false));

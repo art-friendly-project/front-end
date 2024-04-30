@@ -31,7 +31,7 @@ const FavoriteShow = ({
   return (
     <div className="relative">
       <button
-        className="flex mb-6"
+        className="flex w-full mb-6 rounded-lg active:bg-gray-00"
         onClick={() => {
           navigate(`/shows/${id}`);
         }}

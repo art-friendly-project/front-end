@@ -11,7 +11,7 @@ const SelectBtn = ({ select, setState, setIsModalOpen }: selectBtn) => {
   const dispatch = useAppDispatch();
   return (
     <button
-      className="h-12 mb-3 mr-2 w-23/50 rounded-xl bg-gray-00 text-Body3-M"
+      className="h-12 mb-3 mr-2 w-23/50 rounded-xl bg-gray-00 text-Body3-M active:bg-gray-10"
       onClick={() => {
         setState === dispatch
           ? dispatch(locationActions.current(select[0]))

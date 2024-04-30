@@ -16,7 +16,7 @@ const RightArrowBtn = ({
       }}
       className="absolute top-[8.5rem] right-1 z-10"
     >
-      <IoIosArrowForward className="w-10 h-10 text-white opacity-50" />
+      <IoIosArrowForward className="w-10 h-10 text-white opacity-50 active:opacity-80" />
     </button>
   );
 };

@@ -7,7 +7,7 @@ const ResetBtn = () => {
 
   return (
     <button
-      className="absolute flex items-center text-gray-80 right-[5%] top-2"
+      className="absolute flex items-center text-gray-80 right-[5%] top-2 active:bg-gray-00"
       onClick={() => {
         dispatch(isModalActions.setIsModal(true));
       }}

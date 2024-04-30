@@ -5,7 +5,7 @@ const SettingsBtn = () => {
   const navigate = useNavigate();
   return (
     <button
-      className="absolute right-[5%] top-4"
+      className="absolute right-[5%] top-4 active:bg-gray-00"
       onClick={() => {
         navigate('/settings');
       }}

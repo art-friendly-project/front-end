@@ -17,7 +17,7 @@ const BookmarkBtn = ({
 
   return (
     <button
-      className="flex items-center justify-center w-12 h-12 ml-auto border rounded-full border-gray-40"
+      className="flex items-center justify-center w-12 h-12 ml-auto border rounded-full active:bg-gray-00 border-gray-40"
       onClick={() => {
         setSelectedToast(1);
         setIsBookmarkChecked((prev) => !prev);

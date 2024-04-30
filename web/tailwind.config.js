@@ -183,6 +183,7 @@ module.exports = {
         '12/12': '100%',
       },
       colors: {
+        'orange-dark-100': '#E68650',
         'orange-100': '#FF955A',
         'orange-90': '#FFA469',
         'orange-70': '#FFC287',
@@ -192,6 +193,7 @@ module.exports = {
         'orange-00': '#FFFFEF',
         'orange-0': '#FFFFF0',
         kakaoYellow: '#F8D548',
+        kakaoDarkYellow: '#E8C94C',
         kakaoBrown: '#47292B',
         'gray-110': '#111111',
         'gray-100': '#252525',
@@ -205,6 +207,7 @@ module.exports = {
         'gray-20': '#D9D9D9',
         'gray-10': '#EDEDED',
         'gray-00': '#F7F7F7',
+        'gray-acitve-100': '#EDEDED',
         'purple-90': '#AC5AFF',
       },
       animation: {
@@ -289,6 +292,8 @@ module.exports = {
           'rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px',
         custom3:
           'rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px',
+        inside:
+          'rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset',
       },
     },
   },

@@ -33,7 +33,7 @@ const Show = ({
   return (
     <div className="relative mb-8 w-9/10">
       <button
-        className="flex"
+        className="flex w-full rounded-lg active:bg-gray-00"
         onClick={() => {
           dispatch(endpointActions.current('/home/nearby'));
           navigate(`/shows/${id}`);

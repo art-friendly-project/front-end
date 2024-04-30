@@ -9,7 +9,7 @@ interface stickerBtn {
 const StickerBtn = ({ setIsModal, setSelectedToast }: stickerBtn) => {
   return (
     <button
-      className="flex items-center justify-center w-32 h-12 border rounded-3xl border-gray-60"
+      className="flex items-center justify-center w-32 h-12 border active:bg-gray-00 rounded-3xl border-gray-60"
       onClick={() => {
         setSelectedToast(0);
         setIsModal(true);

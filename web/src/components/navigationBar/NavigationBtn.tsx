@@ -34,7 +34,7 @@ const NavigationBtn = ({
 
   return (
     <button
-      className="flex flex-col items-center justify-center w-1/4"
+      className="flex flex-col items-center justify-center w-1/4 rounded-2xl active:bg-gray-00"
       onClick={btnHandler}
     >
       <img src={changeInActiveOrActiveIcon()} className="w-10 h-10 mb-1" />

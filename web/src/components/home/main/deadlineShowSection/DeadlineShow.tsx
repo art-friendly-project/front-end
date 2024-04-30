@@ -19,7 +19,7 @@ const DeadlineShow = ({
   return (
     <div className="relative w-full mb-6">
       <button
-        className="flex"
+        className="flex w-full rounded-lg active:bg-gray-00"
         onClick={() => {
           navigate(`/shows/${id}`);
         }}

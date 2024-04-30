@@ -20,7 +20,7 @@ const BackBtn = () => {
 
   return (
     <button
-      className="absolute left-2 top-4"
+      className="absolute left-2 top-4 active:bg-gray-00"
       onClick={() => {
         moveNavigate();
       }}

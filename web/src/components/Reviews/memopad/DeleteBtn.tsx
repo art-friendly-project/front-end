@@ -9,7 +9,7 @@ const DeleteBtn = () => {
       onClick={() => {
         dispatch(isModalActions.setIsModal(true));
       }}
-      className="absolute z-10 top-24 right-10"
+      className="absolute z-10 top-24 right-10 active:bg-gray-00"
     >
       <PiTrashSimple className="w-6 h-6" />
     </button>
