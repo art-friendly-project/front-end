@@ -8,6 +8,7 @@ import isModalReducer from './modules/isModal';
 import isReviewTextReducer from './modules/isReviewText';
 import accessPermissionsReducer from './modules/accessPermissions';
 import isNearbyReducer from './modules/isNearby';
+import toastTextReducer from './modules/toastText';
 
 const store = configureStore({
   reducer: {
@@ -20,6 +21,7 @@ const store = configureStore({
     isReviewText: isReviewTextReducer,
     accessPermissions: accessPermissionsReducer,
     isNearby: isNearbyReducer,
+    toastText: toastTextReducer,
   },
 });
 

@@ -3,15 +3,13 @@ import { BsStars } from 'react-icons/bs';
 
 interface stickerBtn {
   setIsModal: Dispatch<SetStateAction<boolean>>;
-  setSelectedToast: Dispatch<SetStateAction<number>>;
 }
 
-const StickerBtn = ({ setIsModal, setSelectedToast }: stickerBtn) => {
+const StickerBtn = ({ setIsModal }: stickerBtn) => {
   return (
     <button
       className="flex items-center justify-center w-32 h-12 border active:bg-gray-00 rounded-3xl border-gray-60"
       onClick={() => {
-        setSelectedToast(0);
         setIsModal(true);
       }}
     >

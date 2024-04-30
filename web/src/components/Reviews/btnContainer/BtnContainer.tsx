@@ -18,18 +18,12 @@ const BtnContainer = ({
 
   return (
     <div className="relative flex mt-16 w-9/10">
-      <StickerBtn setIsModal={setIsModal} setSelectedToast={setSelectedToast} />
+      <StickerBtn setIsModal={setIsModal} />
       <BookmarkBtn
         isBookmarkChecked={isBookmarkChecked}
         setIsBookmarkChecked={setIsBookmarkChecked}
-        setSelectedToast={setSelectedToast}
       />
-      {selectedToast === 0 ? (
-        <Toast text={['스티커를 붙이기를 완료했어요', '스티커를 지웠어요']} />
-      ) : null}
-      {selectedToast === 1 ? (
-        <Toast text={['담벼락을 저장했어요', '담벼락 저장을 취소했어요']} />
-      ) : null}
+      <Toast />
     </div>
   );
 };

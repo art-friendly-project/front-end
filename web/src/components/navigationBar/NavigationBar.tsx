@@ -21,9 +21,7 @@ const NavigationBar = () => {
           activeIcon={navigation.activeIcon}
         />
       ))}
-      <Toast
-        text={['좋아요 목록에 추가했어요', '좋아요 목록에서 취소했어요']}
-      />
+      <Toast />
     </div>
   );
 };

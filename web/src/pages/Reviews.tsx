@@ -2,10 +2,12 @@ import BtnContainer from 'components/Reviews/btnContainer/BtnContainer';
 import MemoPad from 'components/Reviews/memopad/MemoPad';
 import StickerModal from 'components/Reviews/stickerModal/StickerModal';
 import ConfirmModal from 'components/common/ConfirmModal';
+import { useAppDispatch } from 'hooks';
 import useToastHandler from 'hooks/useToastHandler';
 import { reviewDatas } from 'mock/mockData';
 import { useEffect, useState } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
+import { toastTextActions } from 'store/modules/toastText';
 
 const Reviews = () => {
   const [selectStickerIdx, setSelectStickerIdx] = useState(0);
@@ -25,6 +27,8 @@ const Reviews = () => {
   });
 
   const toastHandler = useToastHandler(true);
+
+  const dispatch = useAppDispatch();
 
   const location = useLocation();
   const pathname = location.pathname;
@@ -47,6 +51,7 @@ const Reviews = () => {
       };
     });
     setSelectStickerIdx(Infinity);
+    dispatch(toastTextActions.current(['', '스티커를 지웠어요']));
     toastHandler();
   };
 

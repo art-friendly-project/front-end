@@ -1,13 +1,11 @@
 import { useAppSelector } from 'hooks';
 import { selectToast } from 'store/modules/toast';
+import { selectToastText } from 'store/modules/toastText';
 
-interface toast {
-  text: string[];
-}
-
-const Toast = ({ text }: toast) => {
+const Toast = () => {
   const isToast = useAppSelector(selectToast)[0];
   const isCheck = useAppSelector(selectToast)[1];
+  const text = useAppSelector(selectToastText);
 
   return (
     <>

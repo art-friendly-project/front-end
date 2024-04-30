@@ -1,5 +1,7 @@
+import { useAppDispatch } from 'hooks';
 import useToastHandler from 'hooks/useToastHandler';
 import { type Dispatch, type SetStateAction } from 'react';
+import { toastTextActions } from 'store/modules/toastText';
 
 interface stickerCommentBtnContainer {
   text: string;
@@ -17,6 +19,8 @@ const StickerCommentBtnContainer = ({
   const toastHandler = useToastHandler(false);
   const userId = Number(sessionStorage.getItem('userId'));
 
+  const dispatch = useAppDispatch();
+
   const StickerAndCommentsBtnHandler = () => {
     setReview((prev) => {
       prev.stickers.push({
@@ -30,6 +34,7 @@ const StickerCommentBtnContainer = ({
     });
 
     setIsModal(false);
+    dispatch(toastTextActions.current(['스티커를 붙이기를 완료했어요', '']));
   };
   return (
     <div className="flex justify-center w-full mt-4">
