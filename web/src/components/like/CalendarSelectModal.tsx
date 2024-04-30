@@ -5,11 +5,13 @@ import CalendarList from './CalendarList';
 interface calendarSelectModal {
   setIsModal: Dispatch<SetStateAction<boolean>>;
   calendars: calendar[];
+  deadline: string;
 }
 
 const CalendarSelectModal = ({
   setIsModal,
   calendars,
+  deadline,
 }: calendarSelectModal) => {
   return (
     <>
@@ -21,7 +23,7 @@ const CalendarSelectModal = ({
       />
       <div className="absolute bottom-0 z-20 flex flex-col w-full pt-6 pb-6 bg-white rounded-t-xl animate-move-top-regular">
         <CalendarSelectModalTitle />
-        <CalendarList calendars={calendars} />
+        <CalendarList calendars={calendars} deadline={deadline} />
       </div>
     </>
   );

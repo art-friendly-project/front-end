@@ -4,9 +4,10 @@ import { likeList } from 'mock/mockData';
 import { useEffect, useState } from 'react';
 
 const Like = () => {
+  const [isModal, setIsModal] = useState(false);
   const [shows, setShows] = useState<favoriteShow[]>([]);
   const [calendars, setCalendars] = useState<calendar[]>([]);
-  const [isModal, setIsModal] = useState(false);
+  const [deadline, setDeadline] = useState('');
 
   useEffect(() => {
     setShows(likeList);
@@ -15,7 +16,11 @@ const Like = () => {
   return (
     <>
       {isModal ? (
-        <CalendarSelectModal calendars={calendars} setIsModal={setIsModal} />
+        <CalendarSelectModal
+          calendars={calendars}
+          setIsModal={setIsModal}
+          deadline={deadline}
+        />
       ) : null}
       <div className="flex flex-col px-[5%] w-full h-full">
         {shows.map((show) => (
@@ -28,6 +33,7 @@ const Like = () => {
             favorite={show.favorite}
             setCalendars={setCalendars}
             setIsModal={setIsModal}
+            setDeadline={setDeadline}
           />
         ))}
       </div>

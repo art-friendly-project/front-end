@@ -13,6 +13,7 @@ interface favoriteShow {
   favorite: boolean;
   setCalendars: Dispatch<SetStateAction<calendar[]>>;
   setIsModal: Dispatch<SetStateAction<boolean>>;
+  setDeadline: Dispatch<SetStateAction<string>>;
 }
 
 const FavoriteShow = ({
@@ -23,6 +24,7 @@ const FavoriteShow = ({
   favorite,
   setCalendars,
   setIsModal,
+  setDeadline,
 }: favoriteShow) => {
   const navigate = useNavigate();
 
@@ -43,7 +45,12 @@ const FavoriteShow = ({
         <ShowInfo name={name} term={term} />
       </button>
       <FavoriteBtn favorite={favorite} />
-      <AddScheduleBtn setCalendars={setCalendars} setIsModal={setIsModal} />
+      <AddScheduleBtn
+        setCalendars={setCalendars}
+        setIsModal={setIsModal}
+        term={term}
+        setDeadline={setDeadline}
+      />
     </div>
   );
 };

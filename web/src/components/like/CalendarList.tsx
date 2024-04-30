@@ -4,9 +4,10 @@ import BtnBasic from 'components/common/BtnBasic';
 
 interface calendarList {
   calendars: calendar[];
+  deadline: string;
 }
 
-const CalendarList = ({ calendars }: calendarList) => {
+const CalendarList = ({ calendars, deadline }: calendarList) => {
   const [value, setValue] = useState('');
   console.log(value);
   const btnHandler = () => {};

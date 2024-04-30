@@ -5,9 +5,17 @@ import isApp from 'utils/isApp';
 interface addScheduleBtn {
   setCalendars: Dispatch<SetStateAction<calendar[]>>;
   setIsModal: Dispatch<SetStateAction<boolean>>;
+  term: string;
+  setDeadline: Dispatch<SetStateAction<string>>;
 }
 
-const AddScheduleBtn = ({ setCalendars, setIsModal }: addScheduleBtn) => {
+const AddScheduleBtn = ({
+  setCalendars,
+  setIsModal,
+  term,
+  setDeadline,
+}: addScheduleBtn) => {
+  console.log(term);
   const btnHandler = () => {
     if (isApp()) {
       window.ReactNativeWebView?.postMessage(
