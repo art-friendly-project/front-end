@@ -17,8 +17,6 @@ const List = () => {
   const location = useAppSelector(selectLocation);
   const dispatch = useAppDispatch();
 
-  console.log(location);
-
   const setState = [dispatch, setShowType, setPriority];
 
   const openModalIndex = isModalOpen.indexOf(true);

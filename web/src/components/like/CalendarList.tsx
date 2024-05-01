@@ -1,36 +1,31 @@
-import { useState } from 'react';
+import { type Dispatch, type SetStateAction } from 'react';
 import Calendar from './Calendar';
-import BtnBasic from 'components/common/BtnBasic';
 
 interface calendarList {
   calendars: calendar[];
   deadline: string;
+  scheduleName: string;
+  calendarId: string;
+  setCalendarId: Dispatch<SetStateAction<string>>;
 }
 
-const CalendarList = ({ calendars, deadline }: calendarList) => {
-  const [value, setValue] = useState('');
-  console.log(value);
-  const btnHandler = () => {};
-
+const CalendarList = ({
+  calendars,
+  calendarId,
+  setCalendarId,
+}: calendarList) => {
   return (
     <div className="flex flex-col w-full">
       {calendars.map((calendar) => (
         <Calendar
           key={calendar.id}
           id={calendar.id}
-          value={value}
-          setValue={setValue}
+          calendarId={calendarId}
+          setCalendarId={setCalendarId}
           title={calendar.title}
           color={calendar.color}
         />
       ))}
-      <div className="mt-5">
-        <BtnBasic
-          name="일정추가"
-          fn={btnHandler}
-          disable={value.length === 0}
-        />
-      </div>
     </div>
   );
 };

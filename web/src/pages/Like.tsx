@@ -7,7 +7,9 @@ const Like = () => {
   const [isModal, setIsModal] = useState(false);
   const [shows, setShows] = useState<favoriteShow[]>([]);
   const [calendars, setCalendars] = useState<calendar[]>([]);
+  const [scheduleName, setScheduleName] = useState('');
   const [deadline, setDeadline] = useState('');
+  const [location, setLocation] = useState('');
 
   useEffect(() => {
     setShows(likeList);
@@ -20,6 +22,8 @@ const Like = () => {
           calendars={calendars}
           setIsModal={setIsModal}
           deadline={deadline}
+          scheduleName={scheduleName}
+          location={location}
         />
       ) : null}
       <div className="flex flex-col px-[5%] w-full h-full">
@@ -31,9 +35,12 @@ const Like = () => {
             term={show.term}
             image={show.image}
             favorite={show.favorite}
+            location={show.location}
             setCalendars={setCalendars}
             setIsModal={setIsModal}
             setDeadline={setDeadline}
+            setScheduleName={setScheduleName}
+            setLocation={setLocation}
           />
         ))}
       </div>

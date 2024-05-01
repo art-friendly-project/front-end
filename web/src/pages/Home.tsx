@@ -6,12 +6,9 @@ import IsTestCheck from 'components/home/main/tasteSection/IsTestCheck';
 import { useEffect } from 'react';
 import { useAppDispatch } from 'hooks';
 import { endpointActions } from 'store/modules/endpoint';
-import useAccessPermissions from 'hooks/useAccessPermissions';
 
 const Home = () => {
   const dispatch = useAppDispatch();
-
-  useAccessPermissions();
 
   useEffect(() => {
     dispatch(endpointActions.current('/home'));

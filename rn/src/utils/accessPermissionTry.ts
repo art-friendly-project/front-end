@@ -1,12 +1,19 @@
 import {Alert, Linking, Platform} from 'react-native';
 import {WebViewMessageEvent} from 'react-native-webview';
 
-const locationPermission = async (e: WebViewMessageEvent) => {
+const accessPermissionTry = async (e: WebViewMessageEvent) => {
   const nativeEvent = JSON.parse(e.nativeEvent.data);
+  const type = nativeEvent.type;
+
+  const permissions: {[key: string]: string} = {
+    LOCATION_PERMISSION: '위치 액세스 권한이 필요합니다.',
+    CALENDAR_PERMISSON: '캘린더 액세스 권한이 필요합니다.',
+  };
+
   if (Platform.OS === 'android') {
-    if (nativeEvent.type === 'LOCATION_PERMISSION') {
+    if (permissions[type] !== undefined) {
       Alert.alert(
-        '위치 액세스 권한이 필요합니다.',
+        permissions[type],
         '권한 허용 후 이용해 주시기 바랍니다.',
         [
           {
@@ -25,4 +32,4 @@ const locationPermission = async (e: WebViewMessageEvent) => {
   }
 };
 
-export default locationPermission;
+export default accessPermissionTry;

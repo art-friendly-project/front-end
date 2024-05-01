@@ -7,8 +7,6 @@ import ReviewSection from 'components/profile/review/ReviewSection';
 import { useParams } from 'react-router-dom';
 import ConfirmModal from 'components/common/ConfirmModal';
 import useToastHandler from 'hooks/useToastHandler';
-import { useAppDispatch } from 'hooks';
-import { toastTextActions } from 'store/modules/toastText';
 
 const Profile = () => {
   const [shows, setShows] = useState<deadlineShow[]>([]);
@@ -27,9 +25,11 @@ const Profile = () => {
 
   const userId = Number(sessionStorage.getItem('userId'));
 
-  const toastHandler = useToastHandler(false);
-
-  const dispatch = useAppDispatch();
+  const toastHandler = useToastHandler(
+    false,
+    '전시/행사 목록을 초기화했어요',
+    '',
+  );
 
   useEffect(() => {
     if (params.id === undefined) {
@@ -43,7 +43,6 @@ const Profile = () => {
   const conformModalFn = () => {
     localStorage.removeItem('viewedShowList');
     setShows([]);
-    dispatch(toastTextActions.current(['전시/행사 목록을 초기화했어요', '']));
     toastHandler();
   };
 

@@ -4,6 +4,7 @@ interface favoriteShow {
   term: string;
   image: string;
   favorite: boolean;
+  location: string;
 }
 
 interface deadlineShow {

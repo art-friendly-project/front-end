@@ -12,28 +12,12 @@ const requestCalendars = async (
     if (Platform.OS === 'android') {
       try {
         await RNCalendarEvents.requestPermissions();
+
         const calendars = await RNCalendarEvents.findCalendars();
         ref.current?.postMessage(JSON.stringify({calendars}));
       } catch (err) {
         console.error(err);
       }
-      // RNCalendarEvents.checkPermissions().then(res => console.log(res));
-      // RNCalendarEvents.requestPermissions()
-      //
-      // RNCalendarEvents.findCalendars().then(res => console.log(res));
-      //
-      // const today = new Date();
-      // RNCalendarEvents.saveEvent('Test Event', {
-      //   calendarId: '6',
-      //   startDate: String(today.toISOString()),
-      //   endDate: String(today.toISOString()),
-      // })
-      //   .then(id => {
-      //     console.log('Event ID:', id);
-      //   })
-      //   .catch(error => {
-      //     console.error('Error saving event:', error);
-      //   });
     }
   }
 };

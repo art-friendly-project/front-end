@@ -1,41 +1,64 @@
+import { useAppSelector } from 'hooks';
 import { type Dispatch, type SetStateAction } from 'react';
 import { BsFillPlusCircleFill } from 'react-icons/bs';
+import { selectAccessPermissions } from 'store/modules/accessPermissions';
 import isApp from 'utils/isApp';
 
 interface addScheduleBtn {
   setCalendars: Dispatch<SetStateAction<calendar[]>>;
   setIsModal: Dispatch<SetStateAction<boolean>>;
+  name: string;
   term: string;
   setDeadline: Dispatch<SetStateAction<string>>;
+  setScheduleName: Dispatch<SetStateAction<string>>;
+  setLocation: Dispatch<SetStateAction<string>>;
+  location: string;
 }
 
 const AddScheduleBtn = ({
   setCalendars,
   setIsModal,
+  name,
   term,
   setDeadline,
+  setScheduleName,
+  setLocation,
+  location,
 }: addScheduleBtn) => {
-  console.log(term);
+  const accessPermissions = useAppSelector(selectAccessPermissions);
+
   const btnHandler = () => {
     if (isApp()) {
-      window.ReactNativeWebView?.postMessage(
-        JSON.stringify({ type: 'REQUEST_CALENDARS' }),
-      );
+      if (accessPermissions.calendar === 'granted') {
+        window.ReactNativeWebView?.postMessage(
+          JSON.stringify({ type: 'REQUEST_CALENDARS' }),
+        );
 
-      const geolocation = (e: MessageEvent<string>) => {
-        const data: {
-          calendars: calendar[];
-        } = JSON.parse(e.data);
+        const calendar = (e: MessageEvent<string>) => {
+          const data: {
+            calendars: calendar[];
+          } = JSON.parse(e.data);
 
-        if (data.calendars !== undefined) {
-          setCalendars(data.calendars);
-          setIsModal(true);
-        }
-      };
+          if (data.calendars !== undefined) {
+            setCalendars(data.calendars);
+            setDeadline(term);
+            setScheduleName(name);
+            setLocation(location);
+            setIsModal(true);
+          }
+        };
 
-      document.addEventListener('message', geolocation);
+        document.addEventListener('message', calendar);
+      }
+
+      if (accessPermissions.calendar !== 'granted') {
+        window.ReactNativeWebView?.postMessage(
+          JSON.stringify({ type: 'CALENDAR_PERMISSON' }),
+        );
+      }
     }
   };
+
   return (
     <button
       className="absolute right-0 flex items-center justify-center w-20 h-8 bottom-8 active:bg-gray-00"

@@ -9,7 +9,7 @@ const useAccessPermissions = () => {
   useEffect(() => {
     if (isApp()) {
       window.ReactNativeWebView?.postMessage(
-        JSON.stringify({ type: 'ACCESS_PERMISSION' }),
+        JSON.stringify({ type: 'ACCESS_PERMISSION_CHECK' }),
       );
 
       const accessPermissions = (e: MessageEvent<string>) => {

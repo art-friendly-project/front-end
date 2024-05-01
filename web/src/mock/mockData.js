@@ -350,6 +350,7 @@ export const likeList = [
     name: 'Body, Love, Gender',
     image: posterExample1,
     favorite: true,
+    location: '서울',
   },
   {
     id: 2,
@@ -357,6 +358,7 @@ export const likeList = [
     name: '멋진 전시회',
     image: posterExample2,
     favorite: true,
+    location: '경기',
   },
   {
     id: 3,
@@ -364,6 +366,7 @@ export const likeList = [
     name: '아름다운 행사',
     image: posterExample3,
     favorite: true,
+    location: '인천',
   },
 ];
 

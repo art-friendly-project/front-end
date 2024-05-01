@@ -2,14 +2,20 @@ import { type Dispatch, type SetStateAction } from 'react';
 import { MdOutlineCheck } from 'react-icons/md';
 
 interface calendar {
-  setValue: Dispatch<SetStateAction<string>>;
+  setCalendarId: Dispatch<SetStateAction<string>>;
   title: string;
-  value: string;
+  calendarId: string;
   id: string;
   color: string;
 }
 
-const Calendar = ({ value, setValue, id, title, color }: calendar) => {
+const Calendar = ({
+  calendarId,
+  setCalendarId,
+  id,
+  title,
+  color,
+}: calendar) => {
   return (
     <label className="relative flex items-center pl-[5%] mb-3">
       <input
@@ -17,13 +23,13 @@ const Calendar = ({ value, setValue, id, title, color }: calendar) => {
         value={id}
         style={{
           border: `2px solid ${color}`,
-          backgroundColor: value === id ? color : '',
+          backgroundColor: calendarId === id ? color : '',
         }}
         className="w-5 h-5 appearance-none"
         onChange={(e) => {
-          setValue(e.target.value);
+          setCalendarId(e.target.value);
         }}
-        checked={value === id}
+        checked={calendarId === id}
       />
       <MdOutlineCheck className="absolute w-5 h-5 text-white" />
       <span className="ml-3 text-Body3-M">{title}</span>

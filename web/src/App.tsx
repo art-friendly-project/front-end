@@ -20,8 +20,11 @@ import Reviews from 'pages/Reviews';
 import ReviewPost from 'pages/ReviewPost';
 import Settings from 'pages/Settings';
 import AccessGuidance from 'pages/AccessGuidance';
+import useAccessPermissions from 'hooks/useAccessPermissions';
 
 const App = () => {
+  useAccessPermissions();
+
   return (
     <BrowserRouter>
       <div className="flex w-screen h-screen bg-gray-100 md:justify-center">

@@ -2,7 +2,7 @@ import {RefObject, useEffect, useRef} from 'react';
 import {AppState} from 'react-native';
 import {PERMISSIONS, check} from 'react-native-permissions';
 
-const useLocationPermission = (ref: RefObject<any>) => {
+const useAccessPermission = (ref: RefObject<any>) => {
   const appState = useRef(AppState.currentState);
 
   useEffect(() => {
@@ -19,6 +19,18 @@ const useLocationPermission = (ref: RefObject<any>) => {
             );
           }
         });
+
+        check(PERMISSIONS.ANDROID.WRITE_CALENDAR).then(result => {
+          if (result === 'granted') {
+            ref.current?.postMessage(
+              JSON.stringify({
+                permissions: {
+                  calendar: 'granted',
+                },
+              }),
+            );
+          }
+        });
       }
 
       appState.current = nextAppState;
@@ -30,4 +42,4 @@ const useLocationPermission = (ref: RefObject<any>) => {
   }, [ref]);
 };
 
-export default useLocationPermission;
+export default useAccessPermission;
