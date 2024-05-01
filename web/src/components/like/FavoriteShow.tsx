@@ -4,6 +4,7 @@ import ShowInfo from './ShowInfo';
 import FavoriteBtn from 'components/common/FavoriteBtn';
 import AddScheduleBtn from './AddScheduleBtn';
 import { type Dispatch, type SetStateAction } from 'react';
+import calculateRemainDay from 'utils/calculateRemainDay';
 
 interface favoriteShow {
   id: number;
@@ -34,6 +35,8 @@ const FavoriteShow = ({
 }: favoriteShow) => {
   const navigate = useNavigate();
 
+  const remainDay = calculateRemainDay(term);
+
   return (
     <div className="relative">
       <button
@@ -51,16 +54,18 @@ const FavoriteShow = ({
         <ShowInfo name={name} term={term} />
       </button>
       <FavoriteBtn favorite={favorite} />
-      <AddScheduleBtn
-        setCalendars={setCalendars}
-        setIsModal={setIsModal}
-        name={name}
-        term={term}
-        setDeadline={setDeadline}
-        setScheduleName={setScheduleName}
-        setLocation={setLocation}
-        location={location}
-      />
+      {remainDay < 0 ? null : (
+        <AddScheduleBtn
+          setCalendars={setCalendars}
+          setIsModal={setIsModal}
+          name={name}
+          term={term}
+          setDeadline={setDeadline}
+          setScheduleName={setScheduleName}
+          setLocation={setLocation}
+          location={location}
+        />
+      )}
     </div>
   );
 };
