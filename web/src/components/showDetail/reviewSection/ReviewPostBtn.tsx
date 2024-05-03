@@ -11,7 +11,7 @@ const ReviewPostBtn = () => {
 
   return (
     <button
-      className="absolute flex items-center top-10 text-gray-80 right-[4%] active:bg-gray-00"
+      className="absolute flex items-center top-10 text-gray-80 right-[3%] rounded-lg  w-32 h-8 justify-center pl-1 active:bg-gray-00"
       onClick={() => {
         dispatch(endpointActions.current(pathname));
         navigate('review-post');

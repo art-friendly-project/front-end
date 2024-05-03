@@ -34,7 +34,10 @@ const RankIcon = ({
   };
 
   return (
-    <button onClick={btnHandler}>
+    <button
+      onClick={btnHandler}
+      className="flex items-center justify-center rounded-lg h-28 w-18 active:bg-gray-00"
+    >
       <img src={isSelectedRank ? icon[1] : icon[0]} />
     </button>
   );

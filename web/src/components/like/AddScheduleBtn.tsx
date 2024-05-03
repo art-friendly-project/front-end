@@ -61,7 +61,7 @@ const AddScheduleBtn = ({
 
   return (
     <button
-      className="absolute right-0 flex items-center justify-center w-20 h-8 bottom-8 active:bg-gray-00"
+      className="absolute right-0 flex items-center justify-center w-20 h-8 rounded-lg bottom-8 active:bg-gray-00"
       onClick={btnHandler}
     >
       <BsFillPlusCircleFill className="text-purple-90" />

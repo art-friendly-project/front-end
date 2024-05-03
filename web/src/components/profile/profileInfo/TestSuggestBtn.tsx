@@ -12,7 +12,7 @@ const TestSuggestBtn = ({ isMyAccount }: testSuggestBtn) => {
   const dispatch = useAppDispatch();
   return (
     <button
-      className="flex items-center mt-2"
+      className="flex items-center justify-center h-8 mt-2 -ml-3 rounded-lg w-44 active:bg-gray-00"
       disabled={!isMyAccount}
       onClick={() => {
         dispatch(endpointActions.current('/profile'));
