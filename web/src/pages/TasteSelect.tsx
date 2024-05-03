@@ -3,11 +3,19 @@ import TasteList from 'components/tasteSelect/TasteList';
 import TasteSelectTitle from 'components/tasteSelect/TasteSelectTitle';
 import BtnAndRightArrow from 'components/common/BtnAndRightArrow';
 import { useNavigate } from 'react-router-dom';
+import { useAppSelector } from 'hooks';
+import { selectEndpoint } from 'store/modules/endpoint';
 
 const TasteSelect = () => {
   const [selectedList, setSelectedList] = useState<string[]>([]);
   const navigate = useNavigate();
+  const endpoint = useAppSelector(selectEndpoint);
+
   const btnHandler = () => {
+    if (endpoint === '/profile') {
+      navigate(endpoint);
+      return;
+    }
     navigate('/access');
   };
 
