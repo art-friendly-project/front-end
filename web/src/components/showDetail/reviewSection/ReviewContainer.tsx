@@ -52,7 +52,6 @@ const ReviewContainer = ({ reviews }: reviewList) => {
         spaceBetween={20}
         slidesPerView={2}
         onReachEnd={() => {
-          console.log('slider!');
           setReviewSlice((prev) => [
             ...prev,
             ...reviews.slice(8 * page, 8 + 8 * page),
