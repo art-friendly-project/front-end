@@ -1,8 +1,7 @@
 {
   "compilerOptions": {
     "baseUrl": "./src",
-
-    "target": "es5",
+    "target": "es6",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -18,5 +17,13 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src", "tailwind.config.js"]
+  "include": [
+    "src",
+    "tailwind.config.js",
+    "src/type/react-native-webview.d.ts",
+    "src/type/review.d.ts",
+    "src/type/show.d.ts",
+    "src/type/user.d.ts",
+    "src/type/calendar.d.ts"
+  ]
 }

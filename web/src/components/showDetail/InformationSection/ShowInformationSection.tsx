@@ -1,0 +1,35 @@
+import BtnAndRightArrow from 'components/common/BtnAndRightArrow';
+import { type show } from '../posterSection/PosterSection';
+import ShowInformationTitle from './ShowInformationTitle';
+import ShowInformationContent from './ShowInformationContent';
+
+interface showInformationSection {
+  show: show;
+}
+
+const ShowInformationSection = ({ show }: showInformationSection) => {
+  const btnHandler = () => {
+    window.open(show.site);
+  };
+
+  return (
+    <div className="flex flex-col mt-72">
+      <ShowInformationTitle />
+      <ShowInformationContent
+        showType={show.showType}
+        place={show.place}
+        location={show.location}
+        phone={show.phone}
+      />
+      <div className="flex justify-center pb-10 mt-6 border-b-10 border-gray-10">
+        <BtnAndRightArrow
+          name="예매 사이트 바로가기"
+          disable={false}
+          fn={btnHandler}
+        />
+      </div>
+    </div>
+  );
+};
+
+export default ShowInformationSection;

@@ -9,11 +9,11 @@
     "plugin:prettier/recommended"
   ],
   "overrides": [],
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": "latest",
     "project": "tsconfig.json",
-    "sourceType": "module",
-    "tsconfigRootDir": "/users/a./downloads/coding/project/art-friendly/web"
+    "sourceType": "module"
   },
   "plugins": ["react", "@typescript-eslint", "prettier"],
   "rules": {
