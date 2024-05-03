@@ -5,6 +5,7 @@ import isApp from 'utils/isApp';
 import changeTermToDeadline from 'utils/changeTermToDeadline';
 import BtnBasic from 'components/common/BtnBasic';
 import useToastHandler from 'hooks/useToastHandler';
+import CloseBtn from './CloseBtn';
 
 interface calendarSelectModal {
   setIsModal: Dispatch<SetStateAction<boolean>>;
@@ -81,6 +82,7 @@ const CalendarSelectModal = ({
         }}
       />
       <div className="absolute bottom-0 z-20 flex flex-col w-full py-6 bg-white rounded-t-xl animate-move-top-regular">
+        <CloseBtn setIsModal={setIsModal} />
         <CalendarSelectModalTitle />
         <CalendarList
           calendars={calendars}
