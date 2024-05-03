@@ -5,7 +5,7 @@ interface reviewContent {
 const ReviewContent = ({ content }: reviewContent) => {
   return (
     <>
-      <span className="w-10/12 h-10 overflow-hidden whitespace-break-spaces text-Body2-M text-ellipsis">
+      <span className="w-10/12 h-10 overflow-hidden whitespace-break-spaces text-Body2-M text-ellipsis text-start">
         {content}
       </span>
       <span>...</span>

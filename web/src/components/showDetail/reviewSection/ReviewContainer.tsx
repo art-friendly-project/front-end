@@ -1,10 +1,14 @@
-import { useEffect, useState } from 'react';
-import ReviewList from './ReviewList';
 import ReviewSectionTitle from './ReviewSectionTitle';
 import ReviewPostBtn from './ReviewPostBtn';
-import LeftArrowBtn from './LeftArrowBtn';
-import RightArrowBtn from './RightArrowBtn';
-import PageIndicator from './PageIndicator';
+import Review from './Review';
+import { Grid, Pagination, Scrollbar } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
+import 'swiper/css/grid';
+import 'style/reviewSwiper.css';
+import { useEffect, useState } from 'react';
 
 interface reviewList {
   reviews: review[];
@@ -22,45 +26,51 @@ export interface review {
   };
 }
 
-const MAX_PAGE = 3;
-
 const ReviewContainer = ({ reviews }: reviewList) => {
-  const [currentPage, setCurrentPage] = useState(0);
-  const [reviewsBox, setReviewsBox] = useState<review[][]>([]);
-  const reviewSlice = reviews.slice(
-    (currentPage + 1) * 4,
-    (currentPage + 1) * 4 + 4,
-  );
+  const [reviewSlice, setReviewSlice] = useState<review[]>([]);
+  const [page, setPage] = useState(0);
 
   useEffect(() => {
-    setReviewsBox([reviews.slice(0, 4)]);
+    setReviewSlice(reviews.slice(0, 8));
   }, []);
+
+  const pagination = {
+    clickable: false,
+    dynamicBullets: true,
+    renderBullet: function (index: number, className: string) {
+      return `<span class="${className}"></span>`;
+    },
+  };
 
   return (
     <>
       <ReviewPostBtn />
       <ReviewSectionTitle />
-      <LeftArrowBtn
-        setCurrentPage={setCurrentPage}
-        setReviewsBox={setReviewsBox}
-        currentPage={currentPage}
-      />
-      <div
-        className="w-full duration-700 whitespace-nowrap"
-        style={{ transform: `translateX(-${currentPage}00%)` }}
+      <Swiper
+        className="reviewSwiper"
+        modules={[Pagination, Scrollbar, Grid]}
+        spaceBetween={20}
+        slidesPerView={2}
+        onReachEnd={() => {
+          console.log('slider!');
+          setReviewSlice((prev) => [
+            ...prev,
+            ...reviews.slice(8 * page, 8 + 8 * page),
+          ]);
+          setPage((prev) => prev + 1);
+        }}
+        grid={{
+          rows: 2,
+        }}
+        pagination={pagination}
+        scrollbar={{ draggable: true, hide: true }}
       >
-        {reviewsBox.map((reviews, idx) => (
-          <ReviewList key={idx} reviews={reviews} />
+        {reviewSlice.map((review) => (
+          <SwiperSlide key={review.id}>
+            <Review review={review} />
+          </SwiperSlide>
         ))}
-      </div>
-      <PageIndicator currentPage={currentPage} MAX_PAGE={MAX_PAGE} />
-      <RightArrowBtn
-        setCurrentPage={setCurrentPage}
-        setReviewsBox={setReviewsBox}
-        reviewSlice={reviewSlice}
-        currentPage={currentPage}
-        MAX_PAGE={MAX_PAGE}
-      />
+      </Swiper>
     </>
   );
 };

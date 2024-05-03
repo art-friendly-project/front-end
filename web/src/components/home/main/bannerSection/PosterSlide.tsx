@@ -1,8 +1,13 @@
-import PosterList from './PosterList';
+import { Pagination, Scrollbar, Autoplay } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
+import GradientBackground from './GradientBackground';
+import PosterImg from 'components/common/PosterImg';
+import PosterInfo from './PosterInfo';
 
 interface posterSlide {
-  currentPosterNum: number;
-  setCurrentPosterNum: React.Dispatch<React.SetStateAction<number>>;
   posters: poster[];
 }
 
@@ -15,19 +20,47 @@ export interface poster {
   image: string;
 }
 
-const PosterSlide = ({
-  currentPosterNum,
-  setCurrentPosterNum,
-  posters,
-}: posterSlide) => {
+const PosterSlide = ({ posters }: posterSlide) => {
+  const pagination = {
+    clickable: false,
+    renderBullet: function (index: number, className: string) {
+      return `<span class="${className}"></span>`;
+    },
+  };
+
   return (
-    <div className="w-full overflow-hidden h-80 whitespace-nowrap">
-      <PosterList
-        posters={posters}
-        currentPosterNum={currentPosterNum}
-        setCurrentPosterNum={setCurrentPosterNum}
-      />
-    </div>
+    <Swiper
+      className="bannerSwiper"
+      modules={[Pagination, Scrollbar, Autoplay]}
+      spaceBetween={10}
+      slidesPerView={1}
+      pagination={pagination}
+      scrollbar={{ draggable: true, hide: true }}
+      autoplay={{
+        delay: 3000,
+        disableOnInteraction: false,
+      }}
+      loop={true}
+    >
+      {posters.map((poster) => (
+        <SwiperSlide key={poster.id}>
+          <GradientBackground />
+          <PosterImg
+            width="w-full"
+            height="h-full"
+            bgColor="bg-white"
+            image={poster.image}
+          />
+          <PosterInfo
+            id={poster.id}
+            term={poster.term}
+            name={poster.name}
+            place={poster.place}
+            location={poster.location}
+          />
+        </SwiperSlide>
+      ))}
+    </Swiper>
   );
 };
 

@@ -13,7 +13,7 @@ const Review = ({ review }: reviewProps) => {
 
   return (
     <button
-      className="relative flex flex-col items-center justify-center mb-8 mr-6 active:bg-gray-00 h-44 w-43/100 shadow-custom3 rounded-xl"
+      className="relative flex flex-col items-center justify-center w-full h-full active:bg-gray-00 shadow-custom3 rounded-xl"
       onClick={() => {
         navigate(`reviews/${review.id}`);
       }}
