@@ -12,7 +12,7 @@ const ResetBtn = () => {
 
   return (
     <button
-      className="flex items-center absolute right-[5%] top-1"
+      className="flex items-center absolute right-[5%] top-1 w-20 h-6 pl-1 active:bg-gray-00 justify-center rounded-lg"
       onClick={() => {
         dispatch(endpointActions.current(pathname));
         navigate('/taste-select');
