@@ -11,6 +11,7 @@ interface memoPadSticker {
   setStickerComments: Dispatch<SetStateAction<string>>;
   setIsCommentModal: Dispatch<SetStateAction<boolean>>;
   idx: number;
+  selectStickerIdx: number;
   setSelectStickerIdx: Dispatch<SetStateAction<number>>;
   userId: number;
   setSelectedToast: Dispatch<SetStateAction<number>>;
@@ -23,6 +24,7 @@ const MemoPadSticker = ({
   setStickerComments,
   setIsCommentModal,
   idx,
+  selectStickerIdx,
   setSelectStickerIdx,
   userId,
   setSelectedToast,
@@ -49,7 +51,7 @@ const MemoPadSticker = ({
 
   return (
     <button
-      className={`relative mr-2 duration-500 shrink-0 ${stickerUserId === userId ? 'active:scale-110' : ''} `}
+      className={`relative mr-2 duration-500 shrink-0 ${stickerUserId === userId ? 'active:scale-110' : ''} ${selectStickerIdx === idx ? 'z-30' : ''}`}
       {...onPressHandler()}
       onClick={btnHandler}
     >

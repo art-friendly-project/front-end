@@ -9,12 +9,14 @@ import EditorDeleteModal from './EditorDeleteModal';
 
 interface memoPad {
   review: review;
+  selectStickerIdx: number;
   setSelectStickerIdx: Dispatch<SetStateAction<number>>;
   setSelectedToast: Dispatch<SetStateAction<number>>;
 }
 
 const MemoPad = ({
   review,
+  selectStickerIdx,
   setSelectStickerIdx,
   setSelectedToast,
 }: memoPad) => {
@@ -39,6 +41,7 @@ const MemoPad = ({
           stickers={review.stickers}
           setStickerComments={setStickerComments}
           setIsCommentModal={setIsCommentModal}
+          selectStickerIdx={selectStickerIdx}
           setSelectStickerIdx={setSelectStickerIdx}
           userId={userId}
           setSelectedToast={setSelectedToast}

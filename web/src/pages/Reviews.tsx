@@ -60,6 +60,7 @@ const Reviews = () => {
       <div className="flex flex-col items-center w-full h-full pt-10">
         <MemoPad
           review={review}
+          selectStickerIdx={selectStickerIdx}
           setSelectStickerIdx={setSelectStickerIdx}
           setSelectedToast={setSelectedToast}
         />
