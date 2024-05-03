@@ -1,5 +1,6 @@
 import CalendarSelectModal from 'components/like/CalendarSelectModal';
 import FavoriteShow from 'components/like/FavoriteShow';
+import LikeEmptyMessage from 'components/like/LikeEmptyMessage';
 import { likeList } from 'mock/mockData';
 import { useEffect, useState } from 'react';
 
@@ -12,7 +13,7 @@ const Like = () => {
   const [location, setLocation] = useState('');
 
   useEffect(() => {
-    setShows(likeList);
+    setShows([]);
   }, [likeList]);
 
   return (
@@ -27,22 +28,26 @@ const Like = () => {
         />
       ) : null}
       <div className="flex flex-col px-[5%] w-full h-full">
-        {shows.map((show) => (
-          <FavoriteShow
-            key={show.id}
-            id={show.id}
-            name={show.name}
-            term={show.term}
-            image={show.image}
-            favorite={show.favorite}
-            location={show.location}
-            setCalendars={setCalendars}
-            setIsModal={setIsModal}
-            setDeadline={setDeadline}
-            setScheduleName={setScheduleName}
-            setLocation={setLocation}
-          />
-        ))}
+        {shows.length === 0 ? (
+          <LikeEmptyMessage />
+        ) : (
+          shows.map((show) => (
+            <FavoriteShow
+              key={show.id}
+              id={show.id}
+              name={show.name}
+              term={show.term}
+              image={show.image}
+              favorite={show.favorite}
+              location={show.location}
+              setCalendars={setCalendars}
+              setIsModal={setIsModal}
+              setDeadline={setDeadline}
+              setScheduleName={setScheduleName}
+              setLocation={setLocation}
+            />
+          ))
+        )}
       </div>
     </>
   );

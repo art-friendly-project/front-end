@@ -1,5 +1,6 @@
 import { type Dispatch, type SetStateAction } from 'react';
 import Calendar from './Calendar';
+import CalendarEmptyMessage from './CalendarEmptyMessage';
 
 interface calendarList {
   calendars: calendar[];
@@ -16,16 +17,20 @@ const CalendarList = ({
 }: calendarList) => {
   return (
     <div className="flex flex-col w-full">
-      {calendars.map((calendar) => (
-        <Calendar
-          key={calendar.id}
-          id={calendar.id}
-          calendarId={calendarId}
-          setCalendarId={setCalendarId}
-          title={calendar.title}
-          color={calendar.color}
-        />
-      ))}
+      {calendars.length === 0 ? (
+        <CalendarEmptyMessage />
+      ) : (
+        calendars.map((calendar) => (
+          <Calendar
+            key={calendar.id}
+            id={calendar.id}
+            calendarId={calendarId}
+            setCalendarId={setCalendarId}
+            title={calendar.title}
+            color={calendar.color}
+          />
+        ))
+      )}
     </div>
   );
 };
