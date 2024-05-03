@@ -13,7 +13,7 @@ const Like = () => {
   const [location, setLocation] = useState('');
 
   useEffect(() => {
-    setShows([]);
+    setShows(likeList);
   }, [likeList]);
 
   return (
