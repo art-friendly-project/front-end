@@ -1,6 +1,4 @@
-import ReviewSectionTitle from './ReviewSectionTitle';
-import ReviewPostBtn from './ReviewPostBtn';
-import Review from './Review';
+import { useEffect, useState } from 'react';
 import { Grid, Pagination, Scrollbar } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -8,7 +6,9 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import 'swiper/css/grid';
 import 'style/reviewSwiper.css';
-import { useEffect, useState } from 'react';
+import ReviewSectionTitle from './ReviewSectionTitle';
+import ReviewPostBtn from './ReviewPostBtn';
+import Review from './Review';
 
 interface reviewList {
   reviews: review[];

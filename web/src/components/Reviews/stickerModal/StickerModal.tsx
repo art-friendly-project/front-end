@@ -14,7 +14,7 @@ const StickerModal = ({ setIsModal, setReview }: stickerModal) => {
   return (
     <>
       <button
-        className="absolute bottom-0 z-10 w-full h-screen bg-black opacity-50"
+        className="absolute bottom-0 z-30 w-full h-screen bg-black opacity-50"
         onClick={() => {
           setIsModal(false);
           setCurrent(false);
