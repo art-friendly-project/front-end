@@ -23,11 +23,13 @@ const TasteSelect = () => {
     <div className="flex flex-col items-center w-full h-full pt-10">
       <TasteSelectTitle />
       <TasteList setSelectedList={setSelectedList} />
-      <BtnAndRightArrow
-        disable={selectedList.length === 0}
-        fn={btnHandler}
-        name="저장하기"
-      />
+      <div className="absolute flex w-full bottom-[5%] justify-center">
+        <BtnAndRightArrow
+          disable={selectedList.length === 0}
+          fn={btnHandler}
+          name="저장하기"
+        />
+      </div>
     </div>
   );
 };
