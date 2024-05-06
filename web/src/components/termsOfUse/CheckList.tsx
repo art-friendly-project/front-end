@@ -1,10 +1,13 @@
 import ChecksBtn from './ChecksBtn';
-import { useState } from 'react';
 import ChecksAllBtn from './ChecksAllBtn';
+import { type Dispatch, type SetStateAction } from 'react';
 
-const CheckList = () => {
-  const [isChecks, setIsChecks] = useState([false, false, false]);
+interface checkList {
+  isChecks: boolean[];
+  setIsChecks: Dispatch<SetStateAction<boolean[]>>;
+}
 
+const CheckList = ({ isChecks, setIsChecks }: checkList) => {
   const checks = [
     '[ 필수 ] 서비스 이용약관 동의',
     '[ 필수 ] 개인정보 수집 및 이용 동의',
