@@ -13,13 +13,13 @@ const ChecksAllBtn = ({ setIsChecks }: checksAllBtn) => {
   };
   return (
     <button
-      className="flex items-center w-full h-16 pb-8 mb-6 border-b border-b-gray-20"
+      className="flex items-center w-full h-24 mb-6 border-b rounded-lg border-b-gray-20 active:bg-gray-00"
       onClick={checkAllBtnHandler}
     >
-      <BsCheckCircleFill
-        className={`w-6 h-6 ${isCheck ? 'text-orange-100' : 'text-gray-20'}`}
-      />
       <span className="ml-2 text-Subhead-M">모두 동의할게요.</span>
+      <BsCheckCircleFill
+        className={`w-6 h-6 ml-auto ${isCheck ? 'text-orange-100' : 'text-gray-20'}`}
+      />
     </button>
   );
 };
