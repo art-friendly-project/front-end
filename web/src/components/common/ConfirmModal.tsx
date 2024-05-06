@@ -21,7 +21,7 @@ const ConfirmModal = ({ text, fn, cancelFn }: confirmModal) => {
               dispatch(isModalActions.setIsModal(false));
             }}
           />
-          <div className="absolute z-40 flex flex-col items-center justify-center mb-[30%] bg-white rounded-2xl w-80">
+          <div className="absolute bottom-[30%] z-40 flex flex-col items-center justify-center bg-white rounded-2xl w-80">
             <span className="mt-12 mb-24 text-center whitespace-pre-wrap text-Headline-M text-gray-110">
               {text}
             </span>
