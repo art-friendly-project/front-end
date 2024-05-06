@@ -1,6 +1,7 @@
 import posterExample1 from 'assets/images/example/posterExample1.png';
 import posterExample2 from 'assets/images/example/posterExample2.png';
 import posterExample3 from 'assets/images/example/posterExample3.png';
+import mainCharacter from 'assets/images/art-friendly/mainCharacter.svg';
 import ENFJ from 'assets/images/tasteTestProfile/ENFJ.svg';
 import ENFP from 'assets/images/tasteTestProfile/ENFP.svg';
 import INTP from 'assets/images/tasteTestProfile/INTP.svg';
@@ -374,7 +375,7 @@ export const userData = [
   {
     id: 1,
     nickName: '물감만세',
-    profileImage: ENFJ,
+    profileImage: mainCharacter,
     isTest: false,
     testTitle: '',
     introduce: '안녕하세요. 저는 전시에 관심이 많아요.',
