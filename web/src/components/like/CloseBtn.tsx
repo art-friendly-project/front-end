@@ -11,7 +11,7 @@ const CloseBtn = ({ setIsModal }: closeBtn) => {
   };
   return (
     <button
-      className="absolute rounded-lg top-4 right-3 active:bg-gray-00"
+      className="absolute rounded-lg top-2 right-2 active:bg-gray-00"
       onClick={closeBtnHandler}
     >
       <IoIosClose className="w-12 h-12" />
