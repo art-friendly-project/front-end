@@ -19,7 +19,7 @@ const StickerComment = ({
   setReview,
 }: stickerComment) => {
   return (
-    <div className="absolute bottom-0 z-20 flex w-full bg-white h-1/2 rounded-t-2xl animate-move-top-regular">
+    <div className="absolute bottom-0 z-30 flex w-full bg-white h-1/2 rounded-t-2xl animate-move-top-regular">
       <div className="flex flex-col items-center w-full">
         <StickerCommentTitle setIsModal={setIsModal} />
         <StickerCommentText text={text} setText={setText} />
