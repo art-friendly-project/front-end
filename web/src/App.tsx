@@ -21,6 +21,7 @@ import ReviewPost from 'pages/ReviewPost';
 import Settings from 'pages/Settings';
 import AccessGuidance from 'pages/AccessGuidance';
 import useAccessPermissions from 'hooks/useAccessPermissions';
+import TermsOfUse from 'pages/TermsOfUse';
 
 const App = () => {
   useAccessPermissions();
@@ -32,6 +33,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<OpenLoading />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/terms-of-use" element={<TermsOfUse />} />
             <Route path="/taste-select" element={<TasteSelect />} />
             <Route path="/access" element={<AccessGuidance />} />
             <Route path="/shows/:id" element={<ShowDetail />} />
