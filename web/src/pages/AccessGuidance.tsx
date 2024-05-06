@@ -21,7 +21,7 @@ const AccessGuidance = () => {
     <div className="relative flex flex-col w-full h-full">
       <AccessGuidanceTitle />
       <AccessList />
-      <div className="absolute bottom-[10%] w-full">
+      <div className="absolute bottom-[5%] w-full">
         <BtnBasic name="확인" disable={false} fn={btnHandler} />
       </div>
     </div>
