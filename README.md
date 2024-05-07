@@ -1,7 +1,7 @@
 # Art Friendly
 ### 소개
 - Art Friendly 서비스의 Front-end 저장소 입니다.
-- React와 React-native를 사용하여 Webview로 모바일 어플리케이션을 구현하였습니다.
+- React-native-webview를 사용하여 React와 React-native로 모바일 어플리케이션을 구현하였습니다.
 
 <br />
 
