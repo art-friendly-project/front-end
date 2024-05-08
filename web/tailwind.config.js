@@ -217,7 +217,7 @@ module.exports = {
         'appear-little': 'appear-little 0.5s linear',
         'appear-toast': 'appear-toast 2.2s',
         disappear: 'disappear 2s',
-        'move-top': 'move-top 1.7s linear',
+        'move-top': 'move-top 2.5s linear',
         'move-top-mini': 'move-top-mini 2s linear',
         'move-top-regular': 'move-top-regular 0.5s',
       },
