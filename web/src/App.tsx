@@ -2,6 +2,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
 import useAccessPermissions from 'hooks/useAccessPermissions';
 import LoadingSpineer from 'components/common/LoadingSpineer';
+import OpenLoading from 'pages/OpenLoading';
+import Login from 'pages/Login';
 
 const NearbyAndLocationShow = lazy(
   async () => await import('pages/NearbyAndLocationShow'),
@@ -15,8 +17,6 @@ const MainLayout = lazy(async () => await import('layout/MainLayout'));
 const Like = lazy(async () => await import('pages/Like'));
 const Home = lazy(async () => await import('pages/Home'));
 const List = lazy(async () => await import('pages/List'));
-const OpenLoading = lazy(async () => await import('pages/OpenLoading'));
-const Login = lazy(async () => await import('pages/Login'));
 const Profile = lazy(async () => await import('pages/Profile'));
 const TasteSelect = lazy(async () => await import('pages/TasteSelect'));
 const TasteTest = lazy(async () => await import('pages/TasteTest'));
