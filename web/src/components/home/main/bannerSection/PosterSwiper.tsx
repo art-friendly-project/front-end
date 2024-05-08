@@ -47,7 +47,7 @@ const PosterSwiper = ({ posters }: posterSwiper) => {
           <GradientBackground />
           <PosterImg
             width="w-full"
-            height="h-full"
+            height="h-80"
             bgColor="bg-white"
             image={poster.image}
           />
