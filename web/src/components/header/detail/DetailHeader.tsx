@@ -13,6 +13,7 @@ const DetailHeader = () => {
     if (pathname === '/prepare-service') return true;
     if (pathname.includes('reviews')) return true;
     if (pathname === '/settings') return true;
+    if (pathname === '/profile-edit') return true;
 
     return false;
   };

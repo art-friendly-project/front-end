@@ -4,6 +4,7 @@ import useAccessPermissions from 'hooks/useAccessPermissions';
 import LoadingSpineer from 'components/common/LoadingSpineer';
 import OpenLoading from 'pages/OpenLoading';
 import Login from 'pages/Login';
+import ProfileEdit from 'pages/ProfileEdit';
 
 const NearbyAndLocationShow = lazy(
   async () => await import('pages/NearbyAndLocationShow'),
@@ -75,6 +76,7 @@ const App = () => {
                 <Route path="/prepare-service" element={<PrepareService />} />
                 <Route path="/shows/:id/reviews/:id" element={<Reviews />} />
                 <Route path="/shows/:id/review-post" element={<ReviewPost />} />
+                <Route path="/profile-edit" element={<ProfileEdit />} />
                 <Route path="/settings" element={<Settings />} />
               </Route>
             </Routes>
