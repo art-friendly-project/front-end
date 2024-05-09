@@ -25,10 +25,11 @@ const FavoriteShowSection = ({
   useEffect(() => {
     dispatch(endpointActions.current('/like'));
   }, []);
+
   return (
     <div className="w-full px-[5%] flex flex-col">
       {shows.length === 0 ? (
-        <LikeEmptyMessage />
+        <LikeEmptyMessage text="아직 관심 목록이 없어요." />
       ) : (
         shows.map((show) => (
           <FavoriteShow
