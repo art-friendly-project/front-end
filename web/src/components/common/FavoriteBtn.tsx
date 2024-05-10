@@ -25,7 +25,7 @@ const FavoriteBtn = ({ favorite }: favoriteBtn) => {
   return (
     <>
       <button
-        className="absolute right-0 top-2"
+        className="absolute right-0 flex items-center justify-center rounded-lg top-1 active:bg-gray-00 w-7 h-7"
         onClick={() => {
           favoriteBtnHandler();
           toastHandler();

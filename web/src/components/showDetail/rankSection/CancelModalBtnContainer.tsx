@@ -25,7 +25,7 @@ const CancelModalBtnContainer = ({
   return (
     <div className="mt-4">
       <button
-        className="w-32 h-12 border-2 border-orange-100 rounded-lg text-Subhead text-gray-110"
+        className="w-32 h-12 border-2 border-orange-100 rounded-lg text-Subhead text-gray-110 active:bg-gray-00"
         onClick={() => {
           setIsModal(false);
         }}
@@ -33,7 +33,7 @@ const CancelModalBtnContainer = ({
         아니요
       </button>
       <button
-        className="w-32 h-12 ml-2 text-white bg-orange-100 rounded-lg text-Subhead"
+        className="w-32 h-12 ml-2 text-white bg-orange-100 rounded-lg text-Subhead active:bg-orange-dark-100"
         onClick={okBtnHandler}
       >
         네

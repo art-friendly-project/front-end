@@ -1,6 +1,7 @@
-import posterExample1 from '../assets/images/example/posterExample1.png';
-import posterExample2 from '../assets/images/example/posterExample2.png';
-import posterExample3 from '../assets/images/example/posterExample3.png';
+import posterExample1 from 'assets/images/example/posterExample1.png';
+import posterExample2 from 'assets/images/example/posterExample2.png';
+import posterExample3 from 'assets/images/example/posterExample3.png';
+import mainCharacter from 'assets/images/art-friendly/mainCharacter.svg';
 import ENFJ from 'assets/images/tasteTestProfile/ENFJ.svg';
 import ENFP from 'assets/images/tasteTestProfile/ENFP.svg';
 import INTP from 'assets/images/tasteTestProfile/INTP.svg';
@@ -164,7 +165,7 @@ export const reviewDatas = [
   [
     {
       id: 1,
-      title: '1느낌 좋은 전시회',
+      title: '느낌 좋은 전시회',
       content:
         '이번 전시회 진짜 좋았어 사람들도 적당히 있었고 나도 기분 좋게 봤던 것 같아 역시 전시 보는 이유가 있단 말이야~\n남들도 추천추천함 나는 그 부분이 제일 좋더라 작품 중에 알 수 없는 계절이라는 작품이 있었는데 괜찮더라고 아직 못 본 사람들도 얼른가서 봐봐 ㅎㅎ',
       createdAt: '24.04.16',
@@ -197,7 +198,7 @@ export const reviewDatas = [
     },
     {
       id: 2,
-      title: '2느낌 살짝 좋은 것 같은 전시회',
+      title: '느낌 살짝 좋은 것 같은 전시회',
       content:
         '이번 전시회 진짜 좋았어 사람들도 적당히 있었고 나도 기분 좋게 봤던 것 같아 역시 전시 보는 이유가 있단 말이야~\n남들도 추천추천함 나는 그 부분이 제일 좋더라 작품 중에 알 수 없는 계절이라는 작품이 있었는데 괜찮더라고 아직 못 본 사람들도 얼른가서 봐봐 ㅎㅎ',
       createdAt: '24.04.16',
@@ -210,7 +211,7 @@ export const reviewDatas = [
     },
     {
       id: 3,
-      title: '3느낌이 약간 애매한데 그래도 나쁘지 않은 전시회',
+      title: '느낌이 약간 애매한데 그래도 나쁘지 않은 전시회',
       content:
         '이번 전시회 진짜 좋았어 사람들도 적당히 있었고 나도 기분 좋게 봤던 것 같아 역시 전시 보는 이유가 있단 말이야~\n남들도 추천추천함 나는 그 부분이 제일 좋더라 작품 중에 알 수 없는 계절이라는 작품이 있었는데 괜찮더라고 아직 못 본 사람들도 얼른가서 봐봐 ㅎㅎ',
       createdAt: '24.04.16',
@@ -223,7 +224,7 @@ export const reviewDatas = [
     },
     {
       id: 4,
-      title: '4좋은 전시회',
+      title: '좋은 전시회',
       content:
         '이번 전시회 진짜 좋았어 사람들도 적당히 있었고 나도 기분 좋게 봤던 것 같아 역시 전시 보는 이유가 있단 말이야~\n남들도 추천추천함 나는 그 부분이 제일 좋더라 작품 중에 알 수 없는 계절이라는 작품이 있었는데 괜찮더라고 아직 못 본 사람들도 얼른가서 봐봐 ㅎㅎ',
       createdAt: '24.04.16',
@@ -374,7 +375,7 @@ export const userData = [
   {
     id: 1,
     nickName: '물감만세',
-    profileImage: ENFJ,
+    profileImage: mainCharacter,
     isTest: false,
     testTitle: '',
     introduce: '안녕하세요. 저는 전시에 관심이 많아요.',

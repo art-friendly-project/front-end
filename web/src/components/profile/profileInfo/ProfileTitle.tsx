@@ -1,3 +1,4 @@
+import EditBtn from './EditBtn';
 import TestSuggestBtn from './TestSuggestBtn';
 
 interface profileTitle {
@@ -16,8 +17,9 @@ const ProfileTitle = ({
   testTitle,
 }: profileTitle) => {
   return (
-    <div className="flex items-center">
-      <img src={profileImage} />
+    <div className="relative flex items-center">
+      <EditBtn />
+      <img src={profileImage} className="w-24 h-24" />
       <div className="flex flex-col ml-4">
         <span className="text-Headline text-gray-110">{nickName}</span>
         {isTest ? (

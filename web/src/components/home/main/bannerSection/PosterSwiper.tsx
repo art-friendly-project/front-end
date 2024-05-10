@@ -7,7 +7,7 @@ import GradientBackground from './GradientBackground';
 import PosterImg from 'components/common/PosterImg';
 import PosterInfo from './PosterInfo';
 
-interface posterSlide {
+interface posterSwiper {
   posters: poster[];
 }
 
@@ -20,7 +20,7 @@ export interface poster {
   image: string;
 }
 
-const PosterSlide = ({ posters }: posterSlide) => {
+const PosterSwiper = ({ posters }: posterSwiper) => {
   const pagination = {
     clickable: false,
     renderBullet: function (index: number, className: string) {
@@ -47,7 +47,7 @@ const PosterSlide = ({ posters }: posterSlide) => {
           <GradientBackground />
           <PosterImg
             width="w-full"
-            height="h-full"
+            height="h-80"
             bgColor="bg-white"
             image={poster.image}
           />
@@ -64,4 +64,4 @@ const PosterSlide = ({ posters }: posterSlide) => {
   );
 };
 
-export default PosterSlide;
+export default PosterSwiper;

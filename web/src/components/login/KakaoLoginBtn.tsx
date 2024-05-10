@@ -13,7 +13,7 @@ const KakaoLoginBtn = () => {
     <button
       className="absolute active:bg-kakaoDarkYellow flex items-center justify-center h-16 rounded-md bottom-[5%] w-9/10 bg-kakaoYellow"
       onClick={() => {
-        navigate('/taste-select');
+        navigate('/terms-of-use');
       }}
     >
       <img src={kakaoLogo} className="absolute h-6 left-8" />

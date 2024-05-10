@@ -22,7 +22,7 @@ const CloseBtn = () => {
   return (
     <>
       <button
-        className="absolute top-2 right-3 active:bg-gray-00"
+        className="absolute rounded-lg top-2 right-3 active:bg-gray-00"
         onClick={btnHandler}
       >
         <IoIosClose className="w-12 h-12" />
