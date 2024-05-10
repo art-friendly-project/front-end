@@ -21,14 +21,6 @@ const ReviewSwiper = ({ reviews }: reviewSwiper) => {
     setReviewSlice(reviews.slice(0, 8));
   }, []);
 
-  const pagination = {
-    clickable: false,
-    dynamicBullets: true,
-    renderBullet: function (index: number, className: string) {
-      return `<span class="${className}"></span>`;
-    },
-  };
-
   return (
     <Swiper
       className="reviewSwiper"
@@ -45,7 +37,7 @@ const ReviewSwiper = ({ reviews }: reviewSwiper) => {
       grid={{
         rows: 2,
       }}
-      pagination={pagination}
+      pagination={{ clickable: false, dynamicBullets: true }}
       scrollbar={{ draggable: true, hide: true }}
     >
       {reviewSlice.map((review) => (

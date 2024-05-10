@@ -14,14 +14,6 @@ interface stickerSwiper {
 }
 
 const StickerSwiper = ({ setSticker }: stickerSwiper) => {
-  const pagination = {
-    clickable: false,
-    dynamicBullets: true,
-    renderBullet: function (index: number, className: string) {
-      return `<span class="${className}"></span>`;
-    },
-  };
-
   return (
     <Swiper
       className="stickerSwiper"
@@ -31,7 +23,7 @@ const StickerSwiper = ({ setSticker }: stickerSwiper) => {
       grid={{
         rows: 2,
       }}
-      pagination={pagination}
+      pagination={{ clickable: false, dynamicBullets: true }}
       scrollbar={{ draggable: true, hide: true }}
     >
       {stickers.map((sticker) => (

@@ -21,20 +21,13 @@ export interface poster {
 }
 
 const PosterSwiper = ({ posters }: posterSwiper) => {
-  const pagination = {
-    clickable: false,
-    renderBullet: function (index: number, className: string) {
-      return `<span class="${className}"></span>`;
-    },
-  };
-
   return (
     <Swiper
       className="bannerSwiper"
       modules={[Pagination, Scrollbar, Autoplay]}
       spaceBetween={10}
       slidesPerView={1}
-      pagination={pagination}
+      pagination={{ clickable: false }}
       scrollbar={{ draggable: true, hide: true }}
       autoplay={{
         delay: 3000,
