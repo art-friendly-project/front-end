@@ -7,9 +7,9 @@ interface memoPadCloseBtn {
 
 const MemoPadCloseBtn = ({ setIsCommentModal }: memoPadCloseBtn) => {
   return (
-    <button>
+    <button className="absolute right-2">
       <IoIosClose
-        className="w-8 h-8 mr-1"
+        className="w-8 h-8"
         onClick={() => {
           setIsCommentModal(false);
         }}
