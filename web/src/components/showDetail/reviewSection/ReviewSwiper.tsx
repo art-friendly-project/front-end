@@ -6,7 +6,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import 'swiper/css/grid';
-import 'style/reviewSwiper.css';
+import 'style/swiper.css';
 import { type review } from './ReviewContainer';
 
 interface reviewSwiper {

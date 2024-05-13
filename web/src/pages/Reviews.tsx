@@ -57,7 +57,7 @@ const Reviews = () => {
   return (
     <>
       {<ConfirmModal text="남긴 스티커를 삭제할까요?" fn={confirmModalFn} />}
-      <div className="flex flex-col items-center w-full h-full pt-10">
+      <div className="flex flex-col items-center w-full h-full mt-[10%]">
         <MemoPad
           review={review}
           selectStickerIdx={selectStickerIdx}

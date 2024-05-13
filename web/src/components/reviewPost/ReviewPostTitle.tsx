@@ -14,7 +14,7 @@ const ReviewPostTitle = ({ titleText, setTitleText }: reviewPostTitle) => {
   };
 
   return (
-    <div className="flex flex-col items-center mt-10 mb-6">
+    <div className="flex flex-col items-center mt-[8%] mb-6">
       <input
         placeholder="담벼락 제목"
         value={titleText}

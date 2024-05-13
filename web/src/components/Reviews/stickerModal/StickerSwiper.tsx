@@ -4,7 +4,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import 'swiper/css/grid';
-import 'style/reviewSwiper.css';
+import 'style/swiper.css';
 import stickers from 'assets/data/stickers';
 import StickerImg from './StickerImg';
 import { type Dispatch, type SetStateAction } from 'react';

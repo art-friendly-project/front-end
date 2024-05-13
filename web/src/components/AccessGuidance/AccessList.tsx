@@ -5,9 +5,9 @@ import calendar from 'assets/images/etc/calendar.svg';
 
 const AccessList = () => {
   return (
-    <div className="flex flex-col pl-[5%] mt-16">
+    <div className="flex flex-col pl-[5%] mt-[10%]">
       <span className="mb-6 text-Headline-M">선택 접근 권한</span>
-      <div className="flex items-center mb-8">
+      <div className="flex items-center mb-[5%]">
         <img src={location} className="w-12 h-12" />
         <div className="flex flex-col ml-4">
           <span className="mb-1 text-Body3-120 text-gray-110">위치</span>
@@ -16,9 +16,8 @@ const AccessList = () => {
           </span>
         </div>
       </div>
-      <div className="flex items-center mb-8">
+      <div className="flex items-center mb-[5%]">
         <img src={folder} className="w-12 h-12" />
-
         <div className="flex flex-col ml-4">
           <span className="mb-1 text-Body3-120 text-gray-110">저장 공간</span>
           <span className="text-Body2-M text-gray-60">
@@ -26,7 +25,7 @@ const AccessList = () => {
           </span>
         </div>
       </div>
-      <div className="flex items-center mb-8">
+      <div className="flex items-center mb-[5%]">
         <img src={notification} className="w-12 h-12" />
         <div className="flex flex-col ml-4">
           <span className="mb-1 text-Body3-120 text-gray-110">알림</span>
