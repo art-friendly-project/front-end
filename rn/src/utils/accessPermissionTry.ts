@@ -1,4 +1,4 @@
-import {Alert, Linking, Platform} from 'react-native';
+import {Alert, Linking} from 'react-native';
 import {WebViewMessageEvent} from 'react-native-webview';
 
 const accessPermissionTry = async (e: WebViewMessageEvent) => {
@@ -10,25 +10,23 @@ const accessPermissionTry = async (e: WebViewMessageEvent) => {
     CALENDAR_PERMISSON: '캘린더 액세스 권한이 필요합니다.',
   };
 
-  if (Platform.OS === 'android') {
-    if (permissions[type] !== undefined) {
-      Alert.alert(
-        permissions[type],
-        '권한 허용 후 이용해 주시기 바랍니다.',
-        [
-          {
-            text: '취소',
-            onPress: () => {},
-            style: 'cancel',
-          },
-          {
-            text: '설정으로 이동',
-            onPress: () => Linking.openSettings(),
-          },
-        ],
-        {cancelable: false},
-      );
-    }
+  if (permissions[type] !== undefined) {
+    Alert.alert(
+      permissions[type],
+      '권한 허용 후 이용해 주시기 바랍니다.',
+      [
+        {
+          text: '취소',
+          onPress: () => {},
+          style: 'cancel',
+        },
+        {
+          text: '설정으로 이동',
+          onPress: () => Linking.openSettings(),
+        },
+      ],
+      {cancelable: false},
+    );
   }
 };
 

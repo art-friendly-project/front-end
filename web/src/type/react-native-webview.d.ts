@@ -3,6 +3,7 @@ interface Window {
     postMessage: (message: string) => void;
   };
   kakao: any;
+  platform: 'android' | 'ios';
 }
 
 interface DocumentEventMap {

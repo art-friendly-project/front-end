@@ -30,10 +30,21 @@ const useGeolocation = () => {
           }
         };
 
-        document.addEventListener('message', geolocation);
+        if (window.platform === 'android') {
+          document.addEventListener('message', geolocation);
+        }
+
+        if (window.platform === 'ios') {
+          window.addEventListener('message', geolocation);
+        }
 
         return () => {
-          document.removeEventListener('message', geolocation);
+          if (window.platform === 'android') {
+            document.removeEventListener('message', geolocation);
+          }
+          if (window.platform === 'ios') {
+            window.removeEventListener('message', geolocation);
+          }
         };
       }
     }
