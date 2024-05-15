@@ -10,8 +10,8 @@ const FavoriteBtn = ({ favorite }: favoriteBtn) => {
   const [isFavorite, setIsFavorite] = useState(false);
   const toastHandler = useToastHandler(
     isFavorite,
-    '좋아요 목록에 추가했어요',
-    '좋아요 목록에서 취소했어요',
+    '관심 목록에 추가했어요',
+    '관심 목록에서 취소했어요',
   );
 
   useEffect(() => {

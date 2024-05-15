@@ -47,8 +47,13 @@ const AddScheduleBtn = ({
             setIsModal(true);
           }
         };
+        if (window.platform === 'android') {
+          document.addEventListener('message', calendar);
+        }
 
-        document.addEventListener('message', calendar);
+        if (window.platform === 'ios') {
+          window.addEventListener('message', calendar);
+        }
       }
 
       if (accessPermissions.calendar !== 'granted') {

@@ -73,11 +73,22 @@ const Like = () => {
           }
         }
       };
+      if (window.platform === 'android') {
+        document.addEventListener('message', schedule);
+      }
 
-      document.addEventListener('message', schedule);
+      if (window.platform === 'ios') {
+        window.addEventListener('message', schedule);
+      }
 
       return () => {
-        document.removeEventListener('message', schedule);
+        if (window.platform === 'android') {
+          document.removeEventListener('message', schedule);
+        }
+
+        if (window.platform === 'ios') {
+          window.removeEventListener('message', schedule);
+        }
       };
     }
   }, []);
