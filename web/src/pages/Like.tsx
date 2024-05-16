@@ -33,7 +33,6 @@ const Like = () => {
     '',
   );
 
-  console.log(selectedTime);
   const confirmModalFn = () => {
     const startDate = new Date(`${selectedDate}T${selectedTime}`).toISOString();
     const endDate = new Date(
