@@ -10,10 +10,9 @@ const addSchedule = async (e: WebViewMessageEvent, ref: RefObject<any>) => {
         nativeEvent.data.scheduleName,
         {
           calendarId: nativeEvent.data.calendarId,
-          startDate: nativeEvent.data.deadlineDay,
-          endDate: nativeEvent.data.deadlineDay,
+          startDate: nativeEvent.data.startDate,
+          endDate: nativeEvent.data.endDate,
           location: nativeEvent.data.location,
-          allDay: true,
         },
       );
 

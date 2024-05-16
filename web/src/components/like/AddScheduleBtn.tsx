@@ -8,22 +8,22 @@ interface addScheduleBtn {
   setCalendars: Dispatch<SetStateAction<calendar[]>>;
   setIsModal: Dispatch<SetStateAction<boolean>>;
   name: string;
-  term: string;
-  setDeadline: Dispatch<SetStateAction<string>>;
   setScheduleName: Dispatch<SetStateAction<string>>;
   setLocation: Dispatch<SetStateAction<string>>;
   location: string;
+  term: string;
+  setCurrentTerm: Dispatch<SetStateAction<string>>;
 }
 
 const AddScheduleBtn = ({
   setCalendars,
   setIsModal,
   name,
-  term,
-  setDeadline,
   setScheduleName,
   setLocation,
   location,
+  term,
+  setCurrentTerm,
 }: addScheduleBtn) => {
   const accessPermissions = useAppSelector(selectAccessPermissions);
 
@@ -41,9 +41,9 @@ const AddScheduleBtn = ({
 
           if (data.calendars !== undefined) {
             setCalendars(data.calendars);
-            setDeadline(term);
             setScheduleName(name);
             setLocation(location);
+            setCurrentTerm(term);
             setIsModal(true);
           }
         };

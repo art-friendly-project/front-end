@@ -1,14 +1,14 @@
+import { useEffect, useState } from 'react';
 import ConfirmModal from 'components/common/ConfirmModal';
-import CalendarSelectModal from 'components/like/CalendarSelectModal';
+import AddScheduleModal from 'components/like/AddScheduleModal';
 import FavoriteShowSection from 'components/like/FavoriteShowSection';
 import LikeMenu from 'components/like/LikeMenu';
 import SavedReviewSection from 'components/like/SavedReviewSection';
 import { useAppSelector } from 'hooks';
 import useToastHandler from 'hooks/useToastHandler';
 import { likeList } from 'mock/mockData';
-import { useEffect, useState } from 'react';
 import { selectEndpoint } from 'store/modules/endpoint';
-import changeTermToDeadline from 'utils/changeTermToDeadline';
+import addOneHour from 'utils/addOneHour';
 import isApp from 'utils/isApp';
 
 const Like = () => {
@@ -17,9 +17,15 @@ const Like = () => {
   const [shows, setShows] = useState<favoriteShow[]>([]);
   const [calendars, setCalendars] = useState<calendar[]>([]);
   const [scheduleName, setScheduleName] = useState('');
-  const [deadline, setDeadline] = useState('');
   const [location, setLocation] = useState('');
   const [calendarId, setCalendarId] = useState('');
+  const [currentTerm, setCurrentTerm] = useState('');
+  const [selectedDate, setSelectedDate] = useState('2024-01-01');
+  const [selectedTime, setSelectedTime] = useState('12:00');
+
+  useEffect(() => {
+    if (calendars.length > 0) setCalendarId(calendars[0].id);
+  }, [calendars]);
 
   const toastHandler = useToastHandler(
     false,
@@ -27,13 +33,18 @@ const Like = () => {
     '',
   );
 
+  console.log(selectedTime);
   const confirmModalFn = () => {
-    const deadlineDay = changeTermToDeadline(deadline);
+    const startDate = new Date(`${selectedDate}T${selectedTime}`).toISOString();
+    const endDate = new Date(
+      `${selectedDate}T${addOneHour(selectedTime)}`,
+    ).toISOString();
 
     const data = {
       calendarId,
       scheduleName,
-      deadlineDay,
+      startDate,
+      endDate,
       location,
     };
 
@@ -100,14 +111,17 @@ const Like = () => {
         fn={confirmModalFn}
       />
       {isModal ? (
-        <CalendarSelectModal
+        <AddScheduleModal
           calendars={calendars}
           setIsModal={setIsModal}
-          deadline={deadline}
           scheduleName={scheduleName}
           location={location}
-          calendarId={calendarId}
           setCalendarId={setCalendarId}
+          currentTerm={currentTerm}
+          selectedDate={selectedDate}
+          setSelectedDate={setSelectedDate}
+          selectedTime={selectedTime}
+          setSelectedTime={setSelectedTime}
         />
       ) : null}
       <div className="flex flex-col w-full h-full">
@@ -117,9 +131,9 @@ const Like = () => {
             shows={shows}
             setCalendars={setCalendars}
             setIsModal={setIsModal}
-            setDeadline={setDeadline}
             setScheduleName={setScheduleName}
             setLocation={setLocation}
+            setCurrentTerm={setCurrentTerm}
           />
         ) : (
           <SavedReviewSection />
