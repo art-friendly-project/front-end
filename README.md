@@ -50,3 +50,9 @@ $ npm start
   <br />&nbsp;&nbsp; - &nbsp;캘린더 선택 UI 변경
   <br />&nbsp;&nbsp; - &nbsp;프로필 수정 페이지 UI 구현
 </details>
+<details>
+  <summary><b>[ 2024. 5. 3. ] UI, 기능 구현 (3차)</b></summary>
+  &nbsp;&nbsp; - &nbsp;담벼락, 캘린더 일정 추가 UI 변경
+  <br />&nbsp;&nbsp; - &nbsp;IOS 화면에 맞게 UI 수정
+  <br />&nbsp;&nbsp; - &nbsp;IOS 권한 설정 추가(위치, 캘린더 등)
+</details>
