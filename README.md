@@ -44,3 +44,9 @@ $ npm start
   <br />&nbsp;&nbsp; - &nbsp;안드로이드 위치, 사진첩, 알림, 달력 권한 설정 기능
   <br />&nbsp;&nbsp; - &nbsp;안드로이드 달력 연동한 전시 일정 추가 기능 (react-native-calendar-events 라이브러리 사용)
 </details>
+<details>
+  <summary><b>[ 2024. 5. 3. ] UI, 기능 구현 (2차)</b></summary>
+  &nbsp;&nbsp; - &nbsp;Lazy loading 기능 구현
+  <br />&nbsp;&nbsp; - &nbsp;캘린더 선택 UI 변경
+  <br />&nbsp;&nbsp; - &nbsp;프로필 수정 페이지 UI 구현
+</details>
