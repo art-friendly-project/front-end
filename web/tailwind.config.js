@@ -150,6 +150,7 @@ module.exports = {
         '23/25': '92%',
         '41/50': '82%',
         '7/10': '70%',
+        '9/12': '75%',
         '9/10': '90%',
       },
       width: {
@@ -292,8 +293,7 @@ module.exports = {
           'rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px',
         custom3:
           'rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px',
-        inside:
-          'rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset',
+        inside: '0px 1px 2px 1px rgba(60, 64, 67, 0.3) inset',
       },
     },
   },

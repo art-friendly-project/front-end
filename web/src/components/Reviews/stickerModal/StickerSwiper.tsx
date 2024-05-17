@@ -4,7 +4,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import 'swiper/css/grid';
-import 'style/reviewSwiper.css';
+import 'style/swiper.css';
 import stickers from 'assets/data/stickers';
 import StickerImg from './StickerImg';
 import { type Dispatch, type SetStateAction } from 'react';
@@ -14,14 +14,6 @@ interface stickerSwiper {
 }
 
 const StickerSwiper = ({ setSticker }: stickerSwiper) => {
-  const pagination = {
-    clickable: false,
-    dynamicBullets: true,
-    renderBullet: function (index: number, className: string) {
-      return `<span class="${className}"></span>`;
-    },
-  };
-
   return (
     <Swiper
       className="stickerSwiper"
@@ -31,7 +23,7 @@ const StickerSwiper = ({ setSticker }: stickerSwiper) => {
       grid={{
         rows: 2,
       }}
-      pagination={pagination}
+      pagination={{ clickable: false, dynamicBullets: true }}
       scrollbar={{ draggable: true, hide: true }}
     >
       {stickers.map((sticker) => (

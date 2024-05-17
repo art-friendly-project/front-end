@@ -21,7 +21,7 @@ const MemoPadStickerList = ({
   setSelectedToast,
 }: stickerList) => {
   return (
-    <div className="absolute flex h-24 items-end overflow-x-scroll scrollbar-hide bottom-10 left-5 w-91.2">
+    <div className="flex items-end h-36 mb-[5%] overflow-x-scroll scrollbar-hide">
       {stickers.map((sticker, idx) => (
         <MemoPadSticker
           key={sticker.id}

@@ -1,42 +1,53 @@
 import { type Dispatch, type SetStateAction } from 'react';
-import { MdOutlineCheck } from 'react-icons/md';
+import { BsCheckLg } from 'react-icons/bs';
 
 interface calendar {
-  setCalendarId: Dispatch<SetStateAction<string>>;
+  selectedTitle: string;
   title: string;
-  calendarId: string;
   id: string;
   color: string;
+  length: number;
+  idx: number;
+  setCalendarId: Dispatch<SetStateAction<string>>;
+  setSelectedTitle: Dispatch<SetStateAction<string>>;
+  setSelectedColor: Dispatch<SetStateAction<string>>;
+  setIsModal: Dispatch<SetStateAction<boolean>>;
 }
 
 const Calendar = ({
-  calendarId,
-  setCalendarId,
+  selectedTitle,
   id,
   title,
   color,
+  length,
+  idx,
+  setCalendarId,
+  setSelectedTitle,
+  setSelectedColor,
+  setIsModal,
 }: calendar) => {
+  const CalendarBtnHandler = () => {
+    setCalendarId(id);
+    setSelectedTitle(title);
+    setSelectedColor(color);
+    setIsModal(false);
+  };
   return (
-    <div className="relative flex">
-      <label className="flex items-center ml-[5%] mb-3 w-9/10" htmlFor={id}>
-        <span className="text-Body3-M">{title}</span>
-        <MdOutlineCheck className="absolute w-5 h-5 text-white right-[5%] bottom-4" />
-      </label>
-      <input
-        type="radio"
-        id={id}
-        value={id}
-        style={{
-          border: `2px solid ${color}`,
-          backgroundColor: calendarId === id ? color : '',
-        }}
-        className="w-5 h-5 ml-auto appearance-none mr-[5%]"
-        onChange={(e) => {
-          setCalendarId(e.target.value);
-        }}
-        checked={calendarId === id}
+    <button
+      className={`relative flex h-10 pr-3 items-center ${length - 1 === idx ? '' : 'border-b border-b-gray-20'}`}
+      onClick={CalendarBtnHandler}
+    >
+      <div className="w-5 mx-1">
+        {selectedTitle === title ? (
+          <BsCheckLg className="w-5 h-5 text-gray-110" />
+        ) : null}
+      </div>
+      <span className="mr-4 text-Body3-M text-gray-110">{title}</span>
+      <div
+        className="w-4 h-4 ml-auto rounded-full"
+        style={{ backgroundColor: color }}
       />
-    </div>
+    </button>
   );
 };
 

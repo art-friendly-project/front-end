@@ -11,7 +11,7 @@ const EditOrDeleteBtn = ({ setIsEditorDeleteModal }: editOrDeleteBtn) => {
       onClick={() => {
         setIsEditorDeleteModal(true);
       }}
-      className="absolute z-10 top-24 right-8"
+      className="absolute top-[15%] right-[5%] z-10"
     >
       <PiDotsThreeCircleFill className="text-orange-100 w-7 h-7 active:text-orange-dark-100" />
     </button>

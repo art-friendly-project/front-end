@@ -17,7 +17,7 @@ const BtnContainer = ({
   const [isBookmarkChecked, setIsBookmarkChecked] = useState(false);
 
   return (
-    <div className="relative flex mt-16 w-9/10">
+    <div className="absolute bottom-[5%] flex mt-16 w-9/10">
       <StickerBtn setIsModal={setIsModal} />
       <BookmarkBtn
         isBookmarkChecked={isBookmarkChecked}

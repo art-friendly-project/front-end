@@ -3,7 +3,7 @@ interface content {
 }
 
 const Content = ({ content }: content) => {
-  return <span className="mt-10 whitespace-pre-wrap">{content}</span>;
+  return <span className="mt-[8%] whitespace-pre-wrap">{content}</span>;
 };
 
 export default Content;

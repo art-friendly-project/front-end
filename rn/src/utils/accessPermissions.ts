@@ -1,6 +1,10 @@
 import {RefObject} from 'react';
 import {Platform} from 'react-native';
-import {PERMISSIONS, requestMultiple} from 'react-native-permissions';
+import {
+  PERMISSIONS,
+  requestMultiple,
+  requestNotifications,
+} from 'react-native-permissions';
 import {WebViewMessageEvent} from 'react-native-webview';
 
 const accessPermissions = async (
@@ -24,6 +28,29 @@ const accessPermissions = async (
           images: status[PERMISSIONS.ANDROID.READ_MEDIA_IMAGES],
           notifications: status[PERMISSIONS.ANDROID.POST_NOTIFICATIONS],
           calendar: status[PERMISSIONS.ANDROID.WRITE_CALENDAR],
+        };
+
+        ref.current?.postMessage(JSON.stringify({permissions}));
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    if (Platform.OS === 'ios') {
+      try {
+        const status = await requestMultiple([
+          PERMISSIONS.IOS.LOCATION_WHEN_IN_USE,
+          PERMISSIONS.IOS.PHOTO_LIBRARY,
+          PERMISSIONS.IOS.CALENDARS,
+        ]);
+
+        const notifications = await requestNotifications(['alert']);
+
+        const permissions = {
+          location: status[PERMISSIONS.IOS.LOCATION_WHEN_IN_USE],
+          images: status[PERMISSIONS.IOS.PHOTO_LIBRARY],
+          calendar: status[PERMISSIONS.IOS.CALENDARS],
+          notifications,
         };
 
         ref.current?.postMessage(JSON.stringify({permissions}));

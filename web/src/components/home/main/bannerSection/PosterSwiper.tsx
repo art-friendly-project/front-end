@@ -3,6 +3,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+import 'style/swiper.css';
+
 import GradientBackground from './GradientBackground';
 import PosterImg from 'components/common/PosterImg';
 import PosterInfo from './PosterInfo';
@@ -21,20 +23,13 @@ export interface poster {
 }
 
 const PosterSwiper = ({ posters }: posterSwiper) => {
-  const pagination = {
-    clickable: false,
-    renderBullet: function (index: number, className: string) {
-      return `<span class="${className}"></span>`;
-    },
-  };
-
   return (
     <Swiper
       className="bannerSwiper"
       modules={[Pagination, Scrollbar, Autoplay]}
       spaceBetween={10}
       slidesPerView={1}
-      pagination={pagination}
+      pagination={{ clickable: false }}
       scrollbar={{ draggable: true, hide: true }}
       autoplay={{
         delay: 3000,

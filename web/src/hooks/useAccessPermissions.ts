@@ -20,6 +20,7 @@ const useAccessPermissions = () => {
             images: string;
             notifications: string;
           };
+          platform: string;
         } = JSON.parse(e.data);
 
         if (data.permissions !== undefined) {
@@ -27,10 +28,22 @@ const useAccessPermissions = () => {
         }
       };
 
-      document.addEventListener('message', accessPermissions);
+      if (window.platform === 'android') {
+        document.addEventListener('message', accessPermissions);
+      }
+
+      if (window.platform === 'ios') {
+        window.addEventListener('message', accessPermissions);
+      }
 
       return () => {
-        document.removeEventListener('message', accessPermissions);
+        if (window.platform === 'android') {
+          document.removeEventListener('message', accessPermissions);
+        }
+
+        if (window.platform === 'ios') {
+          window.removeEventListener('message', accessPermissions);
+        }
       };
     }
   }, []);

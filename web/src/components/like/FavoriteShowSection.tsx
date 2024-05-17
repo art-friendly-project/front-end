@@ -8,18 +8,18 @@ interface favoriteShowSection {
   shows: favoriteShow[];
   setCalendars: Dispatch<SetStateAction<calendar[]>>;
   setIsModal: Dispatch<SetStateAction<boolean>>;
-  setDeadline: Dispatch<SetStateAction<string>>;
   setScheduleName: Dispatch<SetStateAction<string>>;
   setLocation: Dispatch<SetStateAction<string>>;
+  setCurrentTerm: Dispatch<SetStateAction<string>>;
 }
 
 const FavoriteShowSection = ({
   shows,
   setCalendars,
   setIsModal,
-  setDeadline,
   setScheduleName,
   setLocation,
+  setCurrentTerm,
 }: favoriteShowSection) => {
   const dispatch = useAppDispatch();
   useEffect(() => {
@@ -42,9 +42,9 @@ const FavoriteShowSection = ({
             location={show.location}
             setCalendars={setCalendars}
             setIsModal={setIsModal}
-            setDeadline={setDeadline}
             setScheduleName={setScheduleName}
             setLocation={setLocation}
+            setCurrentTerm={setCurrentTerm}
           />
         ))
       )}

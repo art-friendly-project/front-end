@@ -15,9 +15,9 @@ interface favoriteShow {
   location: string;
   setCalendars: Dispatch<SetStateAction<calendar[]>>;
   setIsModal: Dispatch<SetStateAction<boolean>>;
-  setDeadline: Dispatch<SetStateAction<string>>;
   setScheduleName: Dispatch<SetStateAction<string>>;
   setLocation: Dispatch<SetStateAction<string>>;
+  setCurrentTerm: Dispatch<SetStateAction<string>>;
 }
 
 const FavoriteShow = ({
@@ -29,9 +29,9 @@ const FavoriteShow = ({
   location,
   setCalendars,
   setIsModal,
-  setDeadline,
   setScheduleName,
   setLocation,
+  setCurrentTerm,
 }: favoriteShow) => {
   const navigate = useNavigate();
 
@@ -59,11 +59,11 @@ const FavoriteShow = ({
           setCalendars={setCalendars}
           setIsModal={setIsModal}
           name={name}
-          term={term}
-          setDeadline={setDeadline}
           setScheduleName={setScheduleName}
           setLocation={setLocation}
           location={location}
+          term={term}
+          setCurrentTerm={setCurrentTerm}
         />
       )}
     </div>

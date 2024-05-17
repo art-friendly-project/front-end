@@ -58,13 +58,13 @@ const MemoPadSticker = ({
       {stickerUserId === userId ? (
         <img
           src={purpleStar}
-          className="absolute w-4 h-4 -top-4 left-[1.3rem]"
+          className="absolute w-3 h-3 -top-3 left-[1.1rem]"
           onContextMenu={(e) => {
             e.preventDefault();
           }}
         />
       ) : null}
-      <img src={sticker} className="w-14 h-14" />
+      <img src={sticker} className="w-12 h-12" />
     </button>
   );
 };

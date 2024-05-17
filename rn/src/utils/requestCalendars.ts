@@ -1,4 +1,3 @@
-import {Platform} from 'react-native';
 import {WebViewMessageEvent} from 'react-native-webview';
 import RNCalendarEvents from 'react-native-calendar-events';
 import {RefObject} from 'react';
@@ -9,15 +8,13 @@ const requestCalendars = async (
 ) => {
   const nativeEvent = JSON.parse(e.nativeEvent.data);
   if (nativeEvent.type === 'REQUEST_CALENDARS') {
-    if (Platform.OS === 'android') {
-      try {
-        await RNCalendarEvents.requestPermissions();
+    try {
+      await RNCalendarEvents.requestPermissions();
 
-        const calendars = await RNCalendarEvents.findCalendars();
-        ref.current?.postMessage(JSON.stringify({calendars}));
-      } catch (err) {
-        console.error(err);
-      }
+      const calendars = await RNCalendarEvents.findCalendars();
+      ref.current?.postMessage(JSON.stringify({calendars}));
+    } catch (err) {
+      console.error(err);
     }
   }
 };

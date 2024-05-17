@@ -1,4 +1,3 @@
-import {Platform} from 'react-native';
 import {WebViewMessageEvent} from 'react-native-webview';
 import Geolocation from 'react-native-geolocation-service';
 import {Dispatch, SetStateAction} from 'react';
@@ -11,21 +10,19 @@ const findGeolocation = (
 ) => {
   const nativeEvent = JSON.parse(e.nativeEvent.data);
   if (nativeEvent.type === 'GEOLOCATION') {
-    if (Platform.OS === 'android') {
-      Geolocation.getCurrentPosition(
-        position => {
-          const {latitude, longitude} = position.coords;
+    Geolocation.getCurrentPosition(
+      position => {
+        const {latitude, longitude} = position.coords;
 
-          setGeolocation({latitude, longitude});
-        },
-        err => {
-          console.error(err);
-        },
-        {
-          enableHighAccuracy: true,
-        },
-      );
-    }
+        setGeolocation({latitude, longitude});
+      },
+      err => {
+        console.error(err);
+      },
+      {
+        enableHighAccuracy: true,
+      },
+    );
   }
 };
 
