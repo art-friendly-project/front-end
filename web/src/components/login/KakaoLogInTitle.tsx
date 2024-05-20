@@ -1,4 +1,4 @@
-const LoginTitle = () => {
+const KakaoLogInTitle = () => {
   return (
     <div className="flex flex-col w-full pl-[5%] sm:items-center sm:pl-0">
       <span className="mb-2 text-Display3">Art-Friendly</span>
@@ -7,4 +7,4 @@ const LoginTitle = () => {
   );
 };
 
-export default LoginTitle;
+export default KakaoLogInTitle;
