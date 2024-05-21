@@ -18,7 +18,7 @@ const WithdrawalReason = () => {
   };
 
   return (
-    <>
+    <div className="flex flex-col items-center w-full h-full">
       <WithdrawalReasonTitle />
       <WithdrawalReasonCheckboxList
         checkedReasons={checkedReasons}
@@ -28,9 +28,9 @@ const WithdrawalReason = () => {
         name="다음"
         fn={btnHandler}
         disable={!checkedReasons.includes(true)}
-        style="absolute bottom-[5%]"
+        style="mt-auto pb-[5%]"
       />
-    </>
+    </div>
   );
 };
 

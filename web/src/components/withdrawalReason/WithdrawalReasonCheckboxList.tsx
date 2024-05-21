@@ -12,7 +12,7 @@ const WithdrawalReasonCheckboxList = ({
   setCheckedReasons,
 }: withdrawalReasonCheckboxList) => {
   return (
-    <div className="flex flex-col w-full px-[5%] mt-[15%]">
+    <div className="flex flex-col w-full px-[5%] mt-auto mb-10">
       {reasons.map((reason, idx) => (
         <WithdrawalReasonCheckbox
           key={reason}
