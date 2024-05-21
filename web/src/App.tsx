@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
 import useAccessPermissions from 'hooks/useAccessPermissions';
 import LoadingSpineer from 'components/common/LoadingSpineer';
+import WithdrawalConfirm from 'pages/WithdrawalConfirm';
 
 const NearbyAndLocationShow = lazy(
   async () => await import('pages/NearbyAndLocationShow'),
@@ -86,6 +87,10 @@ const App = () => {
                 <Route
                   path="/withdrawal/reason"
                   element={<WithdrawalReason />}
+                />
+                <Route
+                  path="/withdrawal/confirm"
+                  element={<WithdrawalConfirm />}
                 />
               </Route>
             </Routes>

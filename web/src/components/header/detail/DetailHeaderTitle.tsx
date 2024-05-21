@@ -12,7 +12,7 @@ const DetailHeaderTitle = () => {
     if (pathname.includes('review-post')) return '담벼락 남기기';
     if (pathname === '/settings') return '설정';
     if (pathname === '/profile-edit') return '프로필 수정';
-    if (pathname === '/withdrawal') return '회원 탈퇴';
+    if (pathname.includes('withdrawal')) return '회원 탈퇴';
   };
 
   return (
