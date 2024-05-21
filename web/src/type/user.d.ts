@@ -1,16 +1,14 @@
 interface user {
-  id: number;
-  nickName: string;
-  profileImage: string;
-  isTest: boolean;
-  testTitle: string;
-  introduce: string;
-  interests: string[];
-  reviews: myReview[];
-}
-
-interface myReview {
-  id: number;
-  showId: number;
-  image: string;
+  memberDetailsRspDto: {
+    id: number;
+    email: string;
+    imageUrl: string;
+    nickName: string;
+    selfIntro: null | string;
+    mbtiSimpleRspDto: null | string;
+    artPreferenceTypeList: string[];
+  };
+  StickerCount: number;
+  dambyeolagCount: number;
+  interestedExhibitionCount: number;
 }
