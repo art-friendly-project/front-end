@@ -10,6 +10,10 @@ const Settings = () => {
   const [selectedBtn, setSelectedBtn] = useState(true);
 
   const confirmModalFn = () => {
+    if (selectedBtn) {
+      localStorage.clear();
+      navigate('/kakao-login');
+    }
     if (!selectedBtn) navigate('/withdrawal/reason');
   };
 

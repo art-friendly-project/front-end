@@ -14,12 +14,12 @@ const TasteItem = ({ tasteImg, tasteName, setSelectedList }: tasteItem) => {
     setSelected((prev) => !prev);
 
     if (selected) {
-      setSelectedList((prev) => prev.filter((item) => item !== tasteImg));
+      setSelectedList((prev) => prev.filter((item) => item !== tasteName));
       return;
     }
 
     if (!selected) {
-      setSelectedList((prev) => [...prev, tasteImg]);
+      setSelectedList((prev) => [...prev, tasteName]);
     }
   };
 
