@@ -24,7 +24,7 @@ const ReviewPost = () => {
   useEffect(() => {
     dispatch(
       isReviewTextActions.setIsReviewText(
-        titleText.length === 0 && contentText.length === 0,
+        titleText.length !== 0 || contentText.length !== 0,
       ),
     );
   }, [titleText, contentText]);

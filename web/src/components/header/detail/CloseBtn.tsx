@@ -12,11 +12,11 @@ const CloseBtn = () => {
 
   const btnHandler = () => {
     if (isReviewText) {
-      navigate(-1);
+      dispatch(isModalActions.setIsModal(true));
       return;
     }
 
-    dispatch(isModalActions.setIsModal(true));
+    navigate(-1);
   };
 
   return (
