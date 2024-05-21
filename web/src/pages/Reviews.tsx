@@ -1,6 +1,6 @@
-import BtnContainer from 'components/Reviews/btnContainer/BtnContainer';
-import MemoPad from 'components/Reviews/memopad/MemoPad';
-import StickerModal from 'components/Reviews/stickerModal/StickerModal';
+import BtnContainer from 'components/reviews/btnContainer/BtnContainer';
+import MemoPad from 'components/reviews/memopad/MemoPad';
+import StickerModal from 'components/reviews/stickerModal/StickerModal';
 import ConfirmModal from 'components/common/ConfirmModal';
 import useToastHandler from 'hooks/useToastHandler';
 import { reviewDatas } from 'mock/mockData';

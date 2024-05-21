@@ -2,10 +2,6 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
 import useAccessPermissions from 'hooks/useAccessPermissions';
 import LoadingSpineer from 'components/common/LoadingSpineer';
-import OpenLoading from 'pages/OpenLoading';
-import ProfileEdit from 'pages/ProfileEdit';
-import Login from 'pages/Login';
-import KakaoLogin from 'pages/KakaoLogin';
 
 const NearbyAndLocationShow = lazy(
   async () => await import('pages/NearbyAndLocationShow'),
@@ -31,6 +27,13 @@ const ReviewPost = lazy(async () => await import('pages/ReviewPost'));
 const Settings = lazy(async () => await import('pages/Settings'));
 const AccessGuidance = lazy(async () => await import('pages/AccessGuidance'));
 const TermsOfUse = lazy(async () => await import('pages/TermsOfUse'));
+const ProfileEdit = lazy(async () => await import('pages/ProfileEdit'));
+const OpenLoading = lazy(async () => await import('pages/OpenLoading'));
+const Login = lazy(async () => await import('pages/Login'));
+const KakaoLogin = lazy(async () => await import('pages/KakaoLogin'));
+const WithdrawalReason = lazy(
+  async () => await import('pages/WithdrawalReason'),
+);
 
 const App = () => {
   useAccessPermissions();
@@ -80,6 +83,10 @@ const App = () => {
                 <Route path="/shows/:id/review-post" element={<ReviewPost />} />
                 <Route path="/profile-edit" element={<ProfileEdit />} />
                 <Route path="/settings" element={<Settings />} />
+                <Route
+                  path="/withdrawal/reason"
+                  element={<WithdrawalReason />}
+                />
               </Route>
             </Routes>
           </Suspense>
