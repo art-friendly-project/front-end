@@ -1,4 +1,6 @@
+import { useAppDispatch } from 'hooks';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { userIdActions } from 'store/modules/userId';
 
 interface navigationBtn {
   name: string;
@@ -17,6 +19,8 @@ const NavigationBtn = ({
   const location = useLocation();
   const pathname = location.pathname;
 
+  const dispatch = useAppDispatch();
+
   const changeInActiveOrActiveIcon = () => {
     if (!pathname.includes(endpoint)) return inActiveIcon;
     else return activeIcon;
@@ -24,6 +28,10 @@ const NavigationBtn = ({
 
   const btnHandler = () => {
     navigate(endpoint);
+
+    if (name === '프로필') {
+      dispatch(userIdActions.current('0'));
+    }
   };
 
   return (

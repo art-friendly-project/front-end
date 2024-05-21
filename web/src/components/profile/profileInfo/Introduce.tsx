@@ -1,9 +1,9 @@
 interface introduce {
-  introduce: string;
+  selfIntro: string | null;
 }
 
-const Introduce = ({ introduce }: introduce) => {
-  return <span className="mt-6 text-Body3-M text-gray-110">{introduce}</span>;
+const Introduce = ({ selfIntro }: introduce) => {
+  return <span className="mt-6 text-Body3-M text-gray-110">{selfIntro}</span>;
 };
 
 export default Introduce;

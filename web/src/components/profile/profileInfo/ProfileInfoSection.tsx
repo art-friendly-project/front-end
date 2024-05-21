@@ -4,32 +4,39 @@ import ProfileTitle from './ProfileTitle';
 
 interface profileInfoSection {
   isMyAccount: boolean;
-  profileImage: string;
+  imageUrl: string;
   nickName: string;
-  introduce: string;
-  isTest: boolean;
-  testTitle: string;
+  selfIntro: string | null;
+  mbti: string | null;
+  StickerCount: number;
+  dambyeolagCount: number;
+  interestedExhibitionCount: number;
 }
 
 const ProfileInfoSection = ({
   isMyAccount,
-  profileImage,
+  imageUrl,
   nickName,
-  introduce,
-  isTest,
-  testTitle,
+  selfIntro,
+  mbti,
+  StickerCount,
+  dambyeolagCount,
+  interestedExhibitionCount,
 }: profileInfoSection) => {
   return (
     <div className="shrink-0 flex flex-col px-[5%] pt-6 w-full h-76 bg-orange-00">
       <ProfileTitle
         isMyAccount={isMyAccount}
-        profileImage={profileImage}
+        imageUrl={imageUrl}
         nickName={nickName}
-        isTest={isTest}
-        testTitle={testTitle}
+        mbti={mbti}
       />
-      <Introduce introduce={introduce} />
-      <InformationBoard />
+      <Introduce selfIntro={selfIntro} />
+      <InformationBoard
+        StickerCount={StickerCount}
+        dambyeolagCount={dambyeolagCount}
+        interestedExhibitionCount={interestedExhibitionCount}
+      />
     </div>
   );
 };

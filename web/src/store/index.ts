@@ -9,6 +9,7 @@ import isReviewTextReducer from './modules/isReviewText';
 import accessPermissionsReducer from './modules/accessPermissions';
 import isNearbyReducer from './modules/isNearby';
 import toastTextReducer from './modules/toastText';
+import userIdReducer from './modules/userId';
 
 const store = configureStore({
   reducer: {
@@ -22,6 +23,7 @@ const store = configureStore({
     accessPermissions: accessPermissionsReducer,
     isNearby: isNearbyReducer,
     toastText: toastTextReducer,
+    userId: userIdReducer,
   },
 });
 
