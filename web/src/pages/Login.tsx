@@ -2,7 +2,7 @@ import api from 'api';
 import { useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 
-const LogIn = () => {
+const Login = () => {
   const navigate = useNavigate();
 
   const [searchParams] = useSearchParams();
@@ -43,4 +43,4 @@ const LogIn = () => {
   );
 };
 
-export default LogIn;
+export default Login;

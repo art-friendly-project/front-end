@@ -4,8 +4,8 @@ import useAccessPermissions from 'hooks/useAccessPermissions';
 import LoadingSpineer from 'components/common/LoadingSpineer';
 import OpenLoading from 'pages/OpenLoading';
 import ProfileEdit from 'pages/ProfileEdit';
-import LogIn from 'pages/LogIn';
-import KakaoLogin from 'pages/KakaoLogIn';
+import Login from 'pages/Login';
+import KakaoLogin from 'pages/KakaoLogin';
 
 const NearbyAndLocationShow = lazy(
   async () => await import('pages/NearbyAndLocationShow'),
@@ -43,7 +43,7 @@ const App = () => {
             <Routes>
               <Route path="/" element={<OpenLoading />} />
               <Route path="/kakao-login" element={<KakaoLogin />} />
-              <Route path="/login" element={<LogIn />} />
+              <Route path="/login" element={<Login />} />
               <Route path="/terms-of-use" element={<TermsOfUse />} />
               <Route path="/taste-select" element={<TasteSelect />} />
               <Route path="/access" element={<AccessGuidance />} />
