@@ -24,7 +24,7 @@ const ProfileInfoSection = ({
   interestedExhibitionCount,
 }: profileInfoSection) => {
   return (
-    <div className="shrink-0 flex flex-col px-[5%] pt-6 w-full h-76 bg-orange-00">
+    <div className="shrink-0 flex flex-col px-[5%] pb-6 pt-6 w-full bg-orange-00">
       <ProfileTitle
         isMyAccount={isMyAccount}
         imageUrl={imageUrl}

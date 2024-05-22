@@ -26,10 +26,12 @@ const Profile = () => {
     interestedExhibitionCount: 0,
   });
 
+  console.log(user);
+
   const userId = useAppSelector(selectUserId);
   const myId = localStorage.getItem('myId');
 
-  const fetchUserData = async (id: string) => {
+  const fetchProfile = async (id: string) => {
     try {
       const profile: fetchProfile = await api.get(
         `/members/profiles?searchMemberId=${id}`,
@@ -42,11 +44,11 @@ const Profile = () => {
 
   useEffect(() => {
     if (userId === '0' && myId !== null) {
-      void fetchUserData(myId);
+      void fetchProfile(myId);
     }
 
     if (userId !== '0') {
-      void fetchUserData(userId);
+      void fetchProfile(userId);
     }
   }, [userId]);
 

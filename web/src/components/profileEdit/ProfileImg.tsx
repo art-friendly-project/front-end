@@ -1,11 +1,17 @@
-import mainCharacter from 'assets/images/art-friendly/mainCharacter.svg';
 import ImgEditBtn from 'components/profileEdit/ImgEditBtn';
+import { type Dispatch, type SetStateAction } from 'react';
 
-const ProfileImg = () => {
+interface profileImg {
+  setFile: Dispatch<SetStateAction<File | undefined>>;
+  imageUrl: string;
+  setImageUrl: Dispatch<SetStateAction<string>>;
+}
+
+const ProfileImg = ({ setFile, imageUrl, setImageUrl }: profileImg) => {
   return (
     <div className="relative mt-10">
-      <img src={mainCharacter} className="w-24 h-24" />
-      <ImgEditBtn />
+      <img src={imageUrl} className="w-24 h-24" />
+      <ImgEditBtn setFile={setFile} setImageUrl={setImageUrl} />
     </div>
   );
 };
