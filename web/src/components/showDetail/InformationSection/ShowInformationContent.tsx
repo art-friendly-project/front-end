@@ -1,14 +1,14 @@
 interface showInformationContent {
-  showType: string;
+  realmName: string;
   place: string;
-  location: string;
+  area: string;
   phone: string;
 }
 
 const ShowInformationContent = ({
-  showType,
+  realmName,
   place,
-  location,
+  area,
   phone,
 }: showInformationContent) => {
   return (
@@ -20,9 +20,9 @@ const ShowInformationContent = ({
         <span className="mt-3">전시 문의</span>
       </div>
       <div className="flex flex-col text-Body2-M text-gray-110">
-        <span>{showType}</span>
+        <span>{realmName}</span>
         <span className="mt-3">{place}</span>
-        <span className="mt-3">{location}</span>
+        <span className="mt-3">{area}</span>
         <span className="mt-3">{phone}</span>
       </div>
     </div>

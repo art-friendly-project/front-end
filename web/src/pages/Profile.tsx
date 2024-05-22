@@ -10,7 +10,7 @@ import { useAppSelector } from 'hooks';
 import { selectUserId } from 'store/modules/userId';
 
 const Profile = () => {
-  const [shows, setShows] = useState<deadlineShow[]>([]);
+  const [shows, setShows] = useState<show[]>([]);
   const [user, setUser] = useState<user>({
     memberDetailsRspDto: {
       id: 0,
@@ -25,8 +25,6 @@ const Profile = () => {
     dambyeolagCount: 0,
     interestedExhibitionCount: 0,
   });
-
-  console.log(user);
 
   const userId = useAppSelector(selectUserId);
   const myId = localStorage.getItem('myId');

@@ -6,26 +6,15 @@ import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from 'hooks';
 import { endpointActions } from 'store/modules/endpoint';
 
-interface show {
-  id: number;
-  name: string;
-  type: string;
-  address: string;
-  term: string;
-  temperature: string;
-  favorite: boolean;
-  image: string;
-}
-
 const Show = ({
   id,
-  name,
-  type,
-  address,
-  term,
+  title,
+  area,
+  startDate,
+  endDate,
   temperature,
-  favorite,
-  image,
+  isLike,
+  imageUrl,
 }: show) => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
@@ -41,14 +30,19 @@ const Show = ({
       >
         <TemperatureIndicator temperature={temperature} />
         <PosterImg
-          width="w-24"
+          width="w-1/5"
           height="h-32"
           bgColor="bg-gray-100"
-          image={image}
+          image={imageUrl}
         />
-        <PosterInfo type={type} name={name} address={address} term={term} />
+        <PosterInfo
+          title={title}
+          area={area}
+          startDate={startDate}
+          endDate={endDate}
+        />
       </button>
-      <FavoriteBtn favorite={favorite} />
+      <FavoriteBtn isLike={isLike} />
     </div>
   );
 };

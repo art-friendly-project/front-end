@@ -14,7 +14,7 @@ interface addScheduleModal {
   scheduleName: string;
   location: string;
   setCalendarId: Dispatch<SetStateAction<string>>;
-  currentTerm: string;
+  currentTerm: string[];
   selectedDate: string;
   setSelectedDate: Dispatch<SetStateAction<string>>;
   selectedTime: string;

@@ -5,12 +5,13 @@ import { useNavigate } from 'react-router-dom';
 
 interface popularShow {
   id: number;
-  name: string;
-  image: string;
-  upAndDown: string;
+  idx: number;
+  title: string;
+  imageUrl: string;
+  rankShift: string;
 }
 
-const PopularShow = ({ name, image, upAndDown, id }: popularShow) => {
+const PopularShow = ({ id, idx, title, imageUrl, rankShift }: popularShow) => {
   const navigate = useNavigate();
   const showRef = useRef<HTMLButtonElement>(null);
 
@@ -44,9 +45,9 @@ const PopularShow = ({ name, image, upAndDown, id }: popularShow) => {
         width="w-16"
         height="h-16"
         bgColor="bg-gray-100"
-        image={image}
+        image={imageUrl}
       />
-      <PosterInfo id={id} name={name} upAndDown={upAndDown} />
+      <PosterInfo idx={idx} title={title} rankShift={rankShift} />
     </button>
   );
 };

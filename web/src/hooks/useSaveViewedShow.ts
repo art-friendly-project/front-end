@@ -1,17 +1,18 @@
 import { useEffect } from 'react';
 
-const useSaveViewedShow = (show: deadlineShow) => {
+const useSaveViewedShow = (show: showDetail) => {
   useEffect(() => {
+    if (show.id === 0) return;
     const localViewedShowList = localStorage.getItem('viewedShowList');
 
     const showData = {
       id: show.id,
-      showType: show.showType,
-      name: show.name,
-      location: show.location,
-      term: show.term,
-      image: show.image,
-      favorite: show.favorite,
+      title: show.exhibitionInfoRspDto.title,
+      area: show.exhibitionInfoRspDto.area,
+      startDate: show.exhibitionInfoRspDto.startDate,
+      endDate: show.exhibitionInfoRspDto.endDate,
+      imageUrl: show.exhibitionInfoRspDto.imageUrl,
+      isLike: show.isLike,
       temperature: show.temperature,
     };
 

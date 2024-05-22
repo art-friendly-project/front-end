@@ -3,7 +3,7 @@ import DateInput from './DateInput';
 import DateTitle from './DateTitle';
 
 interface date {
-  currentTerm: string;
+  currentTerm: string[];
   selectedDate: string;
   setSelectedDate: Dispatch<SetStateAction<string>>;
 }

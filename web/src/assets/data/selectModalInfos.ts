@@ -3,14 +3,14 @@ const selectModalInfos = [
     title1: '내 근처 전시/행사',
     title2: '전시/행사를 보고 싶은 지역을 선택해보세요',
     selects: [
-      ['seoul', '서울'],
-      ['gyeonggi-incheon', '경기/인천'],
-      ['gangwon', '강원'],
-      ['gyeongnam-busan', '경남/부산'],
-      ['gyeongbuk-daegu', '경북/대구'],
-      ['chungcheong-daejeon', '충청/대전'],
-      ['jeolla-gwangju', '전라/광주'],
-      ['jeju', '제주'],
+      ['서울', '서울'],
+      ['경기인천', '경기/인천'],
+      ['강원', '강원'],
+      ['경남부산', '경남/부산'],
+      ['경북대구', '경북/대구'],
+      ['충청대전', '충청/대전'],
+      ['전라광주', '전라/광주'],
+      ['제주', '제주'],
     ],
   },
   {
@@ -25,8 +25,8 @@ const selectModalInfos = [
     title1: '인기순/최신순',
     title2: '선택한 순으로 전시회를 알려드려요',
     selects: [
-      ['popularity', '인기순'],
-      ['latest', '최신순'],
+      ['popular', '인기순'],
+      ['recent', '최신순'],
     ],
   },
 ];

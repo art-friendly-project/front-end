@@ -19,7 +19,7 @@ const Like = () => {
   const [scheduleName, setScheduleName] = useState('');
   const [location, setLocation] = useState('');
   const [calendarId, setCalendarId] = useState('');
-  const [currentTerm, setCurrentTerm] = useState('');
+  const [currentTerm, setCurrentTerm] = useState<string[]>([]);
   const [selectedDate, setSelectedDate] = useState('2024-01-01');
   const [selectedTime, setSelectedTime] = useState('12:00');
 

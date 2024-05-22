@@ -13,12 +13,16 @@ import { type Dispatch, type SetStateAction, useEffect, useState } from 'react';
 import CancelModal from './CancelModal';
 
 interface rankIconList {
-  rank: number;
+  checkTemperature: string | null;
   isModal: boolean;
   setIsModal: Dispatch<SetStateAction<boolean>>;
 }
 
-const RankIconList = ({ rank, isModal, setIsModal }: rankIconList) => {
+const RankIconList = ({
+  checkTemperature,
+  isModal,
+  setIsModal,
+}: rankIconList) => {
   const [cancelIdx, setCancelIdx] = useState(0);
   const [isSelectedRanks, setIsSelectedRanks] = useState([
     false,
@@ -28,13 +32,23 @@ const RankIconList = ({ rank, isModal, setIsModal }: rankIconList) => {
     false,
   ]);
 
+  const ranks = [
+    '보고 싶어요',
+    '좋아해요',
+    '관심 있어요',
+    '그냥 그래요',
+    '안 갈래요',
+  ];
+
   useEffect(() => {
-    setIsSelectedRanks((prev) =>
-      prev.map((_, i) => {
-        if (5 - rank === i) return true;
-        else return false;
-      }),
-    );
+    if (checkTemperature !== null) {
+      setIsSelectedRanks((prev) =>
+        prev.map((_, i) => {
+          if (ranks.indexOf(checkTemperature) === i) return true;
+          else return false;
+        }),
+      );
+    }
   }, []);
 
   return (

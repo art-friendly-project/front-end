@@ -7,22 +7,24 @@ import isApp from 'utils/isApp';
 interface addScheduleBtn {
   setCalendars: Dispatch<SetStateAction<calendar[]>>;
   setIsModal: Dispatch<SetStateAction<boolean>>;
-  name: string;
+  title: string;
   setScheduleName: Dispatch<SetStateAction<string>>;
   setLocation: Dispatch<SetStateAction<string>>;
-  location: string;
-  term: string;
-  setCurrentTerm: Dispatch<SetStateAction<string>>;
+  area: string;
+  startDate: string;
+  endDate: string;
+  setCurrentTerm: Dispatch<SetStateAction<string[]>>;
 }
 
 const AddScheduleBtn = ({
   setCalendars,
   setIsModal,
-  name,
+  title,
   setScheduleName,
   setLocation,
-  location,
-  term,
+  area,
+  startDate,
+  endDate,
   setCurrentTerm,
 }: addScheduleBtn) => {
   const accessPermissions = useAppSelector(selectAccessPermissions);
@@ -41,9 +43,9 @@ const AddScheduleBtn = ({
 
           if (data.calendars !== undefined) {
             setCalendars(data.calendars);
-            setScheduleName(name);
-            setLocation(location);
-            setCurrentTerm(term);
+            setScheduleName(title);
+            setLocation(area);
+            setCurrentTerm([startDate, endDate]);
             setIsModal(true);
           }
         };

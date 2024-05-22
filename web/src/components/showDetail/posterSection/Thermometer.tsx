@@ -1,7 +1,7 @@
 import changeTemperatureToTermometer from 'utils/changeTemperatureToTermometer';
 
 interface thermometer {
-  temperature: string;
+  temperature: number;
 }
 
 const Thermometer = ({ temperature }: thermometer) => {

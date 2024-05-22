@@ -3,10 +3,10 @@ import { IoHeartOutline, IoHeart } from 'react-icons/io5';
 import useToastHandler from 'hooks/useToastHandler';
 
 interface favoriteBtn {
-  favorite: boolean;
+  isLike: boolean;
 }
 
-const FavoriteBtn = ({ favorite }: favoriteBtn) => {
+const FavoriteBtn = ({ isLike }: favoriteBtn) => {
   const [isFavorite, setIsFavorite] = useState(false);
   const toastHandler = useToastHandler(
     isFavorite,
@@ -15,8 +15,8 @@ const FavoriteBtn = ({ favorite }: favoriteBtn) => {
   );
 
   useEffect(() => {
-    setIsFavorite(favorite);
-  }, [favorite]);
+    setIsFavorite(isLike);
+  }, [isLike]);
 
   const favoriteBtnHandler = () => {
     setIsFavorite((prev) => !prev);

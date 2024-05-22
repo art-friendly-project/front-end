@@ -10,7 +10,7 @@ interface favoriteShowSection {
   setIsModal: Dispatch<SetStateAction<boolean>>;
   setScheduleName: Dispatch<SetStateAction<string>>;
   setLocation: Dispatch<SetStateAction<string>>;
-  setCurrentTerm: Dispatch<SetStateAction<string>>;
+  setCurrentTerm: Dispatch<SetStateAction<string[]>>;
 }
 
 const FavoriteShowSection = ({
@@ -35,11 +35,12 @@ const FavoriteShowSection = ({
           <FavoriteShow
             key={show.id}
             id={show.id}
-            name={show.name}
-            term={show.term}
-            image={show.image}
-            favorite={show.favorite}
-            location={show.location}
+            title={show.title}
+            startDate={show.startDate}
+            endDate={show.endDate}
+            imageUrl={show.imageUrl}
+            isLike={show.isLike}
+            area={show.area}
             setCalendars={setCalendars}
             setIsModal={setIsModal}
             setScheduleName={setScheduleName}

@@ -1,19 +1,29 @@
 import calculateRemainDay from 'utils/calculateRemainDay';
 
 interface showDetailTitle {
-  showType: string;
-  name: string;
-  term: string;
+  realmName: string;
+  title: string;
+  startDate: string;
+  endDate: string;
 }
 
-const ShowDetailTitle = ({ showType, name, term }: showDetailTitle) => {
-  const remainDay = calculateRemainDay(term);
+const ShowDetailTitle = ({
+  realmName,
+  title,
+  startDate,
+  endDate,
+}: showDetailTitle) => {
+  const remainDay = calculateRemainDay(endDate);
   return (
-    <div className="absolute z-20 flex flex-col text-white top-36 left-6">
-      <span className="text-Body3">{showType}</span>
-      <span className="mt-2 text-Display1">{name}</span>
-      <div className="flex mt-1">
-        <span className="text-Subhead-M">{term}</span>
+    <div className="absolute z-20 flex flex-col w-full text-white top-32 left-6">
+      <span className="text-Body3">{realmName}</span>
+      <span className="flex items-center w-4/5 h-16 text-Display1">
+        {title}
+      </span>
+      <div className="flex">
+        <span className="text-Subhead-M">
+          {startDate} ~ {endDate}
+        </span>
         {remainDay >= 0 ? (
           <span className="flex items-center justify-center h-6 mt-0.5 ml-2 bg-orange-100 rounded-2xl px-2 text-Body1-M">{`${remainDay}일 남음`}</span>
         ) : (

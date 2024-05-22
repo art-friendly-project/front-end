@@ -8,25 +8,27 @@ import calculateRemainDay from 'utils/calculateRemainDay';
 
 interface favoriteShow {
   id: number;
-  name: string;
-  term: string;
-  image: string;
-  favorite: boolean;
-  location: string;
+  title: string;
+  startDate: string;
+  endDate: string;
+  imageUrl: string;
+  isLike: boolean;
+  area: string;
   setCalendars: Dispatch<SetStateAction<calendar[]>>;
   setIsModal: Dispatch<SetStateAction<boolean>>;
   setScheduleName: Dispatch<SetStateAction<string>>;
   setLocation: Dispatch<SetStateAction<string>>;
-  setCurrentTerm: Dispatch<SetStateAction<string>>;
+  setCurrentTerm: Dispatch<SetStateAction<string[]>>;
 }
 
 const FavoriteShow = ({
   id,
-  name,
-  term,
-  image,
-  favorite,
-  location,
+  title,
+  startDate,
+  endDate,
+  imageUrl,
+  isLike,
+  area,
   setCalendars,
   setIsModal,
   setScheduleName,
@@ -35,7 +37,7 @@ const FavoriteShow = ({
 }: favoriteShow) => {
   const navigate = useNavigate();
 
-  const remainDay = calculateRemainDay(term);
+  const remainDay = calculateRemainDay(endDate);
 
   return (
     <div className="relative">
@@ -49,20 +51,21 @@ const FavoriteShow = ({
           width="w-24"
           height="h-28"
           bgColor="bg-gray-100"
-          image={image}
+          image={imageUrl}
         />
-        <ShowInfo name={name} term={term} />
+        <ShowInfo title={title} startDate={startDate} endDate={endDate} />
       </button>
-      <FavoriteBtn favorite={favorite} />
+      <FavoriteBtn isLike={isLike} />
       {remainDay < 0 ? null : (
         <AddScheduleBtn
           setCalendars={setCalendars}
           setIsModal={setIsModal}
-          name={name}
+          title={title}
           setScheduleName={setScheduleName}
           setLocation={setLocation}
-          location={location}
-          term={term}
+          area={area}
+          startDate={startDate}
+          endDate={endDate}
           setCurrentTerm={setCurrentTerm}
         />
       )}

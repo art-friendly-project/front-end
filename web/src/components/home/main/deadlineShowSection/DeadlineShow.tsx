@@ -6,14 +6,14 @@ import { useNavigate } from 'react-router-dom';
 
 const DeadlineShow = ({
   id,
-  showType,
-  name,
-  location,
-  term,
-  image,
-  favorite,
+  title,
+  area,
+  startDate,
+  endDate,
+  imageUrl,
   temperature,
-}: deadlineShow) => {
+  isLike,
+}: show) => {
   const navigate = useNavigate();
 
   return (
@@ -29,16 +29,16 @@ const DeadlineShow = ({
           width="w-24"
           height="h-32"
           bgColor="bg-gray-100"
-          image={image}
+          image={imageUrl}
         />
         <PosterInfo
-          showType={showType}
-          name={name}
-          location={location}
-          term={term}
+          title={title}
+          area={area}
+          startDate={startDate}
+          endDate={endDate}
         />
       </button>
-      <FavoriteBtn favorite={favorite} />
+      <FavoriteBtn isLike={isLike} />
     </div>
   );
 };

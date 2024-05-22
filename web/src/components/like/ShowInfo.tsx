@@ -1,17 +1,20 @@
 import calculateRemainDay from 'utils/calculateRemainDay';
 
 interface showInfo {
-  name: string;
-  term: string;
+  title: string;
+  startDate: string;
+  endDate: string;
 }
 
-const ShowInfo = ({ name, term }: showInfo) => {
-  const remainDay = calculateRemainDay(term);
+const ShowInfo = ({ title, startDate, endDate }: showInfo) => {
+  const remainDay = calculateRemainDay(endDate);
 
   return (
     <div className="flex flex-col items-start mt-2 ml-4">
-      <span className="text-Body3 text-gray-110">{name}</span>
-      <span className="text-Body2-M text-gray-80">{term}</span>
+      <span className="text-Body3 text-gray-110">{title}</span>
+      <span className="text-Body2-M text-gray-80">
+        {startDate} ~ {endDate}
+      </span>
       <span
         className={`flex items-center justify-center w-16 h-6 mt-4 text-white rounded-2xl text-Body1-M ${remainDay >= 0 ? 'bg-orange-100' : 'bg-purple-90'}`}
       >

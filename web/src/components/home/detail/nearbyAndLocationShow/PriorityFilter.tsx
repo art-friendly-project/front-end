@@ -21,7 +21,7 @@ const PriorityFilter = ({
       <span
         className={`mr-1 text-Body2-M ${isModalOpen[2] ? 'text-white' : ''}`}
       >
-        {priority === 'popularity' ? '인기순' : '최신순'}
+        {priority === 'popular' ? '인기순' : '최신순'}
       </span>
       <IoIosArrowDown className={isModalOpen[2] ? 'text-white' : ''} />
     </button>

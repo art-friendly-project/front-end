@@ -2,37 +2,26 @@ import Show from './Show';
 import ShowEmptyMessage from './ShowEmptyMessage';
 
 interface showList {
-  nearbyShows: nearbyShow[];
+  shows: show[];
 }
 
-interface nearbyShow {
-  id: number;
-  name: string;
-  type: string;
-  address: string;
-  term: string;
-  temperature: string;
-  favorite: boolean;
-  image: string;
-}
-
-const ShowList = ({ nearbyShows }: showList) => {
+const ShowList = ({ shows }: showList) => {
   return (
     <div className="flex flex-col items-center mt-20">
-      {nearbyShows.length === 0 ? (
+      {shows.length === 0 ? (
         <ShowEmptyMessage />
       ) : (
-        nearbyShows.map((show) => (
+        shows.map((show) => (
           <Show
             id={show.id}
             key={show.id}
-            name={show.name}
-            type={show.type}
-            address={show.address}
-            term={show.term}
+            title={show.title}
+            area={show.area}
+            startDate={show.startDate}
+            endDate={show.endDate}
             temperature={show.temperature}
-            favorite={show.favorite}
-            image={show.image}
+            isLike={show.isLike}
+            imageUrl={show.imageUrl}
           />
         ))
       )}

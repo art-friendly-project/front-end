@@ -7,8 +7,8 @@ import { selectEndpoint } from 'store/modules/endpoint';
 
 interface viewedShowAndReviewsSection {
   reviews: myReview[];
-  shows: deadlineShow[];
-  setShows: Dispatch<SetStateAction<deadlineShow[]>>;
+  shows: show[];
+  setShows: Dispatch<SetStateAction<show[]>>;
 }
 
 const ViewedShowAndReviewsSection = ({

@@ -4,16 +4,16 @@ import { IoHeartOutline, IoHeart } from 'react-icons/io5';
 import { toastActions } from 'store/modules/toast';
 
 interface detailShowFavoriteBtn {
-  favorite: boolean;
+  isLike: boolean;
 }
 
-const DetailShowFavoriteBtn = ({ favorite }: detailShowFavoriteBtn) => {
+const DetailShowFavoriteBtn = ({ isLike }: detailShowFavoriteBtn) => {
   const [isFavorite, setIsFavorite] = useState(false);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    setIsFavorite(favorite);
-  }, []);
+    setIsFavorite(isLike);
+  }, [isLike]);
 
   const favoriteBtnHandler = () => {
     setIsFavorite((prev) => !prev);
