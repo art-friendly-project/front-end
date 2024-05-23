@@ -51,7 +51,7 @@ const RankIconList = ({
         }),
       );
     }
-  }, []);
+  }, [checkTemperature]);
 
   return (
     <div className="relative flex justify-around w-full px-4 mt-8 mb-8">
