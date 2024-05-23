@@ -59,7 +59,6 @@ const App = () => {
                 <Route path="/List" element={<List />} />
                 <Route path="/like" element={<Like />} />
                 <Route path="/profile" element={<Profile />} />
-                <Route path="/profile/:id" element={<Profile />} />
               </Route>
 
               <Route element={<DetailLayout />}>
