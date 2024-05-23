@@ -11,6 +11,7 @@ import isNearbyReducer from './modules/isNearby';
 import toastTextReducer from './modules/toastText';
 import userIdReducer from './modules/userId';
 import showIdReducer from './modules/showId';
+import withdrawalReasonReducer from './modules/withdrawalReason';
 
 const store = configureStore({
   reducer: {
@@ -26,6 +27,7 @@ const store = configureStore({
     toastText: toastTextReducer,
     userId: userIdReducer,
     showId: showIdReducer,
+    withdrawalReason: withdrawalReasonReducer,
   },
 });
 
