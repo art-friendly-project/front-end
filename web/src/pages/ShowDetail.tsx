@@ -30,6 +30,7 @@ const ShowDetail = () => {
       price: '',
     },
   });
+
   const [isModal, setIsModal] = useState(false);
   const showDetailRef = useRef<HTMLDivElement>(null);
 
@@ -78,6 +79,7 @@ const ShowDetail = () => {
         <PosterSection showDetail={showDetail} />
         <ShowInformationSection showDetail={showDetail} />
         <RankSection
+          id={showDetail.id}
           checkTemperature={showDetail.checkTemperature}
           isModal={isModal}
           setIsModal={setIsModal}

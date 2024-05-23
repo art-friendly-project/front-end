@@ -13,12 +13,14 @@ import { type Dispatch, type SetStateAction, useEffect, useState } from 'react';
 import CancelModal from './CancelModal';
 
 interface rankIconList {
+  id: number;
   checkTemperature: string | null;
   isModal: boolean;
   setIsModal: Dispatch<SetStateAction<boolean>>;
 }
 
 const RankIconList = ({
+  id,
   checkTemperature,
   isModal,
   setIsModal,
@@ -55,6 +57,7 @@ const RankIconList = ({
     <div className="relative flex justify-around w-full px-4 mt-8 mb-8">
       {icons.map((icon, idx) => (
         <RankIcon
+          id={id}
           key={idx}
           idx={idx}
           icon={icon}
@@ -62,10 +65,12 @@ const RankIconList = ({
           setIsSelectedRanks={setIsSelectedRanks}
           setIsModal={setIsModal}
           setCancelIdx={setCancelIdx}
+          checkTemperature={checkTemperature}
         />
       ))}
       {isModal ? (
         <CancelModal
+          id={id}
           setIsModal={setIsModal}
           setIsSelectedRanks={setIsSelectedRanks}
           cancelIdx={cancelIdx}
