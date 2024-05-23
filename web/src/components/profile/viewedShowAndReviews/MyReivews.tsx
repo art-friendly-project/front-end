@@ -2,11 +2,12 @@ import Review from './Review';
 
 interface viewedShowAndReviewsSection {
   reviews: myReview[];
+  userId: number;
 }
-const MyReivews = ({ reviews }: viewedShowAndReviewsSection) => {
+const MyReivews = ({ reviews, userId }: viewedShowAndReviewsSection) => {
   return (
     <div className="flex justify-center w-full mt-8 flex-wrap px-[5%]">
-      {reviews.length === 0 ? (
+      {userId === 0 && reviews.length === 0 ? (
         <div className="flex flex-col items-center w-full">
           <span className="mt-10 mb-2 text-Body3 texr-gray-110">
             아직 남긴 담벼락이 없습니다.
