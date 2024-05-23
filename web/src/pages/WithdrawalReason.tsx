@@ -1,11 +1,15 @@
 import BtnBasic from 'components/common/BtnBasic';
 import WithdrawalReasonCheckboxList from 'components/withdrawalReason/WithdrawalReasonCheckboxList';
 import WithdrawalReasonTitle from 'components/withdrawalReason/WithdrawalReasonTitle';
+import { useAppDispatch } from 'hooks';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { withdrawalReasonActions } from 'store/modules/withdrawalReason';
 
 const WithdrawalReason = () => {
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+
   const [checkedReasons, setCheckedReasons] = useState<boolean[]>([
     false,
     false,
@@ -13,7 +17,9 @@ const WithdrawalReason = () => {
     false,
     false,
   ]);
+
   const btnHandler = () => {
+    dispatch(withdrawalReasonActions.current(checkedReasons.indexOf(true) + 1));
     navigate('/withdrawal/confirm');
   };
 

@@ -16,8 +16,8 @@ const WithdrawalReasonCheckbox = ({
 }: withdrawalReasonCheckbox) => {
   const btnHandler = () => {
     setCheckedReasons((prev) =>
-      prev.map((p, i) => {
-        return i === idx ? !p : p;
+      prev.map((_, i) => {
+        return i === idx;
       }),
     );
   };
