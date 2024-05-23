@@ -110,3 +110,16 @@ interface fetchShowDetail {
     };
   };
 }
+
+interface fetchReview {
+  data: {
+    data: {
+      content: Array<{
+        id: number;
+        title: string;
+        body: string;
+      }>;
+      totalPages: number;
+    };
+  };
+}

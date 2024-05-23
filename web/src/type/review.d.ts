@@ -1,6 +1,12 @@
 interface review {
   id: number;
   title: string;
+  body: string;
+}
+
+interface reviewDetail {
+  id: number;
+  title: string;
   content: string;
   createdAt: string;
   stickers: sticker[];
