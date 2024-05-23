@@ -1,10 +1,18 @@
 import BtnAndRightArrow from 'components/common/BtnAndRightArrow';
 import review from 'assets/images/etc/review.svg';
 import { useNavigate } from 'react-router-dom';
+import { useAppDispatch } from 'hooks';
+import { showIdActions } from 'store/modules/showId';
 
-const NoReview = () => {
+interface noReview {
+  id: number;
+}
+
+const NoReview = ({ id }: noReview) => {
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
   const btnHandler = () => {
+    dispatch(showIdActions.current(id));
     navigate('review-post');
   };
 
