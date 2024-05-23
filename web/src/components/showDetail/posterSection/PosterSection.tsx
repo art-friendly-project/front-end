@@ -12,7 +12,7 @@ const PosterSection = ({ showDetail }: posterSection) => {
   return (
     <>
       <ShowDetailBackBtn />
-      <FavoriteAndShareBtn isLike={showDetail.isLike} />
+      <FavoriteAndShareBtn isLike={showDetail.isLike} id={showDetail.id} />
       <ShowDetailImg imageUrl={showDetail.exhibitionInfoRspDto.imageUrl} />
       <ShowDetailTitle
         realmName={showDetail.exhibitionInfoRspDto.realmName}

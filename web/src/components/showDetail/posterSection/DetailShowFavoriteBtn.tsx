@@ -1,32 +1,40 @@
 import { useEffect, useState } from 'react';
-import { useAppDispatch } from 'hooks';
 import { IoHeartOutline, IoHeart } from 'react-icons/io5';
-import { toastActions } from 'store/modules/toast';
+import api from 'api';
 
 interface detailShowFavoriteBtn {
   isLike: boolean;
+  id: number;
 }
 
-const DetailShowFavoriteBtn = ({ isLike }: detailShowFavoriteBtn) => {
+const DetailShowFavoriteBtn = ({ isLike, id }: detailShowFavoriteBtn) => {
   const [isFavorite, setIsFavorite] = useState(false);
-  const dispatch = useAppDispatch();
 
   useEffect(() => {
     setIsFavorite(isLike);
   }, [isLike]);
 
-  const favoriteBtnHandler = () => {
-    setIsFavorite((prev) => !prev);
-    dispatch(toastActions.isCheckOrCancel(isFavorite));
-    dispatch(toastActions.active(true));
+  const favoriteBtnHandler = async () => {
+    try {
+      if (!isFavorite) {
+        await api.post(`/exhibitions/likes?exhibitionId=${id}`);
+      }
 
-    setTimeout(() => {
-      dispatch(toastActions.active(false));
-    }, 2000);
+      if (isFavorite) {
+        await api.delete(`/exhibitions/likes?exhibitionId=${id}`);
+      }
+      setIsFavorite((prev) => !prev);
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
-    <button onClick={favoriteBtnHandler}>
+    <button
+      onClick={() => {
+        void favoriteBtnHandler();
+      }}
+    >
       {isFavorite ? (
         <IoHeart className="w-8 h-8 text-orange-100" />
       ) : (

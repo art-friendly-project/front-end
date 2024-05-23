@@ -55,7 +55,7 @@ const FavoriteShow = ({
         />
         <ShowInfo title={title} startDate={startDate} endDate={endDate} />
       </button>
-      <FavoriteBtn isLike={isLike} />
+      <FavoriteBtn isLike={isLike} id={id} />
       {remainDay < 0 ? null : (
         <AddScheduleBtn
           setCalendars={setCalendars}

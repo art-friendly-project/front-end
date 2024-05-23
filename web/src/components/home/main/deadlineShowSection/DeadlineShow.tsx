@@ -38,7 +38,7 @@ const DeadlineShow = ({
           endDate={endDate}
         />
       </button>
-      <FavoriteBtn isLike={isLike} />
+      <FavoriteBtn isLike={isLike} id={id} />
     </div>
   );
 };
