@@ -14,7 +14,6 @@ interface memoPad {
   selectStickerIdx: number;
   setSelectStickerIdx: Dispatch<SetStateAction<number>>;
   setSelectStickerId: Dispatch<SetStateAction<number>>;
-  setSelectedToast: Dispatch<SetStateAction<number>>;
 }
 
 const MemoPad = ({
@@ -22,7 +21,6 @@ const MemoPad = ({
   selectStickerIdx,
   setSelectStickerIdx,
   setSelectStickerId,
-  setSelectedToast,
 }: memoPad) => {
   const [stickerComments, setStickerComments] = useState('');
   const [isCommentModal, setIsCommentModal] = useState(false);
@@ -53,7 +51,6 @@ const MemoPad = ({
           setSelectStickerIdx={setSelectStickerIdx}
           setSelectStickerId={setSelectStickerId}
           userId={userId}
-          setSelectedToast={setSelectedToast}
         />
         {isCommentModal ? (
           <MemoPadStickerComments

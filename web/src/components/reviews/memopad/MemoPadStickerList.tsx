@@ -9,7 +9,6 @@ interface stickerList {
   setSelectStickerIdx: Dispatch<SetStateAction<number>>;
   setSelectStickerId: Dispatch<SetStateAction<number>>;
   userId: number;
-  setSelectedToast: Dispatch<SetStateAction<number>>;
 }
 
 const MemoPadStickerList = ({
@@ -20,7 +19,6 @@ const MemoPadStickerList = ({
   setSelectStickerIdx,
   setSelectStickerId,
   userId,
-  setSelectedToast,
 }: stickerList) => {
   return (
     <div className="flex items-end h-36 mb-[5%] overflow-x-scroll scrollbar-hide">
@@ -38,7 +36,6 @@ const MemoPadStickerList = ({
           setSelectStickerIdx={setSelectStickerIdx}
           setSelectStickerId={setSelectStickerId}
           userId={userId}
-          setSelectedToast={setSelectedToast}
         />
       ))}
     </div>

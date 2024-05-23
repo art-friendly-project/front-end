@@ -17,7 +17,6 @@ interface memoPadSticker {
   setSelectStickerIdx: Dispatch<SetStateAction<number>>;
   setSelectStickerId: Dispatch<SetStateAction<number>>;
   userId: number;
-  setSelectedToast: Dispatch<SetStateAction<number>>;
 }
 
 const MemoPadSticker = ({
@@ -32,14 +31,12 @@ const MemoPadSticker = ({
   setSelectStickerIdx,
   setSelectStickerId,
   userId,
-  setSelectedToast,
 }: memoPadSticker) => {
   const dispatch = useAppDispatch();
 
   const onPressHandler = useLongPress(
     userId === stickerUserId
       ? () => {
-          setSelectedToast(0);
           setSelectStickerIdx(idx);
           setSelectStickerId(id);
           dispatch(isModalActions.setIsModal(true));

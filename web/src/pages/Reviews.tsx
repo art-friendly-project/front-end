@@ -10,7 +10,6 @@ import api from 'api';
 const Reviews = () => {
   const [selectStickerIdx, setSelectStickerIdx] = useState(0);
   const [selectStickerId, setSelectStickerId] = useState(0);
-  const [selectedToast, setSelectedToast] = useState(0);
   const [isModal, setIsModal] = useState(false);
   const [review, setReview] = useState<reviewDetail>({
     id: 0,
@@ -80,12 +79,11 @@ const Reviews = () => {
           selectStickerIdx={selectStickerIdx}
           setSelectStickerIdx={setSelectStickerIdx}
           setSelectStickerId={setSelectStickerId}
-          setSelectedToast={setSelectedToast}
         />
         <BtnContainer
           setIsModal={setIsModal}
-          selectedToast={selectedToast}
-          setSelectedToast={setSelectedToast}
+          id={id}
+          isBookmark={review.isBookmark}
         />
         {isModal ? (
           <StickerModal setIsModal={setIsModal} setReview={setReview} id={id} />
