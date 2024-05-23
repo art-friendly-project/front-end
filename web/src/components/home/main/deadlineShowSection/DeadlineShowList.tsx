@@ -29,7 +29,7 @@ const DeadlineShowList = () => {
           area={show.area}
           startDate={show.startDate}
           endDate={show.endDate}
-          imageUrl=""
+          imageUrl={show.imageUrl}
           temperature={show.temperature}
           isLike={show.isLike}
         />
