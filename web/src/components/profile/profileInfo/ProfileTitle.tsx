@@ -24,7 +24,7 @@ const ProfileTitle = ({
   return (
     <div className="relative flex items-center">
       <EditBtn />
-      <img src={imageUrl} className="w-24 h-24" />
+      <img src={imageUrl ?? mainCharacter} className="w-24 h-24" />
       <div className="flex flex-col ml-4">
         <span className="text-Headline text-gray-110">{nickName}</span>
         {mbti !== null ? (
