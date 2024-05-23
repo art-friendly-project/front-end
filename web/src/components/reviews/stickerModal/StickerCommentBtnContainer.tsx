@@ -1,40 +1,43 @@
+import api from 'api';
 import useToastHandler from 'hooks/useToastHandler';
 import { type Dispatch, type SetStateAction } from 'react';
 
 interface stickerCommentBtnContainer {
   text: string;
-  sticker: string;
+  stickerType: string;
   setIsModal: Dispatch<SetStateAction<boolean>>;
-  setReview: Dispatch<SetStateAction<reviewDetail>>;
+  id: number;
 }
 
 const StickerCommentBtnContainer = ({
   text,
-  sticker,
+  stickerType,
   setIsModal,
-  setReview,
+  id,
 }: stickerCommentBtnContainer) => {
   const toastHandler = useToastHandler(
     false,
     '스티커를 붙이기를 완료했어요',
     '',
   );
-  const userId = Number(sessionStorage.getItem('userId'));
 
-  const StickerAndCommentsBtnHandler = () => {
-    setReview((prev) => {
-      prev.stickers.push({
-        id: prev.stickers.length + 1,
-        sticker,
-        userId,
-        comments: text,
-      });
+  const StickerAndCommentsBtnHandler = async () => {
+    const post = {
+      dambyeolagId: id,
+      stickerType,
+      body: text,
+    };
 
-      return prev;
-    });
-
-    toastHandler();
-    setIsModal(false);
+    try {
+      await api.post('/stickers', post);
+      setIsModal(false);
+      toastHandler();
+      setTimeout(() => {
+        location.reload();
+      }, 1000);
+    } catch (err) {
+      console.error(err);
+    }
   };
   return (
     <div className="flex justify-center w-full mt-4">
@@ -42,7 +45,7 @@ const StickerCommentBtnContainer = ({
         disabled={text.length === 0}
         className={`h-12 text-white rounded-lg text-Subhead w-9/10 ${text.length === 0 ? 'bg-orange-50' : 'bg-orange-100'}`}
         onClick={() => {
-          StickerAndCommentsBtnHandler();
+          void StickerAndCommentsBtnHandler();
         }}
       >
         스티커 붙이기

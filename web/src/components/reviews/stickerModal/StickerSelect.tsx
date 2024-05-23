@@ -7,6 +7,7 @@ import StickerSwiper from './StickerSwiper';
 
 interface stickerSelect {
   setSticker: Dispatch<SetStateAction<string>>;
+  setStickerType: Dispatch<SetStateAction<string>>;
   setIsModal: Dispatch<SetStateAction<boolean>>;
   setCurrent: Dispatch<SetStateAction<boolean>>;
   sticker: string;
@@ -14,6 +15,7 @@ interface stickerSelect {
 
 const StickerSelect = ({
   setSticker,
+  setStickerType,
   setCurrent,
   setIsModal,
   sticker,
@@ -22,7 +24,7 @@ const StickerSelect = ({
     <div className="absolute bottom-0 z-30 flex flex-col w-full pt-8 bg-white rounded-t-2xl animate-move-top-regular">
       <StickerSelectTitle />
       <StickerSelectImg sticker={sticker} />
-      <StickerSwiper setSticker={setSticker} />
+      <StickerSwiper setSticker={setSticker} setStickerType={setStickerType} />
       <StickerSelectBtnContainer
         setIsModal={setIsModal}
         setCurrent={setCurrent}

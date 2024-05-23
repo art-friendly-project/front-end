@@ -13,6 +13,7 @@ interface memoPad {
   review: reviewDetail;
   selectStickerIdx: number;
   setSelectStickerIdx: Dispatch<SetStateAction<number>>;
+  setSelectStickerId: Dispatch<SetStateAction<number>>;
   setSelectedToast: Dispatch<SetStateAction<number>>;
 }
 
@@ -20,32 +21,37 @@ const MemoPad = ({
   review,
   selectStickerIdx,
   setSelectStickerIdx,
+  setSelectStickerId,
   setSelectedToast,
 }: memoPad) => {
   const [stickerComments, setStickerComments] = useState('');
   const [isCommentModal, setIsCommentModal] = useState(false);
   const [isEditorDeleteModal, setIsEditorDeleteModal] = useState(false);
 
-  const userId = Number(sessionStorage.getItem('userId'));
+  const userId = Number(localStorage.getItem('myId'));
 
   return (
     <>
       <div className="relative flex flex-col w-84 h-108 rounded-2xl shadow-custom check">
         <MemoPadMarkingSticker />
-        {userId === review.user.id ? (
+        {userId === review.memberResponseDto.id ? (
           <EditOrDeleteBtn setIsEditorDeleteModal={setIsEditorDeleteModal} />
         ) : null}
-        <Profile user={review.user} createdAt={review.createdAt} />
+        <Profile
+          user={review.memberResponseDto}
+          lastModifiedTime={review.lastModifiedTime}
+        />
         <div className="px-[5%] flex flex-col mt-[10%] h-full overflow-y-scroll scrollbar-hide">
           <Title title={review.title} />
-          <Content content={review.content} />
+          <Content body={review.body} />
         </div>
         <MemoPadStickerList
-          stickers={review.stickers}
+          stickers={review.stickerRspDtos}
           setStickerComments={setStickerComments}
           setIsCommentModal={setIsCommentModal}
           selectStickerIdx={selectStickerIdx}
           setSelectStickerIdx={setSelectStickerIdx}
+          setSelectStickerId={setSelectStickerId}
           userId={userId}
           setSelectedToast={setSelectedToast}
         />

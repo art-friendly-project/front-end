@@ -3,44 +3,45 @@ import purpleStar from 'assets/images/sticker/purpleStar.svg';
 import { useLongPress } from 'use-long-press';
 import { useAppDispatch } from 'hooks';
 import { isModalActions } from 'store/modules/isModal';
+import { stickerImgs } from 'assets/data/stickers';
 
 interface memoPadSticker {
+  id: number;
   stickerUserId: number;
-  sticker: string;
+  stickerType: string;
   comments: string;
   setStickerComments: Dispatch<SetStateAction<string>>;
   setIsCommentModal: Dispatch<SetStateAction<boolean>>;
   idx: number;
   selectStickerIdx: number;
   setSelectStickerIdx: Dispatch<SetStateAction<number>>;
+  setSelectStickerId: Dispatch<SetStateAction<number>>;
   userId: number;
   setSelectedToast: Dispatch<SetStateAction<number>>;
 }
 
 const MemoPadSticker = ({
+  id,
   stickerUserId,
-  sticker,
+  stickerType,
   comments,
   setStickerComments,
   setIsCommentModal,
   idx,
   selectStickerIdx,
   setSelectStickerIdx,
+  setSelectStickerId,
   userId,
   setSelectedToast,
 }: memoPadSticker) => {
   const dispatch = useAppDispatch();
-
-  const btnHandler = () => {
-    setStickerComments(comments);
-    setIsCommentModal((prev) => !prev);
-  };
 
   const onPressHandler = useLongPress(
     userId === stickerUserId
       ? () => {
           setSelectedToast(0);
           setSelectStickerIdx(idx);
+          setSelectStickerId(id);
           dispatch(isModalActions.setIsModal(true));
         }
       : null,
@@ -49,11 +50,19 @@ const MemoPadSticker = ({
     },
   );
 
+  const sticker = stickerImgs[stickerType];
+
   return (
     <button
       className={`relative mr-2 duration-500 shrink-0 ${stickerUserId === userId ? 'active:scale-110' : ''} ${selectStickerIdx === idx ? 'z-30' : ''}`}
       {...onPressHandler()}
-      onClick={btnHandler}
+      onMouseEnter={() => {
+        setIsCommentModal(true);
+        setStickerComments(comments);
+      }}
+      onMouseLeave={() => {
+        setIsCommentModal(false);
+      }}
     >
       {stickerUserId === userId ? (
         <img

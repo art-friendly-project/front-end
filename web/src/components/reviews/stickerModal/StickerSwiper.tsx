@@ -5,15 +5,16 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import 'swiper/css/grid';
 import 'style/swiper.css';
-import stickers from 'assets/data/stickers';
+import { stickers } from 'assets/data/stickers';
 import StickerImg from './StickerImg';
 import { type Dispatch, type SetStateAction } from 'react';
 
 interface stickerSwiper {
   setSticker: Dispatch<SetStateAction<string>>;
+  setStickerType: Dispatch<SetStateAction<string>>;
 }
 
-const StickerSwiper = ({ setSticker }: stickerSwiper) => {
+const StickerSwiper = ({ setSticker, setStickerType }: stickerSwiper) => {
   return (
     <Swiper
       className="stickerSwiper"
@@ -28,7 +29,11 @@ const StickerSwiper = ({ setSticker }: stickerSwiper) => {
     >
       {stickers.map((sticker) => (
         <SwiperSlide key={sticker} className="stickerSlide">
-          <StickerImg sticker={sticker} setSticker={setSticker} />
+          <StickerImg
+            sticker={sticker}
+            setSticker={setSticker}
+            setStickerType={setStickerType}
+          />
         </SwiperSlide>
       ))}
     </Swiper>

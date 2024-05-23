@@ -2,11 +2,12 @@ import MemoPadSticker from './MemoPadSticker';
 import { type Dispatch, type SetStateAction } from 'react';
 
 interface stickerList {
-  stickers: sticker[];
+  stickers: reviewDetail['stickerRspDtos'];
   setStickerComments: Dispatch<SetStateAction<string>>;
   setIsCommentModal: Dispatch<SetStateAction<boolean>>;
   selectStickerIdx: number;
   setSelectStickerIdx: Dispatch<SetStateAction<number>>;
+  setSelectStickerId: Dispatch<SetStateAction<number>>;
   userId: number;
   setSelectedToast: Dispatch<SetStateAction<number>>;
 }
@@ -17,6 +18,7 @@ const MemoPadStickerList = ({
   setIsCommentModal,
   selectStickerIdx,
   setSelectStickerIdx,
+  setSelectStickerId,
   userId,
   setSelectedToast,
 }: stickerList) => {
@@ -25,14 +27,16 @@ const MemoPadStickerList = ({
       {stickers.map((sticker, idx) => (
         <MemoPadSticker
           key={sticker.id}
-          stickerUserId={sticker.userId}
-          sticker={sticker.sticker}
-          comments={sticker.comments}
+          id={sticker.id}
+          stickerUserId={sticker.memberId}
+          stickerType={sticker.stickerType}
+          comments={sticker.body}
           setStickerComments={setStickerComments}
           setIsCommentModal={setIsCommentModal}
           idx={idx}
           selectStickerIdx={selectStickerIdx}
           setSelectStickerIdx={setSelectStickerIdx}
+          setSelectStickerId={setSelectStickerId}
           userId={userId}
           setSelectedToast={setSelectedToast}
         />

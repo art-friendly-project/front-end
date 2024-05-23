@@ -11,14 +11,12 @@ const ReviewSection = ({ id }: reviewSection) => {
   const [reviews, setReviews] = useState<review[]>([]);
   const [page, setPage] = useState(0);
 
-  console.log(reviews);
-
   const fetchReviews = async () => {
     try {
       const result: fetchReview = await api.get(
         `/dambyeolags/lists?exhibitionId=${id}&page=${page}&sortType=popular`,
       );
-      setReviews(result.data.data.content);
+      setReviews((prev) => [...prev, ...result.data.data.content]);
     } catch (error) {
       console.error(error);
     }
@@ -26,7 +24,7 @@ const ReviewSection = ({ id }: reviewSection) => {
 
   useEffect(() => {
     void fetchReviews();
-  }, [id]);
+  }, [id, page]);
 
   return (
     <div className="relative flex flex-col items-center w-full pt-10 mb-10">

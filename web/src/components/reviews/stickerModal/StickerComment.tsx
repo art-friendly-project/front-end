@@ -4,19 +4,19 @@ import StickerCommentTitle from './StickerCommentTitle';
 import StickerCommentBtnContainer from './StickerCommentBtnContainer';
 
 interface stickerComment {
-  sticker: string;
   text: string;
+  stickerType: string;
   setText: Dispatch<SetStateAction<string>>;
   setIsModal: Dispatch<SetStateAction<boolean>>;
-  setReview: Dispatch<SetStateAction<reviewDetail>>;
+  id: number;
 }
 
 const StickerComment = ({
-  sticker,
   text,
+  stickerType,
   setText,
   setIsModal,
-  setReview,
+  id,
 }: stickerComment) => {
   return (
     <div className="absolute bottom-0 z-30 flex w-full pb-[5%] bg-white rounded-t-2xl animate-move-top-regular">
@@ -25,9 +25,9 @@ const StickerComment = ({
         <StickerCommentText text={text} setText={setText} />
         <StickerCommentBtnContainer
           text={text}
-          sticker={sticker}
+          stickerType={stickerType}
           setIsModal={setIsModal}
-          setReview={setReview}
+          id={id}
         />
       </div>
     </div>

@@ -5,12 +5,15 @@ import StickerComment from './StickerComment';
 interface stickerModal {
   setIsModal: Dispatch<SetStateAction<boolean>>;
   setReview: Dispatch<SetStateAction<reviewDetail>>;
+  id: number;
 }
 
-const StickerModal = ({ setIsModal, setReview }: stickerModal) => {
+const StickerModal = ({ setIsModal, setReview, id }: stickerModal) => {
   const [current, setCurrent] = useState(false);
   const [sticker, setSticker] = useState('');
+  const [stickerType, setStickerType] = useState('');
   const [text, setText] = useState('');
+
   return (
     <>
       <button
@@ -22,15 +25,16 @@ const StickerModal = ({ setIsModal, setReview }: stickerModal) => {
       />
       {current ? (
         <StickerComment
-          sticker={sticker}
+          stickerType={stickerType}
           text={text}
           setText={setText}
           setIsModal={setIsModal}
-          setReview={setReview}
+          id={id}
         />
       ) : (
         <StickerSelect
           setSticker={setSticker}
+          setStickerType={setStickerType}
           setIsModal={setIsModal}
           setCurrent={setCurrent}
           sticker={sticker}

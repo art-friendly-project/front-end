@@ -1,9 +1,9 @@
 interface content {
-  content: string;
+  body: string;
 }
 
-const Content = ({ content }: content) => {
-  return <span className="mt-[8%] whitespace-pre-wrap">{content}</span>;
+const Content = ({ body }: content) => {
+  return <span className="mt-[8%] whitespace-pre-wrap">{body}</span>;
 };
 
 export default Content;
