@@ -8,7 +8,7 @@ interface stickerComment {
   text: string;
   setText: Dispatch<SetStateAction<string>>;
   setIsModal: Dispatch<SetStateAction<boolean>>;
-  setReview: Dispatch<SetStateAction<review>>;
+  setReview: Dispatch<SetStateAction<reviewDetail>>;
 }
 
 const StickerComment = ({

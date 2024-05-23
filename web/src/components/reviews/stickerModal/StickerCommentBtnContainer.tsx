@@ -5,7 +5,7 @@ interface stickerCommentBtnContainer {
   text: string;
   sticker: string;
   setIsModal: Dispatch<SetStateAction<boolean>>;
-  setReview: Dispatch<SetStateAction<review>>;
+  setReview: Dispatch<SetStateAction<reviewDetail>>;
 }
 
 const StickerCommentBtnContainer = ({

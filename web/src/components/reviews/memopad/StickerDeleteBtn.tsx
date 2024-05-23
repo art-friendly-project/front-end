@@ -2,7 +2,7 @@ import { type Dispatch, type SetStateAction } from 'react';
 import { PiTrashSimple } from 'react-icons/pi';
 
 interface stickerDeleteBtn {
-  setReview: Dispatch<SetStateAction<review>>;
+  setReview: Dispatch<SetStateAction<reviewDetail>>;
   stickerIdx: number;
   setIsCommentModal: Dispatch<SetStateAction<boolean>>;
 }

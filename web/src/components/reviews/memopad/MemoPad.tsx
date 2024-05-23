@@ -10,7 +10,7 @@ import 'style/memoPad.css';
 import MemoPadMarkingSticker from './MemoPadMarkingSticker';
 
 interface memoPad {
-  review: review;
+  review: reviewDetail;
   selectStickerIdx: number;
   setSelectStickerIdx: Dispatch<SetStateAction<number>>;
   setSelectedToast: Dispatch<SetStateAction<number>>;

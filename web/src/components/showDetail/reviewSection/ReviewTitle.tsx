@@ -4,7 +4,7 @@ interface reviewTitle {
 
 const ReviewTitle = ({ title }: reviewTitle) => {
   return (
-    <span className="w-10/12 h-10 mt-6 truncate text-Body3 text-start">
+    <span className="w-10/12 h-10 mt-2 truncate text-Body3 text-start">
       {title}
     </span>
   );

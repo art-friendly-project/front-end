@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
-// import ReviewSection from 'components/showDetail/reviewSection/ReviewSection';
+import ReviewSection from 'components/showDetail/reviewSection/ReviewSection';
 import RankSection from 'components/showDetail/rankSection/RankSection';
 import ShowInformationSection from 'components/showDetail/InformationSection/ShowInformationSection';
 import PosterSection from 'components/showDetail/posterSection/PosterSection';
@@ -84,7 +84,7 @@ const ShowDetail = () => {
           isModal={isModal}
           setIsModal={setIsModal}
         />
-        {/* <ReviewSection id={id} /> */}
+        <ReviewSection id={showDetail.id} />
       </div>
     </>
   );

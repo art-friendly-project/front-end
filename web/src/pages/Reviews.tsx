@@ -11,7 +11,7 @@ const Reviews = () => {
   const [selectStickerIdx, setSelectStickerIdx] = useState(0);
   const [selectedToast, setSelectedToast] = useState(0);
   const [isModal, setIsModal] = useState(false);
-  const [review, setReview] = useState<review>({
+  const [review, setReview] = useState<reviewDetail>({
     id: 0,
     title: '',
     content: '',

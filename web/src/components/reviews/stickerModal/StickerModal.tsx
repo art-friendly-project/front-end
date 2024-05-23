@@ -4,7 +4,7 @@ import StickerComment from './StickerComment';
 
 interface stickerModal {
   setIsModal: Dispatch<SetStateAction<boolean>>;
-  setReview: Dispatch<SetStateAction<review>>;
+  setReview: Dispatch<SetStateAction<reviewDetail>>;
 }
 
 const StickerModal = ({ setIsModal, setReview }: stickerModal) => {
