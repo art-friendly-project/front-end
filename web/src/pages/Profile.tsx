@@ -27,9 +27,9 @@ const Profile = () => {
   });
 
   const userId = useAppSelector(selectUserId);
-  const myId = localStorage.getItem('myId');
+  const myId = Number(localStorage.getItem('myId'));
 
-  const fetchProfile = async (id: string) => {
+  const fetchProfile = async (id: number) => {
     try {
       const profile: fetchProfile = await api.get(
         `/members/profiles?searchMemberId=${id}`,
@@ -41,11 +41,11 @@ const Profile = () => {
   };
 
   useEffect(() => {
-    if (userId === '0' && myId !== null) {
+    if (userId === 0 && myId !== null) {
       void fetchProfile(myId);
     }
 
-    if (userId !== '0') {
+    if (userId !== 0) {
       void fetchProfile(userId);
     }
   }, [userId]);
@@ -82,14 +82,15 @@ const Profile = () => {
         <InterestSection
           artPreferenceTypeList={user.memberDetailsRspDto.artPreferenceTypeList}
         />
-        {userId === '0' ? (
+        {userId === 0 ? (
           <ViewedShowAndReviewsSection
             reviews={[]}
             shows={shows}
             setShows={setShows}
+            userId={userId}
           />
         ) : (
-          <ReviewSection reviews={[]} />
+          <ReviewSection reviews={[]} userId={userId} />
         )}
       </div>
     </>

@@ -30,7 +30,7 @@ const NavigationBtn = ({
     navigate(endpoint);
 
     if (name === '프로필') {
-      dispatch(userIdActions.current('0'));
+      dispatch(userIdActions.current(0));
     }
   };
 
