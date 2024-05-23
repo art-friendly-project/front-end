@@ -123,3 +123,31 @@ interface fetchReview {
     };
   };
 }
+
+interface fetchReviewDetail {
+  data: {
+    data: {
+      id: number;
+      title: string;
+      body: string;
+      lastModifiedTime: string;
+      memberResponseDto: {
+        id: number;
+        email: string;
+        imageUrl: string;
+        nickName: string;
+      };
+      stickerRspDtos: [
+        {
+          id: number;
+          stickerType: string;
+          body: string;
+          memberId: number;
+          dambyeolagId: number;
+        },
+      ];
+      isBookmark: false;
+      isSticker: true;
+    };
+  };
+}

@@ -7,17 +7,22 @@ interface review {
 interface reviewDetail {
   id: number;
   title: string;
-  content: string;
-  createdAt: string;
-  stickers: sticker[];
-  user: ReviewUser;
-}
-
-interface sticker {
-  id: number;
-  userId: number;
-  sticker: string;
-  comments: string;
+  body: string;
+  lastModifiedTime: string;
+  memberResponseDto: {
+    id: number;
+    email: string;
+    imageUrl: string;
+    nickName: string;
+  };
+  stickerRspDtos: Array<{
+    id: number;
+    stickerType: string;
+    body: string;
+    memberId: number;
+    dambyeolagId: number;
+  }>;
+  isBookmark: boolean;
 }
 
 interface reviewUser {
