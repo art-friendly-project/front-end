@@ -1,13 +1,42 @@
 import Review from 'components/profile/viewedShowAndReviews/Review';
-import { userData } from 'mock/mockData';
 import LikeEmptyMessage from './LikeEmptyMessage';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import api from 'api';
 
 const SavedReviewSection = () => {
-  const [reviews, setReviews] = useState<myReview[]>([]);
+  const [reviews, setReviews] = useState<savedReview[]>([]);
+  const [page, setPage] = useState(0);
+
+  const bottomRef = useRef<HTMLDivElement>(null);
+
+  const fetchSavedReviews = async () => {
+    const result: fetchSavedReviews = await api.get(
+      `dambyeolags/lists/bookmarks?page=${page}`,
+    );
+
+    setReviews((prev) => [...prev, ...result.data.data.content]);
+  };
+  useEffect(() => {
+    void fetchSavedReviews();
+  }, [page]);
+
+  const observer = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) {
+      setPage((prev) => prev + 1);
+    }
+  });
 
   useEffect(() => {
-    setReviews(userData[0].reviews);
+    const observeBottomRef = () => {
+      if (bottomRef.current !== null) observer.observe(bottomRef.current);
+    };
+
+    const timeoutId = setTimeout(observeBottomRef, 500);
+
+    return () => {
+      clearTimeout(timeoutId);
+      if (bottomRef.current !== null) observer.unobserve(bottomRef.current);
+    };
   }, []);
 
   return (
@@ -21,11 +50,11 @@ const SavedReviewSection = () => {
               key={review.id}
               id={review.id}
               idx={idx}
-              showId={review.showId}
-              image={review.image}
+              imageUrl={review.exhibitionImageUrl}
             />
           ))
         )}
+        <div className="h-2" ref={bottomRef} />
       </div>
     </div>
   );
