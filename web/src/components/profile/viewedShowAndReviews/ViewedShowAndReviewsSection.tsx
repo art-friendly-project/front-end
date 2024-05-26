@@ -6,7 +6,7 @@ import { useAppSelector } from 'hooks';
 import { selectEndpoint } from 'store/modules/endpoint';
 
 interface viewedShowAndReviewsSection {
-  reviews: myReview[];
+  reviews: savedReview[];
   shows: show[];
   setShows: Dispatch<SetStateAction<show[]>>;
   userId: number;
