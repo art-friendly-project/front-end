@@ -25,14 +25,7 @@ interface reviewDetail {
   isBookmark: boolean;
 }
 
-interface reviewUser {
+interface savedReview {
   id: number;
-  nickName: string;
-  profileImage: string;
-}
-
-interface myReview {
-  id: number;
-  showId: number;
-  image: string;
+  exhibitionImageUrl: string;
 }

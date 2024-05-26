@@ -104,8 +104,6 @@ interface fetchShowDetail {
         realmName: string;
         area: string;
         imageUrl: string;
-        gpsX: 126.99488186959195;
-        gpsY: 37.594828907887845;
         ticketingUrl: string;
         phone: string;
         price: string;
@@ -151,6 +149,17 @@ interface fetchReviewDetail {
       ];
       isBookmark: false;
       isSticker: true;
+    };
+  };
+}
+
+interface fetchSavedReviews {
+  data: {
+    data: {
+      content: Array<{
+        id: number;
+        exhibitionImageUrl: string;
+      }>;
     };
   };
 }

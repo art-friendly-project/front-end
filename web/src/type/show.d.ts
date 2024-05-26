@@ -1,11 +1,3 @@
-interface popularShow {
-  exhibitionId: number;
-  rank: number;
-  title: string;
-  imageUrl: string;
-  rankShift: string;
-}
-
 interface show {
   id: number;
   title: string;
@@ -15,6 +7,14 @@ interface show {
   endDate: string;
   imageUrl: string;
   isLike: false;
+}
+
+interface popularShow {
+  exhibitionId: number;
+  rank: number;
+  title: string;
+  imageUrl: string;
+  rankShift: string;
 }
 
 interface favoriteShow {
