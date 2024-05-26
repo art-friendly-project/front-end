@@ -33,7 +33,11 @@ interface fetchProfile {
         imageUrl: string;
         nickName: string;
         selfIntro: null | string;
-        mbtiSimpleRspDto: null | string;
+        mbtiSimpleRspDto: null | {
+          imageUrl: string;
+          subTitle: string;
+          title: string;
+        };
         artPreferenceTypeList: string[];
       };
     };
