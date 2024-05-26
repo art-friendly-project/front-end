@@ -1,7 +1,7 @@
 import Review from './Review';
 
 interface viewedShowAndReviewsSection {
-  reviews: myReview[];
+  reviews: savedReview[];
   userId: number;
 }
 const MyReivews = ({ reviews, userId }: viewedShowAndReviewsSection) => {
@@ -22,8 +22,7 @@ const MyReivews = ({ reviews, userId }: viewedShowAndReviewsSection) => {
             key={review.id}
             id={review.id}
             idx={idx}
-            showId={review.showId}
-            image={review.image}
+            imageUrl={review.exhibitionImageUrl}
           />
         ))
       )}

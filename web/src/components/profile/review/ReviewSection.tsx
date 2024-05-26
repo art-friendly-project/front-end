@@ -1,7 +1,7 @@
 import MyReivews from '../viewedShowAndReviews/MyReivews';
 
 interface reviewSection {
-  reviews: myReview[];
+  reviews: savedReview[];
   userId: number;
 }
 
