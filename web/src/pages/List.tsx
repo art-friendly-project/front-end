@@ -31,7 +31,6 @@ const List = () => {
         `/exhibitions/lists?area=${location}&progressStatus=${duration}&sortType=${priority}&page=${page}`,
       );
       setShows((prev) => [...prev, ...result.data.data.content]);
-      console.log(result);
     } catch (err) {
       console.error(err);
     }
