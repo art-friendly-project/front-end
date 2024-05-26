@@ -6,7 +6,6 @@ import LikeMenu from 'components/like/LikeMenu';
 import SavedReviewSection from 'components/like/SavedReviewSection';
 import { useAppSelector } from 'hooks';
 import useToastHandler from 'hooks/useToastHandler';
-import { likeList } from 'mock/mockData';
 import { selectEndpoint } from 'store/modules/endpoint';
 import addOneHour from 'utils/addOneHour';
 import isApp from 'utils/isApp';
@@ -14,7 +13,7 @@ import isApp from 'utils/isApp';
 const Like = () => {
   const [isModal, setIsModal] = useState(false);
   const [currentMenu, setCurrentMenu] = useState(true);
-  const [shows, setShows] = useState<favoriteShow[]>([]);
+  const [shows, setShows] = useState<show[]>([]);
   const [calendars, setCalendars] = useState<calendar[]>([]);
   const [scheduleName, setScheduleName] = useState('');
   const [location, setLocation] = useState('');
@@ -53,10 +52,6 @@ const Like = () => {
       );
     }
   };
-
-  useEffect(() => {
-    setShows(likeList);
-  }, [likeList]);
 
   const endpoint = useAppSelector(selectEndpoint);
 
@@ -128,6 +123,7 @@ const Like = () => {
         {currentMenu ? (
           <FavoriteShowSection
             shows={shows}
+            setShows={setShows}
             setCalendars={setCalendars}
             setIsModal={setIsModal}
             setScheduleName={setScheduleName}
