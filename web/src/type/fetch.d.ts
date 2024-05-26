@@ -81,6 +81,9 @@ interface fetchShow {
         imageUrl: string;
       }>;
       totalPages: number;
+      pageable: {
+        pageNumber: number;
+      };
     };
   };
 }

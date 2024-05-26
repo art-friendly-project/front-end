@@ -11,15 +11,21 @@ const ProfileEdit = () => {
   const [imageUrl, setImageUrl] = useState('');
   const [nickName, setNickName] = useState('');
   const [selfIntro, setSelfIntro] = useState('');
-
   const [file, setFile] = useState<File | undefined>();
 
   const EditBtnHandler = async () => {
+    if (file !== undefined) {
+      const formData = new FormData();
+      formData.append('profileImage', file);
+      await api.patch('/members/images', formData);
+    }
+
     try {
       await api.patch('/members', {
         nickName,
         selfIntro,
       });
+
       navigate('/profile');
     } catch (err) {
       console.error(err);
@@ -39,24 +45,9 @@ const ProfileEdit = () => {
     }
   };
 
-  const fetchProfileImg = async () => {
-    const formData = new FormData();
-
-    if (file !== undefined) formData.append('profileImage', file);
-    try {
-      await api.patch('/members/images', formData);
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
   useEffect(() => {
     void fetchProfile();
   }, []);
-
-  useEffect(() => {
-    if (file !== undefined) void fetchProfileImg();
-  }, [file]);
 
   return (
     <div className="flex flex-col items-center w-full h-full">

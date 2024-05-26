@@ -16,8 +16,7 @@ const NearbyAndLocationShow = () => {
   const [showType, setShowType] = useState('exhibition');
   const [priority, setPriority] = useState('popular');
 
-  const [page] = useState(0);
-  const [, setTotalPages] = useState(0);
+  const [page, setPage] = useState(0);
 
   const location = useAppSelector(selectLocation);
   const dispatch = useAppDispatch();
@@ -34,8 +33,7 @@ const NearbyAndLocationShow = () => {
       const result: fetchShow = await api.get(
         `/exhibitions/lists?area=${location}&progressStatus=${'inProgress'}&sortType=${priority}&page=${page}`,
       );
-      setShows(result.data.data.content);
-      setTotalPages(result.data.data.totalPages);
+      setShows((prev) => [...prev, ...result.data.data.content]);
     } catch (err) {
       console.error(err);
     }
@@ -63,7 +61,7 @@ const NearbyAndLocationShow = () => {
         isModalOpen={isModalOpen}
         setIsModalOpen={setIsModalOpen}
       />
-      <ShowList shows={shows} />
+      <ShowList shows={shows} setPage={setPage} />
     </div>
   );
 };

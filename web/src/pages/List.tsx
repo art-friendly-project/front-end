@@ -11,8 +11,7 @@ import api from 'api';
 const List = () => {
   const [shows, setShows] = useState<show[]>([]);
 
-  const [page] = useState(0);
-  const [, setTotalPages] = useState(0);
+  const [page, setPage] = useState(0);
 
   const [isModalOpen, setIsModalOpen] = useState([false, false, false]);
   const [duration, setDuration] = useState('inProgress');
@@ -31,8 +30,8 @@ const List = () => {
       const result: fetchShow = await api.get(
         `/exhibitions/lists?area=${location}&progressStatus=${duration}&sortType=${priority}&page=${page}`,
       );
-      setShows(result.data.data.content);
-      setTotalPages(result.data.data.totalPages);
+      setShows((prev) => [...prev, ...result.data.data.content]);
+      console.log(result);
     } catch (err) {
       console.error(err);
     }
@@ -64,7 +63,7 @@ const List = () => {
         />
       </div>
       <div className="mt-8">
-        <ShowList shows={shows} />
+        <ShowList shows={shows} setPage={setPage} />
       </div>
     </div>
   );

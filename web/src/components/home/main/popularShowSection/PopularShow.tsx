@@ -22,8 +22,8 @@ const PopularShow = ({ id, idx, title, imageUrl, rankShift }: popularShow) => {
       target.style.opacity = '1';
       target.style.transform = 'translateY(-10px)';
     } else {
-      target.style.opacity = '0';
-      target.style.transform = 'translateY(10px)';
+      // target.style.opacity = '0';
+      // target.style.transform = 'translateY(10px)';
     }
   });
 
@@ -31,7 +31,7 @@ const PopularShow = ({ id, idx, title, imageUrl, rankShift }: popularShow) => {
     if (showRef.current !== null) {
       observer.observe(showRef.current);
     }
-  }, [showRef.current]);
+  }, []);
 
   return (
     <button
