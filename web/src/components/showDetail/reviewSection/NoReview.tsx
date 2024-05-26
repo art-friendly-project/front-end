@@ -13,7 +13,7 @@ const NoReview = ({ id }: noReview) => {
   const dispatch = useAppDispatch();
   const btnHandler = () => {
     dispatch(showIdActions.current(id));
-    navigate('review-post');
+    navigate('/review-post');
   };
 
   return (

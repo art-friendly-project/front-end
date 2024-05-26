@@ -20,7 +20,7 @@ const ReviewPostBtn = ({ id }: reviewPostBtn) => {
       onClick={() => {
         dispatch(endpointActions.current(pathname));
         dispatch(showIdActions.current(id));
-        navigate('review-post');
+        navigate('/review-post');
       }}
     >
       <span>담벼락 남기기</span>
