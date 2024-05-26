@@ -15,6 +15,26 @@ import ISFP from '../images/tasteTestProfile/ISFP.svg';
 import ISTJ from '../images/tasteTestProfile/ISTJ.svg';
 import ISTP from '../images/tasteTestProfile/ISTP.svg';
 
+export const mbtiIdList = [
+  '',
+  'ISTJ',
+  'ISFJ',
+  'INFJ',
+  'INTJ',
+  'ISTP',
+  'ISFP',
+  'INFP',
+  'INTP',
+  'ESTP',
+  'ESFP',
+  'ENFP',
+  'ENTP',
+  'ESTJ',
+  'ESFJ',
+  'ENFJ',
+  'ENTJ',
+];
+
 export const tasteTestQuestions = [
   {
     id: 1,
