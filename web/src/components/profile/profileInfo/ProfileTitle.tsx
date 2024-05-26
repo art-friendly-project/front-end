@@ -6,7 +6,11 @@ interface profileTitle {
   isMyAccount: boolean;
   imageUrl: string;
   nickName: string;
-  mbti: string | null;
+  mbti: null | {
+    imageUrl: string;
+    subTitle: string;
+    title: string;
+  };
 }
 
 const ProfileTitle = ({
@@ -28,7 +32,10 @@ const ProfileTitle = ({
       <div className="flex flex-col ml-4">
         <span className="text-Headline text-gray-110">{nickName}</span>
         {mbti !== null ? (
-          <span className="text-Body2-M text-gray-110">{mbti}</span>
+          <div className="flex items-center">
+            <div className="w-3 h-3 mt-0.5 mr-1 rounded-full bg-purple-90" />
+            <span className="text-Body2-M text-gray-110">{mbti.title}</span>
+          </div>
         ) : (
           <TestSuggestBtn isMyAccount={isMyAccount} />
         )}

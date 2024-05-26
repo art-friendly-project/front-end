@@ -20,7 +20,11 @@ const Profile = () => {
       imageUrl: '',
       nickName: '',
       selfIntro: '',
-      mbtiSimpleRspDto: '',
+      mbtiSimpleRspDto: {
+        imageUrl: '',
+        subTitle: '',
+        title: '',
+      },
       artPreferenceTypeList: [],
     },
     StickerCount: 0,

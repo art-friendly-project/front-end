@@ -7,7 +7,11 @@ interface profileInfoSection {
   imageUrl: string;
   nickName: string;
   selfIntro: string | null;
-  mbti: string | null;
+  mbti: null | {
+    imageUrl: string;
+    subTitle: string;
+    title: string;
+  };
   StickerCount: number;
   dambyeolagCount: number;
   interestedExhibitionCount: number;
