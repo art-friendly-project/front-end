@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import ProfileInfoSection from 'components/profile/profileInfo/ProfileInfoSection';
 import InterestSection from 'components/profile/interest/InterestSection';
 import ViewedShowAndReviewsSection from 'components/profile/viewedShowAndReviews/ViewedShowAndReviewsSection';
@@ -11,6 +11,8 @@ import { selectUserId } from 'store/modules/userId';
 
 const Profile = () => {
   const [shows, setShows] = useState<show[]>([]);
+  const [reviews, setReviews] = useState<savedReview[]>([]);
+  const [page, setPage] = useState(0);
   const [user, setUser] = useState<user>({
     memberDetailsRspDto: {
       id: 0,
@@ -28,6 +30,8 @@ const Profile = () => {
 
   const userId = useAppSelector(selectUserId);
   const myId = Number(localStorage.getItem('myId'));
+
+  const bottomRef = useRef<HTMLDivElement>(null);
 
   const fetchProfile = async (id: number) => {
     try {
@@ -49,6 +53,45 @@ const Profile = () => {
       void fetchProfile(userId);
     }
   }, [userId]);
+
+  const fetchReviews = async () => {
+    if (userId === 0 && myId !== null) {
+      const result: fetchSavedReviews = await api.get(
+        `/dambyeolags/lists/by-member?page=${page}&memberId=${myId}`,
+      );
+      setReviews(result.data.data.content);
+    }
+
+    if (userId !== 0) {
+      const result: fetchSavedReviews = await api.get(
+        `/dambyeolags/lists/by-member?page=${page}&memberId=${userId}`,
+      );
+      setReviews(result.data.data.content);
+    }
+  };
+
+  useEffect(() => {
+    void fetchReviews();
+  }, []);
+
+  const observer = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) {
+      setPage((prev) => prev + 1);
+    }
+  });
+
+  useEffect(() => {
+    const observeBottomRef = () => {
+      if (bottomRef.current !== null) observer.observe(bottomRef.current);
+    };
+
+    const timeoutId = setTimeout(observeBottomRef, 500);
+
+    return () => {
+      clearTimeout(timeoutId);
+      if (bottomRef.current !== null) observer.unobserve(bottomRef.current);
+    };
+  }, []);
 
   const toastHandler = useToastHandler(
     false,
@@ -84,13 +127,13 @@ const Profile = () => {
         />
         {userId === 0 ? (
           <ViewedShowAndReviewsSection
-            reviews={[]}
+            reviews={reviews}
             shows={shows}
             setShows={setShows}
             userId={userId}
           />
         ) : (
-          <ReviewSection reviews={[]} userId={userId} />
+          <ReviewSection reviews={reviews} userId={userId} />
         )}
       </div>
     </>
