@@ -10,8 +10,10 @@ const ShowInfo = ({ title, startDate, endDate }: showInfo) => {
   const remainDay = calculateRemainDay(endDate);
 
   return (
-    <div className="flex flex-col items-start mt-2 ml-4">
-      <span className="text-Body3 text-gray-110">{title}</span>
+    <div className="flex flex-col items-start w-4/5 mt-2 ml-4">
+      <span className="w-4/5 truncate text-Body3 text-gray-110 text-start">
+        {title}
+      </span>
       <span className="text-Body2-M text-gray-80">
         {startDate} ~ {endDate}
       </span>
