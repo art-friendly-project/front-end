@@ -2,9 +2,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
 import useAccessPermissions from 'hooks/useAccessPermissions';
 import LoadingSpineer from 'components/common/LoadingSpineer';
-import OpenLoading from 'pages/OpenLoading';
-import Login from 'pages/Login';
-import ProfileEdit from 'pages/ProfileEdit';
+import WithdrawalConfirm from 'pages/WithdrawalConfirm';
+import AppIntroduce from 'pages/AppIntroduce';
 
 const NearbyAndLocationShow = lazy(
   async () => await import('pages/NearbyAndLocationShow'),
@@ -30,6 +29,13 @@ const ReviewPost = lazy(async () => await import('pages/ReviewPost'));
 const Settings = lazy(async () => await import('pages/Settings'));
 const AccessGuidance = lazy(async () => await import('pages/AccessGuidance'));
 const TermsOfUse = lazy(async () => await import('pages/TermsOfUse'));
+const ProfileEdit = lazy(async () => await import('pages/ProfileEdit'));
+const OpenLoading = lazy(async () => await import('pages/OpenLoading'));
+const Login = lazy(async () => await import('pages/Login'));
+const KakaoLogin = lazy(async () => await import('pages/KakaoLogin'));
+const WithdrawalReason = lazy(
+  async () => await import('pages/WithdrawalReason'),
+);
 
 const App = () => {
   useAccessPermissions();
@@ -41,6 +47,8 @@ const App = () => {
           <Suspense fallback={<LoadingSpineer />}>
             <Routes>
               <Route path="/" element={<OpenLoading />} />
+              <Route path="/introduce" element={<AppIntroduce />} />
+              <Route path="/kakao-login" element={<KakaoLogin />} />
               <Route path="/login" element={<Login />} />
               <Route path="/terms-of-use" element={<TermsOfUse />} />
               <Route path="/taste-select" element={<TasteSelect />} />
@@ -53,7 +61,6 @@ const App = () => {
                 <Route path="/List" element={<List />} />
                 <Route path="/like" element={<Like />} />
                 <Route path="/profile" element={<Profile />} />
-                <Route path="/profile/:id" element={<Profile />} />
               </Route>
 
               <Route element={<DetailLayout />}>
@@ -74,10 +81,18 @@ const App = () => {
                   element={<TasteTestResult />}
                 />
                 <Route path="/prepare-service" element={<PrepareService />} />
-                <Route path="/shows/:id/reviews/:id" element={<Reviews />} />
-                <Route path="/shows/:id/review-post" element={<ReviewPost />} />
+                <Route path="/reviews/:id" element={<Reviews />} />
+                <Route path="/review-post" element={<ReviewPost />} />
                 <Route path="/profile-edit" element={<ProfileEdit />} />
                 <Route path="/settings" element={<Settings />} />
+                <Route
+                  path="/withdrawal/reason"
+                  element={<WithdrawalReason />}
+                />
+                <Route
+                  path="/withdrawal/confirm"
+                  element={<WithdrawalConfirm />}
+                />
               </Route>
             </Routes>
           </Suspense>

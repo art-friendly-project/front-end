@@ -3,8 +3,8 @@ import ResetBtn from './ResetBtn';
 import Show from './Show';
 
 interface viewedShow {
-  shows: deadlineShow[];
-  setShows: Dispatch<SetStateAction<deadlineShow[]>>;
+  shows: show[];
+  setShows: Dispatch<SetStateAction<show[]>>;
 }
 
 const ViewedShow = ({ shows, setShows }: viewedShow) => {
@@ -13,12 +13,14 @@ const ViewedShow = ({ shows, setShows }: viewedShow) => {
 
     if (localViewedShowList !== null) {
       const viewedShowList = JSON.parse(localViewedShowList);
+      const list = [];
 
       for (const key in viewedShowList) {
-        setShows((prev) => [...prev, viewedShowList[key]]);
+        list.push(viewedShowList[key]);
       }
+      setShows(list);
     }
-  }, [localStorage.getItem('viewedShowList')]);
+  }, []);
 
   return (
     <div className="relative flex flex-col items-center w-full pt-10">
@@ -32,12 +34,12 @@ const ViewedShow = ({ shows, setShows }: viewedShow) => {
           <Show
             key={show.id}
             id={show.id}
-            showType={show.showType}
-            name={show.name}
-            location={show.location}
-            term={show.term}
-            image={show.image}
-            favorite={show.favorite}
+            title={show.title}
+            area={show.area}
+            startDate={show.startDate}
+            endDate={show.endDate}
+            imageUrl={show.imageUrl}
+            isLike={show.isLike}
             temperature={show.temperature}
           />
         ))

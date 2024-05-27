@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react';
 import { IoHeartOutline, IoHeart } from 'react-icons/io5';
 import useToastHandler from 'hooks/useToastHandler';
+import api from 'api';
 
 interface favoriteBtn {
-  favorite: boolean;
+  isLike: boolean;
+  id: number;
 }
 
-const FavoriteBtn = ({ favorite }: favoriteBtn) => {
+const FavoriteBtn = ({ isLike, id }: favoriteBtn) => {
   const [isFavorite, setIsFavorite] = useState(false);
   const toastHandler = useToastHandler(
     isFavorite,
@@ -15,11 +17,22 @@ const FavoriteBtn = ({ favorite }: favoriteBtn) => {
   );
 
   useEffect(() => {
-    setIsFavorite(favorite);
-  }, [favorite]);
+    setIsFavorite(isLike);
+  }, [isLike]);
 
-  const favoriteBtnHandler = () => {
-    setIsFavorite((prev) => !prev);
+  const favoriteBtnHandler = async () => {
+    try {
+      if (!isFavorite) {
+        await api.post(`/exhibitions/likes?exhibitionId=${id}`);
+      }
+
+      if (isFavorite) {
+        await api.delete(`/exhibitions/likes?exhibitionId=${id}`);
+      }
+      setIsFavorite((prev) => !prev);
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
@@ -27,7 +40,7 @@ const FavoriteBtn = ({ favorite }: favoriteBtn) => {
       <button
         className="absolute right-0 flex items-center justify-center rounded-lg top-1 active:bg-gray-00 w-7 h-7"
         onClick={() => {
-          favoriteBtnHandler();
+          void favoriteBtnHandler();
           toastHandler();
         }}
       >

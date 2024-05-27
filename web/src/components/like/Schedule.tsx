@@ -7,7 +7,7 @@ interface schedule {
   calendars: calendar[];
   scheduleName: string;
   setCalendarId: Dispatch<SetStateAction<string>>;
-  currentTerm: string;
+  currentTerm: string[];
   selectedDate: string;
   setSelectedDate: Dispatch<SetStateAction<string>>;
   setSelectedTime: Dispatch<SetStateAction<string>>;

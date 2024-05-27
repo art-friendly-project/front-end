@@ -2,7 +2,6 @@ import tape from 'assets/images/etc/tape.svg';
 import ReviewTitle from './ReviewTitle';
 import ReviewContent from './ReviewContent';
 import { useNavigate } from 'react-router-dom';
-import { type review } from './ReviewContainer';
 
 interface reviewProps {
   review: review;
@@ -15,12 +14,12 @@ const Review = ({ review }: reviewProps) => {
     <button
       className="relative flex flex-col items-center justify-center w-full h-full active:bg-gray-00 shadow-custom3 rounded-xl"
       onClick={() => {
-        navigate(`reviews/${review.id}`);
+        navigate(`/reviews/${review.id}`);
       }}
     >
       <img src={tape} className="absolute -top-3" />
       <ReviewTitle title={review.title} />
-      <ReviewContent content={review.content} />
+      <ReviewContent body={review.body} />
     </button>
   );
 };

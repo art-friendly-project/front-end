@@ -4,14 +4,17 @@ import BtnBasic from 'components/common/BtnBasic';
 import ReviewPostContent from '../components/reviewPost/ReviewPostContent';
 import ReviewPostTitle from '../components/reviewPost/ReviewPostTitle';
 import ConfirmModal from 'components/common/ConfirmModal';
-import { useAppDispatch } from 'hooks';
+import { useAppDispatch, useAppSelector } from 'hooks';
 import { isReviewTextActions } from 'store/modules/isReviewText';
+import { selectShowId } from 'store/modules/showId';
+import api from 'api';
 
 const ReviewPost = () => {
-  const [titleText, setTitleText] = useState('');
-  const [contentText, setContentText] = useState('');
+  const [title, setTitle] = useState('');
+  const [body, setBody] = useState('');
 
   const dispatch = useAppDispatch();
+  const exhibitionId = useAppSelector(selectShowId);
 
   const navigate = useNavigate();
 
@@ -19,15 +22,28 @@ const ReviewPost = () => {
     navigate(-1);
   };
 
-  const btnHandler = () => {};
+  const btnHandler = async () => {
+    const post = {
+      title,
+      body,
+      exhibitionId,
+    };
+
+    try {
+      await api.post('/dambyeolags', post);
+      navigate(`/shows/${exhibitionId}`);
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   useEffect(() => {
     dispatch(
       isReviewTextActions.setIsReviewText(
-        titleText.length === 0 && contentText.length === 0,
+        title.length !== 0 || body.length !== 0,
       ),
     );
-  }, [titleText, contentText]);
+  }, [title, body]);
 
   return (
     <>
@@ -36,15 +52,14 @@ const ReviewPost = () => {
         fn={confirmModalFn}
       />
       <div className="flex flex-col w-full h-full">
-        <ReviewPostTitle titleText={titleText} setTitleText={setTitleText} />
-        <ReviewPostContent
-          contentText={contentText}
-          setContentText={setContentText}
-        />
+        <ReviewPostTitle title={title} setTitle={setTitle} />
+        <ReviewPostContent body={body} setBody={setBody} />
         <BtnBasic
           name="담벼락 등록하기"
-          disable={titleText.length === 0 || contentText.length === 0}
-          fn={btnHandler}
+          disable={title.length === 0 || body.length === 0}
+          fn={() => {
+            void btnHandler();
+          }}
         />
       </div>
     </>

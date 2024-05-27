@@ -1,10 +1,9 @@
 import { useEffect, type Dispatch, type SetStateAction } from 'react';
 import { IoIosArrowDown } from 'react-icons/io';
 import todayDate from 'utils/todayDate';
-import changeMinAndMaxTerm from 'utils/changeMinAndMaxTerm';
 
 interface dateInput {
-  currentTerm: string;
+  currentTerm: string[];
   selectedDate: string;
   setSelectedDate: Dispatch<SetStateAction<string>>;
 }
@@ -14,7 +13,7 @@ const DateInput = ({
   selectedDate,
   setSelectedDate,
 }: dateInput) => {
-  const { minTerm, maxTerm } = changeMinAndMaxTerm(currentTerm);
+  const [minTerm, maxTerm] = currentTerm;
 
   useEffect(() => {
     setSelectedDate(todayDate());

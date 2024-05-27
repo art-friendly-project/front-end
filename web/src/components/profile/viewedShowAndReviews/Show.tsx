@@ -8,14 +8,14 @@ import { endpointActions } from 'store/modules/endpoint';
 
 const Show = ({
   id,
-  showType,
-  name,
-  location,
-  term,
-  image,
-  favorite,
+  title,
+  area,
+  startDate,
+  endDate,
+  imageUrl,
+  isLike,
   temperature,
-}: deadlineShow) => {
+}: show) => {
   const pathname = useLocation().pathname;
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
@@ -31,19 +31,19 @@ const Show = ({
       >
         <TemperatureIndicator temperature={temperature} />
         <PosterImg
-          width="w-24"
+          width="w-1/5"
           height="h-32"
           bgColor="bg-gray-100"
-          image={image}
+          image={imageUrl}
         />
         <PosterInfo
-          showType={showType}
-          name={name}
-          location={location}
-          term={term}
+          title={title}
+          area={area}
+          startDate={startDate}
+          endDate={endDate}
         />
       </button>
-      <FavoriteBtn favorite={favorite} />
+      <FavoriteBtn isLike={isLike} id={id} />
     </div>
   );
 };

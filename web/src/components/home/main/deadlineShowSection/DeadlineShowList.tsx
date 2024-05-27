@@ -1,20 +1,37 @@
-import { homeShows } from 'mock/mockData';
 import DeadlineShow from './DeadlineShow';
+import { useEffect, useState } from 'react';
+import api from 'api';
 
 const DeadlineShowList = () => {
+  const [shows, setShows] = useState<show[]>([]);
+
+  const fetchShows = async () => {
+    try {
+      const result: fetchEndShow = await api.get('/exhibitions/lists/end');
+
+      setShows(result.data.data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  useEffect(() => {
+    void fetchShows();
+  }, []);
+
   return (
     <div className="flex flex-col items-center w-9/10">
-      {homeShows.map((show) => (
+      {shows.map((show) => (
         <DeadlineShow
           key={show.id}
           id={show.id}
-          showType={show.showType}
-          name={show.name}
-          location={show.location}
-          term={show.term}
-          image={show.image}
-          favorite={show.favorite}
+          title={show.title}
+          area={show.area}
+          startDate={show.startDate}
+          endDate={show.endDate}
+          imageUrl={show.imageUrl}
           temperature={show.temperature}
+          isLike={show.isLike}
         />
       ))}
     </div>

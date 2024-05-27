@@ -1,15 +1,15 @@
 import { type ChangeEvent, type Dispatch, type SetStateAction } from 'react';
 
 interface introduce {
-  intro: string;
-  setIntro: Dispatch<SetStateAction<string>>;
+  selfIntro: string;
+  setSelfIntro: Dispatch<SetStateAction<string>>;
 }
 
-const Introduce = ({ intro, setIntro }: introduce) => {
+const Introduce = ({ selfIntro, setSelfIntro }: introduce) => {
   const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     const inputText = e.target.value;
     if (inputText.length <= 40) {
-      setIntro(inputText);
+      setSelfIntro(inputText);
     }
   };
 
@@ -19,12 +19,12 @@ const Introduce = ({ intro, setIntro }: introduce) => {
         소개글
       </span>
       <textarea
-        value={intro}
+        value={selfIntro}
         onChange={handleChange}
         className="h-24 pt-2 pl-2 border-2 rounded-lg text-gray-110 text-Body3-M w-9/10 border-gray-30 focus:outline-orange-100"
       />
       <span className="w-full text-Body2-M text-gray-60 text-end pr-[5%] mt-2">
-        {`${intro.length}/40자`}
+        {`${selfIntro.length}/40자`}
       </span>
     </div>
   );

@@ -19,12 +19,12 @@ export const locationIcons = [
 ];
 
 export const locations = [
-  ['seoul', '서울'],
-  ['gyeonggi-incheon', '경기/인천'],
-  ['gangwon', '강원'],
-  ['gyeongnam-busan', '경남/부산'],
-  ['gyeongbuk-daegu', '경북/대구'],
-  ['chungcheong-daejeon', '충청/대전'],
-  ['jeolla-gwangju', '전라/광주'],
-  ['jeju', '제주'],
+  ['서울', '서울'],
+  ['경기인천', '경기/인천'],
+  ['강원', '강원'],
+  ['경남부산', '경남/부산'],
+  ['경북대구', '경북/대구'],
+  ['충청대전', '충청/대전'],
+  ['전라광주', '전라/광주'],
+  ['제주', '제주'],
 ];

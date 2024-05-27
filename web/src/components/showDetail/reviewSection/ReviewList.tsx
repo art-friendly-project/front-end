@@ -1,5 +1,4 @@
 import Review from './Review';
-import { type review } from './ReviewContainer';
 
 interface reviewList {
   reviews: review[];

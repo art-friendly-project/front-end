@@ -17,6 +17,7 @@ interface navType {
 
 const WebViewcontainer = () => {
   const [geolocation, setGeolocation] = useState({latitude: 0, longitude: 0});
+
   const platform = Platform.OS === 'android' ? 'android' : 'ios';
   const injectedJS = `window.platform = '${platform}'; true;`;
 
@@ -50,10 +51,10 @@ const WebViewcontainer = () => {
   );
 };
 // home
-const currentIp = 'http://192.168.13.9:3000';
+// const currentIp = 'http://192.168.13.9:3000';
 
 // business
-// const currentIp = 'http://192.168.0.80:3000';
+const currentIp = 'http://192.168.0.80:3000';
 
 // twosome
 // const currentIp = 'http://192.168.0.20:3000';

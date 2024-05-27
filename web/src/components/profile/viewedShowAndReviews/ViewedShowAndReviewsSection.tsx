@@ -6,15 +6,17 @@ import { useAppSelector } from 'hooks';
 import { selectEndpoint } from 'store/modules/endpoint';
 
 interface viewedShowAndReviewsSection {
-  reviews: myReview[];
-  shows: deadlineShow[];
-  setShows: Dispatch<SetStateAction<deadlineShow[]>>;
+  reviews: savedReview[];
+  shows: show[];
+  setShows: Dispatch<SetStateAction<show[]>>;
+  userId: number;
 }
 
 const ViewedShowAndReviewsSection = ({
   reviews,
   shows,
   setShows,
+  userId,
 }: viewedShowAndReviewsSection) => {
   const [currentMenu, setCurrentMenu] = useState(true);
 
@@ -35,7 +37,7 @@ const ViewedShowAndReviewsSection = ({
       {currentMenu ? (
         <ViewedShow shows={shows} setShows={setShows} />
       ) : (
-        <MyReivews reviews={reviews} />
+        <MyReivews reviews={reviews} userId={userId} />
       )}
     </div>
   );

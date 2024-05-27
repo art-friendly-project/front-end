@@ -5,36 +5,22 @@ import Thermometer from './Thermometer';
 import FavoriteAndShareBtn from 'components/showDetail/posterSection/FavoriteAndShareBtn';
 
 interface posterSection {
-  show: show;
+  showDetail: showDetail;
 }
 
-export interface show {
-  id: number;
-  term: string;
-  name: string;
-  showType: string;
-  place: string;
-  location: string;
-  phone: string;
-  site: string;
-  image: string;
-  favorite: boolean;
-  temperature: string;
-  upAndDown: string;
-}
-
-const PosterSection = ({ show }: posterSection) => {
+const PosterSection = ({ showDetail }: posterSection) => {
   return (
     <>
       <ShowDetailBackBtn />
-      <FavoriteAndShareBtn favorite={show.favorite} />
-      <ShowDetailImg image={show.image} />
+      <FavoriteAndShareBtn isLike={showDetail.isLike} id={showDetail.id} />
+      <ShowDetailImg imageUrl={showDetail.exhibitionInfoRspDto.imageUrl} />
       <ShowDetailTitle
-        showType={show.showType}
-        name={show.name}
-        term={show.term}
+        realmName={showDetail.exhibitionInfoRspDto.realmName}
+        title={showDetail.exhibitionInfoRspDto.title}
+        startDate={showDetail.exhibitionInfoRspDto.startDate}
+        endDate={showDetail.exhibitionInfoRspDto.endDate}
       />
-      <Thermometer temperature={show.temperature} />
+      <Thermometer temperature={showDetail.temperature} />
     </>
   );
 };

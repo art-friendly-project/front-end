@@ -13,7 +13,7 @@ const OpenLoading = () => {
     }, 2500);
 
     setTimeout(() => {
-      navigate('/login');
+      navigate('/introduce');
     }, 2000);
   }, []);
 

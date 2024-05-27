@@ -3,16 +3,22 @@ import AccountSection from 'components/settings/account/AccountSection';
 import ServiceSection from 'components/settings/service/ServiceSection';
 import UserSection from 'components/settings/user/UserSection';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Settings = () => {
+  const navigate = useNavigate();
   const [selectedBtn, setSelectedBtn] = useState(true);
 
-  const confirmModalFn = () => {};
+  const confirmModalFn = () => {
+    if (selectedBtn) {
+      localStorage.clear();
+      navigate('/kakao-login');
+    }
+    if (!selectedBtn) navigate('/withdrawal/reason');
+  };
 
   const confirmModalText = () => {
-    return selectedBtn
-      ? '계정을 로그아웃할까요?'
-      : '회원 탈퇴를 진행할까요?\n\n탈퇴하면 작성된 담벼락,\n관심 목록이 모두 삭제되어요';
+    return selectedBtn ? '계정을 로그아웃할까요?' : '회원 탈퇴를 진행할까요?';
   };
   return (
     <>

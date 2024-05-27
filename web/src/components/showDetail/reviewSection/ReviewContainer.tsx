@@ -1,29 +1,20 @@
 import ReviewSectionTitle from './ReviewSectionTitle';
 import ReviewPostBtn from './ReviewPostBtn';
 import ReviewSwiper from './ReviewSwiper';
+import { type Dispatch, type SetStateAction } from 'react';
 
 interface reviewList {
+  id: number;
   reviews: review[];
+  setPage: Dispatch<SetStateAction<number>>;
 }
 
-export interface review {
-  id?: number;
-  title: string;
-  content: string;
-  createdAt: string;
-  user: {
-    id: number;
-    nickName: string;
-    profileImage: string;
-  };
-}
-
-const ReviewContainer = ({ reviews }: reviewList) => {
+const ReviewContainer = ({ id, reviews, setPage }: reviewList) => {
   return (
     <>
-      <ReviewPostBtn />
+      <ReviewPostBtn id={id} />
       <ReviewSectionTitle />
-      <ReviewSwiper reviews={reviews} />
+      <ReviewSwiper reviews={reviews} setPage={setPage} />
     </>
   );
 };

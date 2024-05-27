@@ -1,13 +1,13 @@
 import Interest from './Interest';
 
 interface interestList {
-  interests: string[];
+  artPreferenceTypeList: string[];
 }
 
-const InterestList = ({ interests }: interestList) => {
+const InterestList = ({ artPreferenceTypeList }: interestList) => {
   return (
     <div className="flex mt-4">
-      {interests.map((interest) => (
+      {artPreferenceTypeList.map((interest) => (
         <Interest key={interest} interest={interest} />
       ))}
     </div>

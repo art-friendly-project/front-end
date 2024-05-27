@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { type Dispatch, type SetStateAction } from 'react';
 import { Grid, Pagination, Scrollbar } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Review from './Review';
@@ -7,20 +7,13 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import 'swiper/css/grid';
 import 'style/swiper.css';
-import { type review } from './ReviewContainer';
 
 interface reviewSwiper {
   reviews: review[];
+  setPage: Dispatch<SetStateAction<number>>;
 }
 
-const ReviewSwiper = ({ reviews }: reviewSwiper) => {
-  const [reviewSlice, setReviewSlice] = useState<review[]>([]);
-  const [page, setPage] = useState(0);
-
-  useEffect(() => {
-    setReviewSlice(reviews.slice(0, 8));
-  }, []);
-
+const ReviewSwiper = ({ reviews, setPage }: reviewSwiper) => {
   return (
     <Swiper
       className="reviewSwiper"
@@ -28,10 +21,6 @@ const ReviewSwiper = ({ reviews }: reviewSwiper) => {
       spaceBetween={20}
       slidesPerView={2}
       onReachEnd={() => {
-        setReviewSlice((prev) => [
-          ...prev,
-          ...reviews.slice(8 * page, 8 + 8 * page),
-        ]);
         setPage((prev) => prev + 1);
       }}
       grid={{
@@ -40,7 +29,7 @@ const ReviewSwiper = ({ reviews }: reviewSwiper) => {
       pagination={{ clickable: false, dynamicBullets: true }}
       scrollbar={{ draggable: true, hide: true }}
     >
-      {reviewSlice.map((review) => (
+      {reviews.map((review) => (
         <SwiperSlide key={review.id}>
           <Review review={review} />
         </SwiperSlide>

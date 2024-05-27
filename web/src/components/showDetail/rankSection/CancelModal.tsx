@@ -4,12 +4,14 @@ import CancelModalText from './CancelModalText';
 import CancelModalBtnContainer from './CancelModalBtnContainer';
 
 interface cancelModal {
+  id: number;
   setIsModal: Dispatch<SetStateAction<boolean>>;
   setIsSelectedRanks: Dispatch<SetStateAction<boolean[]>>;
   cancelIdx: number;
 }
 
 const CancelModal = ({
+  id,
   setIsModal,
   setIsSelectedRanks,
   cancelIdx,
@@ -23,6 +25,7 @@ const CancelModal = ({
         />
         <CancelModalText />
         <CancelModalBtnContainer
+          id={id}
           setIsModal={setIsModal}
           setIsSelectedRanks={setIsSelectedRanks}
           cancelIdx={cancelIdx}

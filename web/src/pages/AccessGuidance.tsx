@@ -1,5 +1,5 @@
-import AccessGuidanceTitle from 'components/AccessGuidance/AccessGuidanceTitle';
-import AccessList from 'components/AccessGuidance/AccessList';
+import AccessGuidanceTitle from 'components/accessGuidance/AccessGuidanceTitle';
+import AccessList from 'components/accessGuidance/AccessList';
 import BtnBasic from 'components/common/BtnBasic';
 import { useNavigate } from 'react-router-dom';
 import isApp from 'utils/isApp';
