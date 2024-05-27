@@ -3,6 +3,7 @@ import { Suspense, lazy } from 'react';
 import useAccessPermissions from 'hooks/useAccessPermissions';
 import LoadingSpineer from 'components/common/LoadingSpineer';
 import WithdrawalConfirm from 'pages/WithdrawalConfirm';
+import AppIntroduce from 'pages/AppIntroduce';
 
 const NearbyAndLocationShow = lazy(
   async () => await import('pages/NearbyAndLocationShow'),
@@ -46,6 +47,7 @@ const App = () => {
           <Suspense fallback={<LoadingSpineer />}>
             <Routes>
               <Route path="/" element={<OpenLoading />} />
+              <Route path="/introduce" element={<AppIntroduce />} />
               <Route path="/kakao-login" element={<KakaoLogin />} />
               <Route path="/login" element={<Login />} />
               <Route path="/terms-of-use" element={<TermsOfUse />} />
