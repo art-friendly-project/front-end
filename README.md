@@ -51,8 +51,14 @@ $ npm start
   <br />&nbsp;&nbsp; - &nbsp;프로필 수정 페이지 UI 구현
 </details>
 <details>
-  <summary><b>[ 2024. 5. 3. ] UI, 기능 구현 (3차)</b></summary>
+  <summary><b>[ 2024. 5. 17. ] UI, 기능 구현 (3차)</b></summary>
   &nbsp;&nbsp; - &nbsp;담벼락, 캘린더 일정 추가 UI 변경
   <br />&nbsp;&nbsp; - &nbsp;IOS 화면에 맞게 UI 수정
   <br />&nbsp;&nbsp; - &nbsp;IOS 권한 설정 추가(위치, 캘린더 등)
+</details>
+<details>
+  <summary><b>[ 2024. 5. 27. ] UI, 기능 구현 (4차)</b></summary>
+  &nbsp;&nbsp; - &nbsp;카카오 로그인 기능 구현
+  <br />&nbsp;&nbsp; - &nbsp;전시목록, 담벼락, 프로필 등 데이터 조회 기능 구현
+  <br />&nbsp;&nbsp; - &nbsp;담벼락 작성, 프로필 수정, mbti 검사 등 등록 및 수정 기능 구현
 </details>
