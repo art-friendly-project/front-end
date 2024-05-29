@@ -11,12 +11,11 @@ const CheckList = ({ isChecks, setIsChecks }: checkList) => {
   const checks = [
     ['필수', '서비스 이용약관 동의'],
     ['필수', '개인정보 수집 및 이용 동의'],
-    ['선택', '마케팅 활용 및 광고성 정보 수신 동의'],
   ];
 
   return (
     <div className="flex flex-col px-[5%] bottom-[15%] absolute w-full">
-      <ChecksAllBtn setIsChecks={setIsChecks} />
+      <ChecksAllBtn isChecks={isChecks} setIsChecks={setIsChecks} />
       {checks.map((check, idx) => (
         <ChecksBtn
           key={idx}
