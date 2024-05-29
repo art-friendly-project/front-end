@@ -11,9 +11,10 @@ import addOneHour from 'utils/addOneHour';
 import isApp from 'utils/isApp';
 
 const Like = () => {
+  const [shows, setShows] = useState<show[]>([]);
+
   const [isModal, setIsModal] = useState(false);
   const [currentMenu, setCurrentMenu] = useState(true);
-  const [shows, setShows] = useState<show[]>([]);
   const [calendars, setCalendars] = useState<calendar[]>([]);
   const [scheduleName, setScheduleName] = useState('');
   const [location, setLocation] = useState('');

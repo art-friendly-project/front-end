@@ -19,6 +19,7 @@ interface favoriteShow {
   setScheduleName: Dispatch<SetStateAction<string>>;
   setLocation: Dispatch<SetStateAction<string>>;
   setCurrentTerm: Dispatch<SetStateAction<string[]>>;
+  setShows: Dispatch<SetStateAction<show[]>>;
 }
 
 const FavoriteShow = ({
@@ -34,10 +35,15 @@ const FavoriteShow = ({
   setScheduleName,
   setLocation,
   setCurrentTerm,
+  setShows,
 }: favoriteShow) => {
   const navigate = useNavigate();
 
   const remainDay = calculateRemainDay(endDate);
+
+  const favoriteCancelFn = () => {
+    setShows((prev) => prev.filter((show) => show.id !== id));
+  };
 
   return (
     <div className="relative">
@@ -55,7 +61,7 @@ const FavoriteShow = ({
         />
         <ShowInfo title={title} startDate={startDate} endDate={endDate} />
       </button>
-      <FavoriteBtn isLike={isLike} id={id} />
+      <FavoriteBtn isLike={isLike} id={id} fn={favoriteCancelFn} />
       {remainDay < 0 ? null : (
         <AddScheduleBtn
           setCalendars={setCalendars}
