@@ -15,6 +15,10 @@ interface popularShow {
   title: string;
   imageUrl: string;
   rankShift: string;
+  startDate: string;
+  endDate: string;
+  place: string;
+  area: string;
 }
 
 interface favoriteShow {
