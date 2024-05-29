@@ -1,6 +1,5 @@
 import LocationFilter from './LocationFilter';
 import PriorityFilter from './PriorityFilter';
-import ShowTypeFilter from './ShowTypeFilter';
 
 interface filterList {
   location: string;
@@ -24,11 +23,11 @@ const FilterList = ({
         isModalOpen={isModalOpen}
         setIsModalOpen={setIsModalOpen}
       />
-      <ShowTypeFilter
+      {/* <ShowTypeFilter
         showType={showType}
         isModalOpen={isModalOpen}
         setIsModalOpen={setIsModalOpen}
-      />
+      /> */}
       <PriorityFilter
         priority={priority}
         isModalOpen={isModalOpen}

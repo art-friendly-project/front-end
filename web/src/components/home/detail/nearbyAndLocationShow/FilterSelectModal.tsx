@@ -8,6 +8,8 @@ interface filterSelectModal {
   selects: string[][];
   setState: React.Dispatch<React.SetStateAction<string>>;
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean[]>>;
+  setShows: React.Dispatch<React.SetStateAction<show[]>>;
+  setPage: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const FilterSelectModal = ({
@@ -16,6 +18,8 @@ const FilterSelectModal = ({
   selects,
   setState,
   setIsModalOpen,
+  setShows,
+  setPage,
 }: filterSelectModal) => {
   return (
     <>
@@ -32,6 +36,8 @@ const FilterSelectModal = ({
           selects={selects}
           setState={setState}
           setIsModalOpen={setIsModalOpen}
+          setShows={setShows}
+          setPage={setPage}
         />
       </div>
     </>

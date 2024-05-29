@@ -2,15 +2,16 @@ import FilterList from 'components/home/detail/nearbyAndLocationShow/FilterList'
 import FilterSelectModal from 'components/home/detail/nearbyAndLocationShow/FilterSelectModal';
 import ShowList from '../components/home/detail/nearbyAndLocationShow/ShowList';
 import { useAppDispatch, useAppSelector } from 'hooks';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { selectLocation } from 'store/modules/location';
 import DurationList from 'components/list/DurationList';
 import selectModalInfos from 'assets/data/selectModalInfos';
 import api from 'api';
 
 const List = () => {
-  const [shows, setShows] = useState<show[]>([]);
+  const listRef = useRef<HTMLDivElement>(null);
 
+  const [shows, setShows] = useState<show[]>([]);
   const [page, setPage] = useState(0);
 
   const [isModalOpen, setIsModalOpen] = useState([false, false, false]);
@@ -28,6 +29,18 @@ const List = () => {
   const fetchShows = async () => {
     try {
       const result: fetchShow = await api.get(
+        `/exhibitions/lists?area=${location}&progressStatus=${duration}&sortType=${priority}&page=${0}`,
+      );
+      if (listRef.current !== null) listRef.current.scrollTop = 0;
+      setShows(result.data.data.content);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const fetchShowsPage = async () => {
+    try {
+      const result: fetchShow = await api.get(
         `/exhibitions/lists?area=${location}&progressStatus=${duration}&sortType=${priority}&page=${page}`,
       );
       setShows((prev) => [...prev, ...result.data.data.content]);
@@ -38,10 +51,17 @@ const List = () => {
 
   useEffect(() => {
     void fetchShows();
-  }, [location, duration, priority, page]);
+  }, [location, duration, priority]);
+
+  useEffect(() => {
+    if (page > 0) void fetchShowsPage();
+  }, [page]);
 
   return (
-    <div className="flex flex-col w-full h-full">
+    <div
+      className="flex flex-col w-full h-full overflow-y-scroll scrollbar-hide"
+      ref={listRef}
+    >
       {isModalOpen.includes(true) ? (
         <FilterSelectModal
           title1={selectModalInfos[openModalIndex].title1}
@@ -49,6 +69,8 @@ const List = () => {
           selects={selectModalInfos[openModalIndex].selects}
           setState={setState[openModalIndex]}
           setIsModalOpen={setIsModalOpen}
+          setShows={setShows}
+          setPage={setPage}
         />
       ) : null}
       <DurationList duration={duration} setDuration={setDuration} />
