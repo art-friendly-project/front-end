@@ -42,10 +42,9 @@ const PosterSwiper = () => {
         delay: 3000,
         disableOnInteraction: false,
       }}
-      loop={true}
     >
       {shows
-        .filter((_, i) => i <= 5 && i >= 3)
+        .filter((_, i) => i >= 3 && i <= 5)
         .map((show) => (
           <SwiperSlide key={show.exhibitionId}>
             <GradientBackground />
