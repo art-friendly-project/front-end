@@ -28,8 +28,8 @@ const PosterInfo = ({
       <span className="text-Body2-M">
         {startDate} ~ {endDate}
       </span>
-      <span className="truncate w-9/10 text-Display2">{title}</span>
-      <span className="mt-2 text-Subhead">{`${place} / ${location}`}</span>
+      <span className="truncate w-9/10 text-Display2 text-start">{title}</span>
+      <span className="mb-2 text-Subhead">{`${place} / ${location}`}</span>
     </button>
   );
 };
