@@ -16,6 +16,7 @@ const ShowDetail = () => {
     temperature: 0,
     checkTemperature: '',
     isLike: false,
+    hasDambyeolagWritten: false,
     exhibitionInfoRspDto: {
       id: 0,
       title: '',
@@ -84,7 +85,10 @@ const ShowDetail = () => {
           isModal={isModal}
           setIsModal={setIsModal}
         />
-        <ReviewSection id={showDetail.id} />
+        <ReviewSection
+          id={showDetail.id}
+          hasDambyeolagWritten={showDetail.hasDambyeolagWritten}
+        />
       </div>
     </>
   );
