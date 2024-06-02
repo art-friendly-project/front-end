@@ -37,7 +37,7 @@ $ npm start
 
 # 개발 로그
 <details>
-  <summary><b>[ 2024. 5. 3. ] UI, 기능 구현 (1차)</b></summary>
+  <summary><b>[ 2024. 05. 03. ] UI, 기능 구현 (1차)</b></summary>
   &nbsp;&nbsp; - &nbsp;로그인, 서비스 이용 약관, 접근 권한, 메인, 전시 목록, 관심 목록, 프로필 등 UI 구현
   <br />&nbsp;&nbsp; - &nbsp;모바일 하드웨어 뒤로가기 Webview에 적용
   <br />&nbsp;&nbsp; - &nbsp;메인 배너, 리뷰 슬라이드 기능 (Swiper 라이브러리 사용)
@@ -45,20 +45,26 @@ $ npm start
   <br />&nbsp;&nbsp; - &nbsp;안드로이드 달력 연동한 전시 일정 추가 기능 (react-native-calendar-events 라이브러리 사용)
 </details>
 <details>
-  <summary><b>[ 2024. 5. 3. ] UI, 기능 구현 (2차)</b></summary>
+  <summary><b>[ 2024. 05. 03. ] UI, 기능 구현 (2차)</b></summary>
   &nbsp;&nbsp; - &nbsp;Lazy loading 기능 구현
   <br />&nbsp;&nbsp; - &nbsp;캘린더 선택 UI 변경
   <br />&nbsp;&nbsp; - &nbsp;프로필 수정 페이지 UI 구현
 </details>
 <details>
-  <summary><b>[ 2024. 5. 17. ] UI, 기능 구현 (3차)</b></summary>
+  <summary><b>[ 2024. 05. 17. ] UI, 기능 구현 (3차)</b></summary>
   &nbsp;&nbsp; - &nbsp;담벼락, 캘린더 일정 추가 UI 변경
   <br />&nbsp;&nbsp; - &nbsp;IOS 화면에 맞게 UI 수정
   <br />&nbsp;&nbsp; - &nbsp;IOS 권한 설정 추가(위치, 캘린더 등)
 </details>
 <details>
-  <summary><b>[ 2024. 5. 27. ] UI, 기능 구현 (4차)</b></summary>
+  <summary><b>[ 2024. 05. 27. ] UI, 기능 구현 (4차)</b></summary>
   &nbsp;&nbsp; - &nbsp;카카오 로그인 기능 구현
   <br />&nbsp;&nbsp; - &nbsp;전시목록, 담벼락, 프로필 등 데이터 조회 기능 구현
   <br />&nbsp;&nbsp; - &nbsp;담벼락 작성, 프로필 수정, mbti 검사 등 등록 및 수정 기능 구현
+</details>
+<details>
+  <summary><b>[ 2024. 06. 03. ] UI, 기능 구현 (5차)</b></summary>
+  &nbsp;&nbsp; - &nbsp;UI 일부 수정 및 삭제
+  <br />&nbsp;&nbsp; - &nbsp;fetching, UI 오류 해결
+  <br />&nbsp;&nbsp; - &nbsp;자동로그인, accessToken 재발급 기능 구현
 </details>
