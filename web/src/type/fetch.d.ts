@@ -103,6 +103,7 @@ interface fetchShowDetail {
       temperature: number;
       checkTemperature: null | string;
       isLike: false;
+      hasDambyeolagWritten: boolean;
       exhibitionInfoRspDto: {
         id: 3;
         title: string;

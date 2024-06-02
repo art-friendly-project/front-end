@@ -36,6 +36,7 @@ interface showDetail {
   temperature: number;
   checkTemperature: null | string;
   isLike: boolean;
+  hasDambyeolagWritten: boolean;
   exhibitionInfoRspDto: {
     id: number;
     title: string;
