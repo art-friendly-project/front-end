@@ -47,19 +47,18 @@ const MemoPadSticker = ({
     },
   );
 
+  const btnHandler = () => {
+    setIsCommentModal((prev) => !prev);
+    setStickerComments(comments);
+  };
+
   const sticker = stickerImgs[stickerType];
 
   return (
     <button
       className={`relative mr-2 duration-500 shrink-0 ${stickerUserId === userId ? 'active:scale-110' : ''} ${selectStickerIdx === idx ? 'z-30' : ''}`}
       {...onPressHandler()}
-      onMouseEnter={() => {
-        setIsCommentModal(true);
-        setStickerComments(comments);
-      }}
-      onMouseLeave={() => {
-        setIsCommentModal(false);
-      }}
+      onClick={btnHandler}
     >
       {stickerUserId === userId ? (
         <img

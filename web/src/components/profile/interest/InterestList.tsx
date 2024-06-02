@@ -6,7 +6,7 @@ interface interestList {
 
 const InterestList = ({ artPreferenceTypeList }: interestList) => {
   return (
-    <div className="flex mt-4">
+    <div className="flex w-full mt-4 overflow-x-scroll scrollbar-hide">
       {artPreferenceTypeList.map((interest) => (
         <Interest key={interest} interest={interest} />
       ))}

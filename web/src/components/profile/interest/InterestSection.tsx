@@ -8,7 +8,7 @@ interface interestSection {
 
 const InterestSection = ({ artPreferenceTypeList }: interestSection) => {
   return (
-    <div className="relative shrink-0 flex flex-col pl-[5%] mt-8 w-full overflow-x-scroll scrollbar-hide">
+    <div className="relative shrink-0 flex flex-col pl-[5%] mt-8 w-full">
       <InterestSectionTitle />
       <ResetBtn />
       <InterestList artPreferenceTypeList={artPreferenceTypeList} />

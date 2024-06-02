@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const TermsOfUse = () => {
-  const [isChecks, setIsChecks] = useState([false, false, false]);
+  const [isChecks, setIsChecks] = useState([false, false]);
 
   const navigate = useNavigate();
 

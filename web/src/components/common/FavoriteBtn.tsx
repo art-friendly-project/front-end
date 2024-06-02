@@ -6,9 +6,10 @@ import api from 'api';
 interface favoriteBtn {
   isLike: boolean;
   id: number;
+  fn?: () => void;
 }
 
-const FavoriteBtn = ({ isLike, id }: favoriteBtn) => {
+const FavoriteBtn = ({ isLike, id, fn }: favoriteBtn) => {
   const [isFavorite, setIsFavorite] = useState(false);
   const toastHandler = useToastHandler(
     isFavorite,
@@ -28,6 +29,7 @@ const FavoriteBtn = ({ isLike, id }: favoriteBtn) => {
 
       if (isFavorite) {
         await api.delete(`/exhibitions/likes?exhibitionId=${id}`);
+        if (fn !== undefined) fn();
       }
       setIsFavorite((prev) => !prev);
     } catch (err) {

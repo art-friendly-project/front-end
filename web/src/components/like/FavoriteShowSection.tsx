@@ -95,6 +95,7 @@ const FavoriteShowSection = ({
             setScheduleName={setScheduleName}
             setLocation={setLocation}
             setCurrentTerm={setCurrentTerm}
+            setShows={setShows}
           />
         ))
       )}

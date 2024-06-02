@@ -19,9 +19,7 @@ const EditorDeleteModal = ({ setIsEditorDeleteModal }: editorDeleteModal) => {
       <div className="absolute bottom-0 z-40 flex flex-col w-full pt-8 bg-white h-52 rounded-t-xl animate-move-top-regular">
         <EditorDeleteModalTitle />
         <CloseBtn setIsEditorDeleteModal={setIsEditorDeleteModal} />
-        <EditorDeleteModalBtnContainer
-          setIsEditorDeleteModal={setIsEditorDeleteModal}
-        />
+        <EditorDeleteModalBtnContainer />
       </div>
     </>
   );

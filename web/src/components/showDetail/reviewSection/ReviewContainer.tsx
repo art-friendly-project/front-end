@@ -7,12 +7,18 @@ interface reviewList {
   id: number;
   reviews: review[];
   setPage: Dispatch<SetStateAction<number>>;
+  hasDambyeolagWritten: boolean;
 }
 
-const ReviewContainer = ({ id, reviews, setPage }: reviewList) => {
+const ReviewContainer = ({
+  id,
+  reviews,
+  setPage,
+  hasDambyeolagWritten,
+}: reviewList) => {
   return (
     <>
-      <ReviewPostBtn id={id} />
+      <ReviewPostBtn id={id} hasDambyeolagWritten={hasDambyeolagWritten} />
       <ReviewSectionTitle />
       <ReviewSwiper reviews={reviews} setPage={setPage} />
     </>

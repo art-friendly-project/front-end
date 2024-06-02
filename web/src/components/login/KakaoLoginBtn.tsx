@@ -1,13 +1,12 @@
 import { useNavigate } from 'react-router-dom';
 import kakaoLogo from 'assets/images/etc/kakaoLogo.svg';
-import isApp from 'utils/isApp';
 
 const KakaoLoginBtn = () => {
   const navigate = useNavigate();
-
+  const userId = localStorage.getItem('myId');
   const loginBtnHandler = () => {
-    if (isApp()) {
-      navigate('/terms-of-use');
+    if (userId !== null) {
+      navigate('/home');
       return;
     }
 

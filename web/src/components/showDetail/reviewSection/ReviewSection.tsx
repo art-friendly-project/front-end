@@ -5,9 +5,10 @@ import api from 'api';
 
 interface reviewSection {
   id: number;
+  hasDambyeolagWritten: boolean;
 }
 
-const ReviewSection = ({ id }: reviewSection) => {
+const ReviewSection = ({ id, hasDambyeolagWritten }: reviewSection) => {
   const [reviews, setReviews] = useState<review[]>([]);
   const [page, setPage] = useState(0);
 
@@ -31,7 +32,12 @@ const ReviewSection = ({ id }: reviewSection) => {
       {reviews.length === 0 ? (
         <NoReview id={id} />
       ) : (
-        <ReviewContainer id={id} reviews={reviews} setPage={setPage} />
+        <ReviewContainer
+          id={id}
+          reviews={reviews}
+          setPage={setPage}
+          hasDambyeolagWritten={hasDambyeolagWritten}
+        />
       )}
     </div>
   );

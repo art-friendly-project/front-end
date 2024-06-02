@@ -27,9 +27,7 @@ const Home = () => {
   const myId = localStorage.getItem('myId');
 
   useEffect(() => {
-    if (myId === null) {
-      void fetchUserId();
-    }
+    void fetchUserId();
   }, [myId]);
 
   return (

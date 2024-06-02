@@ -8,21 +8,28 @@ import 'style/swiper.css';
 import GradientBackground from './GradientBackground';
 import PosterImg from 'components/common/PosterImg';
 import PosterInfo from './PosterInfo';
+import { useEffect, useState } from 'react';
+import api from 'api';
 
-interface posterSwiper {
-  posters: poster[];
-}
+const PosterSwiper = () => {
+  const [shows, setShows] = useState<popularShow[]>([]);
 
-export interface poster {
-  id: number;
-  term: string;
-  name: string;
-  place: string;
-  location: string;
-  image: string;
-}
+  const fetchShows = async () => {
+    try {
+      const result: fetchPopularShow = await api.get(
+        '/exhibitions//lists/popular',
+      );
 
-const PosterSwiper = ({ posters }: posterSwiper) => {
+      setShows(result.data.data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  useEffect(() => {
+    void fetchShows();
+  }, []);
+
   return (
     <Swiper
       className="bannerSwiper"
@@ -35,26 +42,28 @@ const PosterSwiper = ({ posters }: posterSwiper) => {
         delay: 3000,
         disableOnInteraction: false,
       }}
-      loop={true}
     >
-      {posters.map((poster) => (
-        <SwiperSlide key={poster.id}>
-          <GradientBackground />
-          <PosterImg
-            width="w-full"
-            height="h-80"
-            bgColor="bg-white"
-            image={poster.image}
-          />
-          <PosterInfo
-            id={poster.id}
-            term={poster.term}
-            name={poster.name}
-            place={poster.place}
-            location={poster.location}
-          />
-        </SwiperSlide>
-      ))}
+      {shows
+        .filter((_, i) => i >= 3 && i <= 5)
+        .map((show) => (
+          <SwiperSlide key={show.exhibitionId}>
+            <GradientBackground />
+            <PosterImg
+              width="w-full"
+              height="h-80"
+              bgColor="bg-white"
+              image={show.imageUrl}
+            />
+            <PosterInfo
+              id={show.exhibitionId}
+              startDate={show.startDate}
+              endDate={show.endDate}
+              title={show.title}
+              place={show.place}
+              location={show.area}
+            />
+          </SwiperSlide>
+        ))}
     </Swiper>
   );
 };

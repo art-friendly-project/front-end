@@ -22,7 +22,7 @@ const tastes = [
   { id: 2, name: '공예', image: craft },
   { id: 3, name: '그래픽', image: graphic },
   { id: 4, name: '디자인', image: design },
-  { id: 5, name: '만화', image: cartoon },
+  { id: 5, name: '만화/웹툰', image: cartoon },
   { id: 6, name: '무용', image: dance },
   { id: 7, name: '문예', image: literature },
   { id: 8, name: '뮤지컬', image: musical },

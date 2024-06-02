@@ -2,17 +2,23 @@ import { IoIosClose } from 'react-icons/io';
 import { useAppDispatch, useAppSelector } from 'hooks';
 import { isModalActions } from 'store/modules/isModal';
 import { selectIsReviewText } from 'store/modules/isReviewText';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const CloseBtn = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
+  const pathname = useLocation().pathname;
 
   const isReviewText = useAppSelector(selectIsReviewText);
 
   const btnHandler = () => {
     if (isReviewText) {
       dispatch(isModalActions.setIsModal(true));
+      return;
+    }
+
+    if (pathname === '/home/taste-test/result') {
+      navigate('/home');
       return;
     }
 

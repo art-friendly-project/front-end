@@ -2,8 +2,6 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
 import useAccessPermissions from 'hooks/useAccessPermissions';
 import LoadingSpineer from 'components/common/LoadingSpineer';
-import WithdrawalConfirm from 'pages/WithdrawalConfirm';
-import AppIntroduce from 'pages/AppIntroduce';
 
 const NearbyAndLocationShow = lazy(
   async () => await import('pages/NearbyAndLocationShow'),
@@ -36,6 +34,10 @@ const KakaoLogin = lazy(async () => await import('pages/KakaoLogin'));
 const WithdrawalReason = lazy(
   async () => await import('pages/WithdrawalReason'),
 );
+const WithdrawalConfirm = lazy(
+  async () => await import('pages/WithdrawalConfirm'),
+);
+const AppIntroduce = lazy(async () => await import('pages/AppIntroduce'));
 
 const App = () => {
   useAccessPermissions();
