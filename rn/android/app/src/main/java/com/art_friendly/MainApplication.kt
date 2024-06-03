@@ -1,4 +1,4 @@
-package com.front
+package com.art_friendly
 
 import android.app.Application
 import com.facebook.react.PackageList
