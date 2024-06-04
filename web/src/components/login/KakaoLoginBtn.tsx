@@ -3,13 +3,8 @@ import kakaoLogo from 'assets/images/etc/kakaoLogo.svg';
 
 const KakaoLoginBtn = () => {
   const navigate = useNavigate();
-  const userId = localStorage.getItem('myId');
-  const loginBtnHandler = () => {
-    if (userId !== null) {
-      navigate('/home');
-      return;
-    }
 
+  const loginBtnHandler = () => {
     window.location.href =
       'https://artfriendly.duckdns.org/oauth2/authorization/kakao';
 

@@ -4,9 +4,18 @@ import IntroSwiper from 'components/appIntroduce/IntroSwiper';
 
 const AppIntroduce = () => {
   const navigate = useNavigate();
+
+  const userId = localStorage.getItem('myId');
+
   const btnHandler = () => {
+    if (userId !== null) {
+      navigate('/home');
+      return;
+    }
+
     navigate('/kakao-login');
   };
+
   return (
     <div className="flex flex-col items-center w-full h-full overflow-y-scroll scrollbar-hide">
       <IntroSwiper />
