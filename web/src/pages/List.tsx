@@ -33,6 +33,7 @@ const List = () => {
       );
       if (listRef.current !== null) listRef.current.scrollTop = 0;
       setShows(result.data.data.content);
+      setPage(0);
     } catch (err) {
       console.error(err);
     }
