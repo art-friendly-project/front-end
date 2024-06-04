@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
 import useAccessPermissions from 'hooks/useAccessPermissions';
 import LoadingSpineer from 'components/common/LoadingSpineer';
+import ReviewEdit from 'pages/ReviewEdit';
 
 const NearbyAndLocationShow = lazy(
   async () => await import('pages/NearbyAndLocationShow'),
@@ -85,6 +86,7 @@ const App = () => {
                 <Route path="/prepare-service" element={<PrepareService />} />
                 <Route path="/reviews/:id" element={<Reviews />} />
                 <Route path="/review-post" element={<ReviewPost />} />
+                <Route path="/review-edit/:id" element={<ReviewEdit />} />
                 <Route path="/profile-edit" element={<ProfileEdit />} />
                 <Route path="/settings" element={<Settings />} />
                 <Route
