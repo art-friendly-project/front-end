@@ -1,8 +1,7 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useRef} from 'react';
 import {WebView, WebViewMessageEvent} from 'react-native-webview';
 import useBackBtnHandler from '../../hooks/useBackBtnHandler';
 import accessPermissions from '../../utils/accessPermissions';
-import findGeolocation from '../../utils/findGeolocation';
 import accessPermissionTry from '../../utils/accessPermissionTry';
 import useAccessPermissions from '../../hooks/useAccessPermissions';
 import requestCalendars from '../../utils/requestCalendars';
@@ -16,7 +15,7 @@ interface navType {
 }
 
 const WebViewcontainer = () => {
-  const [geolocation, setGeolocation] = useState({latitude: 0, longitude: 0});
+  // const [geolocation, setGeolocation] = useState({latitude: 0, longitude: 0});
 
   const platform = Platform.OS === 'android' ? 'android' : 'ios';
   const injectedJS = `window.platform = '${platform}'; true;`;
@@ -26,9 +25,9 @@ const WebViewcontainer = () => {
 
   useAccessPermissions(webViewRef);
 
-  useEffect(() => {
-    webViewRef.current?.postMessage(JSON.stringify({geolocation}));
-  }, [geolocation]);
+  // useEffect(() => {
+  //   webViewRef.current?.postMessage(JSON.stringify({geolocation}));
+  // }, [geolocation]);
 
   return (
     <WebView
