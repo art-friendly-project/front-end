@@ -156,8 +156,8 @@ interface fetchReviewDetail {
           dambyeolagId: number;
         },
       ];
-      isBookmark: false;
-      isSticker: true;
+      isBookmark: boolean;
+      isSticker: boolean;
     };
   };
 }
