@@ -10,6 +10,7 @@ const DetailHeaderTitle = () => {
     if (pathname === '/home/taste-test/result') return '테스트 결과';
     if (pathname.includes('reviews')) return '담벼락';
     if (pathname.includes('review-post')) return '담벼락 남기기';
+    if (pathname.includes('review-edit')) return '담벼락 수정하기';
     if (pathname === '/settings') return '설정';
     if (pathname === '/profile-edit') return '프로필 수정';
     if (pathname.includes('withdrawal')) return '회원 탈퇴';
