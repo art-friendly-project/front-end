@@ -15,7 +15,7 @@ const useAccessPermissions = () => {
       const accessPermissions = (e: MessageEvent<string>) => {
         const data: {
           permissions: {
-            location: string;
+            // location: string;
             calendar: string;
             images: string;
             notifications: string;
