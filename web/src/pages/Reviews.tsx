@@ -23,6 +23,7 @@ const Reviews = () => {
       nickName: '',
     },
     isBookmark: false,
+    isSticker: false,
     stickerRspDtos: [],
   });
 
@@ -35,6 +36,7 @@ const Reviews = () => {
     try {
       await api.delete(`/stickers?stickerId=${selectStickerId}`);
       setReview((prev) => {
+        prev.isSticker = false;
         prev.stickerRspDtos = prev.stickerRspDtos.filter(
           (sticker) => sticker.id !== selectStickerId,
         );
@@ -84,6 +86,7 @@ const Reviews = () => {
           setIsModal={setIsModal}
           id={id}
           isBookmark={review.isBookmark}
+          isSticker={review.isSticker}
         />
         {isModal ? (
           <StickerModal setIsModal={setIsModal} setReview={setReview} id={id} />

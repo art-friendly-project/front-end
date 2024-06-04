@@ -7,9 +7,15 @@ interface btnContainer {
   setIsModal: Dispatch<SetStateAction<boolean>>;
   id: number;
   isBookmark: boolean;
+  isSticker: boolean;
 }
 
-const BtnContainer = ({ setIsModal, id, isBookmark }: btnContainer) => {
+const BtnContainer = ({
+  setIsModal,
+  id,
+  isBookmark,
+  isSticker,
+}: btnContainer) => {
   const [isBookmarkChecked, setIsBookmarkChecked] = useState(false);
 
   useEffect(() => {
@@ -18,7 +24,7 @@ const BtnContainer = ({ setIsModal, id, isBookmark }: btnContainer) => {
 
   return (
     <div className="absolute bottom-[5%] flex mt-16 w-9/10">
-      <StickerBtn setIsModal={setIsModal} />
+      {isSticker ? null : <StickerBtn setIsModal={setIsModal} />}
       <BookmarkBtn
         isBookmarkChecked={isBookmarkChecked}
         setIsBookmarkChecked={setIsBookmarkChecked}
