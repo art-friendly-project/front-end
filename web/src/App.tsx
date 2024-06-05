@@ -74,13 +74,10 @@ const App = () => {
               </Route>
 
               <Route element={<DetailLayoutWithoutNav />}>
-                <Route path="/home/taste-test" element={<TasteTestMain />} />
+                <Route path="/taste-test" element={<TasteTestMain />} />
+                <Route path="/taste-test/questions" element={<TasteTest />} />
                 <Route
-                  path="/home/taste-test/questions"
-                  element={<TasteTest />}
-                />
-                <Route
-                  path="/home/taste-test/result"
+                  path="/taste-test/result"
                   element={<TasteTestResult />}
                 />
                 <Route path="/prepare-service" element={<PrepareService />} />
