@@ -1,20 +1,76 @@
 {
   "rewrites": [
     {
-      "source": "/oauth/(.*)",
-      "destination": "https://artfriendly.duckdns.org/oauth/$1"
+      "source": "/oauth/token",
+      "destination": "https://artfriendly.duckdns.org/oauth/token"
     },
     {
-      "source": "/members/(.*)",
-      "destination": "https://artfriendly.duckdns.org/members/$1"
+      "source": "/oauth/token/renew",
+      "destination": "https://artfriendly.duckdns.org/oauth/token/renew"
     },
     {
-      "source": "/exhibitions/(.*)",
-      "destination": "https://artfriendly.duckdns.org/exhibitions/$1"
+      "source": "/members",
+      "destination": "https://artfriendly.duckdns.org/members"
     },
     {
-      "source": "/dambyeolags/(.*)",
-      "destination": "https://artfriendly.duckdns.org/dambyeolags/$1"
+      "source": "/members/profiles",
+      "destination": "https://artfriendly.duckdns.org/members/profiles"
+    },
+    {
+      "source": "/members/images",
+      "destination": "https://artfriendly.duckdns.org/members/images"
+    },
+    {
+      "source": "/members/withdrawal",
+      "destination": "https://artfriendly.duckdns.org/members/withdrawal"
+    },
+    {
+      "source": "/exhibitions",
+      "destination": "https://artfriendly.duckdns.org/exhibitions"
+    },
+    {
+      "source": "/exhibitions/lists",
+      "destination": "https://artfriendly.duckdns.org/exhibitions/lists"
+    },
+    {
+      "source": "/exhibitions/lists/interest",
+      "destination": "https://artfriendly.duckdns.org/exhibitions/lists/interest"
+    },
+    {
+      "source": "/exhibitions/lists/end",
+      "destination": "https://artfriendly.duckdns.org/exhibitions/lists/end"
+    },
+    {
+      "source": "/exhibitions/lists/popular",
+      "destination": "https://artfriendly.duckdns.org/exhibitions/lists/popular"
+    },
+    {
+      "source": "/exhibitions/likes",
+      "destination": "https://artfriendly.duckdns.org/exhibitions/likes"
+    },
+    {
+      "source": "/exhibitions/hopes",
+      "destination": "https://artfriendly.duckdns.org/exhibitions/hopes"
+    },
+    {
+      "source": "/dambyeolags",
+      "destination": "https://artfriendly.duckdns.org/dambyeolags"
+    },
+    {
+      "source": "/dambyeolags/lists",
+      "destination": "https://artfriendly.duckdns.org/dambyeolags/lists"
+    },
+    {
+      "source": "/dambyeolags/lists/by-member",
+      "destination": "https://artfriendly.duckdns.org/dambyeolags/lists/by-member"
+    },
+    {
+      "source": "/dambyeolags/lists/bookmarks",
+      "destination": "https://artfriendly.duckdns.org/dambyeolags/lists/bookmarks"
+    },
+    {
+      "source": "/dambyeolags/bookmarks",
+      "destination": "https://artfriendly.duckdns.org/dambyeolags/bookmarks"
     },
     {
       "source": "/stickers",
