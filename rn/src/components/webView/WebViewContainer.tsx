@@ -8,6 +8,7 @@ import requestCalendars from '../../utils/requestCalendars';
 import addSchedule from '../../utils/addSchedule';
 import accessPermissionsCheck from '../../utils/accessPermissionsCheck';
 import {Platform} from 'react-native';
+import deleteAccount from '../../utils/deleteAccount';
 
 interface navType {
   url: string;
@@ -48,6 +49,7 @@ const WebViewcontainer = () => {
         accessPermissionTry(e);
         requestCalendars(e, webViewRef);
         addSchedule(e, webViewRef);
+        deleteAccount(e);
       }}
     />
   );
