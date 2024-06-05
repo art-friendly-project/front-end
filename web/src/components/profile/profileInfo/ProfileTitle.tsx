@@ -26,7 +26,7 @@ const ProfileTitle = ({
         <span className="text-Headline text-gray-110">{nickName}</span>
         {mbti !== null ? (
           <div className="flex items-center">
-            <div className="w-3 h-3 mt-0.5 mr-1 rounded-full bg-purple-90" />
+            <div className="w-3 h-3 mr-1 rounded-full bg-purple-90" />
             <span className="text-Body2-M text-gray-110">{mbti.title}</span>
           </div>
         ) : (
