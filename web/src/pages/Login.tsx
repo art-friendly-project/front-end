@@ -11,7 +11,6 @@ const Login = () => {
 
   const fetchLogin = async () => {
     try {
-      console.log('fetching wait...');
       const response: fetchAuth = await api.get(`/oauth/token?code=${code}`);
 
       localStorage.setItem('accessToken', response.data.data.accessToken);
