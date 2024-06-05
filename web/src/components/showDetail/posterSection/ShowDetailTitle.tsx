@@ -15,9 +15,9 @@ const ShowDetailTitle = ({
 }: showDetailTitle) => {
   const remainDay = calculateRemainDay(endDate);
   return (
-    <div className="absolute z-20 flex flex-col text-white w-9/10 top-32 left-6">
+    <div className="absolute z-20 flex flex-col w-4/5 text-white top-32 left-6">
       <span className="text-Body3">{realmName}</span>
-      <span className="flex items-center w-4/5 h-16 leading-tight text-Headline">
+      <span className="flex items-center w-full h-16 leading-tight line-clamp-2 text-Headline">
         {title}
       </span>
       <div className="flex">
