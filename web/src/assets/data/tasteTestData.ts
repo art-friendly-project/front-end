@@ -35,89 +35,6 @@ export const mbtiIdList = [
   'ENTJ',
 ];
 
-export const tasteTestQuestions = [
-  {
-    id: 1,
-    question: '친구가 함께 전시를 보자고 한다.',
-    answer1: '와, 좋아! 함께 보러 갈래. 전시 보고\n저녁도 같이 먹자!',
-    answer2:
-      '음, 오늘은 혼자 보고 싶어.전시를 혼자\n느낄 땐 또 다른 매력이 있거든.',
-  },
-  {
-    id: 2,
-    question:
-      '어떤 전시를 갈까 찾아보던 중,\nSNS에 새로운 작가의 전시가 계속 보인다.',
-    answer1: '와! 새로운 작가라면\n바로 예약하고 가야지.',
-    answer2:
-      '음, 일단 티켓 예매는 보류하고,\n작가에 대해 더 알아보고 결정할래.',
-  },
-  {
-    id: 3,
-    question: '전시 갈 곳의 정보를 알아보려고 한다.',
-    answer1: '즉흥적으로 돌아다니면서 찾아보자!\n그게 더 재미있지 않을까?',
-    answer2:
-      '어떤 전시인지 찾아보고 가자. 그래야\n내용을 놓치지 않고 볼 수 있으니까.',
-  },
-  {
-    id: 4,
-    question: '지하철에서 내려 전시장까지 걸어가는 길이다.',
-    answer1: '혼자 넘어지는 상상을 하며, 피식 웃는다.',
-    answer2: '경로를 이탈하지 않기 위해,\n가는 길에만 집중한다.',
-  },
-  {
-    id: 5,
-    question: '전시장에 도착했는데,\n인기 전시라 사람들이 많다.',
-    answer1: '와, 여기 북적북적하네!\n사람들의 에너지가 더해져서 진짜 좋아!',
-    answer2:
-      '한적하고 조용한 분위기를 원했는데..\n조용히 감상하면서 힐링하고 싶어.',
-  },
-  {
-    id: 6,
-    question: '전시장 입구에 들어왔다.\n작품 감상은 어떻게 할까?',
-    answer1: '그냥 마음이 이끄는 대로 둘러보고\n감상해야지.',
-    answer2:
-      '본격적인 감상 전에 어떤 작품을 먼저\n볼지 계획을 세워서 순서대로 봐야겠어.',
-  },
-  {
-    id: 7,
-    question: '한 인물이 피아노를 치고 있는\n한 작품 앞에 섰다.',
-    answer1:
-      '왜 피아노를 치고 있을까? 슬픈 감정을\n음악으로 승화하려 하는 건가?',
-    answer2:
-      '이 작품은 정말 사실적이고 흥미로워.\n어떤 기법으로 그림을 그렸을까?',
-  },
-  {
-    id: 8,
-    question: '매우 압도적인 거대한 작품 앞에 섰다.',
-    answer1: '와, 너무 압도적이다.\n저걸 사람이 만들었다고?',
-    answer2: '이렇게 큰 작품으로 작가가\n전하고자 하는 메시지가 뭘까?',
-  },
-  {
-    id: 9,
-    question: '전시 관람 후, 사색에 빠진다.',
-    answer1: '내 감정과 영감을 풍부하게\n할 수 있어서 좋았어',
-    answer2: '그 작품에는 왜 이런 재료와\n기법을 썼을까?',
-  },
-  {
-    id: 10,
-    question: '전시를 다 보니 배가 고파서\n식당으로 자리를 옮기기로 한다.',
-    answer1: '바로 나가서 발이 이끄는 대로 가볼까?',
-    answer2: '식당을 알아보고 나가야겠다.\n브레이크타임일 수도 있어.',
-  },
-  {
-    id: 11,
-    question: '집에 돌아온 후, 전시 기록을 한다.',
-    answer1: '감상하면서 떠오른 내 생각과\n감동 위주로 적어야지',
-    answer2: '가장 인상깊었던 작품과\n설명 위주로 적어야지',
-  },
-  {
-    id: 12,
-    question: '침대에 누워 하루를 되새겨본다.',
-    answer1: '오늘 있었던 일들 관련된 상상으로\n잠에 들지 못한다.',
-    answer2: '너무 피곤한 나머지, 잠에 바로 든다.',
-  },
-];
-
 export const tasteTestType = [
   {
     id: 1,
@@ -298,6 +215,7 @@ export const tasteTestType = [
 ];
 
 interface MbtiType {
+  id: number;
   title1: string;
   title2: string;
   explain: string;
@@ -308,6 +226,7 @@ interface MbtiType {
 
 export const mbtiType: Record<string, MbtiType> = {
   ISTJ: {
+    id: 1,
     title1: '감각적인 시선의 소유자',
     title2: '클로드 모네형',
     explain:
@@ -317,6 +236,7 @@ export const mbtiType: Record<string, MbtiType> = {
     image: ISTJ,
   },
   ISFJ: {
+    id: 2,
     title1: '감정에 이입하는 순정파',
     title2: '빈센트 반 고흐형',
     explain:
@@ -326,6 +246,7 @@ export const mbtiType: Record<string, MbtiType> = {
     image: ISFJ,
   },
   INFJ: {
+    id: 3,
     title1: '상징에 빠진 사색가',
     title2: '레오나르도 다빈치형',
     explain:
@@ -335,6 +256,7 @@ export const mbtiType: Record<string, MbtiType> = {
     image: INFJ,
   },
   INTJ: {
+    id: 4,
     title1: '변화를 분석하는 혁신가',
     title2: '파블로 피카소형',
     explain:
@@ -344,6 +266,7 @@ export const mbtiType: Record<string, MbtiType> = {
     image: INTJ,
   },
   ISTP: {
+    id: 5,
     title1: '기술, 재료에 집중하는 분석가',
     title2: '미켈란젤로형',
     explain:
@@ -353,6 +276,7 @@ export const mbtiType: Record<string, MbtiType> = {
     image: ISTP,
   },
   ISFP: {
+    id: 6,
     title1: '정서적 표현에 공감하는 감성파',
     title2: '프리다칼로형',
     explain:
@@ -362,6 +286,7 @@ export const mbtiType: Record<string, MbtiType> = {
     image: ISFP,
   },
   INFP: {
+    id: 7,
     title1: '작품과 한 몸이 되는 물아일체형',
     title2: '조지아 오키프형',
     explain:
@@ -371,6 +296,7 @@ export const mbtiType: Record<string, MbtiType> = {
     image: INFP,
   },
   INTP: {
+    id: 8,
     title1: '논리를 분석하는 철학가',
     title2: '살바도르 달리형',
     explain:
@@ -380,6 +306,7 @@ export const mbtiType: Record<string, MbtiType> = {
     image: INTP,
   },
   ESTP: {
+    id: 9,
     title1: '독창성을 발휘하는 자유로운 탐험가',
     title2: '잭슨 폴록형',
     explain:
@@ -389,6 +316,7 @@ export const mbtiType: Record<string, MbtiType> = {
     image: ESTP,
   },
   ESFP: {
+    id: 10,
     title1: '화려함에 매혹되는 심미주의',
     title2: '앤디워홀형',
     explain:
@@ -398,6 +326,7 @@ export const mbtiType: Record<string, MbtiType> = {
     image: ESFP,
   },
   ENFP: {
+    id: 11,
     title1: '창의성, 다양성을 즐기는 호기심천국',
     title2: '빈센트 미넬리형',
     explain:
@@ -407,6 +336,7 @@ export const mbtiType: Record<string, MbtiType> = {
     image: ENFP,
   },
   ENTP: {
+    id: 12,
     title1: '독특함에 주목하는 스페셜리스트',
     title2: '장미셸 바스키아형',
     explain:
@@ -416,6 +346,7 @@ export const mbtiType: Record<string, MbtiType> = {
     image: ENTP,
   },
   ESTJ: {
+    id: 13,
     title1: '작품의 역사에 집중하는 학자',
     title2: '렘브란트형',
     explain:
@@ -425,6 +356,7 @@ export const mbtiType: Record<string, MbtiType> = {
     image: ESTJ,
   },
   ESFJ: {
+    id: 14,
     title1: '사회적 메시지에 집중하는 정치가',
     title2: '노먼 록웰형',
     explain:
@@ -434,6 +366,7 @@ export const mbtiType: Record<string, MbtiType> = {
     image: ESFJ,
   },
   ENFJ: {
+    id: 15,
     title1: '비전을 바라보는 예언가',
     title2: '마우리치오 카텔란형',
     explain:
@@ -443,6 +376,7 @@ export const mbtiType: Record<string, MbtiType> = {
     image: ENFJ,
   },
   ENTJ: {
+    id: 16,
     title1: '작품으로 사회를 바라보는 분석가',
     title2: '디에고 리베라형',
     explain:
@@ -452,3 +386,86 @@ export const mbtiType: Record<string, MbtiType> = {
     image: ENTJ,
   },
 };
+
+export const tasteTestQuestions = [
+  {
+    id: 1,
+    question: '친구가 함께 전시를 보자고 한다.',
+    answer1: '와, 좋아! 함께 보러 갈래. 전시 보고\n저녁도 같이 먹자!',
+    answer2:
+      '음, 오늘은 혼자 보고 싶어.전시를 혼자\n느낄 땐 또 다른 매력이 있거든.',
+  },
+  {
+    id: 2,
+    question:
+      '어떤 전시를 갈까 찾아보던 중,\nSNS에 새로운 작가의 전시가 계속 보인다.',
+    answer1: '와! 새로운 작가라면\n바로 예약하고 가야지.',
+    answer2:
+      '음, 일단 티켓 예매는 보류하고,\n작가에 대해 더 알아보고 결정할래.',
+  },
+  {
+    id: 3,
+    question: '전시 갈 곳의 정보를 알아보려고 한다.',
+    answer1: '즉흥적으로 돌아다니면서 찾아보자!\n그게 더 재미있지 않을까?',
+    answer2:
+      '어떤 전시인지 찾아보고 가자. 그래야\n내용을 놓치지 않고 볼 수 있으니까.',
+  },
+  {
+    id: 4,
+    question: '지하철에서 내려 전시장까지 걸어가는 길이다.',
+    answer1: '혼자 넘어지는 상상을 하며, 피식 웃는다.',
+    answer2: '경로를 이탈하지 않기 위해,\n가는 길에만 집중한다.',
+  },
+  {
+    id: 5,
+    question: '전시장에 도착했는데,\n인기 전시라 사람들이 많다.',
+    answer1: '와, 여기 북적북적하네!\n사람들의 에너지가 더해져서 진짜 좋아!',
+    answer2:
+      '한적하고 조용한 분위기를 원했는데..\n조용히 감상하면서 힐링하고 싶어.',
+  },
+  {
+    id: 6,
+    question: '전시장 입구에 들어왔다.\n작품 감상은 어떻게 할까?',
+    answer1: '그냥 마음이 이끄는 대로 둘러보고\n감상해야지.',
+    answer2:
+      '본격적인 감상 전에 어떤 작품을 먼저\n볼지 계획을 세워서 순서대로 봐야겠어.',
+  },
+  {
+    id: 7,
+    question: '한 인물이 피아노를 치고 있는\n한 작품 앞에 섰다.',
+    answer1:
+      '왜 피아노를 치고 있을까? 슬픈 감정을\n음악으로 승화하려 하는 건가?',
+    answer2:
+      '이 작품은 정말 사실적이고 흥미로워.\n어떤 기법으로 그림을 그렸을까?',
+  },
+  {
+    id: 8,
+    question: '매우 압도적인 거대한 작품 앞에 섰다.',
+    answer1: '와, 너무 압도적이다.\n저걸 사람이 만들었다고?',
+    answer2: '이렇게 큰 작품으로 작가가\n전하고자 하는 메시지가 뭘까?',
+  },
+  {
+    id: 9,
+    question: '전시 관람 후, 사색에 빠진다.',
+    answer1: '내 감정과 영감을 풍부하게\n할 수 있어서 좋았어',
+    answer2: '그 작품에는 왜 이런 재료와\n기법을 썼을까?',
+  },
+  {
+    id: 10,
+    question: '전시를 다 보니 배가 고파서\n식당으로 자리를 옮기기로 한다.',
+    answer1: '바로 나가서 발이 이끄는 대로 가볼까?',
+    answer2: '식당을 알아보고 나가야겠다.\n브레이크타임일 수도 있어.',
+  },
+  {
+    id: 11,
+    question: '집에 돌아온 후, 전시 기록을 한다.',
+    answer1: '감상하면서 떠오른 내 생각과\n감동 위주로 적어야지',
+    answer2: '가장 인상깊었던 작품과\n설명 위주로 적어야지',
+  },
+  {
+    id: 12,
+    question: '침대에 누워 하루를 되새겨본다.',
+    answer1: '오늘 있었던 일들 관련된 상상으로\n잠에 들지 못한다.',
+    answer2: '너무 피곤한 나머지, 잠에 바로 든다.',
+  },
+];
