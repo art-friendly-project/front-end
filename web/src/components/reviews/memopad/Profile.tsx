@@ -21,7 +21,9 @@ const Profile = ({ user, lastModifiedTime }: profile) => {
       navigate('/profile');
     } catch (err: any) {
       if (err.response.status === 400) {
-        alert('탈퇴한 사용자 입니다.');
+        if (!isApp()) {
+          alert('탈퇴한 사용자 입니다.');
+        }
 
         if (isApp()) {
           window.ReactNativeWebView?.postMessage(
