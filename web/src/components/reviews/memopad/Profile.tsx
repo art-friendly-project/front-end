@@ -15,9 +15,9 @@ const Profile = ({ user, lastModifiedTime }: profile) => {
   const dispatch = useAppDispatch();
 
   const btnHandler = async () => {
-    dispatch(userIdActions.current(user.id));
     try {
       await api.get(`/members/profiles?searchMemberId=${user.id}`);
+      dispatch(userIdActions.current(user.id));
       navigate('/profile');
     } catch (err: any) {
       if (err.response.status === 400) {
