@@ -1,14 +1,9 @@
-import { useNavigate } from 'react-router-dom';
 import kakaoLogo from 'assets/images/etc/kakaoLogo.svg';
 
 const KakaoLoginBtn = () => {
-  const navigate = useNavigate();
-
   const loginBtnHandler = () => {
     window.location.href =
       'https://artfriendly.duckdns.org/oauth2/authorization/kakao';
-
-    navigate('/login');
   };
 
   return (
