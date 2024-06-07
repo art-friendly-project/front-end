@@ -11,10 +11,6 @@ import api from 'api';
 const Home = () => {
   const dispatch = useAppDispatch();
 
-  useEffect(() => {
-    dispatch(endpointActions.current('/home'));
-  }, [endpointActions]);
-
   const fetchUserId = async () => {
     try {
       const userData: fetchUser = await api.get('/members');
@@ -29,6 +25,10 @@ const Home = () => {
   useEffect(() => {
     void fetchUserId();
   }, [myId]);
+
+  useEffect(() => {
+    dispatch(endpointActions.current('/home'));
+  }, [endpointActions]);
 
   return (
     <div className="flex flex-col w-full h-full">
