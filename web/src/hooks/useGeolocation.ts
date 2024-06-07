@@ -47,15 +47,6 @@ const useGeolocation = () => {
           }
         };
       }
-
-      if (!isApp()) {
-        navigator.geolocation.getCurrentPosition((position) => {
-          setGeolocation({
-            longitude: position.coords.longitude,
-            latitude: position.coords.latitude,
-          });
-        });
-      }
     }
   }, [isNearby]);
 

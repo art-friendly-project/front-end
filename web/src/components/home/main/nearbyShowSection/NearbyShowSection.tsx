@@ -28,21 +28,6 @@ const NearbyShowSection = () => {
         navigate('/home/nearby');
       }
     }
-
-    if (!isApp()) {
-      navigator.geolocation.getCurrentPosition(
-        () => {
-          dispatch(isNearbyActions.current(true));
-          navigate('/home/nearby');
-        },
-        (err) => {
-          alert(
-            `위치 액세스 권한이 필요합니다.\n권한 허용 후 이용해 주시기 바랍니다.`,
-          );
-          console.error(err);
-        },
-      );
-    }
   };
 
   return (
