@@ -17,14 +17,14 @@ const accessPermissionsCheck = async (
     if (Platform.OS === 'android') {
       try {
         const status = await checkMultiple([
-          // PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION,
+          PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION,
           PERMISSIONS.ANDROID.READ_MEDIA_IMAGES,
           PERMISSIONS.ANDROID.POST_NOTIFICATIONS,
           PERMISSIONS.ANDROID.WRITE_CALENDAR,
         ]);
 
         const permissions = {
-          // location: status[PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION],
+          location: status[PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION],
           images: status[PERMISSIONS.ANDROID.READ_MEDIA_IMAGES],
           notifications: status[PERMISSIONS.ANDROID.POST_NOTIFICATIONS],
           calendar: status[PERMISSIONS.ANDROID.WRITE_CALENDAR],
@@ -39,7 +39,7 @@ const accessPermissionsCheck = async (
     if (Platform.OS === 'ios') {
       try {
         const status = await checkMultiple([
-          // PERMISSIONS.IOS.LOCATION_WHEN_IN_USE,
+          PERMISSIONS.IOS.LOCATION_WHEN_IN_USE,
           PERMISSIONS.IOS.PHOTO_LIBRARY,
           PERMISSIONS.IOS.CALENDARS,
         ]);
@@ -47,7 +47,7 @@ const accessPermissionsCheck = async (
         const notifications = await checkNotifications();
 
         const permissions = {
-          // location: status[PERMISSIONS.IOS.LOCATION_WHEN_IN_USE],
+          location: status[PERMISSIONS.IOS.LOCATION_WHEN_IN_USE],
           images: status[PERMISSIONS.IOS.PHOTO_LIBRARY],
           notifications,
           calendar: status[PERMISSIONS.IOS.CALENDARS],
