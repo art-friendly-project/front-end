@@ -11,8 +11,8 @@ const useGeolocation = () => {
   const isNearby = useAppSelector(selectIsNearby);
 
   useEffect(() => {
-    if (isApp()) {
-      if (isNearby) {
+    if (isNearby) {
+      if (isApp()) {
         window.ReactNativeWebView?.postMessage(
           JSON.stringify({ type: 'GEOLOCATION' }),
         );
@@ -46,6 +46,15 @@ const useGeolocation = () => {
             window.removeEventListener('message', geolocation);
           }
         };
+      }
+
+      if (!isApp()) {
+        navigator.geolocation.getCurrentPosition((position) => {
+          setGeolocation({
+            longitude: position.coords.longitude,
+            latitude: position.coords.latitude,
+          });
+        });
       }
     }
   }, [isNearby]);
