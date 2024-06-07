@@ -17,9 +17,9 @@ const SelectList = ({
 }: selectList) => {
   return (
     <div className="flex flex-wrap">
-      {selects.map((select) => (
+      {selects.map((select, idx) => (
         <SelectBtn
-          key={select[0]}
+          key={idx}
           select={select}
           setState={setState}
           setIsModalOpen={setIsModalOpen}
