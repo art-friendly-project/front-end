@@ -6,6 +6,8 @@ import selectModalInfos from 'assets/data/selectModalInfos';
 import { useAppDispatch, useAppSelector } from 'hooks';
 import { selectLocation } from 'store/modules/location';
 import api from 'api';
+import useGeolocation from 'hooks/useGeolocation';
+import reverseLocation from 'utils/reverseLocation';
 
 const NearbyAndLocationShow = () => {
   const listRef = useRef<HTMLDivElement>(null);
@@ -24,8 +26,8 @@ const NearbyAndLocationShow = () => {
 
   const openModalIndex = isModalOpen.indexOf(true);
 
-  // const geolocation = useGeolocation();
-  // void reverseLocation(geolocation);
+  const geolocation = useGeolocation();
+  void reverseLocation(geolocation);
 
   const fetchShows = async () => {
     try {
