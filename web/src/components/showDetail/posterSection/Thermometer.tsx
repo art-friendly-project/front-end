@@ -5,7 +5,6 @@ interface thermometer {
 }
 
 const Thermometer = ({ temperature }: thermometer) => {
-  console.log(temperature);
   const selectThermometer = changeTemperatureToTermometer(temperature);
   return (
     <div className="absolute z-20 right-4 top-32">
