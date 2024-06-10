@@ -84,7 +84,6 @@ const List = () => {
           setIsModalOpen={setIsModalOpen}
         />
       </div>
-
       <ShowList shows={shows} setPage={setPage} />
     </div>
   );
