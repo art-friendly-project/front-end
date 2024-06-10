@@ -35,7 +35,7 @@ const DetailModal = ({
         name="동의하기"
         fn={agreeBtnHandler}
         disable={false}
-        style="mb-6"
+        style="sticky bottom-6 bg-white"
       />
     </div>
   );

@@ -8,7 +8,7 @@ const KakaoLoginBtn = () => {
 
   return (
     <button
-      className="absolute active:bg-kakaoDarkYellow flex items-center justify-center h-16 rounded-md bottom-[5%] w-9/10 bg-kakaoYellow"
+      className="sticky flex items-center justify-center mt-auto rounded-md h-14 bottom-5 active:bg-kakaoDarkYellow w-9/10 bg-kakaoYellow"
       onClick={loginBtnHandler}
     >
       <img src={kakaoLogo} className="absolute h-6 left-8" />

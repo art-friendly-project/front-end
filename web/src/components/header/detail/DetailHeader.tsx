@@ -19,7 +19,7 @@ const DetailHeader = () => {
   };
 
   return (
-    <div className="relative z-20 flex items-center justify-center flex-shrink-0 w-full h-18">
+    <div className="sticky top-0 z-20 flex items-center justify-center flex-shrink-0 w-full bg-white h-18">
       {outputHeaderBtn() ? <BackBtn /> : null}
       <DetailHeaderTitle />
       {outputHeaderBtn() ? null : <CloseBtn />}

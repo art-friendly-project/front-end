@@ -17,13 +17,13 @@ const AppIntroduce = () => {
   };
 
   return (
-    <div className="flex flex-col items-center w-full h-full overflow-y-scroll scrollbar-hide">
+    <div className="flex flex-col items-center w-full h-full">
       <IntroSwiper />
       <BtnBasic
         name={'시작하기'}
         fn={btnHandler}
         disable={false}
-        style="mt-auto mb-[5%]"
+        style="bottom-5 sticky mt-auto"
       />
     </div>
   );

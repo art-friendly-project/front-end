@@ -11,7 +11,7 @@ import Toast from '../common/Toast';
 
 const NavigationBar = () => {
   return (
-    <div className="relative bottom-0 flex shrink-0 w-full h-22.8 shadow-custom rounded-t-2xl">
+    <div className="sticky bg-white bottom-0 flex shrink-0 w-full h-22.8 shadow-custom rounded-t-2xl">
       {navigations.map((navigation) => (
         <NavigationBtn
           key={navigation.name}

@@ -12,7 +12,7 @@ const DetailModalHeader = ({
   setIsModal,
 }: detailModalHeader) => {
   return (
-    <div className="flex items-center justify-center w-full h-18">
+    <div className="sticky top-0 flex items-center justify-center w-full bg-white h-18">
       <DetailModalTitle isSelectModalIdx={isSelectModalIdx} />
       <DetailModalCloseBtn setIsModal={setIsModal} />
     </div>

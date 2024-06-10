@@ -30,13 +30,12 @@ const TermsOfUse = () => {
         setIsChecks={setIsChecks}
         setIsModal={setIsModal}
       />
-      <div className="absolute bottom-[5%] w-full">
-        <BtnBasic
-          name="동의하기"
-          disable={!isChecks[0] || !isChecks[1]}
-          fn={btnHandler}
-        />
-      </div>
+      <BtnBasic
+        name="동의하기"
+        disable={!isChecks[0] || !isChecks[1]}
+        fn={btnHandler}
+        style="sticky bottom-6 mt-auto w-full"
+      />
     </div>
   );
 };

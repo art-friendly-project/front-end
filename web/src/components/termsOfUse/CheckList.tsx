@@ -11,7 +11,7 @@ interface checkList {
 
 const CheckList = ({ isChecks, setIsChecks, setIsModal }: checkList) => {
   return (
-    <div className="flex flex-col px-[5%] bottom-[15%] absolute w-full">
+    <div className="flex flex-col px-[5%] w-full absolute bottom-24">
       <ChecksAllBtn isChecks={isChecks} setIsChecks={setIsChecks} />
       {checks.map((check, idx) => (
         <ChecksBtn
