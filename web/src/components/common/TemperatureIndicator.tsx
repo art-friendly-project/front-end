@@ -11,7 +11,7 @@ const TemperatureIndicator = ({ temperature }: temperatureIndicator) => {
     <span
       className={`absolute bottom-0 text-Body1-M flex items-center justify-center h-6 w-14 rounded-2xl ${temperatureColor}`}
     >
-      {temperature}도
+      {temperature.toFixed(1)}도
     </span>
   );
 };
