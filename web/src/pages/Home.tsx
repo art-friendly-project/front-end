@@ -7,6 +7,7 @@ import TasteTestSeciton from 'components/home/main/tasteSection/TasteTestSeciton
 import PopularShowSection from 'components/home/main/popularShowSection/PopularShowSection';
 import DeadlineShowSection from 'components/home/main/deadlineShowSection/DeadlineShowSection';
 import api from 'api';
+import Footer from 'components/footer/Footer';
 
 const Home = () => {
   const dispatch = useAppDispatch();
@@ -37,6 +38,7 @@ const Home = () => {
       <TasteTestSeciton />
       <PopularShowSection />
       <DeadlineShowSection />
+      <Footer />
     </div>
   );
 };
