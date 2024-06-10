@@ -8,7 +8,7 @@ interface durationList {
 
 const DurationList = ({ duration, setDuration }: durationList) => {
   return (
-    <div className="absolute z-10 flex items-center w-full h-10 bg-white top-16">
+    <div className="z-10 flex items-center w-full h-10 py-2">
       <div className=" border-b w-full border-gray-30 mx-[5%]">
         {durations.map((durationItem) => (
           <Duration

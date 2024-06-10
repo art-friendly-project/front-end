@@ -55,6 +55,7 @@ const ReviewEdit = () => {
           fn={() => {
             void btnHandler();
           }}
+          style="sticky bottom-5 mt-auto"
         />
       </div>
     </>
