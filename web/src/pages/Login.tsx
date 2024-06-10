@@ -24,7 +24,7 @@ const Login = () => {
         navigate('/terms-of-use');
       }
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
   };
 
