@@ -18,9 +18,9 @@ const AppIntroduce = () => {
   };
 
   return (
-    <div className="flex flex-col items-center w-full h-full">
+    <div className="flex flex-col items-center w-full h-full pt-10">
       <IntroSwiper />
-      <div className="flex items-center mt-2 text-gray-80">
+      <div className="flex items-center mt-2 text-gray-80 animate-bounce">
         <span className="text-body3-M">넘겨서 확인하기</span>
         <MdKeyboardDoubleArrowRight className="ml-1 text-Headline" />
       </div>
