@@ -6,7 +6,7 @@ const KakaoLogin = () => {
   return (
     <div className="relative flex flex-col items-center w-full h-screen mt-[22%]">
       <KakaoLoginTitle />
-      <img src={kakaoLoginCharacter} className="w-72 h-72" />
+      <img src={kakaoLoginCharacter} className="mt-10 w-60 h-60" />
       <KakaoLoginBtn />
     </div>
   );
