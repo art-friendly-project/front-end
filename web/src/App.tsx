@@ -2,7 +2,6 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
 import useAccessPermissions from 'hooks/useAccessPermissions';
 import LoadingSpineer from 'components/common/LoadingSpineer';
-import ReviewEdit from 'pages/ReviewEdit';
 
 const NearbyAndLocationShow = lazy(
   async () => await import('pages/NearbyAndLocationShow'),
@@ -39,6 +38,8 @@ const WithdrawalConfirm = lazy(
   async () => await import('pages/WithdrawalConfirm'),
 );
 const AppIntroduce = lazy(async () => await import('pages/AppIntroduce'));
+const TermsAndPolicy = lazy(async () => await import('pages/TermsAndPolicy'));
+const ReviewEdit = lazy(async () => await import('pages/ReviewEdit'));
 
 const App = () => {
   useAccessPermissions();
@@ -86,6 +87,10 @@ const App = () => {
                 <Route path="/review-edit/:id" element={<ReviewEdit />} />
                 <Route path="/profile-edit" element={<ProfileEdit />} />
                 <Route path="/settings" element={<Settings />} />
+                <Route
+                  path="/settings/terms-and-policy"
+                  element={<TermsAndPolicy />}
+                />
                 <Route
                   path="/withdrawal/reason"
                   element={<WithdrawalReason />}

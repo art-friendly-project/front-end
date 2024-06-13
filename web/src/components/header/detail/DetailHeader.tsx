@@ -14,6 +14,7 @@ const DetailHeader = () => {
     if (pathname.includes('reviews')) return true;
     if (pathname === '/settings') return true;
     if (pathname === '/profile-edit') return true;
+    if (pathname === '/settings/terms-and-policy') return true;
 
     return false;
   };
