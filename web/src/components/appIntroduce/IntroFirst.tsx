@@ -1,6 +1,6 @@
 import IntroImg from './IntroImg';
 import IntroText from './IntroText';
-import introFirst from 'assets/images/intro/introFirst.svg';
+import introFirst from 'assets/images/intro/introFirst.png';
 
 const IntroFirst = () => {
   return (
