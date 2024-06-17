@@ -107,6 +107,7 @@ interface fetchShowDetail {
       exhibitionInfoRspDto: {
         id: 3;
         title: string;
+        detailInfoUrl: string;
         startDate: string;
         endDate: string;
         place: string;
