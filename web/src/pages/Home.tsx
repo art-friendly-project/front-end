@@ -24,15 +24,6 @@ const Home = () => {
   const myId = localStorage.getItem('myId');
 
   useEffect(() => {
-    localStorage.setItem(
-      'accessToken',
-      'eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJVU0VSIl0sImF1ZCI6IjEiLCJpYXQiOjE3MTg1ODU0MDMsImV4cCI6MTcxODYzNjM5OX0.6f943ysGDq6PSTo8uEk3vLKmGkOc127JxPPf66YokgP1hpr0RF-f6z2TXm5wL5l486eNmVh9ZABr5Ab3vaHr9A',
-    );
-    localStorage.setItem(
-      'refreshToken',
-      'eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTg1ODU0MDMsImV4cCI6MTcyMTE3NzQwM30.3clD6wGsxTL4MZJjBq69GRNx6WY33aOPjyL_RUCky6JRJXWC-pY2jrE1ezfcegAIseDDchbIVIID9WwwuqdTNw',
-    );
-
     void fetchUserId();
   }, [myId]);
 
