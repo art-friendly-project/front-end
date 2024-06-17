@@ -10,7 +10,7 @@ interface posterSection {
 
 const PosterSection = ({ showDetail }: posterSection) => {
   return (
-    <>
+    <div className="relative flex flex-col w-full h-64">
       <ShowDetailBackBtn />
       <FavoriteBtn isLike={showDetail.isLike} id={showDetail.id} />
       <ShowDetailImg imageUrl={showDetail.exhibitionInfoRspDto.imageUrl} />
@@ -21,7 +21,7 @@ const PosterSection = ({ showDetail }: posterSection) => {
         endDate={showDetail.exhibitionInfoRspDto.endDate}
       />
       <Thermometer temperature={showDetail.temperature} />
-    </>
+    </div>
   );
 };
 

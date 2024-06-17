@@ -12,7 +12,7 @@ const ShowInformationSection = ({ showDetail }: showInformationSection) => {
   };
 
   return (
-    <div className="flex flex-col mt-72">
+    <div className="flex flex-col mt-10">
       <ShowInformationTitle />
       <ShowInformationContent
         realmName={showDetail.exhibitionInfoRspDto.realmName}
