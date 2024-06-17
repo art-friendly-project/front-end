@@ -7,7 +7,7 @@ interface favoriteBtn {
 
 const FavoriteBtn = ({ isLike, id }: favoriteBtn) => {
   return (
-    <div className="absolute z-20 flex right-[5%] top-4">
+    <div className="absolute z-20 flex right-[3%] top-4">
       <DetailShowFavoriteBtn isLike={isLike} id={id} />
     </div>
   );
