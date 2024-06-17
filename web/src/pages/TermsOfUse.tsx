@@ -1,3 +1,4 @@
+import api from 'api';
 import BtnBasic from 'components/common/BtnBasic';
 import CheckList from 'components/termsOfUse/CheckList';
 import DetailModal from 'components/termsOfUse/DetailModal';
@@ -12,7 +13,19 @@ const TermsOfUse = () => {
   const navigate = useNavigate();
 
   const btnHandler = () => {
-    navigate('/taste-select');
+    void fetchTerms();
+  };
+
+  const fetchTerms = async () => {
+    const termIdList = isChecks.filter((check) => check).map((_, i) => i + 1);
+
+    try {
+      await api.post('/terms', { termIdList });
+
+      navigate('/taste-select');
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
