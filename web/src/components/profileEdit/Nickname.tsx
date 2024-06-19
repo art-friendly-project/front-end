@@ -8,7 +8,9 @@ interface nickname {
 const Nickname = ({ nickName, setNickName }: nickname) => {
   return (
     <div className="flex flex-col items-center w-full mt-10">
-      <span className="w-full text-Body3 pl-[5%] mb-2 text-gray-110">이름</span>
+      <span className="w-full text-Body3 pl-[5%] mb-2 text-gray-110">
+        닉네임
+      </span>
       <input
         type="text"
         value={nickName}
