@@ -7,7 +7,7 @@ interface posterInfo {
 
 const PosterInfo = ({ title, area, startDate, endDate }: posterInfo) => {
   return (
-    <div className="flex flex-col items-start justify-center h-32 ml-6 w-7/10">
+    <div className="flex flex-col items-start justify-center w-3/5 h-32 ml-4">
       <span
         className="truncate w-9/10 text-Body3 text-start"
         dangerouslySetInnerHTML={{ __html: title }}

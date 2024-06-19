@@ -52,6 +52,7 @@ const PosterSwiper = () => {
               width="w-full"
               height="h-80"
               bgColor="bg-white"
+              rounded="rounded-t-none"
               image={show.imageUrl}
             />
             <PosterInfo

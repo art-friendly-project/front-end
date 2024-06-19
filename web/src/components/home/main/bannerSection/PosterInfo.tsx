@@ -32,7 +32,7 @@ const PosterInfo = ({
         className="truncate w-9/10 text-Display2 text-start"
         dangerouslySetInnerHTML={{ __html: title }}
       />
-      <span className="mb-2 text-Subhead">{`${place} / ${location}`}</span>
+      <span className="mb-2 text-Body3-M text-gray-40">{`${place} / ${location}`}</span>
     </button>
   );
 };
