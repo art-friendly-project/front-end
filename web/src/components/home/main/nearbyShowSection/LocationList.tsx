@@ -3,7 +3,7 @@ import LocationIconBtn from './locationIconBtn';
 
 const LocationList = () => {
   return (
-    <div className="flex flex-wrap w-full">
+    <div className="flex flex-wrap w-full px-[2%]">
       {locationIcons.map((locationIcon, idx) => (
         <LocationIconBtn
           key={locationIcon}

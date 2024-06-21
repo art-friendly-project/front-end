@@ -44,7 +44,7 @@ const Profile = ({ user, lastModifiedTime }: profile) => {
       >
         <img src={user.imageUrl ?? mainCharacter} className="w-14 h-14" />
       </button>
-      <div className="flex flex-col items-start mt-2 ml-2">
+      <div className="flex flex-col items-start ml-2">
         <button
           onClick={() => {
             void btnHandler();

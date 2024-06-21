@@ -16,7 +16,7 @@ const RankSection = ({
   setIsModal,
 }: rankSection) => {
   return (
-    <div className="w-full mt-8 border-b-10 border-b-gray-10">
+    <div className="w-full mt-6 border-b-10 border-b-gray-10">
       <RankTitle />
       <RankList
         id={id}

@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import NoReview from './NoReview';
 import ReviewContainer from './ReviewContainer';
 import api from 'api';
+import ReviewSectionTitle from './ReviewSectionTitle';
+import ReviewPostBtn from './ReviewPostBtn';
 
 interface reviewSection {
   id: number;
@@ -28,16 +30,13 @@ const ReviewSection = ({ id, hasDambyeolagWritten }: reviewSection) => {
   }, [id, page]);
 
   return (
-    <div className="relative flex flex-col items-center w-full pt-10 mb-10">
+    <div className="relative flex flex-col items-center w-full pt-6 mb-10">
+      <ReviewSectionTitle />
+      <ReviewPostBtn id={id} hasDambyeolagWritten={hasDambyeolagWritten} />
       {reviews.length === 0 ? (
         <NoReview id={id} />
       ) : (
-        <ReviewContainer
-          id={id}
-          reviews={reviews}
-          setPage={setPage}
-          hasDambyeolagWritten={hasDambyeolagWritten}
-        />
+        <ReviewContainer reviews={reviews} setPage={setPage} />
       )}
     </div>
   );

@@ -30,7 +30,7 @@ const MemoPad = ({
 
   return (
     <>
-      <div className="relative flex flex-col w-84 h-108 rounded-2xl shadow-custom check">
+      <div className="relative flex flex-col w-84 h-108 rounded-2xl shadow-custom">
         <MemoPadMarkingSticker />
         {userId === review.memberResponseDto.id ? (
           <EditOrDeleteBtn setIsEditorDeleteModal={setIsEditorDeleteModal} />

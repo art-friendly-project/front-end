@@ -17,7 +17,7 @@ const ShowInformationContent = ({
   url,
 }: showInformationContent) => {
   return (
-    <div className="flex pl-[5%] mt-6">
+    <div className="flex pl-[5%] mt-4">
       <ShowInformationContentTitle />
       <ShowInformationContentBody
         realmName={realmName}

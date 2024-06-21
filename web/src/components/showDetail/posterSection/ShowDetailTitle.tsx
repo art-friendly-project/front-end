@@ -17,9 +17,9 @@ const ShowDetailTitle = ({
 
   return (
     <div className="absolute z-20 flex flex-col w-4/5 text-white bottom-4 left-6">
-      <span className="text-Body3">{realmName}</span>
+      <span className="text-Body3-M">{realmName}</span>
       <span
-        className="flex items-center w-full my-1 leading-tight line-clamp-2 text-Headline"
+        className="flex items-center my-1 leading-tight w-[95%] line-clamp-2 text-Headline"
         dangerouslySetInnerHTML={{ __html: title }}
       />
       <div className="flex">

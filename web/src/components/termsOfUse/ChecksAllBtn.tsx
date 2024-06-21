@@ -20,7 +20,7 @@ const ChecksAllBtn = ({ isChecks, setIsChecks }: checksAllBtn) => {
 
   return (
     <button
-      className="flex items-center w-full h-24 mb-6 border-b rounded-lg border-b-gray-20 active:bg-gray-00"
+      className="flex items-center w-full h-24 mb-6 border-b rounded-t-lg border-b-gray-20 active:bg-gray-00"
       onClick={checkAllBtnHandler}
     >
       <span className="ml-2 text-Subhead-M">모두 동의할게요.</span>

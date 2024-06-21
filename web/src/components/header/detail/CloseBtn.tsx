@@ -17,7 +17,7 @@ const CloseBtn = () => {
       return;
     }
 
-    if (pathname === '/home/taste-test/result') {
+    if (pathname === '/taste-test/result') {
       navigate('/home');
       return;
     }

@@ -35,7 +35,7 @@ const ChecksBtn = ({
     );
   };
   return (
-    <div className="flex w-full h-16">
+    <div className="flex w-full h-14">
       <button
         className="flex items-center rounded-lg active:bg-gray-00"
         onClick={detailModalOpnBtnHandler}

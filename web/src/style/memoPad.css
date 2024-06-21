@@ -1,7 +1,0 @@
-.check {
-  background:
-    linear-gradient(to bottom, transparent 18px, #ededed 20px) 0 0 / 100vw 20px
-      repeat-y,
-    linear-gradient(to right, transparent 18px, #ededed 20px) 0 0 / 20px 100vh
-      repeat-x white;
-}

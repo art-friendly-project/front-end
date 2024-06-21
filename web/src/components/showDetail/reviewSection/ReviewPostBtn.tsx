@@ -19,14 +19,14 @@ const ReviewPostBtn = ({ id, hasDambyeolagWritten }: reviewPostBtn) => {
     <>
       {hasDambyeolagWritten ? null : (
         <button
-          className="absolute flex items-center top-10 text-gray-80 right-[3%] rounded-lg  w-32 h-8 justify-center pl-1 active:bg-gray-00"
+          className="absolute right-0 flex items-center justify-center w-32 h-8 pl-1 rounded-lg top-6 text-gray-80 active:bg-gray-00"
           onClick={() => {
             dispatch(endpointActions.current(pathname));
             dispatch(showIdActions.current(id));
             navigate('/review-post');
           }}
         >
-          <span>담벼락 남기기</span>
+          <span className="text-Body2-M">담벼락 남기기</span>
           <IoIosArrowForward />
         </button>
       )}
