@@ -6,7 +6,6 @@ import MemoPadStickerList from './MemoPadStickerList';
 import MemoPadStickerComments from './MemoPadStickerComments';
 import EditOrDeleteBtn from './EditOrDeleteBtn';
 import EditorDeleteModal from './EditorDeleteModal';
-import 'style/memoPad.css';
 import MemoPadMarkingSticker from './MemoPadMarkingSticker';
 
 interface memoPad {
