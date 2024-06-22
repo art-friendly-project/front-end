@@ -68,3 +68,8 @@ $ npm start
   <br />&nbsp;&nbsp; - &nbsp;fetching, UI 오류 해결
   <br />&nbsp;&nbsp; - &nbsp;자동로그인, accessToken 재발급 기능 구현
 </details>
+<details>
+  <summary><b>[ 2024. 06. 22. ] UI, 기능 구현 (6차)</b></summary>
+  &nbsp;&nbsp; - &nbsp;UI 일부 수정 및 삭제
+  <br />&nbsp;&nbsp; - &nbsp;Footer 추가
+</details>
