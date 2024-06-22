@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import TasteList from 'components/tasteSelect/TasteList';
 import TasteSelectTitle from 'components/tasteSelect/TasteSelectTitle';
-import BtnAndRightArrow from 'components/common/BtnAndRightArrow';
 import { useNavigate } from 'react-router-dom';
 import { useAppSelector } from 'hooks';
 import { selectEndpoint } from 'store/modules/endpoint';
 import api from 'api';
+import BtnBasic from 'components/common/BtnBasic';
 
 const TasteSelect = () => {
   const [selectedList, setSelectedList] = useState<string[]>([]);
@@ -31,15 +31,14 @@ const TasteSelect = () => {
     <div className="flex flex-col items-center w-full h-full pt-10">
       <TasteSelectTitle />
       <TasteList setSelectedList={setSelectedList} />
-      <div className="absolute flex w-full bottom-[5%] justify-center">
-        <BtnAndRightArrow
-          disable={selectedList.length === 0}
-          fn={() => {
-            void btnHandler();
-          }}
-          name="저장하기"
-        />
-      </div>
+      <BtnBasic
+        disable={selectedList.length === 0}
+        fn={() => {
+          void btnHandler();
+        }}
+        name="저장하기"
+        style="sticky mt-auto bottom-5"
+      />
     </div>
   );
 };

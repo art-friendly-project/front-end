@@ -1,8 +1,10 @@
 import { useAppDispatch } from 'hooks';
+import { useState } from 'react';
 import { IoIosArrowForward } from 'react-icons/io';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { endpointActions } from 'store/modules/endpoint';
 import { showIdActions } from 'store/modules/showId';
+import ReviewWrittenConfirmModal from './ReviewWrittenConfirmModal';
 
 interface reviewPostBtn {
   id: number;
@@ -10,26 +12,34 @@ interface reviewPostBtn {
 }
 
 const ReviewPostBtn = ({ id, hasDambyeolagWritten }: reviewPostBtn) => {
+  const [isModal, setIsModal] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
   const pathname = location.pathname;
   const dispatch = useAppDispatch();
 
+  const postBtnHandler = () => {
+    if (!hasDambyeolagWritten) {
+      dispatch(endpointActions.current(pathname));
+      dispatch(showIdActions.current(id));
+      navigate('/review-post');
+    }
+
+    if (hasDambyeolagWritten) {
+      setIsModal(true);
+    }
+  };
+
   return (
     <>
-      {hasDambyeolagWritten ? null : (
-        <button
-          className="absolute flex items-center top-10 text-gray-80 right-[3%] rounded-lg  w-32 h-8 justify-center pl-1 active:bg-gray-00"
-          onClick={() => {
-            dispatch(endpointActions.current(pathname));
-            dispatch(showIdActions.current(id));
-            navigate('/review-post');
-          }}
-        >
-          <span>담벼락 남기기</span>
-          <IoIosArrowForward />
-        </button>
-      )}
+      {isModal ? <ReviewWrittenConfirmModal setIsModal={setIsModal} /> : null}
+      <button
+        className={`absolute right-0 flex items-center justify-center w-32 h-8 pl-1 rounded-lg top-6 active:bg-gray-00 ${hasDambyeolagWritten ? 'text-gray-30' : 'text-gray-80'}`}
+        onClick={postBtnHandler}
+      >
+        <span className="text-Body2-M">담벼락 남기기</span>
+        <IoIosArrowForward />
+      </button>
     </>
   );
 };

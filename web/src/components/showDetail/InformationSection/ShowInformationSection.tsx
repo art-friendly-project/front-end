@@ -12,20 +12,22 @@ const ShowInformationSection = ({ showDetail }: showInformationSection) => {
   };
 
   return (
-    <div className="flex flex-col mt-72">
+    <div className="flex flex-col mt-6">
       <ShowInformationTitle />
       <ShowInformationContent
         realmName={showDetail.exhibitionInfoRspDto.realmName}
         place={showDetail.exhibitionInfoRspDto.place}
         area={showDetail.exhibitionInfoRspDto.area}
         phone={showDetail.exhibitionInfoRspDto.phone}
+        url={showDetail.exhibitionInfoRspDto.detailInfoUrl}
       />
-      <div className="flex justify-center pb-10 mt-6 border-b-10 border-gray-10">
+      <div className="flex justify-center pb-8 border-b-10 border-gray-10">
         {showDetail.exhibitionInfoRspDto.ticketingUrl === '' ? null : (
           <BtnAndRightArrow
             name="예매 사이트 바로가기"
             disable={false}
             fn={btnHandler}
+            style="mt-6"
           />
         )}
       </div>

@@ -1,10 +1,10 @@
 import IntroImg from './IntroImg';
 import IntroText from './IntroText';
-import introThird from 'assets/images/intro/introThird.svg';
+import introThird from 'assets/images/intro/introThird.png';
 
 const IntroThird = () => {
   return (
-    <div className="flex flex-col items-center mt-[10%]">
+    <div className="flex flex-col items-center">
       <IntroText
         title="전시/행사 감상 나누기"
         body={`전시/행사를 다녀오고 느꼈던 점들을 나눌 수 있어요.\n담벼락을 같이 채워볼까요?`}

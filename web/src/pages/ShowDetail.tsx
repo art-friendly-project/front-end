@@ -20,6 +20,7 @@ const ShowDetail = () => {
     exhibitionInfoRspDto: {
       id: 0,
       title: '',
+      detailInfoUrl: '',
       startDate: '',
       endDate: '',
       place: '',

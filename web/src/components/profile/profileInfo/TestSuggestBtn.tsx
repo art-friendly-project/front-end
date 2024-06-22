@@ -16,7 +16,7 @@ const TestSuggestBtn = ({ isMyAccount }: testSuggestBtn) => {
       disabled={!isMyAccount}
       onClick={() => {
         dispatch(endpointActions.current('/profile'));
-        navigate('/home/taste-test');
+        navigate('/taste-test');
       }}
     >
       {isMyAccount ? (

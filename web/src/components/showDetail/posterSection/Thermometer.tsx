@@ -7,10 +7,10 @@ interface thermometer {
 const Thermometer = ({ temperature }: thermometer) => {
   const selectThermometer = changeTemperatureToTermometer(temperature);
   return (
-    <div className="absolute z-20 right-4 top-32">
+    <div className="absolute z-30 flex flex-col items-center bottom-4 right-4">
       <img src={selectThermometer} />
-      <span className="absolute text-Body1-M top-[5.3rem] text-center right-[0.15rem] w-8 ">
-        {temperature}
+      <span className="mt-1 text-Body1-M text-gray-30">
+        관심 {temperature.toFixed(1)}도
       </span>
     </div>
   );

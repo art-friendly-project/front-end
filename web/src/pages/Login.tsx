@@ -24,7 +24,7 @@ const Login = () => {
         navigate('/terms-of-use');
       }
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
   };
 
@@ -32,7 +32,7 @@ const Login = () => {
     if (code !== null) {
       void fetchLogin();
     }
-  }, []);
+  }, [code]);
 
   return (
     <div className="flex items-center justify-center w-full h-full">

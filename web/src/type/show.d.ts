@@ -40,6 +40,7 @@ interface showDetail {
   exhibitionInfoRspDto: {
     id: number;
     title: string;
+    detailInfoUrl: string;
     startDate: string;
     endDate: string;
     place: string;

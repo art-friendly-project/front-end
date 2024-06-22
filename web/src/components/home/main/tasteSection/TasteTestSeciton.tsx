@@ -9,7 +9,7 @@ const TasteTestSeciton = () => {
   const dispatch = useAppDispatch();
   const btnHandler = () => {
     dispatch(endpointActions.current('/home'));
-    navigate('/home/taste-test');
+    navigate('/taste-test');
   };
 
   return (

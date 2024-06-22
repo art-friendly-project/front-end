@@ -7,6 +7,7 @@ interface stickerCommentBtnContainer {
   stickerType: string;
   setIsModal: Dispatch<SetStateAction<boolean>>;
   id: number;
+  setReview: Dispatch<SetStateAction<reviewDetail>>;
 }
 
 const StickerCommentBtnContainer = ({
@@ -14,7 +15,9 @@ const StickerCommentBtnContainer = ({
   stickerType,
   setIsModal,
   id,
+  setReview,
 }: stickerCommentBtnContainer) => {
+  const userId = localStorage.getItem('myId');
   const toastHandler = useToastHandler(
     false,
     '스티커를 붙이기를 완료했어요',
@@ -31,10 +34,21 @@ const StickerCommentBtnContainer = ({
     try {
       await api.post('/stickers', post);
       setIsModal(false);
+      setReview((prev) => {
+        prev.stickerRspDtos.push({
+          id: 0,
+          stickerType,
+          body: text,
+          memberId: Number(userId),
+          dambyeolagId: id,
+        });
+        return prev;
+      });
       toastHandler();
+
       setTimeout(() => {
         location.reload();
-      }, 1000);
+      }, 500);
     } catch (err) {
       console.error(err);
     }

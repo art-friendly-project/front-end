@@ -12,8 +12,8 @@ const Loading = () => {
       setIsComplete(true);
     }, 2000);
     setTimeout(() => {
-      navigate('/home/taste-test/result');
-    }, 4000);
+      navigate('/taste-test/result');
+    }, 3000);
   }, []);
 
   return (

@@ -1,12 +1,12 @@
 import KakaoLoginTitle from 'components/login/KakaoLoginTitle';
-import character from '../assets/images/art-friendly/character.svg';
+import kakaoLoginCharacter from '../assets/images/art-friendly/kakaoLoginCharacter.svg';
 import KakaoLoginBtn from 'components/login/KakaoLoginBtn';
 
 const KakaoLogin = () => {
   return (
-    <div className="flex flex-col items-center w-full h-full mt-[22%]">
+    <div className="relative flex flex-col items-center w-full h-screen mt-[22%]">
       <KakaoLoginTitle />
-      <img src={character} className="absolute top-[40%] w-44" />
+      <img src={kakaoLoginCharacter} className=" w-60 h-60" />
       <KakaoLoginBtn />
     </div>
   );

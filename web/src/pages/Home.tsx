@@ -7,13 +7,10 @@ import TasteTestSeciton from 'components/home/main/tasteSection/TasteTestSeciton
 import PopularShowSection from 'components/home/main/popularShowSection/PopularShowSection';
 import DeadlineShowSection from 'components/home/main/deadlineShowSection/DeadlineShowSection';
 import api from 'api';
+import Footer from 'components/footer/Footer';
 
 const Home = () => {
   const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    dispatch(endpointActions.current('/home'));
-  }, [endpointActions]);
 
   const fetchUserId = async () => {
     try {
@@ -30,6 +27,10 @@ const Home = () => {
     void fetchUserId();
   }, [myId]);
 
+  useEffect(() => {
+    dispatch(endpointActions.current('/home'));
+  }, [endpointActions]);
+
   return (
     <div className="flex flex-col w-full h-full">
       <BannerSection />
@@ -37,6 +38,7 @@ const Home = () => {
       <TasteTestSeciton />
       <PopularShowSection />
       <DeadlineShowSection />
+      <Footer />
     </div>
   );
 };

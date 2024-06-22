@@ -26,7 +26,7 @@ export const accessPermissionsSlice = createSlice({
     current: (
       state,
       action: PayloadAction<{
-        location: string;
+        // location: string;
         calendar: string;
         images: string;
         notifications: string;

@@ -6,7 +6,6 @@ import MemoPadStickerList from './MemoPadStickerList';
 import MemoPadStickerComments from './MemoPadStickerComments';
 import EditOrDeleteBtn from './EditOrDeleteBtn';
 import EditorDeleteModal from './EditorDeleteModal';
-import 'style/memoPad.css';
 import MemoPadMarkingSticker from './MemoPadMarkingSticker';
 
 interface memoPad {
@@ -30,7 +29,7 @@ const MemoPad = ({
 
   return (
     <>
-      <div className="relative flex flex-col w-84 h-108 rounded-2xl shadow-custom check">
+      <div className="relative flex flex-col w-84 h-108 rounded-2xl shadow-custom">
         <MemoPadMarkingSticker />
         {userId === review.memberResponseDto.id ? (
           <EditOrDeleteBtn setIsEditorDeleteModal={setIsEditorDeleteModal} />

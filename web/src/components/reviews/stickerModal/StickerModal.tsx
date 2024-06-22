@@ -30,6 +30,7 @@ const StickerModal = ({ setIsModal, setReview, id }: stickerModal) => {
           setText={setText}
           setIsModal={setIsModal}
           id={id}
+          setReview={setReview}
         />
       ) : (
         <StickerSelect

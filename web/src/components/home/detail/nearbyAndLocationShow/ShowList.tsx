@@ -30,7 +30,7 @@ const ShowList = ({ shows, setPage }: showList) => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center mt-20">
+    <div className="flex flex-col items-center mt-4">
       {shows.length === 0 ? (
         <ShowEmptyMessage />
       ) : (

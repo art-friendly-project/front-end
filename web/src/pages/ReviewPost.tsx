@@ -31,7 +31,7 @@ const ReviewPost = () => {
 
     try {
       await api.post('/dambyeolags', post);
-      navigate(`/shows/${exhibitionId}`);
+      navigate(-1);
     } catch (err) {
       console.error(err);
     }
@@ -60,6 +60,7 @@ const ReviewPost = () => {
           fn={() => {
             void btnHandler();
           }}
+          style="sticky bottom-5 mt-auto"
         />
       </div>
     </>

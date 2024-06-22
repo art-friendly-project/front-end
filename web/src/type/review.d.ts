@@ -23,6 +23,7 @@ interface reviewDetail {
     dambyeolagId: number;
   }>;
   isBookmark: boolean;
+  isSticker: boolean;
 }
 
 interface savedReview {

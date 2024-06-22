@@ -20,9 +20,10 @@ const PosterInfo = ({ idx, title, rankShift }: posterInfo) => {
   return (
     <>
       <span className="ml-2 text-Headline">{`0${idx + 1}`}</span>
-      <span className="w-3/5 ml-2 truncate text-Body3-120 text-start">
-        {title}
-      </span>
+      <span
+        className="w-3/5 ml-2 truncate text-Body3-120 text-start"
+        dangerouslySetInnerHTML={{ __html: title }}
+      />
       <div className="absolute flex right-5 ">
         <img src={ranking(rankShift)} />
         <span className="ml-1 text-Body2-M">

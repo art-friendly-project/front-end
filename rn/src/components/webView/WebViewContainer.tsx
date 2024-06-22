@@ -2,13 +2,14 @@ import React, {useEffect, useRef, useState} from 'react';
 import {WebView, WebViewMessageEvent} from 'react-native-webview';
 import useBackBtnHandler from '../../hooks/useBackBtnHandler';
 import accessPermissions from '../../utils/accessPermissions';
-import findGeolocation from '../../utils/findGeolocation';
 import accessPermissionTry from '../../utils/accessPermissionTry';
 import useAccessPermissions from '../../hooks/useAccessPermissions';
 import requestCalendars from '../../utils/requestCalendars';
 import addSchedule from '../../utils/addSchedule';
 import accessPermissionsCheck from '../../utils/accessPermissionsCheck';
 import {Platform} from 'react-native';
+import deleteAccount from '../../utils/deleteAccount';
+import findGeolocation from '../../utils/findGeolocation';
 
 interface navType {
   url: string;
@@ -22,7 +23,10 @@ const WebViewcontainer = () => {
   const injectedJS = `window.platform = '${platform}'; true;`;
 
   const webViewRef = useRef<WebView>(null);
-  const setNavState = useBackBtnHandler(currentIp, webViewRef);
+  const setNavState = useBackBtnHandler(
+    'https://front-end-seven-eta.vercel.app',
+    webViewRef,
+  );
 
   useAccessPermissions(webViewRef);
 
@@ -33,7 +37,7 @@ const WebViewcontainer = () => {
   return (
     <WebView
       ref={webViewRef}
-      source={{uri: currentIp}}
+      source={{uri: 'https://front-end-seven-eta.vercel.app'}}
       mixedContentMode="always"
       onNavigationStateChange={(nav: navType) => {
         setNavState({url: nav.url, canGoBack: nav.canGoBack});
@@ -46,21 +50,10 @@ const WebViewcontainer = () => {
         accessPermissionTry(e);
         requestCalendars(e, webViewRef);
         addSchedule(e, webViewRef);
+        deleteAccount(e);
       }}
     />
   );
 };
-// home
-// const currentIp = 'http://192.168.13.9:3000';
-
-// business
-const currentIp = 'http://192.168.0.80:3000';
-
-// twosome
-// const currentIp = 'http://192.168.0.20:3000';
-// const currentIp = 'http://192.168.0.29:3000';
-
-// starbucks
-// const currentIp = 'http://172.29.66.125:3000';
 
 export default WebViewcontainer;

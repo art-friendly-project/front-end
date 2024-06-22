@@ -10,7 +10,7 @@ const TasteTestMain = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const btnHandler = () => {
-    navigate('/home/taste-test/questions');
+    navigate('/taste-test/questions');
   };
 
   useEffect(() => {

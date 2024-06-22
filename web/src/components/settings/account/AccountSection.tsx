@@ -9,7 +9,7 @@ interface accountSection {
 
 const AccountSection = ({ setSelectedBtn }: accountSection) => {
   return (
-    <div className="flex flex-col pb-10 border-b-10 border-b-gray-00">
+    <div className="flex flex-col pb-6 border-b-10 border-b-gray-00">
       <AccountSectionTitle />
       <Logout setSelectedBtn={setSelectedBtn} />
       <Withdrawal setSelectedBtn={setSelectedBtn} />

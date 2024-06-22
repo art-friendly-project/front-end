@@ -1,11 +1,12 @@
-import BtnBasic from 'components/common/BtnBasic';
-import LocationList from './LocationList';
-import NearbyShowTitle from './NearbyShowTitle';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from 'hooks';
+import LocationList from './LocationList';
+import NearbyShowTitle from './NearbyShowTitle';
 import { selectAccessPermissions } from 'store/modules/accessPermissions';
 import isApp from 'utils/isApp';
 import { isNearbyActions } from 'store/modules/isNearby';
+import BtnBasic from 'components/common/BtnBasic';
+import api from 'api';
 
 const NearbyShowSection = () => {
   const dispatch = useAppDispatch();
@@ -25,15 +26,24 @@ const NearbyShowSection = () => {
 
       if (locationPermission === 'granted') {
         dispatch(isNearbyActions.current(true));
+        void fetchUserLog();
         navigate('/home/nearby');
       }
     }
   };
 
+  const fetchUserLog = async () => {
+    try {
+      await api.post('/userlogs/location');
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   return (
-    <div className="flex flex-col items-center mt-10 mb-6">
+    <div className="flex flex-col items-center mt-6 mb-6">
       <NearbyShowTitle />
-      <BtnBasic name="내 주변" fn={BtnHandler} disable={false} />
+      <BtnBasic name="내 주변" fn={BtnHandler} disable={false} style="mt-6" />
       <LocationList />
     </div>
   );

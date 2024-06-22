@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Suspense, lazy } from 'react';
 import useAccessPermissions from 'hooks/useAccessPermissions';
+import { Suspense, lazy } from 'react';
 import LoadingSpineer from 'components/common/LoadingSpineer';
 
 const NearbyAndLocationShow = lazy(
@@ -38,6 +38,8 @@ const WithdrawalConfirm = lazy(
   async () => await import('pages/WithdrawalConfirm'),
 );
 const AppIntroduce = lazy(async () => await import('pages/AppIntroduce'));
+const TermsAndPolicy = lazy(async () => await import('pages/TermsAndPolicy'));
+const ReviewEdit = lazy(async () => await import('pages/ReviewEdit'));
 
 const App = () => {
   useAccessPermissions();
@@ -73,20 +75,22 @@ const App = () => {
               </Route>
 
               <Route element={<DetailLayoutWithoutNav />}>
-                <Route path="/home/taste-test" element={<TasteTestMain />} />
+                <Route path="/taste-test" element={<TasteTestMain />} />
+                <Route path="/taste-test/questions" element={<TasteTest />} />
                 <Route
-                  path="/home/taste-test/questions"
-                  element={<TasteTest />}
-                />
-                <Route
-                  path="/home/taste-test/result"
+                  path="/taste-test/result"
                   element={<TasteTestResult />}
                 />
                 <Route path="/prepare-service" element={<PrepareService />} />
                 <Route path="/reviews/:id" element={<Reviews />} />
                 <Route path="/review-post" element={<ReviewPost />} />
+                <Route path="/review-edit/:id" element={<ReviewEdit />} />
                 <Route path="/profile-edit" element={<ProfileEdit />} />
                 <Route path="/settings" element={<Settings />} />
+                <Route
+                  path="/settings/terms-and-policy"
+                  element={<TermsAndPolicy />}
+                />
                 <Route
                   path="/withdrawal/reason"
                   element={<WithdrawalReason />}

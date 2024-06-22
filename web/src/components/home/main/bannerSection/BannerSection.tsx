@@ -2,7 +2,7 @@ import PosterSwiper from './PosterSwiper';
 
 const BannerSection = () => {
   return (
-    <div className="w-full h-80">
+    <div className="w-full">
       <PosterSwiper />
     </div>
   );

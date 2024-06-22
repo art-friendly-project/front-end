@@ -7,7 +7,7 @@ interface tasteList {
 
 const TasteList = ({ setSelectedList }: tasteList) => {
   return (
-    <div className="flex flex-wrap px-4 mb-10 overflow-y-scroll h-[65%] scrollbar-hide">
+    <div className="flex flex-wrap px-4 mb-20 overflow-y-scroll scrollbar-hide">
       {tastes.map((taste) => (
         <TasteItem
           key={taste.id}

@@ -19,11 +19,9 @@ const LocationFilter = ({
       }}
     >
       <span
-        className={`mr-1 text-Body2-M ${isModalOpen[0] ? 'text-white' : ''}`}
+        className={`mr-2 text-Body2-M ${isModalOpen[0] ? 'text-white' : ''}`}
       >
-        {location.length <= 2
-          ? location
-          : `${location.slice(0, 2)}/${location.slice(2, 4)}`}
+        {location}
       </span>
       <IoIosArrowDown className={isModalOpen[0] ? 'text-white' : ''} />
     </button>

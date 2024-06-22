@@ -33,6 +33,7 @@ const List = () => {
       );
       if (listRef.current !== null) listRef.current.scrollTop = 0;
       setShows(result.data.data.content);
+      setPage(0);
     } catch (err) {
       console.error(err);
     }
@@ -73,8 +74,8 @@ const List = () => {
           setPage={setPage}
         />
       ) : null}
-      <DurationList duration={duration} setDuration={setDuration} />
-      <div className="absolute w-full top-[1.8rem]">
+      <div className="sticky top-0 z-10 bg-white">
+        <DurationList duration={duration} setDuration={setDuration} />
         <FilterList
           location={location}
           priority={priority}
@@ -83,9 +84,7 @@ const List = () => {
           setIsModalOpen={setIsModalOpen}
         />
       </div>
-      <div className="mt-8">
-        <ShowList shows={shows} setPage={setPage} />
-      </div>
+      <ShowList shows={shows} setPage={setPage} />
     </div>
   );
 };

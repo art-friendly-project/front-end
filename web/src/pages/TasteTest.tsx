@@ -20,7 +20,7 @@ const TasteTest = () => {
   const endpoint = useAppSelector(selectEndpoint);
 
   const currentQuestion = answerResult.length + 1;
-  const Question = tasteTestQuestions[currentQuestion - 1];
+  const question = tasteTestQuestions[currentQuestion - 1];
 
   const confirmModalFn = () => {
     navigate(endpoint);
@@ -37,11 +37,11 @@ const TasteTest = () => {
       <TasteTestProgessBar currentQuestion={currentQuestion} />
       <TasteTestTitle
         currentQuestion={currentQuestion}
-        question={Question.question}
+        question={question.question}
       />
       <TasteTestAnswers
-        answer1={Question.answer1}
-        answer2={Question.answer2}
+        answer1={question.answer1}
+        answer2={question.answer2}
         checked={checked}
         setChecked={setChecked}
         setAnswer={setAnswer}

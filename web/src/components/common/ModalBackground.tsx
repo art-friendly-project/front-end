@@ -7,7 +7,7 @@ interface modalBackground {
 const ModalBackground = ({ setIsModal }: modalBackground) => {
   return (
     <button
-      className="absolute top-0 z-10 w-full h-screen bg-black opacity-50"
+      className="absolute top-0 z-20 w-full h-screen bg-black opacity-50"
       onClick={() => {
         setIsModal(false);
       }}

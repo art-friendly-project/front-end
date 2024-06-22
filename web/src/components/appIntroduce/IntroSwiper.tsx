@@ -20,7 +20,7 @@ const introPages = [
 const IntroSwiper = () => {
   return (
     <Swiper
-      className="introSwiper"
+      className="w-full h-7/10 introSwiper"
       modules={[Pagination, Scrollbar]}
       spaceBetween={10}
       slidesPerView={1}

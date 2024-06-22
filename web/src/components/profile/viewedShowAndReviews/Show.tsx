@@ -31,7 +31,7 @@ const Show = ({
       >
         <TemperatureIndicator temperature={temperature} />
         <PosterImg
-          width="w-1/5"
+          width="w-24"
           height="h-32"
           bgColor="bg-gray-100"
           image={imageUrl}

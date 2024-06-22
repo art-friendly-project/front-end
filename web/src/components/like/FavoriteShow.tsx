@@ -54,7 +54,7 @@ const FavoriteShow = ({
         }}
       >
         <PosterImg
-          width="w-1/5"
+          width="w-24"
           height="h-28"
           bgColor="bg-gray-100"
           image={imageUrl}

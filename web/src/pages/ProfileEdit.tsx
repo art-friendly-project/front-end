@@ -26,7 +26,7 @@ const ProfileEdit = () => {
         selfIntro,
       });
 
-      navigate('/profile');
+      navigate(-1);
     } catch (err) {
       console.error(err);
     }

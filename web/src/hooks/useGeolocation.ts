@@ -11,8 +11,8 @@ const useGeolocation = () => {
   const isNearby = useAppSelector(selectIsNearby);
 
   useEffect(() => {
-    if (isApp()) {
-      if (isNearby) {
+    if (isNearby) {
+      if (isApp()) {
         window.ReactNativeWebView?.postMessage(
           JSON.stringify({ type: 'GEOLOCATION' }),
         );

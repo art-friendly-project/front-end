@@ -54,7 +54,7 @@ const RankIconList = ({
   }, [checkTemperature]);
 
   return (
-    <div className="relative flex justify-around w-full px-4 mt-8 mb-8">
+    <div className="relative flex justify-around w-full px-4 mt-2 mb-6">
       {icons.map((icon, idx) => (
         <RankIcon
           id={id}

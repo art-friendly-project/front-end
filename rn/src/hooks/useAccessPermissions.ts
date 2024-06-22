@@ -67,7 +67,6 @@ const useAccessPermissions = (ref: RefObject<any>) => {
                 }),
               );
             }
-
             if (result === BLOCKED) {
               ref.current?.postMessage(
                 JSON.stringify({
