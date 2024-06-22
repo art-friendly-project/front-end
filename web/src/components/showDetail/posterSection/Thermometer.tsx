@@ -10,7 +10,7 @@ const Thermometer = ({ temperature }: thermometer) => {
     <div className="absolute z-30 flex flex-col items-center bottom-4 right-4">
       <img src={selectThermometer} />
       <span className="mt-1 text-Body1-M text-gray-30">
-        관심 {temperature.toFixed(1)}도
+        관심 {temperature}도
       </span>
     </div>
   );
