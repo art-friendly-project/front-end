@@ -6,10 +6,10 @@ import { MdKeyboardDoubleArrowRight } from 'react-icons/md';
 const AppIntroduce = () => {
   const navigate = useNavigate();
 
-  const userId = localStorage.getItem('myId');
+  const accessToken = localStorage.getItem('accessToken');
 
   const btnHandler = () => {
-    if (userId !== null) {
+    if (accessToken !== null) {
       navigate('/home');
       return;
     }
