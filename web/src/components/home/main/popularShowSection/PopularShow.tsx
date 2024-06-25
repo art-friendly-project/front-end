@@ -9,9 +9,17 @@ interface popularShow {
   title: string;
   imageUrl: string;
   rankShift: string;
+  loading: boolean;
 }
 
-const PopularShow = ({ id, idx, title, imageUrl, rankShift }: popularShow) => {
+const PopularShow = ({
+  id,
+  idx,
+  title,
+  imageUrl,
+  rankShift,
+  loading,
+}: popularShow) => {
   const navigate = useNavigate();
   const showRef = useRef<HTMLButtonElement>(null);
 
@@ -41,13 +49,21 @@ const PopularShow = ({ id, idx, title, imageUrl, rankShift }: popularShow) => {
         navigate(`/shows/${id}`);
       }}
     >
-      <PosterImg
-        width="w-16"
-        height="h-16"
-        bgColor="bg-gray-100"
-        image={imageUrl}
-      />
-      <PosterInfo idx={idx} title={title} rankShift={rankShift} />
+      {loading ? (
+        <PosterImg
+          width="w-16"
+          height="h-16"
+          bgColor="bg-gray-100"
+          image={imageUrl}
+        />
+      ) : (
+        <div className="w-16 h-16 rounded-lg bg-gray-40 animate-pulse" />
+      )}
+      {loading ? (
+        <PosterInfo idx={idx} title={title} rankShift={rankShift} />
+      ) : (
+        <div className="w-4/5 h-10 ml-2 rounded-lg bg-gray-40 animate-pulse" />
+      )}
     </button>
   );
 };

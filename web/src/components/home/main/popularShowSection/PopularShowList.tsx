@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import api from 'api';
 
 const PopularShowList = () => {
+  const [loading, setLoading] = useState(false);
   const [shows, setShows] = useState<popularShow[]>([]);
 
   const fetchShows = async () => {
@@ -10,7 +11,7 @@ const PopularShowList = () => {
       const result: fetchPopularShow = await api.get(
         '/exhibitions//lists/popular',
       );
-
+      setLoading(true);
       setShows(result.data.data);
     } catch (err) {
       console.error(err);
@@ -33,6 +34,7 @@ const PopularShowList = () => {
             title={show.title}
             imageUrl={show.imageUrl}
             rankShift={show.rankShift}
+            loading={loading}
           />
         ))}
     </div>
