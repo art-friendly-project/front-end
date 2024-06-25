@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 const OpenLoading = () => {
   const [disappear, setDisappearLogo] = useState(false);
+  const accessToken = localStorage.getItem('accessToken');
 
   const navigate = useNavigate();
 
@@ -13,6 +14,11 @@ const OpenLoading = () => {
     }, 2500);
 
     setTimeout(() => {
+      if (accessToken !== null) {
+        navigate('/home');
+        return;
+      }
+
       navigate('/introduce');
     }, 2000);
   }, []);
