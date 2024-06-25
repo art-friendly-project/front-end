@@ -6,6 +6,7 @@ interface cancelModalBtnContainer {
   setIsModal: Dispatch<SetStateAction<boolean>>;
   setIsSelectedRanks: Dispatch<SetStateAction<boolean[]>>;
   cancelIdx: number;
+  setShowDetail: Dispatch<SetStateAction<showDetail>>;
 }
 
 const CancelModalBtnContainer = ({
@@ -13,18 +14,22 @@ const CancelModalBtnContainer = ({
   setIsSelectedRanks,
   setIsModal,
   cancelIdx,
+  setShowDetail,
 }: cancelModalBtnContainer) => {
   const btnHandler = async () => {
     try {
       await api.delete(`/exhibitions/hopes?exhibitionId=${id}`);
 
+      setShowDetail((prev) => ({
+        ...prev,
+        checkTemperature: null,
+      }));
       setIsSelectedRanks((prev) =>
         prev.map((_, i) => {
           if (i === cancelIdx) return false;
           else return false;
         }),
       );
-
       setIsModal(false);
     } catch (err) {
       console.error(err);

@@ -85,6 +85,7 @@ const ShowDetail = () => {
           checkTemperature={showDetail.checkTemperature}
           isModal={isModal}
           setIsModal={setIsModal}
+          setShowDetail={setShowDetail}
         />
         <ReviewSection
           id={showDetail.id}

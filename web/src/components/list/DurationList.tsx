@@ -27,7 +27,7 @@ const DurationList = ({ duration, setDuration }: durationList) => {
 const durations = [
   { menu: '현재 진행 중', name: 'inProgress' },
   { menu: '진행 예정', name: 'scheduled' },
-  { menu: '종료된', name: 'end' },
+  { menu: '종료된', name: 'ended' },
 ];
 
 export default DurationList;

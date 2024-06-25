@@ -7,6 +7,7 @@ interface rankSection {
   checkTemperature: string | null;
   isModal: boolean;
   setIsModal: Dispatch<SetStateAction<boolean>>;
+  setShowDetail: Dispatch<SetStateAction<showDetail>>;
 }
 
 const RankSection = ({
@@ -14,6 +15,7 @@ const RankSection = ({
   checkTemperature,
   isModal,
   setIsModal,
+  setShowDetail,
 }: rankSection) => {
   return (
     <div className="w-full mt-6 border-b-10 border-b-gray-10">
@@ -23,6 +25,7 @@ const RankSection = ({
         checkTemperature={checkTemperature}
         isModal={isModal}
         setIsModal={setIsModal}
+        setShowDetail={setShowDetail}
       />
     </div>
   );

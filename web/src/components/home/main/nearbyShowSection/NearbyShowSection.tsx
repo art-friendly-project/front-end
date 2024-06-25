@@ -14,6 +14,14 @@ const NearbyShowSection = () => {
 
   const locationPermission = useAppSelector(selectAccessPermissions).location;
 
+  const fetchUserLog = async () => {
+    try {
+      await api.post('/userlogs/location');
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   const BtnHandler = () => {
     if (isApp()) {
       if (locationPermission !== 'granted') {
@@ -29,14 +37,6 @@ const NearbyShowSection = () => {
         void fetchUserLog();
         navigate('/home/nearby');
       }
-    }
-  };
-
-  const fetchUserLog = async () => {
-    try {
-      await api.post('/userlogs/location');
-    } catch (err) {
-      console.error(err);
     }
   };
 
