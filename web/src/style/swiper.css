@@ -44,3 +44,15 @@
 .introSwiper {
   width: 100%;
 }
+
+.swiper-scrollbar-drag {
+  --swiper-scrollbar-border-radius: 100px;
+  --swiper-scrollbar-top: auto;
+  --swiper-scrollbar-bottom: 4px;
+  --swiper-scrollbar-left: auto;
+  --swiper-scrollbar-right: 4px;
+  --swiper-scrollbar-sides-offset: 1%;
+  --swiper-scrollbar-bg-color: white;
+  --swiper-scrollbar-drag-bg-color: #ff955a;
+  --swiper-scrollbar-size: 20px;
+}
