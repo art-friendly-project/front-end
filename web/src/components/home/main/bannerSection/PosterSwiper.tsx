@@ -17,7 +17,7 @@ const PosterSwiper = () => {
   const fetchShows = async () => {
     try {
       const result: fetchPopularShow = await api.get(
-        '/exhibitions//lists/popular',
+        '/exhibitions/lists/popular',
       );
 
       setShows(result.data.data);
