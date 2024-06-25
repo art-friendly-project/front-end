@@ -10,7 +10,6 @@ const PosterImg = ({ width, height, bgColor, image, rounded }: posterImg) => {
   return (
     <img
       src={image}
-      loading="lazy"
       className={`object-cover rounded-lg ${width} ${height} ${bgColor} ${rounded}`}
     />
   );
