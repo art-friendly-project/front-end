@@ -62,7 +62,7 @@ const App = () => {
 
               <Route element={<MainLayout />}>
                 <Route path="/home" element={<Home />} />
-                <Route path="/List" element={<List />} />
+                <Route path="/shows" element={<List />} />
                 <Route path="/like" element={<Like />} />
                 <Route path="/profile" element={<Profile />} />
               </Route>

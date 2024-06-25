@@ -35,7 +35,7 @@ const navigations = [
   },
   {
     name: '전시/행사 목록',
-    endpoint: '/list',
+    endpoint: '/shows',
     inActiveIcon: listIconGray,
     activeIcon: listIconOrange,
   },
