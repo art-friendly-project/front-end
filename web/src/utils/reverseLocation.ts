@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useAppDispatch, useAppSelector } from 'hooks';
 import { selectIsNearby } from 'store/modules/isNearby';
-import { locationActions } from 'store/modules/location';
+import { showsLocationActions } from 'store/modules/showsLocation';
 import { changeLocation } from 'utils/translateLocation';
 
 const reverseLocation = async (geolocation: {
@@ -26,7 +26,7 @@ const reverseLocation = async (geolocation: {
         result?.data?.documents[0]?.address?.region_1depth_name;
       const region = changeLocation(address);
 
-      dispatch(locationActions.current(region));
+      dispatch(showsLocationActions.current(region));
     } catch (err) {
       console.error(err);
     }

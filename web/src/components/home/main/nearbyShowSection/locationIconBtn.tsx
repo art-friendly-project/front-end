@@ -1,7 +1,7 @@
 import { useAppDispatch } from 'hooks';
 import { useNavigate } from 'react-router-dom';
 import { isNearbyActions } from 'store/modules/isNearby';
-import { locationActions } from 'store/modules/location';
+import { showsLocationActions } from 'store/modules/showsLocation';
 
 interface locationIconBtn {
   locationIcon: string;
@@ -13,7 +13,7 @@ const LocationIconBtn = ({ locationIcon, location }: locationIconBtn) => {
   const dispatch = useAppDispatch();
   const locationBtnHandler = () => {
     dispatch(isNearbyActions.current(false));
-    dispatch(locationActions.current(location));
+    dispatch(showsLocationActions.current(location));
     navigate('/home/nearby');
   };
 
