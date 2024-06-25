@@ -15,7 +15,7 @@ const PriorityFilter = ({
     <button
       className={`flex active:bg-gray-00 items-center justify-center w-20 h-8 ml-2 border rounded-lg border-gray-20 ${isModalOpen[2] ? 'bg-orange-100' : ''}`}
       onClick={() => {
-        setIsModalOpen([false, false, true]);
+        setIsModalOpen([false, true]);
       }}
     >
       <span

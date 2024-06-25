@@ -3,7 +3,6 @@ import PriorityFilter from './PriorityFilter';
 
 interface filterList {
   location: string;
-  showType: string;
   priority: string;
   isModalOpen: boolean[];
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean[]>>;
@@ -11,7 +10,6 @@ interface filterList {
 
 const FilterList = ({
   location,
-  showType,
   priority,
   isModalOpen,
   setIsModalOpen,
@@ -23,11 +21,6 @@ const FilterList = ({
         isModalOpen={isModalOpen}
         setIsModalOpen={setIsModalOpen}
       />
-      {/* <ShowTypeFilter
-        showType={showType}
-        isModalOpen={isModalOpen}
-        setIsModalOpen={setIsModalOpen}
-      /> */}
       <PriorityFilter
         priority={priority}
         isModalOpen={isModalOpen}
