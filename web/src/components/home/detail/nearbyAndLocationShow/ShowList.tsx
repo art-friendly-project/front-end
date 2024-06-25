@@ -5,9 +5,10 @@ import ShowEmptyMessage from './ShowEmptyMessage';
 interface showList {
   shows: show[];
   setPage: Dispatch<SetStateAction<number>>;
+  setShowId: Dispatch<SetStateAction<number>>;
 }
 
-const ShowList = ({ shows, setPage }: showList) => {
+const ShowList = ({ shows, setPage, setShowId }: showList) => {
   const bottomRef = useRef<HTMLDivElement>(null);
 
   const observer = new IntersectionObserver((entries) => {
@@ -45,6 +46,7 @@ const ShowList = ({ shows, setPage }: showList) => {
             temperature={show.temperature}
             isLike={show.isLike}
             imageUrl={show.imageUrl}
+            setShowId={setShowId}
           />
         ))
       )}
