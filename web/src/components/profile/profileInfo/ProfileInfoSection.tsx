@@ -15,6 +15,7 @@ interface profileInfoSection {
   StickerCount: number;
   dambyeolagCount: number;
   interestedExhibitionCount: number;
+  loading: boolean;
 }
 
 const ProfileInfoSection = ({
@@ -26,6 +27,7 @@ const ProfileInfoSection = ({
   StickerCount,
   dambyeolagCount,
   interestedExhibitionCount,
+  loading,
 }: profileInfoSection) => {
   return (
     <div className="shrink-0 flex flex-col px-[5%] pb-6 pt-6 w-full bg-orange-00">
@@ -34,6 +36,7 @@ const ProfileInfoSection = ({
         imageUrl={imageUrl}
         nickName={nickName}
         mbti={mbti}
+        loading={loading}
       />
       <Introduce selfIntro={selfIntro} />
       <InformationBoard

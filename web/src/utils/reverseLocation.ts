@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { useAppDispatch, useAppSelector } from 'hooks';
 import { selectIsNearby } from 'store/modules/isNearby';
-import { locationActions } from 'store/modules/location';
-import { translateLocationKorToEng } from 'utils/translateLocation';
+import { showsLocationActions } from 'store/modules/showsLocation';
+import { changeLocation } from 'utils/translateLocation';
 
 const reverseLocation = async (geolocation: {
   longitude: number;
@@ -21,10 +21,12 @@ const reverseLocation = async (geolocation: {
           },
         },
       );
-      const region = translateLocationKorToEng(
-        result?.data?.documents[0]?.address?.region_1depth_name as string,
-      );
-      dispatch(locationActions.current(region));
+
+      const address: string =
+        result?.data?.documents[0]?.address?.region_1depth_name;
+      const region = changeLocation(address);
+
+      dispatch(showsLocationActions.current(region));
     } catch (err) {
       console.error(err);
     }

@@ -2,6 +2,8 @@ import PosterImg from 'components/common/PosterImg';
 import PosterInfo from './PosterInfo';
 import { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import PopularShowLoading from './PopularShowLoading';
+import PopularShowInfoLoading from './PopularShowInfoLoading';
 
 interface popularShow {
   id: number;
@@ -9,9 +11,17 @@ interface popularShow {
   title: string;
   imageUrl: string;
   rankShift: string;
+  loading: boolean;
 }
 
-const PopularShow = ({ id, idx, title, imageUrl, rankShift }: popularShow) => {
+const PopularShow = ({
+  id,
+  idx,
+  title,
+  imageUrl,
+  rankShift,
+  loading,
+}: popularShow) => {
   const navigate = useNavigate();
   const showRef = useRef<HTMLButtonElement>(null);
 
@@ -41,13 +51,21 @@ const PopularShow = ({ id, idx, title, imageUrl, rankShift }: popularShow) => {
         navigate(`/shows/${id}`);
       }}
     >
-      <PosterImg
-        width="w-16"
-        height="h-16"
-        bgColor="bg-gray-100"
-        image={imageUrl}
-      />
-      <PosterInfo idx={idx} title={title} rankShift={rankShift} />
+      {loading ? (
+        <PosterImg
+          width="w-16"
+          height="h-16"
+          bgColor="bg-gray-100"
+          image={imageUrl}
+        />
+      ) : (
+        <PopularShowLoading />
+      )}
+      {loading ? (
+        <PosterInfo idx={idx} title={title} rankShift={rankShift} />
+      ) : (
+        <PopularShowInfoLoading />
+      )}
     </button>
   );
 };

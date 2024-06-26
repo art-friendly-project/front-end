@@ -8,6 +8,7 @@ interface cancelModal {
   setIsModal: Dispatch<SetStateAction<boolean>>;
   setIsSelectedRanks: Dispatch<SetStateAction<boolean[]>>;
   cancelIdx: number;
+  setShowDetail: Dispatch<SetStateAction<showDetail>>;
 }
 
 const CancelModal = ({
@@ -15,6 +16,7 @@ const CancelModal = ({
   setIsModal,
   setIsSelectedRanks,
   cancelIdx,
+  setShowDetail,
 }: cancelModal) => {
   return (
     <>
@@ -29,6 +31,7 @@ const CancelModal = ({
           setIsModal={setIsModal}
           setIsSelectedRanks={setIsSelectedRanks}
           cancelIdx={cancelIdx}
+          setShowDetail={setShowDetail}
         />
       </div>
     </>

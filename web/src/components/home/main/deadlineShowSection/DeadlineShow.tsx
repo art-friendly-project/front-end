@@ -3,6 +3,12 @@ import PosterImg from 'components/common/PosterImg';
 import PosterInfo from './PosterInfo';
 import FavoriteBtn from 'components/common/FavoriteBtn';
 import { useNavigate } from 'react-router-dom';
+import DeadlineShowLoading from './DeadlineShowLoading';
+import DeadlineShowInfoLoading from './DeadlineShowInfoLoading';
+
+interface deadlineShow extends show {
+  loading: boolean;
+}
 
 const DeadlineShow = ({
   id,
@@ -13,7 +19,8 @@ const DeadlineShow = ({
   imageUrl,
   temperature,
   isLike,
-}: show) => {
+  loading,
+}: deadlineShow) => {
   const navigate = useNavigate();
 
   return (
@@ -24,21 +31,29 @@ const DeadlineShow = ({
           navigate(`/shows/${id}`);
         }}
       >
-        <TemperatureIndicator temperature={temperature} />
-        <PosterImg
-          width="w-24"
-          height="h-32"
-          bgColor="bg-gray-100"
-          image={imageUrl}
-        />
-        <PosterInfo
-          title={title}
-          area={area}
-          startDate={startDate}
-          endDate={endDate}
-        />
+        {loading ? <TemperatureIndicator temperature={temperature} /> : null}
+        {loading ? (
+          <PosterImg
+            width="w-24"
+            height="h-32"
+            bgColor="bg-gray-100"
+            image={imageUrl}
+          />
+        ) : (
+          <DeadlineShowLoading />
+        )}
+        {loading ? (
+          <PosterInfo
+            title={title}
+            area={area}
+            startDate={startDate}
+            endDate={endDate}
+          />
+        ) : (
+          <DeadlineShowInfoLoading />
+        )}
       </button>
-      <FavoriteBtn isLike={isLike} id={id} />
+      {loading ? <FavoriteBtn isLike={isLike} id={id} /> : null}
     </div>
   );
 };

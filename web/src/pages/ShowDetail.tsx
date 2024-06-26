@@ -1,5 +1,10 @@
-import { useEffect, useRef, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import {
+  type Dispatch,
+  type SetStateAction,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import ReviewSection from 'components/showDetail/reviewSection/ReviewSection';
 import RankSection from 'components/showDetail/rankSection/RankSection';
 import ShowInformationSection from 'components/showDetail/InformationSection/ShowInformationSection';
@@ -9,8 +14,14 @@ import { selectEndpoint } from 'store/modules/endpoint';
 import useScrollHeight from 'hooks/useScrollHeight';
 import useSaveViewedShow from 'hooks/useSaveViewedShow';
 import api from 'api';
+import { useParams } from 'react-router-dom';
 
-const ShowDetail = () => {
+interface showDetailProps {
+  showId?: number;
+  setShowId?: Dispatch<SetStateAction<number>>;
+}
+
+const ShowDetail = ({ showId, setShowId }: showDetailProps) => {
   const [showDetail, setShowDetail] = useState<showDetail>({
     id: 0,
     temperature: 0,
@@ -36,10 +47,9 @@ const ShowDetail = () => {
   const [isModal, setIsModal] = useState(false);
   const showDetailRef = useRef<HTMLDivElement>(null);
 
-  const endpoint = useAppSelector(selectEndpoint);
+  const id = useParams().id;
 
-  const params = useParams();
-  const id = params.id;
+  const endpoint = useAppSelector(selectEndpoint);
 
   const scrollHeight = useScrollHeight(showDetailRef);
 
@@ -55,7 +65,7 @@ const ShowDetail = () => {
   const fetchShowDetail = async () => {
     try {
       const result: fetchShowDetail = await api.get(
-        `/exhibitions?exhibitionId=${id}`,
+        `/exhibitions?exhibitionId=${showId ?? id}`,
       );
       setShowDetail(result.data.data);
     } catch (err) {
@@ -70,7 +80,7 @@ const ShowDetail = () => {
   useSaveViewedShow(showDetail);
 
   return (
-    <>
+    <div className="absolute top-0 left-0 z-20 bg-white">
       {isModal ? (
         <div className="absolute top-0 z-30 w-full h-screen bg-black opacity-50" />
       ) : null}
@@ -78,20 +88,21 @@ const ShowDetail = () => {
         className="relative w-full h-full overflow-y-scroll scrollbar-hide"
         ref={showDetailRef}
       >
-        <PosterSection showDetail={showDetail} />
+        <PosterSection showDetail={showDetail} setShowId={setShowId} />
         <ShowInformationSection showDetail={showDetail} />
         <RankSection
           id={showDetail.id}
           checkTemperature={showDetail.checkTemperature}
           isModal={isModal}
           setIsModal={setIsModal}
+          setShowDetail={setShowDetail}
         />
         <ReviewSection
           id={showDetail.id}
           hasDambyeolagWritten={showDetail.hasDambyeolagWritten}
         />
       </div>
-    </>
+    </div>
   );
 };
 

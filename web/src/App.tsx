@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import useAccessPermissions from 'hooks/useAccessPermissions';
 import { Suspense, lazy } from 'react';
 import LoadingSpineer from 'components/common/LoadingSpineer';
+import ShowDetail from 'pages/ShowDetail';
 
 const NearbyAndLocationShow = lazy(
   async () => await import('pages/NearbyAndLocationShow'),
@@ -21,7 +22,6 @@ const TasteTest = lazy(async () => await import('pages/TasteTest'));
 const TasteTestResult = lazy(async () => await import('pages/TasteTestResult'));
 const Loading = lazy(async () => await import('pages/Loading'));
 const PrepareService = lazy(async () => await import('pages/PrepareService'));
-const ShowDetail = lazy(async () => await import('pages/ShowDetail'));
 const Reviews = lazy(async () => await import('pages/Reviews'));
 const ReviewPost = lazy(async () => await import('pages/ReviewPost'));
 const Settings = lazy(async () => await import('pages/Settings'));
@@ -57,12 +57,12 @@ const App = () => {
               <Route path="/terms-of-use" element={<TermsOfUse />} />
               <Route path="/taste-select" element={<TasteSelect />} />
               <Route path="/access" element={<AccessGuidance />} />
-              <Route path="/shows/:id" element={<ShowDetail />} />
               <Route path="/loading" element={<Loading />} />
+              <Route path="/shows/:id" element={<ShowDetail />} />
 
               <Route element={<MainLayout />}>
                 <Route path="/home" element={<Home />} />
-                <Route path="/List" element={<List />} />
+                <Route path="/shows" element={<List />} />
                 <Route path="/like" element={<Like />} />
                 <Route path="/profile" element={<Profile />} />
               </Route>

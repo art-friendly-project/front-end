@@ -1,25 +1,24 @@
+import { type Dispatch, type SetStateAction } from 'react';
 import FilterSelectModalTitle from './FilterSelectModalTitle';
 import ModalCloseBtn from './ModalCloseBtn';
 import SelectList from './SelectList';
 
 interface filterSelectModal {
+  type: string;
   title1: string;
   title2: string;
   selects: string[][];
-  setState: React.Dispatch<React.SetStateAction<string>>;
-  setIsModalOpen: React.Dispatch<React.SetStateAction<boolean[]>>;
-  setShows: React.Dispatch<React.SetStateAction<show[]>>;
-  setPage: React.Dispatch<React.SetStateAction<number>>;
+  setIsModalOpen: Dispatch<SetStateAction<boolean[]>>;
+  setPriority: Dispatch<SetStateAction<string>>;
 }
 
 const FilterSelectModal = ({
+  type,
   title1,
   title2,
   selects,
-  setState,
   setIsModalOpen,
-  setShows,
-  setPage,
+  setPriority,
 }: filterSelectModal) => {
   return (
     <>
@@ -33,11 +32,10 @@ const FilterSelectModal = ({
         <FilterSelectModalTitle title1={title1} title2={title2} />
         <ModalCloseBtn setIsModalOpen={setIsModalOpen} />
         <SelectList
+          type={type}
           selects={selects}
-          setState={setState}
           setIsModalOpen={setIsModalOpen}
-          setShows={setShows}
-          setPage={setPage}
+          setPriority={setPriority}
         />
       </div>
     </>

@@ -3,14 +3,49 @@ import { useEffect, useState } from 'react';
 import api from 'api';
 
 const PopularShowList = () => {
-  const [shows, setShows] = useState<popularShow[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [shows, setShows] = useState<popularShow[]>([
+    {
+      exhibitionId: 1,
+      rank: 0,
+      title: '',
+      imageUrl: '',
+      rankShift: '',
+      startDate: '',
+      endDate: '',
+      place: '',
+      area: '',
+    },
+    {
+      exhibitionId: 2,
+      rank: 0,
+      title: '',
+      imageUrl: '',
+      rankShift: '',
+      startDate: '',
+      endDate: '',
+      place: '',
+      area: '',
+    },
+    {
+      exhibitionId: 3,
+      rank: 0,
+      title: '',
+      imageUrl: '',
+      rankShift: '',
+      startDate: '',
+      endDate: '',
+      place: '',
+      area: '',
+    },
+  ]);
 
   const fetchShows = async () => {
     try {
       const result: fetchPopularShow = await api.get(
         '/exhibitions//lists/popular',
       );
-
+      setLoading(true);
       setShows(result.data.data);
     } catch (err) {
       console.error(err);
@@ -33,6 +68,7 @@ const PopularShowList = () => {
             title={show.title}
             imageUrl={show.imageUrl}
             rankShift={show.rankShift}
+            loading={loading}
           />
         ))}
     </div>

@@ -6,14 +6,7 @@ import { MdKeyboardDoubleArrowRight } from 'react-icons/md';
 const AppIntroduce = () => {
   const navigate = useNavigate();
 
-  const userId = localStorage.getItem('myId');
-
   const btnHandler = () => {
-    if (userId !== null) {
-      navigate('/home');
-      return;
-    }
-
     navigate('/kakao-login');
   };
 

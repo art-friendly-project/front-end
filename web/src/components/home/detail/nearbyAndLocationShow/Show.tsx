@@ -2,9 +2,11 @@ import TemperatureIndicator from 'components/common/TemperatureIndicator';
 import PosterImg from 'components/common/PosterImg';
 import PosterInfo from './PosterInfo';
 import FavoriteBtn from 'components/common/FavoriteBtn';
-import { useNavigate } from 'react-router-dom';
-import { useAppDispatch } from 'hooks';
-import { endpointActions } from 'store/modules/endpoint';
+import { type Dispatch, type SetStateAction } from 'react';
+
+interface showProps extends show {
+  setShowId: Dispatch<SetStateAction<number>>;
+}
 
 const Show = ({
   id,
@@ -15,18 +17,17 @@ const Show = ({
   temperature,
   isLike,
   imageUrl,
-}: show) => {
-  const navigate = useNavigate();
-  const dispatch = useAppDispatch();
+  setShowId,
+}: showProps) => {
+  const showBtnHandler = () => {
+    setShowId(id);
+  };
 
   return (
     <div className="relative mb-8 w-9/10">
       <button
         className="flex w-full rounded-lg active:bg-gray-00"
-        onClick={() => {
-          dispatch(endpointActions.current('/home/nearby'));
-          navigate(`/shows/${id}`);
-        }}
+        onClick={showBtnHandler}
       >
         <TemperatureIndicator temperature={temperature} />
         <PosterImg

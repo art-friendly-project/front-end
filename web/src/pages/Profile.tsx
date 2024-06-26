@@ -10,6 +10,7 @@ import { useAppSelector } from 'hooks';
 import { selectUserId } from 'store/modules/userId';
 
 const Profile = () => {
+  const [loading, setLoading] = useState(false);
   const [shows, setShows] = useState<show[]>([]);
   const [reviews, setReviews] = useState<savedReview[]>([]);
   const [page, setPage] = useState(0);
@@ -63,6 +64,7 @@ const Profile = () => {
       const result: fetchSavedReviews = await api.get(
         `/dambyeolags/lists/by-member?page=${page}&memberId=${myId}`,
       );
+      setLoading(true);
       setReviews(result.data.data.content);
     }
 
@@ -70,6 +72,7 @@ const Profile = () => {
       const result: fetchSavedReviews = await api.get(
         `/dambyeolags/lists/by-member?page=${page}&memberId=${userId}`,
       );
+      setLoading(true);
       setReviews(result.data.data.content);
     }
   };
@@ -125,6 +128,7 @@ const Profile = () => {
           StickerCount={user.StickerCount}
           dambyeolagCount={user.dambyeolagCount}
           interestedExhibitionCount={user.interestedExhibitionCount}
+          loading={loading}
         />
         <InterestSection
           artPreferenceTypeList={user.memberDetailsRspDto.artPreferenceTypeList}

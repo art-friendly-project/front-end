@@ -10,6 +10,8 @@ interface rankIcon {
   setIsModal: Dispatch<SetStateAction<boolean>>;
   setCancelIdx: Dispatch<SetStateAction<number>>;
   checkTemperature: string | null;
+  setShowDetail: Dispatch<SetStateAction<showDetail>>;
+  rank: string;
 }
 
 const RankIcon = ({
@@ -21,6 +23,8 @@ const RankIcon = ({
   setIsModal,
   setCancelIdx,
   checkTemperature,
+  setShowDetail,
+  rank,
 }: rankIcon) => {
   const btnHandler = async () => {
     if (isSelectedRank) {
@@ -34,10 +38,18 @@ const RankIcon = ({
           await api.post(
             `/exhibitions/hopes?exhibitionId=${id}&hopeIndex=${idx + 1}`,
           );
+          setShowDetail((prev) => ({
+            ...prev,
+            checkTemperature: rank,
+          }));
         } else {
           await api.patch(
             `/exhibitions/hopes?exhibitionId=${id}&hopeIndex=${idx + 1}`,
           );
+          setShowDetail((prev) => ({
+            ...prev,
+            checkTemperature: rank,
+          }));
         }
         setIsSelectedRanks((prev) =>
           prev.map((_, i) => {

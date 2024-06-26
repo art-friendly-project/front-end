@@ -6,7 +6,7 @@ const HeaderTitle = () => {
   const pathname = location.pathname;
 
   const changeEndpointTotitle = () => {
-    if (pathname === '/list') return '전시/행사 목록';
+    if (pathname === '/shows') return '전시/행사 목록';
     if (pathname === '/like') return '관심 목록';
     if (pathname.includes('/profile')) return '프로필';
   };

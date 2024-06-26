@@ -1,4 +1,4 @@
-import calculateRemainDay from 'utils/calculateRemainDay';
+import scheduleDay from 'utils/scheduleDay';
 
 interface showInfo {
   title: string;
@@ -7,8 +7,6 @@ interface showInfo {
 }
 
 const ShowInfo = ({ title, startDate, endDate }: showInfo) => {
-  const remainDay = calculateRemainDay(endDate);
-
   return (
     <div className="flex flex-col items-start mt-2 ml-4 w-7/10">
       <span
@@ -19,9 +17,9 @@ const ShowInfo = ({ title, startDate, endDate }: showInfo) => {
         {startDate} ~ {endDate}
       </span>
       <span
-        className={`flex items-center justify-center w-16 h-6 mt-6 text-white rounded-2xl text-Body1-M ${remainDay >= 0 ? 'bg-orange-100' : 'bg-purple-90'}`}
+        className={`flex items-center justify-center w-16 h-6 mt-6 text-white rounded-2xl text-Body1-M ${scheduleDay(startDate, endDate)[1]}`}
       >
-        {remainDay >= 0 ? `${remainDay}일 남음` : '종료'}
+        {scheduleDay(startDate, endDate)[0]}
       </span>
     </div>
   );

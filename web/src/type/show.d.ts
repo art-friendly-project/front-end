@@ -6,7 +6,7 @@ interface show {
   startDate: string;
   endDate: string;
   imageUrl: string;
-  isLike: false;
+  isLike: boolean;
 }
 
 interface popularShow {

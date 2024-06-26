@@ -17,6 +17,7 @@ interface rankIconList {
   checkTemperature: string | null;
   isModal: boolean;
   setIsModal: Dispatch<SetStateAction<boolean>>;
+  setShowDetail: Dispatch<SetStateAction<showDetail>>;
 }
 
 const RankIconList = ({
@@ -24,6 +25,7 @@ const RankIconList = ({
   checkTemperature,
   isModal,
   setIsModal,
+  setShowDetail,
 }: rankIconList) => {
   const [cancelIdx, setCancelIdx] = useState(0);
   const [isSelectedRanks, setIsSelectedRanks] = useState([
@@ -66,6 +68,8 @@ const RankIconList = ({
           setIsModal={setIsModal}
           setCancelIdx={setCancelIdx}
           checkTemperature={checkTemperature}
+          setShowDetail={setShowDetail}
+          rank={ranks[idx]}
         />
       ))}
       {isModal ? (
@@ -74,6 +78,7 @@ const RankIconList = ({
           setIsModal={setIsModal}
           setIsSelectedRanks={setIsSelectedRanks}
           cancelIdx={cancelIdx}
+          setShowDetail={setShowDetail}
         />
       ) : null}
     </div>
