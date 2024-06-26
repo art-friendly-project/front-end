@@ -1,4 +1,4 @@
-import { Pagination, Scrollbar, Autoplay } from 'swiper/modules';
+import { Scrollbar, Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -37,10 +37,9 @@ const PosterSwiper = () => {
       {loading ? (
         <Swiper
           className="bannerSwiper"
-          modules={[Pagination, Scrollbar, Autoplay]}
+          modules={[Scrollbar, Autoplay]}
           spaceBetween={10}
           slidesPerView={1}
-          pagination={{ clickable: false }}
           scrollbar={{ draggable: true, hide: true }}
           autoplay={{
             delay: 3000,
