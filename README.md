@@ -71,5 +71,13 @@ $ npm start
 <details>
   <summary><b>[ 2024. 06. 22. ] UI, 기능 구현 (6차)</b></summary>
   &nbsp;&nbsp; - &nbsp;UI 일부 수정 및 삭제
-  <br />&nbsp;&nbsp; - &nbsp;Footer 추가
+  <br />&nbsp;&nbsp; - &nbsp;Footer 추가
+</details>
+<details>
+  <summary><b>[ 2024. 06. 26. ] UI, 기능 구현 (7차)</b></summary>
+  &nbsp;&nbsp; - &nbsp;자동 로그인 기능 수정
+  <br />&nbsp;&nbsp; - &nbsp;스크롤바 UI 변경
+  <br />&nbsp;&nbsp; - &nbsp;전시 희망 취소 시 닉네임 나오도록 UI 수정
+  <br />&nbsp;&nbsp; - &nbsp;전시 희망 수정 시 patch 요청 제대로 갈 수 있도록 요류 수정
+  <br />&nbsp;&nbsp; - &nbsp;무한로딩, 서버요청 시 로딩 UI(스피너, 스켈레톤) 추가
 </details>
