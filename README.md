@@ -81,3 +81,8 @@ $ npm start
   <br />&nbsp;&nbsp; - &nbsp;전시 희망 수정 시 patch 요청 제대로 갈 수 있도록 요류 수정
   <br />&nbsp;&nbsp; - &nbsp;무한로딩, 서버요청 시 로딩 UI(스피너, 스켈레톤) 추가
 </details>
+<details>
+  <summary><b>[ 2024. 06. 26. ] UI, 기능 구현 (8차)</b></summary>
+  &nbsp;&nbsp; - &nbsp;화면 너비 맞게 UI 수정
+  <br />&nbsp;&nbsp; - &nbsp;모바일 물리버튼 뒤로가기 기능 추가
+</details>
