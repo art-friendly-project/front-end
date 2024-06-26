@@ -15,6 +15,7 @@ import useScrollHeight from 'hooks/useScrollHeight';
 import useSaveViewedShow from 'hooks/useSaveViewedShow';
 import api from 'api';
 import { useParams } from 'react-router-dom';
+import isApp from 'utils/isApp';
 
 interface showDetailProps {
   showId?: number;
@@ -77,15 +78,47 @@ const ShowDetail = ({ showId, setShowId }: showDetailProps) => {
     void fetchShowDetail();
   }, []);
 
+  useEffect(() => {
+    if (isApp()) {
+      const modalColse = (e: MessageEvent<string>) => {
+        const data: {
+          showDetail: boolean;
+        } = JSON.parse(e.data);
+
+        if (data.showDetail !== undefined) {
+          if (setShowId !== undefined) setShowId(0);
+        }
+      };
+
+      if (window.platform === 'android') {
+        document.addEventListener('message', modalColse);
+      }
+
+      if (window.platform === 'ios') {
+        window.addEventListener('message', modalColse);
+      }
+
+      return () => {
+        if (window.platform === 'android') {
+          document.removeEventListener('message', modalColse);
+        }
+
+        if (window.platform === 'ios') {
+          window.removeEventListener('message', modalColse);
+        }
+      };
+    }
+  }, []);
+
   useSaveViewedShow(showDetail);
 
   return (
-    <div className="absolute top-0 left-0 z-20 bg-white">
+    <>
       {isModal ? (
         <div className="absolute top-0 z-30 w-full h-screen bg-black opacity-50" />
       ) : null}
       <div
-        className="relative w-full h-full overflow-y-scroll scrollbar-hide"
+        className="absolute top-0 left-0 z-20 w-full h-full overflow-y-scroll bg-white scrollbar-hide"
         ref={showDetailRef}
       >
         <PosterSection showDetail={showDetail} setShowId={setShowId} />
@@ -102,7 +135,7 @@ const ShowDetail = ({ showId, setShowId }: showDetailProps) => {
           hasDambyeolagWritten={showDetail.hasDambyeolagWritten}
         />
       </div>
-    </div>
+    </>
   );
 };
 
