@@ -8,9 +8,9 @@ interface showInfo {
 
 const ShowInfo = ({ title, startDate, endDate }: showInfo) => {
   return (
-    <div className="flex flex-col items-start mt-2 ml-4 w-7/10">
+    <div className="flex flex-col items-start w-3/5 mt-2 ml-4">
       <span
-        className="w-4/5 truncate text-Body3 text-gray-110 text-start"
+        className="truncate w-9/10 text-Body3 text-gray-110 text-start"
         dangerouslySetInnerHTML={{ __html: title }}
       />
       <span className="text-Body2-M text-gray-80">
