@@ -1,4 +1,4 @@
-import calculateRemainDay from 'utils/calculateRemainDay';
+import scheduleDay from 'utils/scheduleDay';
 
 interface showDetailTitle {
   realmName: string;
@@ -13,8 +13,6 @@ const ShowDetailTitle = ({
   startDate,
   endDate,
 }: showDetailTitle) => {
-  const remainDay = calculateRemainDay(endDate);
-
   return (
     <div className="absolute z-20 flex flex-col w-4/5 text-white bottom-4 left-6">
       <span className="text-Body3-M">{realmName}</span>
@@ -26,13 +24,11 @@ const ShowDetailTitle = ({
         <span className="text-Body3-M text-gray-40">
           {startDate} ~ {endDate}
         </span>
-        {remainDay >= 0 ? (
-          <span className="flex items-center justify-center h-5 px-2 mt-0.5 ml-2 bg-orange-100 rounded-2xl text-Body1-M">{`${remainDay}일 남음`}</span>
-        ) : (
-          <span className="flex items-center justify-center h-5 px-2 mt-0.5 ml-2 bg-purple-90 rounded-2xl text-Body1-M">
-            종료
-          </span>
-        )}
+        <span
+          className={`flex items-center justify-center h-5 px-2 mt-0.5 ml-2 rounded-2xl text-Body1-M ${scheduleDay(startDate, endDate)[1]}`}
+        >
+          {scheduleDay(startDate, endDate)[0]}
+        </span>
       </div>
     </div>
   );
