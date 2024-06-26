@@ -76,6 +76,17 @@
       "source": "/stickers",
       "destination": "https://artfriendly.duckdns.org/stickers"
     },
-    { "source": "/mbti", "destination": "https://artfriendly.duckdns.org/mbti" }
+    {
+      "source": "/mbti",
+      "destination": "https://artfriendly.duckdns.org/mbti"
+    },
+    {
+      "source": "/userlogs/location",
+      "destination": "https://artfriendly.duckdns.org/userlogs/location"
+    },
+    {
+      "source": "/v2/local/geo/coord2address.json",
+      "destination": "https://dapi.kakao.com/v2/local/geo/coord2address.json"
+    }
   ]
 }
