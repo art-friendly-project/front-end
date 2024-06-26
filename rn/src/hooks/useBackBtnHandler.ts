@@ -17,6 +17,15 @@ const useBackBtnHandler = (
       if (navState.canGoBack) {
         if (navState.url === `${CurrentUrl}/home`) {
           close();
+        } else if (
+          navState.url === `${CurrentUrl}/home/nearby` ||
+          navState.url === `${CurrentUrl}/shows`
+        ) {
+          webViewRef.current?.postMessage(
+            JSON.stringify({
+              showDetail: false,
+            }),
+          );
         } else {
           webViewRef.current?.goBack();
         }
