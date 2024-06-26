@@ -14,7 +14,7 @@ const reverseLocation = async (geolocation: {
   if (isNearby) {
     try {
       const result = await axios.get(
-        `/v2/local/geo/coord2address.json?x=${geolocation.longitude}&y=${geolocation.latitude}`,
+        `https://dapi.kakao.com/v2/local/geo/coord2address.json?x=${geolocation.longitude}&y=${geolocation.latitude}`,
         {
           headers: {
             Authorization: `KakaoAK ${process.env.REACT_APP_KAKAO_REST_API_KEY}`,

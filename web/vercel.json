@@ -83,10 +83,6 @@
     {
       "source": "/userlogs/location",
       "destination": "https://artfriendly.duckdns.org/userlogs/location"
-    },
-    {
-      "source": "/v2/local/geo/coord2address.json",
-      "destination": "https://dapi.kakao.com/v2/local/geo/coord2address.json"
     }
   ]
 }
