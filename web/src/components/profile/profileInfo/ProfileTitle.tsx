@@ -10,6 +10,7 @@ interface profileTitle {
     subTitle: string;
     title: string;
   };
+  loading: boolean;
 }
 
 const ProfileTitle = ({
@@ -17,11 +18,18 @@ const ProfileTitle = ({
   imageUrl,
   nickName,
   mbti,
+  loading,
 }: profileTitle) => {
   return (
     <div className="relative flex items-center">
-      <EditBtn />
-      <img src={imageUrl} className="w-24 h-24 rounded-full" />
+      {loading ? (
+        <>
+          <EditBtn />
+          <img src={imageUrl} className="w-24 h-24 rounded-full" />
+        </>
+      ) : (
+        <div className="w-24 h-24 rounded-full bg-gray-40 animate-pulse" />
+      )}
       <div className="flex flex-col ml-4">
         <span className="text-Headline text-gray-110">{nickName}</span>
         {mbti !== null ? (

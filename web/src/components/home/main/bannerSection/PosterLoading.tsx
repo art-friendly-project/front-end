@@ -1,5 +1,5 @@
 const PosterLoading = () => {
-  return <div className="w-full h-96 bg-gradient-to-t from-neutral-700" />;
+  return <div className="w-full h-96 bg-gray-40 animate-pulse" />;
 };
 
 export default PosterLoading;

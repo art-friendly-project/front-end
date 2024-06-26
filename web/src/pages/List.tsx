@@ -8,7 +8,6 @@ import DurationList from 'components/list/DurationList';
 import selectModalInfos from 'assets/data/selectModalInfos';
 import api from 'api';
 import ShowDetail from './ShowDetail';
-import LoadingSpineer from 'components/common/LoadingSpineer';
 import PageLoadingSpineer from 'components/list/PageLoadingSpineer';
 
 const List = () => {
@@ -98,7 +97,7 @@ const List = () => {
           {pageLoading ? null : <PageLoadingSpineer />}
         </>
       ) : (
-        <LoadingSpineer />
+        <PageLoadingSpineer />
       )}
     </div>
   );

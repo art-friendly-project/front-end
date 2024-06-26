@@ -4,7 +4,41 @@ import api from 'api';
 
 const PopularShowList = () => {
   const [loading, setLoading] = useState(false);
-  const [shows, setShows] = useState<popularShow[]>([]);
+  const [shows, setShows] = useState<popularShow[]>([
+    {
+      exhibitionId: 1,
+      rank: 0,
+      title: '',
+      imageUrl: '',
+      rankShift: '',
+      startDate: '',
+      endDate: '',
+      place: '',
+      area: '',
+    },
+    {
+      exhibitionId: 2,
+      rank: 0,
+      title: '',
+      imageUrl: '',
+      rankShift: '',
+      startDate: '',
+      endDate: '',
+      place: '',
+      area: '',
+    },
+    {
+      exhibitionId: 3,
+      rank: 0,
+      title: '',
+      imageUrl: '',
+      rankShift: '',
+      startDate: '',
+      endDate: '',
+      place: '',
+      area: '',
+    },
+  ]);
 
   const fetchShows = async () => {
     try {

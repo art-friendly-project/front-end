@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import useAccessPermissions from 'hooks/useAccessPermissions';
 import { Suspense, lazy } from 'react';
 import LoadingSpineer from 'components/common/LoadingSpineer';
+import ShowDetail from 'pages/ShowDetail';
 
 const NearbyAndLocationShow = lazy(
   async () => await import('pages/NearbyAndLocationShow'),
@@ -57,6 +58,7 @@ const App = () => {
               <Route path="/taste-select" element={<TasteSelect />} />
               <Route path="/access" element={<AccessGuidance />} />
               <Route path="/loading" element={<Loading />} />
+              <Route path="/shows/:id" element={<ShowDetail />} />
 
               <Route element={<MainLayout />}>
                 <Route path="/home" element={<Home />} />

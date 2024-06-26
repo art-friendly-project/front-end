@@ -7,7 +7,7 @@ import FavoriteBtn from 'components/showDetail/posterSection/FavoriteBtn';
 
 interface posterSection {
   showDetail: showDetail;
-  setShowId: Dispatch<SetStateAction<number>>;
+  setShowId?: Dispatch<SetStateAction<number>>;
 }
 
 const PosterSection = ({ showDetail, setShowId }: posterSection) => {

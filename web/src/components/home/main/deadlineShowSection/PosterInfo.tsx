@@ -13,7 +13,7 @@ const PosterInfo = ({ title, area, startDate, endDate }: posterInfo) => {
         dangerouslySetInnerHTML={{ __html: title }}
       />
       <span className="text-Body2-M text-gray-80">{area}</span>
-      <span className="mt-2 text-Body2-M">
+      <span className="mt-4 text-Body2-M">
         {startDate} ~ {endDate}
       </span>
     </div>

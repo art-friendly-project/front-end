@@ -2,6 +2,8 @@ import PosterImg from 'components/common/PosterImg';
 import PosterInfo from './PosterInfo';
 import { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import PopularShowLoading from './PopularShowLoading';
+import PopularShowInfoLoading from './PopularShowInfoLoading';
 
 interface popularShow {
   id: number;
@@ -57,12 +59,12 @@ const PopularShow = ({
           image={imageUrl}
         />
       ) : (
-        <div className="w-16 h-16 rounded-lg bg-gray-40 animate-pulse" />
+        <PopularShowLoading />
       )}
       {loading ? (
         <PosterInfo idx={idx} title={title} rankShift={rankShift} />
       ) : (
-        <div className="w-4/5 h-10 ml-2 rounded-lg bg-gray-40 animate-pulse" />
+        <PopularShowInfoLoading />
       )}
     </button>
   );
