@@ -24,7 +24,10 @@ const WebViewcontainer = () => {
   const injectedJS = `window.platform = '${platform}'; true;`;
 
   const webViewRef = useRef<WebView>(null);
-  const setNavState = useBackBtnHandler('http://192.168.0.72:3000', webViewRef);
+  const setNavState = useBackBtnHandler(
+    'https://front-end-seven-eta.vercel.app',
+    webViewRef,
+  );
 
   useAccessPermissions(webViewRef);
 
@@ -35,7 +38,7 @@ const WebViewcontainer = () => {
   return (
     <WebView
       ref={webViewRef}
-      source={{uri: 'http://192.168.0.72:3000'}}
+      source={{uri: 'https://front-end-seven-eta.vercel.app'}}
       mixedContentMode="always"
       onNavigationStateChange={(nav: navType) => {
         setNavState({url: nav.url, canGoBack: nav.canGoBack});
