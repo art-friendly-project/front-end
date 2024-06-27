@@ -9,9 +9,12 @@ import selectModalInfos from 'assets/data/selectModalInfos';
 import api from 'api';
 import ShowDetail from './ShowDetail';
 import PageLoadingSpineer from 'components/list/PageLoadingSpineer';
+import isApp from 'utils/isApp';
+import { useNavigate } from 'react-router-dom';
 
 const List = () => {
   const listRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
 
   const [loading, setLoading] = useState(false);
   const [pageLoading, setPageLoading] = useState(false);
@@ -63,6 +66,45 @@ const List = () => {
   useEffect(() => {
     void fetchShow();
   }, [location, duration, priority]);
+
+  useEffect(() => {
+    if (isApp()) {
+      const modalColse = (e: MessageEvent<string>) => {
+        const data: {
+          url: string;
+        } = JSON.parse(e.data);
+
+        if (data.url === '/shows') {
+          if (showId === 0) {
+            navigate('/home');
+            return;
+          }
+
+          if (showId !== 0) {
+            setShowId(0);
+          }
+        }
+      };
+
+      if (window.platform === 'android') {
+        document.addEventListener('message', modalColse);
+      }
+
+      if (window.platform === 'ios') {
+        window.addEventListener('message', modalColse);
+      }
+
+      return () => {
+        if (window.platform === 'android') {
+          document.removeEventListener('message', modalColse);
+        }
+
+        if (window.platform === 'ios') {
+          window.removeEventListener('message', modalColse);
+        }
+      };
+    }
+  }, [showId]);
 
   return (
     <div

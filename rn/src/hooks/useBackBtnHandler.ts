@@ -1,7 +1,7 @@
 import {RefObject, useEffect, useState} from 'react';
-import close from '../utils/appClose';
 import {BackHandler} from 'react-native';
 import WebView from 'react-native-webview';
+import close from '../utils/close';
 
 const useBackBtnHandler = (
   CurrentUrl: string,
@@ -15,25 +15,31 @@ const useBackBtnHandler = (
   useEffect(() => {
     const handleBackButton = () => {
       if (navState.canGoBack) {
-        if (navState.url === `${CurrentUrl}/home`) {
-          close();
-        } else if (
-          navState.url === `${CurrentUrl}/home/nearby` ||
-          navState.url === `${CurrentUrl}/shows`
-        ) {
-          webViewRef.current?.postMessage(
-            JSON.stringify({
-              showDetail: false,
-            }),
-          );
-        } else if (
-          navState.url === `${CurrentUrl}/shows` ||
+        if (
           navState.url === `${CurrentUrl}/like` ||
           navState.url === `${CurrentUrl}/profile`
         ) {
           webViewRef.current?.postMessage(
             JSON.stringify({
-              navigate: '/home',
+              url: '/like || /profile',
+            }),
+          );
+        } else if (navState.url === `${CurrentUrl}/home`) {
+          webViewRef.current?.postMessage(
+            JSON.stringify({
+              url: '/home',
+            }),
+          );
+        } else if (navState.url === `${CurrentUrl}/home/nearby`) {
+          webViewRef.current?.postMessage(
+            JSON.stringify({
+              url: '/home/nearby',
+            }),
+          );
+        } else if (navState.url === `${CurrentUrl}/shows`) {
+          webViewRef.current?.postMessage(
+            JSON.stringify({
+              url: '/shows',
             }),
           );
         } else {

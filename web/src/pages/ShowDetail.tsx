@@ -14,7 +14,6 @@ import { selectEndpoint } from 'store/modules/endpoint';
 import useScrollHeight from 'hooks/useScrollHeight';
 import useSaveViewedShow from 'hooks/useSaveViewedShow';
 import api from 'api';
-import { useParams } from 'react-router-dom';
 import isApp from 'utils/isApp';
 
 interface showDetailProps {
@@ -48,8 +47,6 @@ const ShowDetail = ({ showId, setShowId }: showDetailProps) => {
   const [isModal, setIsModal] = useState(false);
   const showDetailRef = useRef<HTMLDivElement>(null);
 
-  const id = useParams().id;
-
   const endpoint = useAppSelector(selectEndpoint);
 
   const scrollHeight = useScrollHeight(showDetailRef);
@@ -66,7 +63,7 @@ const ShowDetail = ({ showId, setShowId }: showDetailProps) => {
   const fetchShowDetail = async () => {
     try {
       const result: fetchShowDetail = await api.get(
-        `/exhibitions?exhibitionId=${showId ?? id}`,
+        `/exhibitions?exhibitionId=${showId}`,
       );
       setShowDetail(result.data.data);
     } catch (err) {
@@ -112,11 +109,10 @@ const ShowDetail = ({ showId, setShowId }: showDetailProps) => {
 
   useSaveViewedShow(showDetail);
 
+  console.log(window.innerHeight);
+
   return (
     <>
-      {isModal ? (
-        <div className="absolute top-0 z-30 w-full h-screen bg-black opacity-50" />
-      ) : null}
       <div
         className="absolute top-0 left-0 z-20 w-full h-full overflow-y-scroll bg-white scrollbar-hide"
         ref={showDetailRef}

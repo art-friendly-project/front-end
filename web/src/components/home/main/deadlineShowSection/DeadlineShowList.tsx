@@ -1,8 +1,12 @@
 import DeadlineShow from './DeadlineShow';
-import { useEffect, useState } from 'react';
+import { type Dispatch, type SetStateAction, useEffect, useState } from 'react';
 import api from 'api';
 
-const DeadlineShowList = () => {
+interface deadlineShowList {
+  setShowId: Dispatch<SetStateAction<number>>;
+}
+
+const DeadlineShowList = ({ setShowId }: deadlineShowList) => {
   const [loading, setLoading] = useState(false);
   const [shows, setShows] = useState<show[]>([
     {
@@ -65,6 +69,7 @@ const DeadlineShowList = () => {
           temperature={show.temperature}
           isLike={show.isLike}
           loading={loading}
+          setShowId={setShowId}
         />
       ))}
     </div>

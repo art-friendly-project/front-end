@@ -7,11 +7,15 @@ import 'style/swiper.css';
 import GradientBackground from './GradientBackground';
 import PosterImg from 'components/common/PosterImg';
 import PosterInfo from './PosterInfo';
-import { useEffect, useState } from 'react';
+import { type Dispatch, type SetStateAction, useEffect, useState } from 'react';
 import api from 'api';
 import PosterLoading from './PosterLoading';
 
-const PosterSwiper = () => {
+interface posterSwiper {
+  setShowId: Dispatch<SetStateAction<number>>;
+}
+
+const PosterSwiper = ({ setShowId }: posterSwiper) => {
   const [shows, setShows] = useState<popularShow[]>([]);
   const [loading, setLoading] = useState(false);
 
@@ -64,6 +68,7 @@ const PosterSwiper = () => {
                   title={show.title}
                   place={show.place}
                   location={show.area}
+                  setShowId={setShowId}
                 />
               </SwiperSlide>
             ))}

@@ -10,6 +10,7 @@ import accessPermissionsCheck from '../../utils/accessPermissionsCheck';
 import {Platform} from 'react-native';
 import deleteAccount from '../../utils/deleteAccount';
 import findGeolocation from '../../utils/findGeolocation';
+import appClose from '../../utils/appClose';
 
 interface navType {
   url: string;
@@ -23,10 +24,7 @@ const WebViewcontainer = () => {
   const injectedJS = `window.platform = '${platform}'; true;`;
 
   const webViewRef = useRef<WebView>(null);
-  const setNavState = useBackBtnHandler(
-    'https://front-end-seven-eta.vercel.app',
-    webViewRef,
-  );
+  const setNavState = useBackBtnHandler('http://192.168.0.72:3000', webViewRef);
 
   useAccessPermissions(webViewRef);
 
@@ -37,7 +35,7 @@ const WebViewcontainer = () => {
   return (
     <WebView
       ref={webViewRef}
-      source={{uri: 'https://front-end-seven-eta.vercel.app'}}
+      source={{uri: 'http://192.168.0.72:3000'}}
       mixedContentMode="always"
       onNavigationStateChange={(nav: navType) => {
         setNavState({url: nav.url, canGoBack: nav.canGoBack});
@@ -51,6 +49,7 @@ const WebViewcontainer = () => {
         requestCalendars(e, webViewRef);
         addSchedule(e, webViewRef);
         deleteAccount(e);
+        appClose(e);
       }}
     />
   );

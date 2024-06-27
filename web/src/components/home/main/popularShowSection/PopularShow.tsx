@@ -1,7 +1,6 @@
 import PosterImg from 'components/common/PosterImg';
 import PosterInfo from './PosterInfo';
-import { useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { type Dispatch, type SetStateAction, useEffect, useRef } from 'react';
 import PopularShowLoading from './PopularShowLoading';
 import PopularShowInfoLoading from './PopularShowInfoLoading';
 
@@ -12,6 +11,7 @@ interface popularShow {
   imageUrl: string;
   rankShift: string;
   loading: boolean;
+  setShowId: Dispatch<SetStateAction<number>>;
 }
 
 const PopularShow = ({
@@ -21,8 +21,8 @@ const PopularShow = ({
   imageUrl,
   rankShift,
   loading,
+  setShowId,
 }: popularShow) => {
-  const navigate = useNavigate();
   const showRef = useRef<HTMLButtonElement>(null);
 
   const observer = new IntersectionObserver((entries) => {
@@ -48,7 +48,7 @@ const PopularShow = ({
       className="relative active:bg-gray-00 active:duration-0 flex items-center px-4 py-2 mb-4 duration-1000 translate-y-[10px] opacity-0 rounded-xl shadow-custom2 w-9/10"
       ref={showRef}
       onClick={() => {
-        navigate(`/shows/${id}`);
+        setShowId(id);
       }}
     >
       {loading ? (
