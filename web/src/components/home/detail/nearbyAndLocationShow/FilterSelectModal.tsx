@@ -23,7 +23,7 @@ const FilterSelectModal = ({
   return (
     <>
       <button
-        className="absolute top-0 z-20 w-full h-screen bg-black opacity-50"
+        className="fixed top-0 z-20 w-full h-screen bg-black opacity-50"
         onClick={() => {
           setIsModalOpen([false, false, false]);
         }}

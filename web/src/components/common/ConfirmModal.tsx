@@ -16,7 +16,7 @@ const ConfirmModal = ({ text, fn, cancelFn }: confirmModal) => {
       {isModal ? (
         <>
           <button
-            className="absolute top-0 z-30 w-full h-screen bg-black opacity-50"
+            className="fixed top-0 z-30 w-full h-screen bg-black opacity-50"
             onClick={() => {
               dispatch(isModalActions.setIsModal(false));
             }}
