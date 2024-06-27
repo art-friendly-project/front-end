@@ -83,6 +83,10 @@
     {
       "source": "/userlogs/location",
       "destination": "https://artfriendly.duckdns.org/userlogs/location"
+    },
+    {
+      "source": "/terms",
+      "destination": "https://artfriendly.duckdns.org/terms"
     }
   ]
 }
