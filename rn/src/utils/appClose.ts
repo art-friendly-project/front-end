@@ -1,14 +1,11 @@
-import {Alert, BackHandler} from 'react-native';
+import {WebViewMessageEvent} from 'react-native-webview';
+import close from './close';
 
-function close() {
-  Alert.alert('종료하시겠어요?', '확인을 누르면 종료합니다.', [
-    {
-      text: '취소',
-      onPress: () => {},
-      style: 'cancel',
-    },
-    {text: '확인', onPress: () => BackHandler.exitApp()},
-  ]);
-}
+const appClose = async (e: WebViewMessageEvent) => {
+  const nativeEvent = JSON.parse(e.nativeEvent.data);
+  if (nativeEvent.type === 'APP_CLOSE') {
+    close();
+  }
+};
 
-export default close;
+export default appClose;

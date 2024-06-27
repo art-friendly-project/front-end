@@ -11,9 +11,12 @@ import { selectShowsLocation } from 'store/modules/showsLocation';
 import ShowDetail from './ShowDetail';
 import PageLoadingSpineer from 'components/list/PageLoadingSpineer';
 import LoadingSpineer from 'components/common/LoadingSpineer';
+import isApp from 'utils/isApp';
+import { useNavigate } from 'react-router-dom';
 
 const NearbyAndLocationShow = () => {
   const listRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
 
   const [loading, setLoading] = useState(false);
   const [pageLoading, setPageLoading] = useState(false);
@@ -69,6 +72,45 @@ const NearbyAndLocationShow = () => {
   useEffect(() => {
     if (page > 0) void fetchShowsPage();
   }, [page]);
+
+  useEffect(() => {
+    if (isApp()) {
+      const modalColse = (e: MessageEvent<string>) => {
+        const data: {
+          url: string;
+        } = JSON.parse(e.data);
+
+        if (data.url === '/home/nearby') {
+          if (showId === 0) {
+            navigate('/home');
+            return;
+          }
+
+          if (showId !== 0) {
+            setShowId(0);
+          }
+        }
+      };
+
+      if (window.platform === 'android') {
+        document.addEventListener('message', modalColse);
+      }
+
+      if (window.platform === 'ios') {
+        window.addEventListener('message', modalColse);
+      }
+
+      return () => {
+        if (window.platform === 'android') {
+          document.removeEventListener('message', modalColse);
+        }
+
+        if (window.platform === 'ios') {
+          window.removeEventListener('message', modalColse);
+        }
+      };
+    }
+  }, [showId]);
 
   return (
     <div

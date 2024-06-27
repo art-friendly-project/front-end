@@ -5,17 +5,17 @@ import { Outlet, useNavigate } from 'react-router-dom';
 import isApp from 'utils/isApp';
 
 const MainLayout = () => {
-  const naivgate = useNavigate();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (isApp()) {
       const modalColse = (e: MessageEvent<string>) => {
         const data: {
-          navigate: '/home';
+          url: string;
         } = JSON.parse(e.data);
 
-        if (data.navigate !== undefined) {
-          naivgate(data.navigate);
+        if (data.url === '/like || /profile') {
+          navigate('/home');
         }
       };
 

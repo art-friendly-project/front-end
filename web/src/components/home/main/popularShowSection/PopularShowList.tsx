@@ -1,8 +1,12 @@
 import PopularShow from './PopularShow';
-import { useEffect, useState } from 'react';
+import { type Dispatch, type SetStateAction, useEffect, useState } from 'react';
 import api from 'api';
 
-const PopularShowList = () => {
+interface popularShowList {
+  setShowId: Dispatch<SetStateAction<number>>;
+}
+
+const PopularShowList = ({ setShowId }: popularShowList) => {
   const [loading, setLoading] = useState(false);
   const [shows, setShows] = useState<popularShow[]>([
     {
@@ -69,6 +73,7 @@ const PopularShowList = () => {
             imageUrl={show.imageUrl}
             rankShift={show.rankShift}
             loading={loading}
+            setShowId={setShowId}
           />
         ))}
     </div>

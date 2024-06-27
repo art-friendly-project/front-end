@@ -20,6 +20,9 @@ const CancelModal = ({
 }: cancelModal) => {
   return (
     <>
+      <div
+        className={`fixed bottom-0 z-30 w-full h-full bg-black opacity-50`}
+      />
       <div className="absolute z-40 flex flex-col items-center justify-center bg-white border h-60 w-80 -top-24 rounded-2xl border-gray-60">
         <img
           src={character4}
