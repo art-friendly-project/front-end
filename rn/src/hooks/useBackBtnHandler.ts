@@ -26,6 +26,16 @@ const useBackBtnHandler = (
               showDetail: false,
             }),
           );
+        } else if (
+          navState.url === `${CurrentUrl}/shows` ||
+          navState.url === `${CurrentUrl}/like` ||
+          navState.url === `${CurrentUrl}/profile`
+        ) {
+          webViewRef.current?.postMessage(
+            JSON.stringify({
+              navigate: '/home',
+            }),
+          );
         } else {
           webViewRef.current?.goBack();
         }

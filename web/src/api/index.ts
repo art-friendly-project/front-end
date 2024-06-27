@@ -46,8 +46,11 @@ api.interceptors.response.use(
             return await api(originalRequest);
           })
           .catch((refreshErr) => {
-            console.error(refreshErr);
+            localStorage.removeItem('accessToken');
+            localStorage.removeItem('refreshToken');
+            location.href = '/kakao-login';
             isRefreshing = false;
+            console.error(refreshErr);
           });
       } else {
         return await new Promise((resolve) => {
