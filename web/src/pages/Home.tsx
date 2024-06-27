@@ -21,11 +21,9 @@ const Home = () => {
     }
   };
 
-  const myId = localStorage.getItem('myId');
-
   useEffect(() => {
     void fetchUserId();
-  }, [myId]);
+  }, []);
 
   useEffect(() => {
     dispatch(endpointActions.current('/home'));
