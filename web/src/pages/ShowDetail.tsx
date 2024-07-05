@@ -109,8 +109,6 @@ const ShowDetail = ({ showId, setShowId }: showDetailProps) => {
 
   useSaveViewedShow(showDetail);
 
-  console.log(window.innerHeight);
-
   return (
     <>
       <div
