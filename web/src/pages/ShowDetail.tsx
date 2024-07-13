@@ -15,6 +15,7 @@ import useScrollHeight from 'hooks/useScrollHeight';
 import useSaveViewedShow from 'hooks/useSaveViewedShow';
 import api from 'api';
 import isApp from 'utils/isApp';
+import { useParams } from 'react-router-dom';
 
 interface showDetailProps {
   showId?: number;
@@ -22,6 +23,7 @@ interface showDetailProps {
 }
 
 const ShowDetail = ({ showId, setShowId }: showDetailProps) => {
+  const id = useParams().id;
   const [showDetail, setShowDetail] = useState<showDetail>({
     id: 0,
     temperature: 0,
@@ -63,7 +65,7 @@ const ShowDetail = ({ showId, setShowId }: showDetailProps) => {
   const fetchShowDetail = async () => {
     try {
       const result: fetchShowDetail = await api.get(
-        `/exhibitions?exhibitionId=${showId}`,
+        `/exhibitions?exhibitionId=${showId ?? id}`,
       );
       setShowDetail(result.data.data);
     } catch (err) {
