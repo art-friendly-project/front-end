@@ -5,7 +5,7 @@ const DetailHeaderTitle = () => {
   const pathname = location.pathname;
 
   const changeEndpointTotitle = () => {
-    if (pathname === '/home/nearby') return '내 근처 전시/행사 정보';
+    if (pathname === '/home/nearby') return '지역별 전시/행사 정보';
     if (pathname === '/taste-test') return '취향분석 테스트';
     if (pathname === '/taste-test/questions') return '취향분석 테스트';
     if (pathname === '/taste-test/result') return '테스트 결과';
