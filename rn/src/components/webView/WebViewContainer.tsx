@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useRef} from 'react';
 import {WebView, WebViewMessageEvent} from 'react-native-webview';
 import useBackBtnHandler from '../../hooks/useBackBtnHandler';
 import accessPermissions from '../../utils/accessPermissions';
@@ -9,7 +9,6 @@ import addSchedule from '../../utils/addSchedule';
 import accessPermissionsCheck from '../../utils/accessPermissionsCheck';
 import {Platform} from 'react-native';
 import deleteAccount from '../../utils/deleteAccount';
-import findGeolocation from '../../utils/findGeolocation';
 import appClose from '../../utils/appClose';
 
 interface navType {
@@ -18,8 +17,10 @@ interface navType {
 }
 
 const WebViewcontainer = () => {
-  const [geolocation, setGeolocation] = useState({latitude: 0, longitude: 0});
-
+  // const [geolocation, setGeolocation] = useState({latitude: 0, longitude: 0});
+  // useEffect(() => {
+  //   webViewRef.current?.postMessage(JSON.stringify({geolocation}));
+  // }, [geolocation]);
   const platform = Platform.OS === 'android' ? 'android' : 'ios';
   const injectedJS = `window.platform = '${platform}'; true;`;
 
@@ -30,10 +31,6 @@ const WebViewcontainer = () => {
   );
 
   useAccessPermissions(webViewRef);
-
-  useEffect(() => {
-    webViewRef.current?.postMessage(JSON.stringify({geolocation}));
-  }, [geolocation]);
 
   return (
     <WebView
@@ -47,7 +44,7 @@ const WebViewcontainer = () => {
       onMessage={(e: WebViewMessageEvent) => {
         accessPermissions(e, webViewRef);
         accessPermissionsCheck(e, webViewRef);
-        findGeolocation(e, setGeolocation);
+        // findGeolocation(e, setGeolocation);
         accessPermissionTry(e);
         requestCalendars(e, webViewRef);
         addSchedule(e, webViewRef);

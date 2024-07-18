@@ -17,7 +17,7 @@ const Term = ({ title, idx, setIsModal }: term) => {
   };
   return (
     <button
-      className={`text-Body1-M ${idx < 2 ? 'border-r border-r-gray-40 pr-2 mr-2' : ''}`}
+      className={`text-Body1-M ${idx < 1 ? 'border-r border-r-gray-40 pr-2 mr-2' : ''}`}
       onClick={termBtnHandler}
     >
       {title}

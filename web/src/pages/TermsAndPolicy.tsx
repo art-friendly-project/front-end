@@ -3,7 +3,7 @@ import TermsAndPolicyBtn from 'components/termsAndPolicy/TermsAndPolicyBtn';
 import { useState } from 'react';
 
 const TermsAndPolicy = () => {
-  const [isModal, setIsModal] = useState([false, false, false]);
+  const [isModal, setIsModal] = useState([false, false]);
 
   return (
     <div className="flex flex-col w-full h-full">
@@ -25,6 +25,6 @@ const TermsAndPolicy = () => {
   );
 };
 
-const titles = ['서비스 이용약관', '개인정보 처리방침', '위치정보 이용약관'];
+const titles = ['서비스 이용약관', '개인정보 처리방침'];
 
 export default TermsAndPolicy;

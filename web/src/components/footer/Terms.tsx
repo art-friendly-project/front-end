@@ -3,7 +3,7 @@ import Term from './Term';
 import DetailTermModal from './DetailTermModal';
 
 const Terms = () => {
-  const [isModal, setIsModal] = useState([false, false, false]);
+  const [isModal, setIsModal] = useState([false, false]);
 
   return (
     <div>
@@ -20,6 +20,6 @@ const Terms = () => {
   );
 };
 
-const titles = ['서비스 이용약관', '개인정보 처리방침', '위치정보 이용약관'];
+const titles = ['서비스 이용약관', '개인정보 처리방침'];
 
 export default Terms;

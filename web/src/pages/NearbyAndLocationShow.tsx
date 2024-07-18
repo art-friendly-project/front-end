@@ -5,8 +5,6 @@ import FilterSelectModal from '../components/home/detail/nearbyAndLocationShow/F
 import selectModalInfos from 'assets/data/selectModalInfos';
 import { useAppSelector } from 'hooks';
 import api from 'api';
-import useGeolocation from 'hooks/useGeolocation';
-import reverseLocation from 'utils/reverseLocation';
 import { selectShowsLocation } from 'store/modules/showsLocation';
 import ShowDetail from './ShowDetail';
 import PageLoadingSpineer from 'components/list/PageLoadingSpineer';
@@ -33,8 +31,8 @@ const NearbyAndLocationShow = () => {
 
   const openModalIndex = isModalOpen.indexOf(true);
 
-  const geolocation = useGeolocation();
-  void reverseLocation(geolocation);
+  // const geolocation = useGeolocation();
+  // void reverseLocation(geolocation);
 
   const fetchShows = async () => {
     setLoading(false);
