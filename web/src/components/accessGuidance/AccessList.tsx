@@ -6,15 +6,6 @@ const AccessList = () => {
   return (
     <div className="flex flex-col pl-[5%] mt-[10%]">
       <span className="mb-6 text-Headline-M">선택 접근 권한</span>
-      {/* <div className="flex items-center mb-[5%]">
-        <img src={location} className="w-12 h-12" />
-        <div className="flex flex-col ml-4">
-          <span className="mb-1 text-Body3-120 text-gray-110">위치</span>
-          <span className="text-Body2-M text-gray-60">
-            주변 전시/행사 검색 시 사용
-          </span>
-        </div>
-      </div> */}
       <div className="flex items-center mb-[5%]">
         <img src={folder} className="w-12 h-12" />
         <div className="flex flex-col ml-4">
