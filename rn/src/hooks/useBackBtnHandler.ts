@@ -25,6 +25,8 @@ const useBackBtnHandler = (
               navigate: '/home',
             }),
           );
+        } else if (navState.url === `${CurrentUrl}/home`) {
+          close();
         } else {
           webViewRef.current?.goBack();
         }
