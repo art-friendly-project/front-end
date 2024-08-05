@@ -7,9 +7,14 @@ import selectModalInfos from 'assets/data/selectModalInfos';
 import api from 'api';
 import PageLoadingSpineer from 'components/list/PageLoadingSpineer';
 import { useInfiniteQuery } from '@tanstack/react-query';
+import { useNavigate } from 'react-router-dom';
+import useNavigateHome from 'hooks/useNavigateHome';
 
 const List = () => {
   const listRef = useRef<HTMLDivElement>(null);
+
+  const navigate = useNavigate();
+  useNavigateHome(navigate);
 
   const [location, setLocation] = useState('서울');
   const [priority, setPriority] = useState('popular');

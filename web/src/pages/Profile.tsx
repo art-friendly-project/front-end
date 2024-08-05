@@ -9,6 +9,8 @@ import api from 'api';
 import { useAppSelector } from 'hooks';
 import { selectUserId } from 'store/modules/userId';
 import { useInfiniteQuery, useQuery } from '@tanstack/react-query';
+import { useNavigate } from 'react-router-dom';
+import useNavigateHome from 'hooks/useNavigateHome';
 
 const Profile = () => {
   const [shows, setShows] = useState<show[]>([]);
@@ -18,6 +20,9 @@ const Profile = () => {
   const myId = Number(localStorage.getItem('myId'));
 
   const bottomRef = useRef<HTMLDivElement>(null);
+
+  const navigate = useNavigate();
+  useNavigateHome(navigate);
 
   const getProfile = async (id: number) => {
     const res: fetchProfile = await api.get(

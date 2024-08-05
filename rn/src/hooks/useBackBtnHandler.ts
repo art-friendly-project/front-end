@@ -17,29 +17,12 @@ const useBackBtnHandler = (
       if (navState.canGoBack) {
         if (
           navState.url === `${CurrentUrl}/like` ||
-          navState.url === `${CurrentUrl}/profile`
+          navState.url === `${CurrentUrl}/profile` ||
+          navState.url === `${CurrentUrl}/shows`
         ) {
           webViewRef.current?.postMessage(
             JSON.stringify({
-              url: '/like || /profile',
-            }),
-          );
-        } else if (navState.url === `${CurrentUrl}/home`) {
-          webViewRef.current?.postMessage(
-            JSON.stringify({
-              url: '/home',
-            }),
-          );
-        } else if (navState.url === `${CurrentUrl}/home/nearby`) {
-          webViewRef.current?.postMessage(
-            JSON.stringify({
-              url: '/home/nearby',
-            }),
-          );
-        } else if (navState.url === `${CurrentUrl}/shows`) {
-          webViewRef.current?.postMessage(
-            JSON.stringify({
-              url: '/shows',
+              navigate: '/home',
             }),
           );
         } else {

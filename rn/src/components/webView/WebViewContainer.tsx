@@ -17,16 +17,12 @@ interface navType {
 }
 
 const WebViewcontainer = () => {
-  // const [geolocation, setGeolocation] = useState({latitude: 0, longitude: 0});
-  // useEffect(() => {
-  //   webViewRef.current?.postMessage(JSON.stringify({geolocation}));
-  // }, [geolocation]);
   const platform = Platform.OS === 'android' ? 'android' : 'ios';
   const injectedJS = `window.platform = '${platform}'; true;`;
 
   const webViewRef = useRef<WebView>(null);
   const setNavState = useBackBtnHandler(
-    'https://front-end-seven-eta.vercel.app',
+    'http://192.168.11.57:3000',
     webViewRef,
   );
 
@@ -35,7 +31,7 @@ const WebViewcontainer = () => {
   return (
     <WebView
       ref={webViewRef}
-      source={{uri: 'https://front-end-seven-eta.vercel.app'}}
+      source={{uri: 'http://192.168.11.57:3000'}}
       mixedContentMode="always"
       onNavigationStateChange={(nav: navType) => {
         setNavState({url: nav.url, canGoBack: nav.canGoBack});
@@ -44,7 +40,6 @@ const WebViewcontainer = () => {
       onMessage={(e: WebViewMessageEvent) => {
         accessPermissions(e, webViewRef);
         accessPermissionsCheck(e, webViewRef);
-        // findGeolocation(e, setGeolocation);
         accessPermissionTry(e);
         requestCalendars(e, webViewRef);
         addSchedule(e, webViewRef);
