@@ -1,8 +1,10 @@
 import { useEffect } from 'react';
 
-const useSaveViewedShow = (show: showDetail) => {
+const useSaveViewedShow = (show: showDetail | undefined) => {
   useEffect(() => {
+    if (show === undefined) return;
     if (show.id === 0) return;
+
     const localViewedShowList = localStorage.getItem('viewedShowList');
 
     const showData = {
