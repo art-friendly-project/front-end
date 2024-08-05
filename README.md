@@ -89,5 +89,5 @@ $ npm start
 <details>
   <summary><b>[ 2024. 08. 05. ] UI, 기능 구현 (9차)</b></summary>
   &nbsp;&nbsp; - &nbsp;react-query 도입
-  <br />&nbsp;&nbsp; - &nbsp;모바일 물리버튼 뒤로가기 기능 수정
+  <br />&nbsp;&nbsp; - &nbsp;모바일 물리버튼 뒤로가기 기능 수정
 </details>
