@@ -6,14 +6,14 @@ import { useAppSelector } from 'hooks';
 import { selectEndpoint } from 'store/modules/endpoint';
 
 interface viewedShowAndReviewsSection {
-  reviews: savedReview[];
+  myReviews: savedReview[];
   shows: show[];
   setShows: Dispatch<SetStateAction<show[]>>;
   userId: number;
 }
 
 const ViewedShowAndReviewsSection = ({
-  reviews,
+  myReviews,
   shows,
   setShows,
   userId,
@@ -37,7 +37,7 @@ const ViewedShowAndReviewsSection = ({
       {currentMenu ? (
         <ViewedShow shows={shows} setShows={setShows} />
       ) : (
-        <MyReivews reviews={reviews} userId={userId} />
+        <MyReivews myReviews={myReviews} userId={userId} />
       )}
     </div>
   );

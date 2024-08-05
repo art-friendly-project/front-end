@@ -1,4 +1,4 @@
-import { type Dispatch, type SetStateAction } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 interface posterInfo {
   id: number;
@@ -7,7 +7,6 @@ interface posterInfo {
   title: string;
   place: string;
   location: string;
-  setShowId: Dispatch<SetStateAction<number>>;
 }
 
 const PosterInfo = ({
@@ -17,13 +16,13 @@ const PosterInfo = ({
   title,
   place,
   location,
-  setShowId,
 }: posterInfo) => {
+  const navigate = useNavigate();
   return (
     <button
       className="absolute z-20 flex flex-col w-full ml-4 text-white bottom-6"
       onClick={() => {
-        setShowId(id);
+        navigate(`/shows/${id}`);
       }}
     >
       <span className="text-Body2-M">

@@ -9,10 +9,10 @@ import useToastHandler from 'hooks/useToastHandler';
 import { selectEndpoint } from 'store/modules/endpoint';
 import addOneHour from 'utils/addOneHour';
 import isApp from 'utils/isApp';
+import { useNavigate } from 'react-router-dom';
+import useNavigateHome from 'hooks/useNavigateHome';
 
 const Like = () => {
-  const [shows, setShows] = useState<show[]>([]);
-
   const [isModal, setIsModal] = useState(false);
   const [currentMenu, setCurrentMenu] = useState(true);
   const [calendars, setCalendars] = useState<calendar[]>([]);
@@ -22,6 +22,9 @@ const Like = () => {
   const [currentTerm, setCurrentTerm] = useState<string[]>([]);
   const [selectedDate, setSelectedDate] = useState('2024-01-01');
   const [selectedTime, setSelectedTime] = useState('12:00');
+
+  const navigate = useNavigate();
+  useNavigateHome(navigate);
 
   useEffect(() => {
     if (calendars.length > 0) setCalendarId(calendars[0].id);
@@ -123,8 +126,6 @@ const Like = () => {
         <LikeMenu currentMenu={currentMenu} setCurrentMenu={setCurrentMenu} />
         {currentMenu ? (
           <FavoriteShowSection
-            shows={shows}
-            setShows={setShows}
             setCalendars={setCalendars}
             setIsModal={setIsModal}
             setScheduleName={setScheduleName}

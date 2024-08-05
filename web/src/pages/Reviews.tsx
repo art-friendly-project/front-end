@@ -3,67 +3,48 @@ import MemoPad from 'components/reviews/memopad/MemoPad';
 import StickerModal from 'components/reviews/stickerModal/StickerModal';
 import ConfirmModal from 'components/common/ConfirmModal';
 import useToastHandler from 'hooks/useToastHandler';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import api from 'api';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
 const Reviews = () => {
+  const params = useParams();
+  const id = Number(params.id);
+
+  const queryClient = useQueryClient();
+
   const [selectStickerIdx, setSelectStickerIdx] = useState(0);
   const [selectStickerId, setSelectStickerId] = useState(0);
   const [isModal, setIsModal] = useState(false);
-  const [review, setReview] = useState<reviewDetail>({
-    id: 0,
-    title: '',
-    body: '',
-    lastModifiedTime: '',
-    memberResponseDto: {
-      id: 0,
-      email: '',
-      imageUrl: '',
-      nickName: '',
-    },
-    isBookmark: false,
-    isSticker: false,
-    stickerRspDtos: [],
+
+  const getReview = async (id: number) => {
+    const res = await api.get(`/dambyeolags?dambyeolagId=${id}`);
+    return res.data.data;
+  };
+
+  const { data } = useQuery({
+    queryKey: ['review', id],
+    queryFn: async () => await getReview(id),
+    staleTime: 5 * 60 * 1000,
   });
 
   const toastHandler = useToastHandler(true, '', '스티커를 지웠어요');
 
-  const params = useParams();
-  const id = Number(params.id);
-
-  const confirmModalFn = async () => {
-    try {
-      await api.delete(`/stickers?stickerId=${selectStickerId}`);
-      setReview((prev) => {
-        prev.isSticker = false;
-        prev.stickerRspDtos = prev.stickerRspDtos.filter(
-          (sticker) => sticker.id !== selectStickerId,
-        );
-
-        return prev;
-      });
-      setSelectStickerIdx(Infinity);
-      toastHandler();
-    } catch (err) {
-      console.error(err);
-    }
+  const deleteSticker = async () => {
+    await api.delete(`/stickers?stickerId=${selectStickerId}`);
   };
 
-  const fetchReviewDetail = async () => {
-    try {
-      const result: fetchReviewDetail = await api.get(
-        `/dambyeolags?dambyeolagId=${id}`,
-      );
-      setReview(result.data.data);
-    } catch (err) {
-      console.error(err);
-    }
-  };
+  const { mutate } = useMutation({
+    mutationFn: deleteSticker,
+    onSuccess: async () => {
+      await queryClient.invalidateQueries({ queryKey: ['review'] });
+    },
+  });
 
-  useEffect(() => {
-    void fetchReviewDetail();
-  }, [id]);
+  if (data === undefined) {
+    return <></>;
+  }
 
   return (
     <>
@@ -71,13 +52,15 @@ const Reviews = () => {
         <ConfirmModal
           text="남긴 스티커를 삭제할까요?"
           fn={() => {
-            void confirmModalFn();
+            mutate();
+            setSelectStickerIdx(Infinity);
+            toastHandler();
           }}
         />
       }
       <div className="flex flex-col items-center w-full h-full mt-[10%]">
         <MemoPad
-          review={review}
+          review={data}
           selectStickerIdx={selectStickerIdx}
           setSelectStickerIdx={setSelectStickerIdx}
           setSelectStickerId={setSelectStickerId}
@@ -85,12 +68,10 @@ const Reviews = () => {
         <BtnContainer
           setIsModal={setIsModal}
           id={id}
-          isBookmark={review.isBookmark}
-          isSticker={review.isSticker}
+          isBookmark={data?.isBookmark}
+          isSticker={data?.isSticker}
         />
-        {isModal ? (
-          <StickerModal setIsModal={setIsModal} setReview={setReview} id={id} />
-        ) : null}
+        {isModal ? <StickerModal setIsModal={setIsModal} id={id} /> : null}
       </div>
     </>
   );

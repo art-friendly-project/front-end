@@ -10,7 +10,6 @@ interface profileTitle {
     subTitle: string;
     title: string;
   };
-  loading: boolean;
 }
 
 const ProfileTitle = ({
@@ -18,28 +17,18 @@ const ProfileTitle = ({
   imageUrl,
   nickName,
   mbti,
-  loading,
 }: profileTitle) => {
   return (
     <div className="relative flex items-center">
-      {loading ? (
-        <>
-          <EditBtn />
-          <img src={imageUrl} className="w-24 h-24 rounded-full" />
-        </>
-      ) : (
-        <div className="w-24 h-24 rounded-full bg-gray-40 animate-pulse" />
-      )}
+      <EditBtn />
+      <img src={imageUrl} className="w-24 h-24 rounded-full" />
       <div className="flex flex-col ml-4">
         <span className="text-Headline text-gray-110">{nickName}</span>
-        {mbti !== null ? (
-          <div className="flex items-center">
-            <div className="w-3 h-3 mr-1 rounded-full bg-purple-90" />
-            <span className="text-Body2-M text-gray-110">{mbti.title}</span>
-          </div>
-        ) : (
-          <TestSuggestBtn isMyAccount={isMyAccount} />
-        )}
+        <div className="flex items-center">
+          <div className="w-3 h-3 mr-1 rounded-full bg-purple-90" />
+          <span className="text-Body2-M text-gray-110">{mbti?.title}</span>
+        </div>
+        <TestSuggestBtn isMyAccount={isMyAccount} />
       </div>
     </div>
   );

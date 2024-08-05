@@ -170,6 +170,7 @@ interface fetchSavedReviews {
         id: number;
         exhibitionImageUrl: string;
       }>;
+      totalPages: number;
     };
   };
 }

@@ -1,3 +1,4 @@
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import api from 'api';
 import BtnBasic from 'components/common/BtnBasic';
 import WithdrawalConfirmCheckbox from 'components/withdrawalConfirm/WithdrawalConfirmCheckbox';
@@ -10,18 +11,39 @@ import { selectWithdrawalReason } from 'store/modules/withdrawalReason';
 
 const WithdrawalConfirm = () => {
   const navigate = useNavigate();
+  const queryClient = useQueryClient();
+
   const [confirm, setConfirm] = useState(false);
   const withdrawalReason = useAppSelector(selectWithdrawalReason);
 
-  const btnHandler = async () => {
-    try {
-      await api.post(`/members/withdrawal?reasonId=${withdrawalReason}`);
-      await api.delete('/members');
-      localStorage.clear();
-      navigate('/kakao-login');
-    } catch (err) {
-      console.error(err);
-    }
+  const postWithdrawalReason = async () => {
+    await api.post(`/members/withdrawal?reasonId=${withdrawalReason}`);
+  };
+
+  const deleteMember = async () => {
+    await api.delete('/members');
+  };
+
+  const postWithdrawalReasonMutaion = useMutation({
+    mutationFn: postWithdrawalReason,
+  });
+
+  const postWithdrawalReasonMutate = postWithdrawalReasonMutaion.mutate;
+
+  const deleteMemberMutation = useMutation({
+    mutationFn: deleteMember,
+    onSuccess: async () => {
+      await queryClient.invalidateQueries({ queryKey: ['user'] });
+    },
+  });
+
+  const deleteMemberMutate = deleteMemberMutation.mutate;
+
+  const btnHandler = () => {
+    postWithdrawalReasonMutate();
+    deleteMemberMutate();
+    localStorage.clear();
+    navigate('/kakao-login');
   };
 
   return (
@@ -31,9 +53,7 @@ const WithdrawalConfirm = () => {
       <WithdrawalConfirmCheckbox confirm={confirm} setConfirm={setConfirm} />
       <BtnBasic
         name="탈퇴하기"
-        fn={() => {
-          void btnHandler();
-        }}
+        fn={btnHandler}
         disable={!confirm}
         style="mt-auto pb-[5%]"
       />

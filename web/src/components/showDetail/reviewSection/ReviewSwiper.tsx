@@ -1,4 +1,3 @@
-import { type Dispatch, type SetStateAction } from 'react';
 import { Grid, Scrollbar } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Review from './Review';
@@ -6,13 +5,20 @@ import 'swiper/css';
 import 'swiper/css/scrollbar';
 import 'swiper/css/grid';
 import 'style/swiper.css';
+import {
+  type FetchNextPageOptions,
+  type InfiniteData,
+  type InfiniteQueryObserverResult,
+} from '@tanstack/react-query';
 
 interface reviewSwiper {
   reviews: review[];
-  setPage: Dispatch<SetStateAction<number>>;
+  fetchNextPage: (
+    options?: FetchNextPageOptions,
+  ) => Promise<InfiniteQueryObserverResult<InfiniteData<any, unknown>, Error>>;
 }
 
-const ReviewSwiper = ({ reviews, setPage }: reviewSwiper) => {
+const ReviewSwiper = ({ reviews, fetchNextPage }: reviewSwiper) => {
   return (
     <Swiper
       className="reviewSwiper"
@@ -20,7 +26,7 @@ const ReviewSwiper = ({ reviews, setPage }: reviewSwiper) => {
       spaceBetween={20}
       slidesPerView={2}
       onReachEnd={() => {
-        setPage((prev) => prev + 1);
+        void fetchNextPage();
       }}
       grid={{
         rows: 2,

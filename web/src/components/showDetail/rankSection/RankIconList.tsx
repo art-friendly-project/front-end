@@ -17,7 +17,6 @@ interface rankIconList {
   checkTemperature: string | null;
   isModal: boolean;
   setIsModal: Dispatch<SetStateAction<boolean>>;
-  setShowDetail: Dispatch<SetStateAction<showDetail>>;
 }
 
 const RankIconList = ({
@@ -25,9 +24,7 @@ const RankIconList = ({
   checkTemperature,
   isModal,
   setIsModal,
-  setShowDetail,
 }: rankIconList) => {
-  const [cancelIdx, setCancelIdx] = useState(0);
   const [isSelectedRanks, setIsSelectedRanks] = useState([
     false,
     false,
@@ -45,6 +42,10 @@ const RankIconList = ({
   ];
 
   useEffect(() => {
+    if (checkTemperature === null) {
+      setIsSelectedRanks([false, false, false, false, false]);
+    }
+
     if (checkTemperature !== null) {
       setIsSelectedRanks((prev) =>
         prev.map((_, i) => {
@@ -64,23 +65,11 @@ const RankIconList = ({
           idx={idx}
           icon={icon}
           isSelectedRank={isSelectedRanks[idx]}
-          setIsSelectedRanks={setIsSelectedRanks}
           setIsModal={setIsModal}
-          setCancelIdx={setCancelIdx}
           checkTemperature={checkTemperature}
-          setShowDetail={setShowDetail}
-          rank={ranks[idx]}
         />
       ))}
-      {isModal ? (
-        <CancelModal
-          id={id}
-          setIsModal={setIsModal}
-          setIsSelectedRanks={setIsSelectedRanks}
-          cancelIdx={cancelIdx}
-          setShowDetail={setShowDetail}
-        />
-      ) : null}
+      {isModal ? <CancelModal id={id} setIsModal={setIsModal} /> : null}
     </div>
   );
 };

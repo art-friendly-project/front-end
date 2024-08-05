@@ -8,82 +8,62 @@ import useToastHandler from 'hooks/useToastHandler';
 import api from 'api';
 import { useAppSelector } from 'hooks';
 import { selectUserId } from 'store/modules/userId';
+import { useInfiniteQuery, useQuery } from '@tanstack/react-query';
+import { useNavigate } from 'react-router-dom';
+import useNavigateHome from 'hooks/useNavigateHome';
 
 const Profile = () => {
-  const [loading, setLoading] = useState(false);
   const [shows, setShows] = useState<show[]>([]);
-  const [reviews, setReviews] = useState<savedReview[]>([]);
-  const [page, setPage] = useState(0);
-  const [user, setUser] = useState<user>({
-    memberDetailsRspDto: {
-      id: 0,
-      email: '',
-      imageUrl: '',
-      nickName: '',
-      selfIntro: '',
-      mbtiSimpleRspDto: {
-        imageUrl: '',
-        subTitle: '',
-        title: '',
-      },
-      artPreferenceTypeList: [],
-    },
-    StickerCount: 0,
-    dambyeolagCount: 0,
-    interestedExhibitionCount: 0,
-  });
+  const [totalPages, setTotalPage] = useState(0);
 
   const userId = useAppSelector(selectUserId);
   const myId = Number(localStorage.getItem('myId'));
 
   const bottomRef = useRef<HTMLDivElement>(null);
 
-  const fetchProfile = async (id: number) => {
-    try {
-      const profile: fetchProfile = await api.get(
-        `/members/profiles?searchMemberId=${id}`,
-      );
-      setUser(profile.data.data);
-    } catch (err) {
-      console.error(err);
-    }
+  const navigate = useNavigate();
+  useNavigateHome(navigate);
+
+  const getProfile = async (id: number) => {
+    const res: fetchProfile = await api.get(
+      `/members/profiles?searchMemberId=${id}`,
+    );
+
+    return res.data.data;
   };
 
-  useEffect(() => {
-    if (userId === 0 && myId !== null) {
-      void fetchProfile(myId);
-    }
+  const getMyReviews = async (page: number, id: number) => {
+    const res: fetchSavedReviews = await api.get(
+      `/dambyeolags/lists/by-member?page=${page}&memberId=${id}`,
+    );
 
-    if (userId !== 0) {
-      void fetchProfile(userId);
-    }
-  }, [userId]);
-
-  const fetchReviews = async () => {
-    if (userId === 0 && myId !== null) {
-      const result: fetchSavedReviews = await api.get(
-        `/dambyeolags/lists/by-member?page=${page}&memberId=${myId}`,
-      );
-      setLoading(true);
-      setReviews(result.data.data.content);
-    }
-
-    if (userId !== 0) {
-      const result: fetchSavedReviews = await api.get(
-        `/dambyeolags/lists/by-member?page=${page}&memberId=${userId}`,
-      );
-      setLoading(true);
-      setReviews(result.data.data.content);
-    }
+    setTotalPage(res.data.data.totalPages);
+    return res.data.data.content;
   };
 
-  useEffect(() => {
-    void fetchReviews();
-  }, []);
+  const userQuery = useQuery({
+    queryKey: ['user', 'profile', userId === 0 ? myId : userId],
+    queryFn: async () => await getProfile(userId === 0 ? myId : userId),
+  });
+  const user = userQuery.data;
+
+  const { data, fetchNextPage } = useInfiniteQuery({
+    queryKey: ['myReview', userId === 0 ? myId : userId],
+    queryFn: async ({ pageParam }) =>
+      await getMyReviews(pageParam, userId === 0 ? myId : userId),
+    getNextPageParam: (lastPage, allPages, lastPageParam, allPageParams) => {
+      const nextPage = lastPageParam + 1;
+      if (nextPage < totalPages) {
+        return nextPage;
+      }
+    },
+    initialPageParam: 0,
+    staleTime: 5 * 60 * 1000,
+  });
 
   const observer = new IntersectionObserver((entries) => {
     if (entries[0].isIntersecting) {
-      setPage((prev) => prev + 1);
+      void fetchNextPage();
     }
   });
 
@@ -112,6 +92,14 @@ const Profile = () => {
     toastHandler();
   };
 
+  const myReviews = data?.pages.reduce((prev, next) => {
+    return prev.concat(next);
+  });
+
+  if (user === undefined || myReviews === undefined) {
+    return <></>;
+  }
+
   return (
     <>
       <ConfirmModal
@@ -128,20 +116,19 @@ const Profile = () => {
           StickerCount={user.StickerCount}
           dambyeolagCount={user.dambyeolagCount}
           interestedExhibitionCount={user.interestedExhibitionCount}
-          loading={loading}
         />
         <InterestSection
           artPreferenceTypeList={user.memberDetailsRspDto.artPreferenceTypeList}
         />
         {userId === 0 ? (
           <ViewedShowAndReviewsSection
-            reviews={reviews}
+            myReviews={myReviews}
             shows={shows}
             setShows={setShows}
             userId={userId}
           />
         ) : (
-          <ReviewSection reviews={reviews} userId={userId} />
+          <ReviewSection myReviews={myReviews} userId={userId} />
         )}
       </div>
     </>

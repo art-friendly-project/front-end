@@ -7,76 +7,61 @@ import 'style/swiper.css';
 import GradientBackground from './GradientBackground';
 import PosterImg from 'components/common/PosterImg';
 import PosterInfo from './PosterInfo';
-import { type Dispatch, type SetStateAction, useEffect, useState } from 'react';
 import api from 'api';
 import PosterLoading from './PosterLoading';
+import { useQuery } from '@tanstack/react-query';
 
-interface posterSwiper {
-  setShowId: Dispatch<SetStateAction<number>>;
-}
-
-const PosterSwiper = ({ setShowId }: posterSwiper) => {
-  const [shows, setShows] = useState<popularShow[]>([]);
-  const [loading, setLoading] = useState(false);
-
-  const fetchShows = async () => {
-    try {
-      const result: fetchPopularShow = await api.get(
-        '/exhibitions/lists/popular',
-      );
-      setLoading(true);
-      setShows(result.data.data);
-    } catch (err) {
-      console.error(err);
-    }
+const PosterSwiper = () => {
+  const getPopularShows = async () => {
+    const res = await api.get('/exhibitions/lists/popular');
+    return res.data.data;
   };
 
-  useEffect(() => {
-    void fetchShows();
-  }, []);
+  const { data, isLoading } = useQuery<popularShow[]>({
+    queryKey: ['shows', 'popular'],
+    queryFn: getPopularShows,
+    staleTime: 5 * 60 * 1000,
+  });
+
+  if (isLoading) {
+    return <PosterLoading />;
+  }
 
   return (
-    <>
-      {loading ? (
-        <Swiper
-          className="bannerSwiper"
-          modules={[Scrollbar, Autoplay]}
-          spaceBetween={10}
-          slidesPerView={1}
-          scrollbar={{ draggable: true, hide: true }}
-          autoplay={{
-            delay: 3000,
-            disableOnInteraction: false,
-          }}
-        >
-          {shows
-            .filter((_, i) => i >= 3 && i <= 5)
-            .map((show) => (
-              <SwiperSlide key={show.exhibitionId}>
-                <GradientBackground />
-                <PosterImg
-                  width="w-full"
-                  height="h-96"
-                  bgColor="bg-white"
-                  rounded="rounded-none"
-                  image={show.imageUrl}
-                />
-                <PosterInfo
-                  id={show.exhibitionId}
-                  startDate={show.startDate}
-                  endDate={show.endDate}
-                  title={show.title}
-                  place={show.place}
-                  location={show.area}
-                  setShowId={setShowId}
-                />
-              </SwiperSlide>
-            ))}
-        </Swiper>
-      ) : (
-        <PosterLoading />
-      )}
-    </>
+    <Swiper
+      className="bannerSwiper"
+      modules={[Scrollbar, Autoplay]}
+      spaceBetween={10}
+      slidesPerView={1}
+      scrollbar={{ draggable: true, hide: true }}
+      autoplay={{
+        delay: 3000,
+        disableOnInteraction: false,
+      }}
+    >
+      {data
+        ?.filter((_, i) => i >= 3 && i <= 5)
+        .map((show) => (
+          <SwiperSlide key={show.exhibitionId}>
+            <GradientBackground />
+            <PosterImg
+              width="w-full"
+              height="h-96"
+              bgColor="bg-white"
+              rounded="rounded-none"
+              image={show.imageUrl}
+            />
+            <PosterInfo
+              id={show.exhibitionId}
+              startDate={show.startDate}
+              endDate={show.endDate}
+              title={show.title}
+              place={show.place}
+              location={show.area}
+            />
+          </SwiperSlide>
+        ))}
+    </Swiper>
   );
 };
 

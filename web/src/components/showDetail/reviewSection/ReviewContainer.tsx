@@ -1,12 +1,18 @@
+import {
+  type FetchNextPageOptions,
+  type InfiniteData,
+  type InfiniteQueryObserverResult,
+} from '@tanstack/react-query';
 import ReviewSwiper from './ReviewSwiper';
-import { type Dispatch, type SetStateAction } from 'react';
 
 interface reviewList {
   reviews: review[];
-  setPage: Dispatch<SetStateAction<number>>;
+  fetchNextPage: (
+    options?: FetchNextPageOptions,
+  ) => Promise<InfiniteQueryObserverResult<InfiniteData<any, unknown>, Error>>;
 }
 
-const ReviewContainer = ({ reviews, setPage }: reviewList) => {
-  return <ReviewSwiper reviews={reviews} setPage={setPage} />;
+const ReviewContainer = ({ reviews, fetchNextPage }: reviewList) => {
+  return <ReviewSwiper reviews={reviews} fetchNextPage={fetchNextPage} />;
 };
 export default ReviewContainer;

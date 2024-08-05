@@ -1,28 +1,39 @@
-import { useEffect, useRef, type Dispatch, type SetStateAction } from 'react';
+import { useEffect, useRef } from 'react';
 import Show from './Show';
 import ShowEmptyMessage from './ShowEmptyMessage';
+import {
+  type FetchNextPageOptions,
+  type InfiniteData,
+  type InfiniteQueryObserverResult,
+} from '@tanstack/react-query';
+import PageLoadingSpineer from 'components/list/PageLoadingSpineer';
 
 interface showList {
   shows: show[];
-  setPage: Dispatch<SetStateAction<number>>;
-  setShowId: Dispatch<SetStateAction<number>>;
+  fetchNextPage: (
+    options?: FetchNextPageOptions,
+  ) => Promise<InfiniteQueryObserverResult<InfiniteData<any, unknown>, Error>>;
+  isFetchingNextPage: boolean;
 }
 
-const ShowList = ({ shows, setPage, setShowId }: showList) => {
+const ShowList = ({ shows, fetchNextPage, isFetchingNextPage }: showList) => {
   const bottomRef = useRef<HTMLDivElement>(null);
 
-  const observer = new IntersectionObserver((entries) => {
-    if (entries[0].isIntersecting) {
-      setPage((prev) => prev + 1);
-    }
-  });
+  const observer = new IntersectionObserver(
+    (entries) => {
+      if (entries[0].isIntersecting) {
+        void fetchNextPage();
+      }
+    },
+    { threshold: 0.5 },
+  );
 
   useEffect(() => {
     const observeBottomRef = () => {
       if (bottomRef.current !== null) observer.observe(bottomRef.current);
     };
 
-    const timeoutId = setTimeout(observeBottomRef, 500);
+    const timeoutId = setTimeout(observeBottomRef, 1000);
 
     return () => {
       clearTimeout(timeoutId);
@@ -31,7 +42,7 @@ const ShowList = ({ shows, setPage, setShowId }: showList) => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center mt-4">
+    <div className="flex flex-col items-center">
       {shows.length === 0 ? (
         <ShowEmptyMessage />
       ) : (
@@ -46,11 +57,14 @@ const ShowList = ({ shows, setPage, setShowId }: showList) => {
             temperature={show.temperature}
             isLike={show.isLike}
             imageUrl={show.imageUrl}
-            setShowId={setShowId}
           />
         ))
       )}
-      <div className="h-2" ref={bottomRef} />
+      {isFetchingNextPage ? (
+        <PageLoadingSpineer />
+      ) : (
+        <div className="h-0.5" ref={bottomRef} />
+      )}
     </div>
   );
 };

@@ -1,3 +1,4 @@
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import api from 'api';
 import useToastHandler from 'hooks/useToastHandler';
 import { type Dispatch, type SetStateAction } from 'react';
@@ -7,7 +8,6 @@ interface stickerCommentBtnContainer {
   stickerType: string;
   setIsModal: Dispatch<SetStateAction<boolean>>;
   id: number;
-  setReview: Dispatch<SetStateAction<reviewDetail>>;
 }
 
 const StickerCommentBtnContainer = ({
@@ -15,51 +15,43 @@ const StickerCommentBtnContainer = ({
   stickerType,
   setIsModal,
   id,
-  setReview,
 }: stickerCommentBtnContainer) => {
-  const userId = localStorage.getItem('myId');
+  const queryClient = useQueryClient();
+
   const toastHandler = useToastHandler(
     false,
     '스티커를 붙이기를 완료했어요',
     '',
   );
 
-  const StickerAndCommentsBtnHandler = async () => {
-    const post = {
+  const postSticker = async () => {
+    const data = {
       dambyeolagId: id,
       stickerType,
       body: text,
     };
 
-    try {
-      await api.post('/stickers', post);
-      setIsModal(false);
-      setReview((prev) => {
-        prev.stickerRspDtos.push({
-          id: 0,
-          stickerType,
-          body: text,
-          memberId: Number(userId),
-          dambyeolagId: id,
-        });
-        return prev;
-      });
-      toastHandler();
-
-      setTimeout(() => {
-        location.reload();
-      }, 500);
-    } catch (err) {
-      console.error(err);
-    }
+    await api.post('/stickers', data);
   };
+
+  const { mutate } = useMutation({
+    mutationFn: postSticker,
+    onSuccess: async () => {
+      await queryClient.invalidateQueries({
+        queryKey: ['review'],
+      });
+      setIsModal(false);
+      toastHandler();
+    },
+  });
+
   return (
     <div className="flex justify-center w-full mt-4">
       <button
         disabled={text.length === 0}
         className={`h-12 text-white rounded-lg text-Subhead w-9/10 ${text.length === 0 ? 'bg-orange-50' : 'bg-orange-100'}`}
         onClick={() => {
-          void StickerAndCommentsBtnHandler();
+          mutate();
         }}
       >
         스티커 붙이기
