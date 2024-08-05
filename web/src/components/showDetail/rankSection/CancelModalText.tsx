@@ -1,23 +1,22 @@
+import { useQuery } from '@tanstack/react-query';
 import api from 'api';
-import { useEffect, useState } from 'react';
 
 const CancelModalText = () => {
-  const [nickName, setNickName] = useState('');
-  const fetchUser = async () => {
-    try {
-      const result: fetchUser = await api.get('/members');
-      setNickName(result.data.data.nickName);
-    } catch (err) {
-      console.error(err);
-    }
+  const getMember = async () => {
+    const res = await api.get('/members');
+    return res.data.data;
   };
-  useEffect(() => {
-    void fetchUser();
-  }, []);
+
+  const { data } = useQuery({
+    queryKey: ['user', 'member'],
+    queryFn: getMember,
+    staleTime: 30 * 60 * 1000,
+  });
+
   return (
     <>
       <span className="mt-6 text-center text-Headline-M text-gray-110">
-        {nickName}님의 표현이 많은 사람들의
+        {data?.nickName}님의 표현이 많은 사람들의
         <br />
         전시생활에 도움이 될 수 있어요!
       </span>

@@ -4,26 +4,24 @@ import ModalCloseBtn from './ModalCloseBtn';
 import SelectList from './SelectList';
 
 interface filterSelectModal {
-  type: string;
   title1: string;
   title2: string;
   selects: string[][];
   setIsModalOpen: Dispatch<SetStateAction<boolean[]>>;
-  setPriority: Dispatch<SetStateAction<string>>;
+  setState: Dispatch<SetStateAction<string>>;
 }
 
 const FilterSelectModal = ({
-  type,
   title1,
   title2,
   selects,
   setIsModalOpen,
-  setPriority,
+  setState,
 }: filterSelectModal) => {
   return (
     <>
       <button
-        className="fixed top-0 z-20 w-full h-screen bg-black opacity-50"
+        className="fixed z-20 w-full h-screen bg-black opacity-50 top-1"
         onClick={() => {
           setIsModalOpen([false, false, false]);
         }}
@@ -32,10 +30,9 @@ const FilterSelectModal = ({
         <FilterSelectModalTitle title1={title1} title2={title2} />
         <ModalCloseBtn setIsModalOpen={setIsModalOpen} />
         <SelectList
-          type={type}
           selects={selects}
           setIsModalOpen={setIsModalOpen}
-          setPriority={setPriority}
+          setState={setState}
         />
       </div>
     </>

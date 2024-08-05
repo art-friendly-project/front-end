@@ -1,10 +1,8 @@
-import {
-  type Dispatch,
-  type SetStateAction,
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
+import api from 'api';
+import useSaveViewedShow from 'hooks/useSaveViewedShow';
 import ReviewSection from 'components/showDetail/reviewSection/ReviewSection';
 import RankSection from 'components/showDetail/rankSection/RankSection';
 import ShowInformationSection from 'components/showDetail/InformationSection/ShowInformationSection';
@@ -12,45 +10,25 @@ import PosterSection from 'components/showDetail/posterSection/PosterSection';
 import { useAppSelector } from 'hooks';
 import { selectEndpoint } from 'store/modules/endpoint';
 import useScrollHeight from 'hooks/useScrollHeight';
-import useSaveViewedShow from 'hooks/useSaveViewedShow';
-import api from 'api';
-import isApp from 'utils/isApp';
-import { useParams } from 'react-router-dom';
 
-interface showDetailProps {
-  showId?: number;
-  setShowId?: Dispatch<SetStateAction<number>>;
-}
-
-const ShowDetail = ({ showId, setShowId }: showDetailProps) => {
-  const id = useParams().id;
-  const [showDetail, setShowDetail] = useState<showDetail>({
-    id: 0,
-    temperature: 0,
-    checkTemperature: '',
-    isLike: false,
-    hasDambyeolagWritten: false,
-    exhibitionInfoRspDto: {
-      id: 0,
-      title: '',
-      detailInfoUrl: '',
-      startDate: '',
-      endDate: '',
-      place: '',
-      realmName: '',
-      area: '',
-      imageUrl: '',
-      ticketingUrl: '',
-      phone: '',
-      price: '',
-    },
-  });
-
-  const [isModal, setIsModal] = useState(false);
+const ShowDetail = () => {
+  const { id: paramId } = useParams();
+  const id = Number(paramId);
   const showDetailRef = useRef<HTMLDivElement>(null);
 
-  const endpoint = useAppSelector(selectEndpoint);
+  const [isModal, setIsModal] = useState(false);
 
+  const getShowDetail = async (id: number) => {
+    const res = await api.get(`/exhibitions?exhibitionId=${id}`);
+    return res.data.data;
+  };
+
+  const { data, isLoading } = useQuery<showDetail>({
+    queryKey: ['show', 'detail', id],
+    queryFn: async () => await getShowDetail(id),
+  });
+
+  const endpoint = useAppSelector(selectEndpoint);
   const scrollHeight = useScrollHeight(showDetailRef);
 
   useEffect(() => {
@@ -62,54 +40,11 @@ const ShowDetail = ({ showId, setShowId }: showDetailProps) => {
     }
   }, [endpoint, scrollHeight]);
 
-  const fetchShowDetail = async () => {
-    try {
-      const result: fetchShowDetail = await api.get(
-        `/exhibitions?exhibitionId=${showId ?? id}`,
-      );
-      setShowDetail(result.data.data);
-    } catch (err) {
-      console.error(err);
-    }
-  };
+  useSaveViewedShow(data);
 
-  useEffect(() => {
-    void fetchShowDetail();
-  }, []);
-
-  useEffect(() => {
-    if (isApp()) {
-      const modalColse = (e: MessageEvent<string>) => {
-        const data: {
-          showDetail: boolean;
-        } = JSON.parse(e.data);
-
-        if (data.showDetail !== undefined) {
-          if (setShowId !== undefined) setShowId(0);
-        }
-      };
-
-      if (window.platform === 'android') {
-        document.addEventListener('message', modalColse);
-      }
-
-      if (window.platform === 'ios') {
-        window.addEventListener('message', modalColse);
-      }
-
-      return () => {
-        if (window.platform === 'android') {
-          document.removeEventListener('message', modalColse);
-        }
-
-        if (window.platform === 'ios') {
-          window.removeEventListener('message', modalColse);
-        }
-      };
-    }
-  }, []);
-
-  useSaveViewedShow(showDetail);
+  if (isLoading || data === undefined) {
+    return <></>;
+  }
 
   return (
     <>
@@ -117,18 +52,17 @@ const ShowDetail = ({ showId, setShowId }: showDetailProps) => {
         className="absolute top-0 left-0 z-20 w-full h-full overflow-y-scroll bg-white scrollbar-hide"
         ref={showDetailRef}
       >
-        <PosterSection showDetail={showDetail} setShowId={setShowId} />
-        <ShowInformationSection showDetail={showDetail} />
+        <PosterSection showDetail={data} />
+        <ShowInformationSection showDetail={data} />
         <RankSection
-          id={showDetail.id}
-          checkTemperature={showDetail.checkTemperature}
+          id={data.id}
+          checkTemperature={data.checkTemperature}
           isModal={isModal}
           setIsModal={setIsModal}
-          setShowDetail={setShowDetail}
         />
         <ReviewSection
-          id={showDetail.id}
-          hasDambyeolagWritten={showDetail.hasDambyeolagWritten}
+          id={data.id}
+          hasDambyeolagWritten={data.hasDambyeolagWritten}
         />
       </div>
     </>

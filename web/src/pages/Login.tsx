@@ -1,3 +1,4 @@
+import { useQuery } from '@tanstack/react-query';
 import api from 'api';
 import { useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
@@ -9,12 +10,22 @@ const Login = () => {
   const code = searchParams.get('oneTimeUseCode');
   const isSignUp = searchParams.get('isSignUp');
 
-  const fetchLogin = async () => {
-    try {
-      const response: fetchAuth = await api.get(`/oauth/token?code=${code}`);
+  const getLogin = async (code: string | null) => {
+    if (code !== null) {
+      const res = await api.get(`/oauth/token?code=${code}`);
+      return res.data.data;
+    }
+  };
 
-      localStorage.setItem('accessToken', response.data.data.accessToken);
-      localStorage.setItem('refreshToken', response.data.data.refreshToken);
+  const { data } = useQuery<auth>({
+    queryKey: ['login', code],
+    queryFn: async () => await getLogin(code),
+  });
+
+  useEffect(() => {
+    if (data !== undefined) {
+      localStorage.setItem('accessToken', data.accessToken);
+      localStorage.setItem('refreshToken', data.refreshToken);
 
       if (isSignUp === 'true') {
         navigate('/home');
@@ -23,16 +34,8 @@ const Login = () => {
       if (isSignUp === 'false') {
         navigate('/terms-of-use');
       }
-    } catch (err) {
-      console.error(err);
     }
-  };
-
-  useEffect(() => {
-    if (code !== null) {
-      void fetchLogin();
-    }
-  }, [code]);
+  }, [data]);
 
   return (
     <div className="flex items-center justify-center w-full h-full">

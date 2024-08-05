@@ -1,39 +1,34 @@
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import api from 'api';
 import { type Dispatch, type SetStateAction } from 'react';
 
 interface cancelModalBtnContainer {
   id: number;
   setIsModal: Dispatch<SetStateAction<boolean>>;
-  setIsSelectedRanks: Dispatch<SetStateAction<boolean[]>>;
-  cancelIdx: number;
-  setShowDetail: Dispatch<SetStateAction<showDetail>>;
 }
 
 const CancelModalBtnContainer = ({
   id,
-  setIsSelectedRanks,
   setIsModal,
-  cancelIdx,
-  setShowDetail,
 }: cancelModalBtnContainer) => {
-  const btnHandler = async () => {
-    try {
-      await api.delete(`/exhibitions/hopes?exhibitionId=${id}`);
+  const queryClient = useQueryClient();
 
-      setShowDetail((prev) => ({
-        ...prev,
-        checkTemperature: null,
-      }));
-      setIsSelectedRanks((prev) =>
-        prev.map((_, i) => {
-          if (i === cancelIdx) return false;
-          else return false;
-        }),
-      );
+  const deleteRank = async () => {
+    await api.delete(`/exhibitions/hopes?exhibitionId=${id}`);
+  };
+
+  const { mutate } = useMutation({
+    mutationFn: deleteRank,
+    onSuccess: async () => {
+      await queryClient.invalidateQueries({ queryKey: ['show', 'detail'] });
       setIsModal(false);
-    } catch (err) {
+    },
+    onError: (err) => {
       console.error(err);
-    }
+    },
+  });
+  const btnHandler = async () => {
+    mutate();
   };
 
   return (

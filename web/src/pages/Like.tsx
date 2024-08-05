@@ -11,8 +11,6 @@ import addOneHour from 'utils/addOneHour';
 import isApp from 'utils/isApp';
 
 const Like = () => {
-  const [shows, setShows] = useState<show[]>([]);
-
   const [isModal, setIsModal] = useState(false);
   const [currentMenu, setCurrentMenu] = useState(true);
   const [calendars, setCalendars] = useState<calendar[]>([]);
@@ -123,8 +121,6 @@ const Like = () => {
         <LikeMenu currentMenu={currentMenu} setCurrentMenu={setCurrentMenu} />
         {currentMenu ? (
           <FavoriteShowSection
-            shows={shows}
-            setShows={setShows}
             setCalendars={setCalendars}
             setIsModal={setIsModal}
             setScheduleName={setScheduleName}

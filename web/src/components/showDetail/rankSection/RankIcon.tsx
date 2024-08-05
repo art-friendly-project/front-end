@@ -1,3 +1,4 @@
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import api from 'api';
 import { type Dispatch, type SetStateAction } from 'react';
 
@@ -6,12 +7,8 @@ interface rankIcon {
   idx: number;
   icon: string[];
   isSelectedRank: boolean;
-  setIsSelectedRanks: Dispatch<SetStateAction<boolean[]>>;
   setIsModal: Dispatch<SetStateAction<boolean>>;
-  setCancelIdx: Dispatch<SetStateAction<number>>;
   checkTemperature: string | null;
-  setShowDetail: Dispatch<SetStateAction<showDetail>>;
-  rank: string;
 }
 
 const RankIcon = ({
@@ -19,47 +16,40 @@ const RankIcon = ({
   idx,
   icon,
   isSelectedRank,
-  setIsSelectedRanks,
   setIsModal,
-  setCancelIdx,
   checkTemperature,
-  setShowDetail,
-  rank,
 }: rankIcon) => {
+  const queryClient = useQueryClient();
+
+  const postOrPatchRank = async () => {
+    if (checkTemperature === null) {
+      return await api.post(
+        `/exhibitions/hopes?exhibitionId=${id}&hopeIndex=${idx + 1}`,
+      );
+    } else {
+      return await api.patch(
+        `/exhibitions/hopes?exhibitionId=${id}&hopeIndex=${idx + 1}`,
+      );
+    }
+  };
+
+  const { mutate } = useMutation({
+    mutationFn: postOrPatchRank,
+    onSuccess: async () => {
+      await queryClient.invalidateQueries({ queryKey: ['show', 'detail'] });
+    },
+    onError: (err) => {
+      console.error(err);
+    },
+  });
+
   const btnHandler = async () => {
     if (isSelectedRank) {
-      setCancelIdx(idx);
       setIsModal(true);
     }
 
     if (!isSelectedRank) {
-      try {
-        if (checkTemperature === null) {
-          await api.post(
-            `/exhibitions/hopes?exhibitionId=${id}&hopeIndex=${idx + 1}`,
-          );
-          setShowDetail((prev) => ({
-            ...prev,
-            checkTemperature: rank,
-          }));
-        } else {
-          await api.patch(
-            `/exhibitions/hopes?exhibitionId=${id}&hopeIndex=${idx + 1}`,
-          );
-          setShowDetail((prev) => ({
-            ...prev,
-            checkTemperature: rank,
-          }));
-        }
-        setIsSelectedRanks((prev) =>
-          prev.map((_, i) => {
-            if (i === idx) return true;
-            else return false;
-          }),
-        );
-      } catch (err) {
-        console.error(err);
-      }
+      mutate();
     }
   };
 

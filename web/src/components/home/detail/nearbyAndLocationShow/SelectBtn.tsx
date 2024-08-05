@@ -1,30 +1,14 @@
-import { useAppDispatch } from 'hooks';
 import { type Dispatch, type SetStateAction } from 'react';
-import { showsLocationActions } from 'store/modules/showsLocation';
 
 interface selectBtn {
-  type: string;
   select: string[];
   setIsModalOpen: Dispatch<SetStateAction<boolean[]>>;
-  setPriority: Dispatch<SetStateAction<string>>;
+  setState: Dispatch<SetStateAction<string>>;
 }
 
-const SelectBtn = ({
-  type,
-  select,
-  setIsModalOpen,
-  setPriority,
-}: selectBtn) => {
-  const dispatch = useAppDispatch();
-
+const SelectBtn = ({ select, setIsModalOpen, setState }: selectBtn) => {
   const btnHandler = () => {
-    if (type === 'location') {
-      dispatch(showsLocationActions.current(select[0]));
-    }
-
-    if (type === 'priority') {
-      setPriority(select[0]);
-    }
+    setState(select[0]);
 
     setIsModalOpen([false, false, false]);
   };

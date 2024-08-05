@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import BtnBasic from 'components/common/BtnBasic';
 import ReviewPostContent from '../components/reviewPost/ReviewPostContent';
 import ReviewPostTitle from '../components/reviewPost/ReviewPostTitle';
@@ -7,42 +8,50 @@ import ReviewPostTitle from '../components/reviewPost/ReviewPostTitle';
 import api from 'api';
 
 const ReviewEdit = () => {
+  const param = useParams();
+  const id = Number(param.id);
+
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
-  const dambyeolagId = useParams().id;
 
   const navigate = useNavigate();
+  const queryClient = useQueryClient();
 
-  const fetchReivew = async () => {
-    try {
-      const result: fetchReviewDetail = await api.get(
-        `/dambyeolags?dambyeolagId=${dambyeolagId}`,
-      );
-      setTitle(result.data.data.title);
-      setBody(result.data.data.body);
-    } catch (err) {
-      console.error(err);
-    }
+  const getReview = async (id: number) => {
+    const res = await api.get(`/dambyeolags?dambyeolagId=${id}`);
+    return res.data.data;
   };
 
-  useEffect(() => {
-    void fetchReivew();
-  }, []);
-
-  const btnHandler = async () => {
-    const edit = {
+  const patchReview = async () => {
+    const data = {
       title,
       body,
-      dambyeolagId,
+      dambyeolagId: id,
     };
-
-    try {
-      await api.patch('/dambyeolags', edit);
-      navigate(-1);
-    } catch (err) {
-      console.error(err);
-    }
+    await api.patch('/dambyeolags', data);
   };
+
+  const { data } = useQuery<reviewDetail>({
+    queryKey: ['review', id],
+    queryFn: async () => await getReview(id),
+    staleTime: 5 * 60 * 1000,
+  });
+
+  const { mutate } = useMutation({
+    mutationFn: patchReview,
+    onSuccess: async () => {
+      await queryClient.invalidateQueries({
+        queryKey: ['review'],
+      });
+    },
+  });
+
+  useEffect(() => {
+    if (data !== undefined) {
+      setTitle(data.title);
+      setBody(data.body);
+    }
+  }, [data]);
 
   return (
     <>
@@ -53,7 +62,8 @@ const ReviewEdit = () => {
           name="담벼락 수정하기"
           disable={title.length === 0 || body.length === 0}
           fn={() => {
-            void btnHandler();
+            mutate();
+            navigate(-1);
           }}
           style="sticky bottom-5 mt-auto"
         />

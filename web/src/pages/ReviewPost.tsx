@@ -8,34 +8,39 @@ import { useAppDispatch, useAppSelector } from 'hooks';
 import { isReviewTextActions } from 'store/modules/isReviewText';
 import { selectShowId } from 'store/modules/showId';
 import api from 'api';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 const ReviewPost = () => {
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+  const queryClient = useQueryClient();
+
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
 
-  const dispatch = useAppDispatch();
   const exhibitionId = useAppSelector(selectShowId);
 
-  const navigate = useNavigate();
-
-  const confirmModalFn = () => {
-    navigate(-1);
-  };
-
-  const btnHandler = async () => {
-    const post = {
+  const postReview = async () => {
+    const data = {
       title,
       body,
       exhibitionId,
     };
 
-    try {
-      await api.post('/dambyeolags', post);
-      navigate(-1);
-    } catch (err) {
-      console.error(err);
-    }
+    await api.post('/dambyeolags', data);
   };
+
+  const { mutate } = useMutation({
+    mutationFn: postReview,
+    onSuccess: async () => {
+      await queryClient.invalidateQueries({
+        queryKey: ['show'],
+      });
+    },
+    onError: (err) => {
+      console.error(err);
+    },
+  });
 
   useEffect(() => {
     dispatch(
@@ -49,7 +54,9 @@ const ReviewPost = () => {
     <>
       <ConfirmModal
         text={'담벼락을 아직 작성 중이에요.\n종료할까요?'}
-        fn={confirmModalFn}
+        fn={() => {
+          navigate(-1);
+        }}
       />
       <div className="flex flex-col w-full h-full">
         <ReviewPostTitle title={title} setTitle={setTitle} />
@@ -58,7 +65,8 @@ const ReviewPost = () => {
           name="담벼락 등록하기"
           disable={title.length === 0 || body.length === 0}
           fn={() => {
-            void btnHandler();
+            mutate();
+            navigate(-1);
           }}
           style="sticky bottom-5 mt-auto"
         />

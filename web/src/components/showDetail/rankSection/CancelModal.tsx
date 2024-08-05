@@ -6,18 +6,9 @@ import CancelModalBtnContainer from './CancelModalBtnContainer';
 interface cancelModal {
   id: number;
   setIsModal: Dispatch<SetStateAction<boolean>>;
-  setIsSelectedRanks: Dispatch<SetStateAction<boolean[]>>;
-  cancelIdx: number;
-  setShowDetail: Dispatch<SetStateAction<showDetail>>;
 }
 
-const CancelModal = ({
-  id,
-  setIsModal,
-  setIsSelectedRanks,
-  cancelIdx,
-  setShowDetail,
-}: cancelModal) => {
+const CancelModal = ({ id, setIsModal }: cancelModal) => {
   return (
     <>
       <div
@@ -29,13 +20,7 @@ const CancelModal = ({
           className="absolute w-18 h-18 -top-9 left-[7.7rem]"
         />
         <CancelModalText />
-        <CancelModalBtnContainer
-          id={id}
-          setIsModal={setIsModal}
-          setIsSelectedRanks={setIsSelectedRanks}
-          cancelIdx={cancelIdx}
-          setShowDetail={setShowDetail}
-        />
+        <CancelModalBtnContainer id={id} setIsModal={setIsModal} />
       </div>
     </>
   );

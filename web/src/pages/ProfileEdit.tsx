@@ -1,3 +1,4 @@
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import api from 'api';
 import BtnBasic from 'components/common/BtnBasic';
 import Introduce from 'components/profileEdit/Introduce';
@@ -8,45 +9,52 @@ import { useNavigate } from 'react-router-dom';
 
 const ProfileEdit = () => {
   const navigate = useNavigate();
+  const queryClient = useQueryClient();
+
   const [imageUrl, setImageUrl] = useState('');
   const [nickName, setNickName] = useState('');
   const [selfIntro, setSelfIntro] = useState('');
   const [file, setFile] = useState<File | undefined>();
 
-  const EditBtnHandler = async () => {
+  const getMember = async () => {
+    const res = await api.get('/members');
+    return res.data.data;
+  };
+
+  const patchProfile = async () => {
     if (file !== undefined) {
       const formData = new FormData();
       formData.append('profileImage', file);
       await api.patch('/members/images', formData);
     }
 
-    try {
-      await api.patch('/members', {
-        nickName,
-        selfIntro,
-      });
-
-      navigate(-1);
-    } catch (err) {
-      console.error(err);
-    }
+    await api.patch('/members', {
+      nickName,
+      selfIntro,
+    });
   };
 
-  const fetchProfile = async () => {
-    try {
-      const profile: fetchUser = await api.get('/members');
-      setImageUrl(profile.data.data.imageUrl);
-      setNickName(profile.data.data.nickName);
-      if (profile.data.data.selfIntro !== null) {
-        setSelfIntro(profile.data.data.selfIntro);
-      }
-    } catch (err) {
-      console.error(err);
-    }
-  };
+  const { data } = useQuery<member>({
+    queryKey: ['user', 'member'],
+    queryFn: getMember,
+    staleTime: 30 * 60 * 1000,
+  });
+
+  const { mutate } = useMutation({
+    mutationFn: patchProfile,
+    onSuccess: async () => {
+      await queryClient.invalidateQueries({ queryKey: ['user'] });
+    },
+  });
 
   useEffect(() => {
-    void fetchProfile();
+    if (data !== undefined) {
+      setImageUrl(data.imageUrl);
+      setNickName(data.nickName);
+      if (data?.selfIntro !== null) {
+        setSelfIntro(data.selfIntro);
+      }
+    }
   }, []);
 
   return (
@@ -63,7 +71,8 @@ const ProfileEdit = () => {
           name="저장하기"
           disable={false}
           fn={() => {
-            void EditBtnHandler();
+            mutate();
+            navigate(-1);
           }}
         />
       </div>

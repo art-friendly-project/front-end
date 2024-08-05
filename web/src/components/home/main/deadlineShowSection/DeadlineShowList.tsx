@@ -1,63 +1,27 @@
 import DeadlineShow from './DeadlineShow';
-import { type Dispatch, type SetStateAction, useEffect, useState } from 'react';
 import api from 'api';
+import { useQuery } from '@tanstack/react-query';
+import Loading from './Loading';
 
-interface deadlineShowList {
-  setShowId: Dispatch<SetStateAction<number>>;
-}
-
-const DeadlineShowList = ({ setShowId }: deadlineShowList) => {
-  const [loading, setLoading] = useState(false);
-  const [shows, setShows] = useState<show[]>([
-    {
-      id: 1,
-      title: '',
-      area: '',
-      temperature: 0,
-      startDate: '',
-      endDate: '',
-      imageUrl: '',
-      isLike: false,
-    },
-    {
-      id: 2,
-      title: '',
-      area: '',
-      temperature: 0,
-      startDate: '',
-      endDate: '',
-      imageUrl: '',
-      isLike: false,
-    },
-    {
-      id: 3,
-      title: '',
-      area: '',
-      temperature: 0,
-      startDate: '',
-      endDate: '',
-      imageUrl: '',
-      isLike: false,
-    },
-  ]);
-
-  const fetchShows = async () => {
-    try {
-      const result: fetchEndShow = await api.get('/exhibitions/lists/end');
-      setLoading(true);
-      setShows(result.data.data);
-    } catch (err) {
-      console.error(err);
-    }
+const DeadlineShowList = () => {
+  const getEndShows = async () => {
+    const res = await api.get('/exhibitions/lists/end');
+    return res.data.data;
   };
 
-  useEffect(() => {
-    void fetchShows();
-  }, []);
+  const { data, isLoading } = useQuery<show[]>({
+    queryKey: ['shows', 'end'],
+    queryFn: getEndShows,
+    staleTime: 5 * 60 * 1000,
+  });
+
+  if (isLoading || data === undefined) {
+    return <Loading />;
+  }
 
   return (
     <div className="flex flex-col items-center w-9/10">
-      {shows.map((show) => (
+      {data.map((show) => (
         <DeadlineShow
           key={show.id}
           id={show.id}
@@ -68,8 +32,6 @@ const DeadlineShowList = ({ setShowId }: deadlineShowList) => {
           imageUrl={show.imageUrl}
           temperature={show.temperature}
           isLike={show.isLike}
-          loading={loading}
-          setShowId={setShowId}
         />
       ))}
     </div>

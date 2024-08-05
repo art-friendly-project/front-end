@@ -1,130 +1,73 @@
 import FilterList from 'components/home/detail/nearbyAndLocationShow/FilterList';
 import FilterSelectModal from 'components/home/detail/nearbyAndLocationShow/FilterSelectModal';
 import ShowList from '../components/home/detail/nearbyAndLocationShow/ShowList';
-import { useAppSelector } from 'hooks';
-import { useEffect, useRef, useState } from 'react';
-import { selectShowsLocation } from 'store/modules/showsLocation';
+import { useRef, useState } from 'react';
 import DurationList from 'components/list/DurationList';
 import selectModalInfos from 'assets/data/selectModalInfos';
 import api from 'api';
-import ShowDetail from './ShowDetail';
 import PageLoadingSpineer from 'components/list/PageLoadingSpineer';
-import isApp from 'utils/isApp';
-import { useNavigate } from 'react-router-dom';
+import { useInfiniteQuery } from '@tanstack/react-query';
 
 const List = () => {
   const listRef = useRef<HTMLDivElement>(null);
-  const navigate = useNavigate();
 
-  const [loading, setLoading] = useState(false);
-  const [pageLoading, setPageLoading] = useState(false);
-
-  const [shows, setShows] = useState<show[]>([]);
-  const [showId, setShowId] = useState(0);
-  const [page, setPage] = useState(0);
+  const [location, setLocation] = useState('서울');
   const [priority, setPriority] = useState('popular');
   const [duration, setDuration] = useState('inProgress');
-  const location = useAppSelector(selectShowsLocation);
-
   const [isModalOpen, setIsModalOpen] = useState([false, false]);
+  const [totalPages, setTotalPages] = useState(0);
 
+  const setState = [setLocation, setPriority];
   const openModalIndex = isModalOpen.indexOf(true);
 
-  const fetchShow = async () => {
-    setLoading(false);
-    try {
-      const result: fetchShow = await api.get(
-        `/exhibitions/lists?area=${location}&progressStatus=${duration}&sortType=${priority}&page=${0}`,
-      );
-      if (listRef.current !== null) listRef.current.scrollTop = 0;
-
-      setLoading(true);
-      setShows(result.data.data.content);
-      setPage(0);
-    } catch (err) {
-      console.error(err);
-    }
+  const getShowList = async (
+    page: number,
+    location: string,
+    duration: string,
+    priority: string,
+  ) => {
+    const res: fetchShow = await api.get(
+      `/exhibitions/lists?area=${location}&progressStatus=${duration}&sortType=${priority}&page=${page}`,
+    );
+    setTotalPages(res.data.data.totalPages);
+    return res.data.data.content;
   };
 
-  const fetchShowsPage = async () => {
-    setPageLoading(false);
-    try {
-      const result: fetchShow = await api.get(
-        `/exhibitions/lists?area=${location}&progressStatus=${duration}&sortType=${priority}&page=${page}`,
-      );
-      setPageLoading(true);
-      setShows([...shows, ...result.data.data.content]);
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
-  useEffect(() => {
-    if (page > 0) void fetchShowsPage();
-  }, [page]);
-
-  useEffect(() => {
-    void fetchShow();
-  }, [location, duration, priority]);
-
-  useEffect(() => {
-    if (isApp()) {
-      const modalColse = (e: MessageEvent<string>) => {
-        const data: {
-          url: string;
-        } = JSON.parse(e.data);
-
-        if (data.url === '/shows') {
-          if (showId === 0) {
-            navigate('/home');
-            return;
-          }
-
-          if (showId !== 0) {
-            setShowId(0);
-          }
+  const { data, isLoading, isFetchingNextPage, fetchNextPage } =
+    useInfiniteQuery({
+      queryKey: ['shows', 'list', location, duration, priority],
+      queryFn: async ({ pageParam }) => {
+        return await getShowList(pageParam, location, duration, priority);
+      },
+      getNextPageParam: (lastPage, allPages, lastPageParam, allPageParams) => {
+        const nextPage = lastPageParam + 1;
+        if (nextPage < totalPages) {
+          return nextPage;
         }
-      };
+      },
+      initialPageParam: 0,
+      staleTime: 5 * 60 * 1000,
+    });
 
-      if (window.platform === 'android') {
-        document.addEventListener('message', modalColse);
-      }
-
-      if (window.platform === 'ios') {
-        window.addEventListener('message', modalColse);
-      }
-
-      return () => {
-        if (window.platform === 'android') {
-          document.removeEventListener('message', modalColse);
-        }
-
-        if (window.platform === 'ios') {
-          window.removeEventListener('message', modalColse);
-        }
-      };
-    }
-  }, [showId]);
+  if (isLoading) {
+    return <PageLoadingSpineer />;
+  }
 
   return (
     <div
       className="flex flex-col w-full h-full overflow-y-scroll scrollbar-hide"
       ref={listRef}
     >
-      {showId !== 0 ? (
-        <ShowDetail showId={showId} setShowId={setShowId} />
-      ) : null}
       {isModalOpen.includes(true) ? (
         <FilterSelectModal
-          type={selectModalInfos[openModalIndex].type}
           title1={selectModalInfos[openModalIndex].title1}
           title2={selectModalInfos[openModalIndex].title2}
           selects={selectModalInfos[openModalIndex].selects}
           setIsModalOpen={setIsModalOpen}
-          setPriority={setPriority}
+          setState={setState[openModalIndex]}
         />
       ) : null}
-      <div className="sticky top-0 z-10 bg-white">
+      <div className="sticky z-10 bg-white -top-0.5">
         <DurationList duration={duration} setDuration={setDuration} />
         <FilterList
           location={location}
@@ -133,14 +76,14 @@ const List = () => {
           setIsModalOpen={setIsModalOpen}
         />
       </div>
-      {loading ? (
-        <>
-          <ShowList shows={shows} setPage={setPage} setShowId={setShowId} />
-          {pageLoading ? null : <PageLoadingSpineer />}
-        </>
-      ) : (
-        <PageLoadingSpineer />
-      )}
+      {data?.pages.map((shows, idx) => (
+        <ShowList
+          key={idx}
+          shows={shows}
+          fetchNextPage={fetchNextPage}
+          isFetchingNextPage={isFetchingNextPage}
+        />
+      ))}
     </div>
   );
 };

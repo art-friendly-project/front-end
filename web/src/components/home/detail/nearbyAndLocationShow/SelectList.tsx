@@ -2,18 +2,12 @@ import { type Dispatch, type SetStateAction } from 'react';
 import SelectBtn from './SelectBtn';
 
 interface selectList {
-  type: string;
   selects: string[][];
   setIsModalOpen: Dispatch<SetStateAction<boolean[]>>;
-  setPriority: Dispatch<SetStateAction<string>>;
+  setState: Dispatch<SetStateAction<string>>;
 }
 
-const SelectList = ({
-  type,
-  selects,
-  setIsModalOpen,
-  setPriority,
-}: selectList) => {
+const SelectList = ({ selects, setIsModalOpen, setState }: selectList) => {
   return (
     <div className="flex flex-wrap">
       {selects.map((select, idx) => (
@@ -21,8 +15,7 @@ const SelectList = ({
           key={idx}
           select={select}
           setIsModalOpen={setIsModalOpen}
-          type={type}
-          setPriority={setPriority}
+          setState={setState}
         />
       ))}
     </div>
