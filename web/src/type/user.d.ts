@@ -16,3 +16,18 @@ interface user {
   dambyeolagCount: number;
   interestedExhibitionCount: number;
 }
+
+interface member {
+  id: number;
+  email: 'hong2024@gmail.com';
+  imageUrl: string;
+  nickName: string;
+  selfIntro: null;
+  mbtiSimpleRspDto: null | string;
+  artPreferenceTypeList: string[];
+}
+
+interface auth {
+  accessToken: string;
+  refreshToken: string;
+}
