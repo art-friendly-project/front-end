@@ -10,6 +10,8 @@ const MainLayout = () => {
   useEffect(() => {
     if (isApp()) {
       const modalClose = (e: MessageEvent<string>) => {
+        if (e.origin !== '') return;
+
         const data: {
           url: string;
         } = JSON.parse(e.data);

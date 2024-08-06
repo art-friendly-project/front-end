@@ -13,6 +13,8 @@ const useAccessPermissions = () => {
       );
 
       const accessPermissions = (e: MessageEvent<string>) => {
+        if (e.origin !== '') return;
+
         const data: {
           permissions: {
             location: string;

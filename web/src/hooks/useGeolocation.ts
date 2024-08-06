@@ -18,6 +18,8 @@ const useGeolocation = () => {
         );
 
         const geolocation = (e: MessageEvent<string>) => {
+          if (e.origin !== '') return;
+
           const data: {
             geolocation: {
               longitude: number;

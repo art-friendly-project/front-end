@@ -56,6 +56,8 @@ const NearbyAndLocationShow = () => {
   useEffect(() => {
     if (isApp()) {
       const modalColse = (e: MessageEvent<string>) => {
+        if (e.origin !== '') return;
+
         const data: {
           url: string;
         } = JSON.parse(e.data);
