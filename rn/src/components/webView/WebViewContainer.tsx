@@ -22,7 +22,7 @@ const WebViewcontainer = () => {
 
   const webViewRef = useRef<WebView>(null);
   const setNavState = useBackBtnHandler(
-    'http://192.168.11.57:3000',
+    'https://front-end-seven-eta.vercel.app',
     webViewRef,
   );
 
@@ -31,7 +31,7 @@ const WebViewcontainer = () => {
   return (
     <WebView
       ref={webViewRef}
-      source={{uri: 'http://192.168.11.57:3000'}}
+      source={{uri: 'https://front-end-seven-eta.vercel.app'}}
       mixedContentMode="always"
       onNavigationStateChange={(nav: navType) => {
         setNavState({url: nav.url, canGoBack: nav.canGoBack});
