@@ -37,20 +37,22 @@ const Like = () => {
   );
 
   const confirmModalFn = () => {
-    const startDate = new Date(`${selectedDate}T${selectedTime}`).toISOString();
-    const endDate = new Date(
-      `${selectedDate}T${addOneHour(selectedTime)}`,
-    ).toISOString();
-
-    const data = {
-      calendarId,
-      scheduleName,
-      startDate,
-      endDate,
-      location,
-    };
-
     if (isApp()) {
+      const startDate = new Date(
+        `${selectedDate}T${selectedTime}`,
+      ).toISOString();
+      const endDate = new Date(
+        `${selectedDate}T${addOneHour(selectedTime)}`,
+      ).toISOString();
+
+      const data = {
+        calendarId,
+        scheduleName,
+        startDate,
+        endDate,
+        location,
+      };
+
       window.ReactNativeWebView?.postMessage(
         JSON.stringify({ type: 'ADD_SCHEDULE', data }),
       );
