@@ -70,8 +70,6 @@ const Like = () => {
   useEffect(() => {
     if (isApp()) {
       const schedule = (e: MessageEvent<string>) => {
-        if (e.origin !== '') return;
-
         const data: {
           schedule: {
             fulfilled: boolean;

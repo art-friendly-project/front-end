@@ -37,8 +37,6 @@ const AddScheduleBtn = ({
         );
 
         const calendar = (e: MessageEvent<string>) => {
-          if (e.origin !== '') return;
-
           const data: {
             calendars: calendar[];
           } = JSON.parse(e.data);

@@ -6,8 +6,6 @@ const useNavigateHome = (navigate: NavigateFunction) => {
   useEffect(() => {
     if (isApp()) {
       const navigation = (e: MessageEvent<string>) => {
-        if (e.origin !== '') return;
-
         const data: { navigate: string } = JSON.parse(e.data);
         navigate(data.navigate);
       };
