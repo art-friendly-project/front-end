@@ -1,11 +1,11 @@
-interface prop {
+interface btnBasic {
   name: string;
   fn: () => void;
   disable?: boolean;
   style?: string;
 }
 
-const BasicBtn = ({ name, fn, disable = false, style }: prop) => {
+const BasicBtn = ({ name, fn, disable = false, style }: btnBasic) => {
   return (
     <div
       className={`flex justify-center h-14 items-center w-full bg-white ${style}`}
