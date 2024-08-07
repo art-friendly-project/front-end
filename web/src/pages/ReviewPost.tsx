@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import BtnBasic from 'components/common/BtnBasic';
 import ReviewPostContent from '../components/reviewPost/ReviewPostContent';
 import ReviewPostTitle from '../components/reviewPost/ReviewPostTitle';
 import ConfirmModal from 'components/common/ConfirmModal';
@@ -9,6 +8,7 @@ import { isReviewTextActions } from 'store/modules/isReviewText';
 import { selectShowId } from 'store/modules/showId';
 import api from 'api';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
+import BasicBtn from 'components/common/BasicBtn';
 
 const ReviewPost = () => {
   const dispatch = useAppDispatch();
@@ -61,7 +61,7 @@ const ReviewPost = () => {
       <div className="flex flex-col w-full h-full">
         <ReviewPostTitle title={title} setTitle={setTitle} />
         <ReviewPostContent body={body} setBody={setBody} />
-        <BtnBasic
+        <BasicBtn
           name="담벼락 등록하기"
           disable={title.length === 0 || body.length === 0}
           fn={() => {

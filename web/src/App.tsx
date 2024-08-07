@@ -1,13 +1,10 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import useAccessPermissions from 'hooks/useAccessPermissions';
 import { Suspense, lazy } from 'react';
-import LoadingSpineer from 'components/common/LoadingSpineer';
 import ShowDetail from 'pages/ShowDetail';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import PageLoadingSpineer from 'components/list/PageLoadingSpineer';
 
-const NearbyAndLocationShow = lazy(
-  async () => await import('pages/NearbyAndLocationShow'),
-);
 const TasteTestMain = lazy(async () => await import('pages/TasteTestMain'));
 const DetailLayout = lazy(async () => await import('layout/DetailLayout'));
 const DetailLayoutWithoutNav = lazy(
@@ -52,7 +49,7 @@ const App = () => {
       <BrowserRouter>
         <div className="flex w-screen h-screen bg-gray-100 md:justify-center">
           <div className="relative flex flex-col w-full h-full bg-white md:w-1/2 lg:w-1/2 xl:w-1/3">
-            <Suspense fallback={<LoadingSpineer />}>
+            <Suspense fallback={<PageLoadingSpineer />}>
               <Routes>
                 <Route path="/" element={<OpenLoading />} />
                 <Route path="/introduce" element={<AppIntroduce />} />
@@ -72,10 +69,7 @@ const App = () => {
                 </Route>
 
                 <Route element={<DetailLayout />}>
-                  <Route
-                    path="/home/nearby"
-                    element={<NearbyAndLocationShow />}
-                  />
+                  <Route path="/home/nearby" element={<List />} />
                 </Route>
 
                 <Route element={<DetailLayoutWithoutNav />}>

@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import BtnBasic from 'components/common/BtnBasic';
 import ReviewPostContent from '../components/reviewPost/ReviewPostContent';
 import ReviewPostTitle from '../components/reviewPost/ReviewPostTitle';
 
 import api from 'api';
+import BasicBtn from 'components/common/BasicBtn';
 
 const ReviewEdit = () => {
   const param = useParams();
@@ -58,7 +58,7 @@ const ReviewEdit = () => {
       <div className="flex flex-col w-full h-full">
         <ReviewPostTitle title={title} setTitle={setTitle} />
         <ReviewPostContent body={body} setBody={setBody} />
-        <BtnBasic
+        <BasicBtn
           name="담벼락 수정하기"
           disable={title.length === 0 || body.length === 0}
           fn={() => {

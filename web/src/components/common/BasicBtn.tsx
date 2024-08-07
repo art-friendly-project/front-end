@@ -1,11 +1,11 @@
-interface btnBasic {
+interface basicBtn {
   name: string;
   fn: () => void;
-  disable: boolean;
+  disable?: boolean;
   style?: string;
 }
 
-const BtnBasic = ({ name, fn, disable, style }: btnBasic) => {
+const BasicBtn = ({ name, fn, disable = false, style }: basicBtn) => {
   return (
     <div
       className={`flex justify-center h-14 items-center w-full bg-white ${style}`}
@@ -21,4 +21,4 @@ const BtnBasic = ({ name, fn, disable, style }: btnBasic) => {
   );
 };
 
-export default BtnBasic;
+export default BasicBtn;

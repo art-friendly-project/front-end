@@ -1,12 +1,12 @@
 import { type Dispatch, type SetStateAction } from 'react';
 import AddScheduleModalTitle from './AddScheduleModalTitle';
-import BtnBasic from 'components/common/BtnBasic';
 import CloseBtn from './CloseBtn';
 import { useAppDispatch } from 'hooks';
 import { isModalActions } from 'store/modules/isModal';
 import CalendarEmptyMessage from './CalendarEmptyMessage';
 import ModalBackground from 'components/common/ModalBackground';
 import Schedule from './Schedule';
+import BasicBtn from 'components/common/BasicBtn';
 
 interface addScheduleModal {
   setIsModal: Dispatch<SetStateAction<boolean>>;
@@ -58,7 +58,7 @@ const AddScheduleModal = ({
             setSelectedTime={setSelectedTime}
           />
         )}
-        <BtnBasic name="일정추가" fn={btnHandler} disable={false} />
+        <BasicBtn name="일정추가" fn={btnHandler} />
       </div>
     </>
   );

@@ -1,6 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import api from 'api';
-import BtnBasic from 'components/common/BtnBasic';
+import BasicBtn from 'components/common/BasicBtn';
 import Introduce from 'components/profileEdit/Introduce';
 import Nickname from 'components/profileEdit/Nickname';
 import ProfileImg from 'components/profileEdit/ProfileImg';
@@ -67,9 +67,8 @@ const ProfileEdit = () => {
       <Nickname nickName={nickName} setNickName={setNickName} />
       <Introduce selfIntro={selfIntro} setSelfIntro={setSelfIntro} />
       <div className="flex items-end w-full pt-10 h-full pb-[5%]">
-        <BtnBasic
+        <BasicBtn
           name="저장하기"
-          disable={false}
           fn={() => {
             mutate();
             navigate(-1);

@@ -1,4 +1,4 @@
-import BtnBasic from 'components/common/BtnBasic';
+import BasicBtn from 'components/common/BasicBtn';
 import WithdrawalReasonCheckboxList from 'components/withdrawalReason/WithdrawalReasonCheckboxList';
 import WithdrawalReasonTitle from 'components/withdrawalReason/WithdrawalReasonTitle';
 import { useAppDispatch } from 'hooks';
@@ -30,7 +30,7 @@ const WithdrawalReason = () => {
         checkedReasons={checkedReasons}
         setCheckedReasons={setCheckedReasons}
       />
-      <BtnBasic
+      <BasicBtn
         name="다음"
         fn={btnHandler}
         disable={!checkedReasons.includes(true)}

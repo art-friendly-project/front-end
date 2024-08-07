@@ -1,4 +1,4 @@
-import BtnBasic from 'components/common/BtnBasic';
+import BasicBtn from 'components/common/BasicBtn';
 import { useAppDispatch } from 'hooks';
 import { type Dispatch, type SetStateAction } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -33,13 +33,13 @@ const BtnContainer = ({
   return (
     <div className="absolute flex justify-center w-full bottom-[5%]">
       {currentQuestion === LAST_QUESTION_NUM ? (
-        <BtnBasic
+        <BasicBtn
           name="테스트 완료"
           fn={completeBtnHandler}
           disable={answer === 2}
         />
       ) : (
-        <BtnBasic name="다음" fn={nextBtnHandler} disable={answer === 2} />
+        <BasicBtn name="다음" fn={nextBtnHandler} disable={answer === 2} />
       )}
     </div>
   );

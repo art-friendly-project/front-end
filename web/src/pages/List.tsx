@@ -1,17 +1,20 @@
+import { useEffect, useRef, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useInfiniteQuery } from '@tanstack/react-query';
 import FilterList from 'components/home/detail/nearbyAndLocationShow/FilterList';
-import FilterSelectModal from 'components/home/detail/nearbyAndLocationShow/FilterSelectModal';
 import ShowList from '../components/home/detail/nearbyAndLocationShow/ShowList';
-import { useRef, useState } from 'react';
-import DurationList from 'components/list/DurationList';
+import FilterSelectModal from 'components/home/detail/nearbyAndLocationShow/FilterSelectModal';
 import selectModalInfos from 'assets/data/selectModalInfos';
+import DurationList from 'components/list/DurationList';
 import api from 'api';
 import PageLoadingSpineer from 'components/list/PageLoadingSpineer';
-import { useInfiniteQuery } from '@tanstack/react-query';
-import { useNavigate } from 'react-router-dom';
 import useNavigateHome from 'hooks/useNavigateHome';
+import { useAppSelector } from 'hooks';
+import { selectShowsLocation } from 'store/modules/showsLocation';
 
 const List = () => {
   const listRef = useRef<HTMLDivElement>(null);
+  const pathname = useLocation().pathname;
 
   const navigate = useNavigate();
   useNavigateHome(navigate);
@@ -54,9 +57,11 @@ const List = () => {
       staleTime: 5 * 60 * 1000,
     });
 
-  if (isLoading) {
-    return <PageLoadingSpineer />;
-  }
+  const selectLocation = useAppSelector(selectShowsLocation);
+
+  useEffect(() => {
+    setLocation(selectLocation);
+  }, [selectLocation]);
 
   return (
     <div
@@ -73,7 +78,9 @@ const List = () => {
         />
       ) : null}
       <div className="sticky z-10 bg-white -top-0.5">
-        <DurationList duration={duration} setDuration={setDuration} />
+        {pathname === '/shows' ? (
+          <DurationList duration={duration} setDuration={setDuration} />
+        ) : null}
         <FilterList
           location={location}
           priority={priority}
@@ -81,14 +88,18 @@ const List = () => {
           setIsModalOpen={setIsModalOpen}
         />
       </div>
-      {data?.pages.map((shows, idx) => (
-        <ShowList
-          key={idx}
-          shows={shows}
-          fetchNextPage={fetchNextPage}
-          isFetchingNextPage={isFetchingNextPage}
-        />
-      ))}
+      {isLoading ? (
+        <PageLoadingSpineer />
+      ) : (
+        data?.pages.map((shows, idx) => (
+          <ShowList
+            key={idx}
+            shows={shows}
+            fetchNextPage={fetchNextPage}
+            isFetchingNextPage={isFetchingNextPage}
+          />
+        ))
+      )}
     </div>
   );
 };

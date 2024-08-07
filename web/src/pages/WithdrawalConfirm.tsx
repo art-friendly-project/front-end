@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import api from 'api';
-import BtnBasic from 'components/common/BtnBasic';
+import BasicBtn from 'components/common/BasicBtn';
 import WithdrawalConfirmCheckbox from 'components/withdrawalConfirm/WithdrawalConfirmCheckbox';
 import WithdrawalConfirmContentList from 'components/withdrawalConfirm/WithdrawalConfirmContentList';
 import WithdrawalConfirmTitle from 'components/withdrawalConfirm/WithdrawalConfirmTitle';
@@ -51,7 +51,7 @@ const WithdrawalConfirm = () => {
       <WithdrawalConfirmTitle />
       <WithdrawalConfirmContentList />
       <WithdrawalConfirmCheckbox confirm={confirm} setConfirm={setConfirm} />
-      <BtnBasic
+      <BasicBtn
         name="탈퇴하기"
         fn={btnHandler}
         disable={!confirm}

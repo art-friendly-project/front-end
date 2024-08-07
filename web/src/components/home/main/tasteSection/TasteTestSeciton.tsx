@@ -1,8 +1,8 @@
-import BtnAndRightArrow from 'components/common/BtnAndRightArrow';
 import TasteTestTitle from './TasteTestTitle';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from 'hooks';
 import { endpointActions } from 'store/modules/endpoint';
+import RightArrowBtn from 'components/common/RightArrowBtn';
 
 const TasteTestSeciton = () => {
   const navigate = useNavigate();
@@ -15,11 +15,7 @@ const TasteTestSeciton = () => {
   return (
     <div className="relative flex flex-col items-center w-full pb-6 bg-orange-0">
       <TasteTestTitle />
-      <BtnAndRightArrow
-        fn={btnHandler}
-        name="테스트 하러가기"
-        disable={false}
-      />
+      <RightArrowBtn fn={btnHandler} name="테스트 하러가기" />
     </div>
   );
 };
