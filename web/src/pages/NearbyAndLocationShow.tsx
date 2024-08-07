@@ -55,7 +55,7 @@ const NearbyAndLocationShow = () => {
 
   useEffect(() => {
     if (isApp()) {
-      const modalColse = (e: MessageEvent<string>) => {
+      const modalClose = (e: MessageEvent<string>) => {
         const data: {
           url: string;
         } = JSON.parse(e.data);
@@ -73,20 +73,20 @@ const NearbyAndLocationShow = () => {
       };
 
       if (window.platform === 'android') {
-        document.addEventListener('message', modalColse);
+        document.addEventListener('message', modalClose);
       }
 
       if (window.platform === 'ios') {
-        window.addEventListener('message', modalColse);
+        window.addEventListener('message', modalClose);
       }
 
       return () => {
         if (window.platform === 'android') {
-          document.removeEventListener('message', modalColse);
+          document.removeEventListener('message', modalClose);
         }
 
         if (window.platform === 'ios') {
-          window.removeEventListener('message', modalColse);
+          window.removeEventListener('message', modalClose);
         }
       };
     }
