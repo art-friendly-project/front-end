@@ -1,7 +1,7 @@
 import { type Dispatch, type SetStateAction } from 'react';
 import DetailModalHeader from './DetailModalHeader';
 import DetailModalContents from './DetailModalContents';
-import BtnBasic from 'components/common/BtnBasic';
+import BasicBtn from 'components/common/BasicBtn';
 
 interface detailModal {
   isSelectModalIdx: number;
@@ -31,10 +31,9 @@ const DetailModal = ({
         setIsModal={setIsModal}
       />
       <DetailModalContents isSelectModalIdx={isSelectModalIdx} />
-      <BtnBasic
+      <BasicBtn
         name="동의하기"
         fn={agreeBtnHandler}
-        disable={false}
         style="sticky bottom-6 bg-white"
       />
     </div>

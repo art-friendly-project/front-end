@@ -1,6 +1,6 @@
 import AccessGuidanceTitle from 'components/accessGuidance/AccessGuidanceTitle';
 import AccessList from 'components/accessGuidance/AccessList';
-import BtnBasic from 'components/common/BtnBasic';
+import BasicBtn from 'components/common/BasicBtn';
 import { useNavigate } from 'react-router-dom';
 import isApp from 'utils/isApp';
 
@@ -21,12 +21,7 @@ const AccessGuidance = () => {
     <div className="relative flex flex-col w-full h-full">
       <AccessGuidanceTitle />
       <AccessList />
-      <BtnBasic
-        name="확인"
-        disable={false}
-        fn={btnHandler}
-        style="sticky bottom-5 mt-auto"
-      />
+      <BasicBtn name="확인" fn={btnHandler} style="sticky bottom-5 mt-auto" />
     </div>
   );
 };

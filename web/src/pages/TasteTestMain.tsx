@@ -1,10 +1,10 @@
-import BtnBasic from 'components/common/BtnBasic';
 import character2 from '../assets/images/art-friendly/character2.svg';
 import { useNavigate } from 'react-router-dom';
 import TasteTestMainTitle from '../components/home/detail/tasteTest/questions/TasteTestMainTitle';
 import { useEffect } from 'react';
 import { useAppDispatch } from 'hooks';
 import { tasteTestActions } from 'store/modules/tasteTest';
+import BasicBtn from 'components/common/BasicBtn';
 
 const TasteTestMain = () => {
   const dispatch = useAppDispatch();
@@ -24,7 +24,7 @@ const TasteTestMain = () => {
         <img src={character2} className="my-[10%] absolute bottom-[20%]" />
       </div>
       <div className="absolute w-full bottom-[10%]">
-        <BtnBasic name="시작하기" fn={btnHandler} disable={false} />
+        <BasicBtn name="시작하기" fn={btnHandler} />
       </div>
     </div>
   );

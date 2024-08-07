@@ -1,5 +1,5 @@
 import api from 'api';
-import BtnBasic from 'components/common/BtnBasic';
+import BasicBtn from 'components/common/BasicBtn';
 import CheckList from 'components/termsOfUse/CheckList';
 import DetailModal from 'components/termsOfUse/DetailModal';
 import TermsOfUseTitle from 'components/termsOfUse/TermsOfUseTitle';
@@ -43,7 +43,7 @@ const TermsOfUse = () => {
         setIsChecks={setIsChecks}
         setIsModal={setIsModal}
       />
-      <BtnBasic
+      <BasicBtn
         name="동의하기"
         disable={!isChecks[0] || !isChecks[1]}
         fn={btnHandler}

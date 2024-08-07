@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
-import BtnBasic from 'components/common/BtnBasic';
 import IntroSwiper from 'components/appIntroduce/IntroSwiper';
 import { MdKeyboardDoubleArrowRight } from 'react-icons/md';
+import BasicBtn from 'components/common/BasicBtn';
 
 const AppIntroduce = () => {
   const navigate = useNavigate();
@@ -17,10 +17,9 @@ const AppIntroduce = () => {
         <span className="text-body3-M">넘겨서 확인하기</span>
         <MdKeyboardDoubleArrowRight className="ml-1 text-Headline" />
       </div>
-      <BtnBasic
+      <BasicBtn
         name={'시작하기'}
         fn={btnHandler}
-        disable={false}
         style="bottom-5 sticky mt-auto"
       />
     </div>

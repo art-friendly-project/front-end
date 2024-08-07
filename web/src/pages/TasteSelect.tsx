@@ -5,8 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import { useAppSelector } from 'hooks';
 import { selectEndpoint } from 'store/modules/endpoint';
 import api from 'api';
-import BtnBasic from 'components/common/BtnBasic';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
+import BasicBtn from 'components/common/BasicBtn';
 
 const TasteSelect = () => {
   const navigate = useNavigate();
@@ -41,7 +41,7 @@ const TasteSelect = () => {
     <div className="flex flex-col items-center w-full h-full pt-10">
       <TasteSelectTitle />
       <TasteList setSelectedList={setSelectedList} />
-      <BtnBasic
+      <BasicBtn
         disable={selectedList.length === 0}
         fn={btnHandler}
         name="저장하기"

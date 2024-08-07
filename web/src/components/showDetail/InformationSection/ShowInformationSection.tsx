@@ -1,6 +1,6 @@
-import BtnAndRightArrow from 'components/common/BtnAndRightArrow';
 import ShowInformationTitle from './ShowInformationTitle';
 import ShowInformationContent from './ShowInformationContent';
+import RightArrowBtn from 'components/common/RightArrowBtn';
 
 interface showInformationSection {
   showDetail: showDetail;
@@ -23,9 +23,8 @@ const ShowInformationSection = ({ showDetail }: showInformationSection) => {
       />
       <div className="flex justify-center pb-8 border-b-10 border-gray-10">
         {showDetail.exhibitionInfoRspDto.ticketingUrl === '' ? null : (
-          <BtnAndRightArrow
+          <RightArrowBtn
             name="예매 사이트 바로가기"
-            disable={false}
             fn={btnHandler}
             style="mt-6"
           />

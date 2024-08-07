@@ -3,11 +3,16 @@ import { IoIosArrowForward } from 'react-icons/io';
 interface btnAndRightArrow {
   fn: () => void;
   name: string;
-  disable: boolean;
+  disable?: boolean;
   style?: string;
 }
 
-const BtnAndRightArrow = ({ fn, name, disable, style }: btnAndRightArrow) => {
+const RightArrowBtn = ({
+  fn,
+  name,
+  disable = false,
+  style,
+}: btnAndRightArrow) => {
   return (
     <button
       className={`flex items-center justify-center h-12 text-white rounded-md w-9/10 active:bg-orange-dark-100 ${disable ? 'bg-orange-50' : 'bg-orange-100'} ${style}`}
@@ -20,4 +25,4 @@ const BtnAndRightArrow = ({ fn, name, disable, style }: btnAndRightArrow) => {
   );
 };
 
-export default BtnAndRightArrow;
+export default RightArrowBtn;
