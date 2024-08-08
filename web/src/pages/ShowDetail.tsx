@@ -32,6 +32,10 @@ const ShowDetail = () => {
 
   useSaveViewedShow(data);
 
+  if (data === undefined) {
+    return <></>;
+  }
+
   return (
     <>
       <div
