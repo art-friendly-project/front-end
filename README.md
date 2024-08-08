@@ -91,3 +91,7 @@ $ npm start
   &nbsp;&nbsp; - &nbsp;react-query 도입
   <br />&nbsp;&nbsp; - &nbsp;모바일 물리버튼 뒤로가기 기능 수정
 </details>
+<details>
+  <summary><b>[ 2024. 08. 08. ] UI, 기능 구현 (10차)</b></summary>
+  &nbsp;&nbsp; - &nbsp;react-query custom hook으로 관리
+</details>
