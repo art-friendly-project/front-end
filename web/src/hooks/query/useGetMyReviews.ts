@@ -1,6 +1,5 @@
 import api from 'api';
 import { useState } from 'react';
-import { useGetMember } from './useGetMember';
 import {
   type FetchNextPageOptions,
   type InfiniteData,
@@ -10,6 +9,7 @@ import {
 
 export const useGetMyReviews = (
   userId: number,
+  myId: number,
 ): {
   myReviews: savedReview[] | undefined;
   fetchNextPage: (options?: FetchNextPageOptions) => Promise<
@@ -27,7 +27,8 @@ export const useGetMyReviews = (
 } => {
   const [totalPages, setTotalPage] = useState(0);
 
-  const myId = useGetMember().id;
+  let currentId = userId;
+  if (userId === 0) currentId = myId;
 
   const getMyReviews = async (page: number, id: number) => {
     const res: fetchSavedReviews = await api.get(
@@ -39,9 +40,8 @@ export const useGetMyReviews = (
   };
 
   const { data, fetchNextPage, error, isError } = useInfiniteQuery({
-    queryKey: ['myReview', userId === 0 ? myId : userId],
-    queryFn: async ({ pageParam }) =>
-      await getMyReviews(pageParam, userId === 0 ? myId : userId),
+    queryKey: ['myReview', currentId],
+    queryFn: async ({ pageParam }) => await getMyReviews(pageParam, currentId),
     getNextPageParam: (lastPage, allPages, lastPageParam, allPageParams) => {
       const nextPage = lastPageParam + 1;
       if (nextPage < totalPages) {

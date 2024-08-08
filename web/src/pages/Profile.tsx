@@ -11,6 +11,7 @@ import { useGetProfile } from 'hooks/query/useGetProfile';
 import { useGetMyReviews } from 'hooks/query/useGetMyReviews';
 import { useAppSelector } from 'hooks';
 import { selectUserId } from 'store/modules/userId';
+import { useGetMember } from 'hooks/query/useGetMember';
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -20,8 +21,12 @@ const Profile = () => {
 
   const userId = useAppSelector(selectUserId);
 
-  const user = useGetProfile(userId);
-  const { myReviews, fetchNextPage } = useGetMyReviews(userId);
+  const member = useGetMember();
+  const myId = member?.id;
+
+  const user = useGetProfile(userId, myId);
+
+  const { myReviews, fetchNextPage } = useGetMyReviews(userId, myId);
 
   const observer = new IntersectionObserver((entries) => {
     if (entries[0].isIntersecting) {
@@ -56,7 +61,7 @@ const Profile = () => {
 
   useNavigateHome(navigate);
 
-  if (myReviews === undefined) {
+  if (myReviews === undefined || user === undefined) {
     return <></>;
   }
 

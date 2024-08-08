@@ -1,9 +1,12 @@
 import { useQuery } from '@tanstack/react-query';
 import api from 'api';
-import { useGetMember } from './useGetMember';
 
-export const useGetProfile = (userId: number): user => {
-  const myId = useGetMember().id;
+export const useGetProfile = (
+  userId: number,
+  myId: number,
+): user | undefined => {
+  let currentId = userId;
+  if (userId === 0) currentId = myId;
 
   const getProfile = async (id: number) => {
     const res: fetchProfile = await api.get(
@@ -14,18 +17,14 @@ export const useGetProfile = (userId: number): user => {
   };
 
   const { data, error, isError } = useQuery({
-    queryKey: ['user', 'profile', userId === 0 ? myId : userId],
-    queryFn: async () => await getProfile(userId === 0 ? myId : userId),
+    queryKey: ['user', 'profile', currentId],
+    queryFn: async () => await getProfile(currentId),
   });
 
   const user = data;
 
   if (isError) {
     console.error(error);
-  }
-
-  if (user === undefined) {
-    throw new Error('User profile not found');
   }
 
   return user;
