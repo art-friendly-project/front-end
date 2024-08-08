@@ -16,7 +16,7 @@ interface memoPadSticker {
   selectStickerIdx: number;
   setSelectStickerIdx: Dispatch<SetStateAction<number>>;
   setSelectStickerId: Dispatch<SetStateAction<number>>;
-  userId: number;
+  myId: number;
 }
 
 const MemoPadSticker = ({
@@ -30,12 +30,12 @@ const MemoPadSticker = ({
   selectStickerIdx,
   setSelectStickerIdx,
   setSelectStickerId,
-  userId,
+  myId,
 }: memoPadSticker) => {
   const dispatch = useAppDispatch();
 
   const onPressHandler = useLongPress(
-    userId === stickerUserId
+    myId === stickerUserId
       ? () => {
           setSelectStickerIdx(idx);
           setSelectStickerId(id);
@@ -56,11 +56,11 @@ const MemoPadSticker = ({
 
   return (
     <button
-      className={`relative mr-2 duration-500 shrink-0 ${stickerUserId === userId ? 'active:scale-110' : ''} ${selectStickerIdx === idx ? 'z-30' : ''}`}
+      className={`relative mr-2 duration-500 shrink-0 ${stickerUserId === myId ? 'active:scale-110' : ''} ${selectStickerIdx === idx ? 'z-30' : ''}`}
       {...onPressHandler()}
       onClick={btnHandler}
     >
-      {stickerUserId === userId ? (
+      {stickerUserId === myId ? (
         <img
           src={purpleStar}
           className="absolute w-3 h-3 -top-3 left-[1.1rem]"

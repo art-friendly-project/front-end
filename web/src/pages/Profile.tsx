@@ -11,13 +11,14 @@ import { selectUserId } from 'store/modules/userId';
 import { useInfiniteQuery, useQuery } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
 import useNavigateHome from 'hooks/useNavigateHome';
+import { useGetMember } from 'hooks/query/useGetMember';
 
 const Profile = () => {
   const [shows, setShows] = useState<show[]>([]);
   const [totalPages, setTotalPage] = useState(0);
 
   const userId = useAppSelector(selectUserId);
-  const myId = Number(localStorage.getItem('myId'));
+  const myId = useGetMember().id;
 
   const bottomRef = useRef<HTMLDivElement>(null);
 
