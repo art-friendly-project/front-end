@@ -1,66 +1,27 @@
 import { useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import ProfileInfoSection from 'components/profile/profileInfo/ProfileInfoSection';
 import InterestSection from 'components/profile/interest/InterestSection';
 import ViewedShowAndReviewsSection from 'components/profile/viewedShowAndReviews/ViewedShowAndReviewsSection';
 import ReviewSection from 'components/profile/review/ReviewSection';
 import ConfirmModal from 'components/common/ConfirmModal';
 import useToastHandler from 'hooks/useToastHandler';
-import api from 'api';
+import useNavigateHome from 'hooks/useNavigateHome';
+import { useGetProfile } from 'hooks/query/useGetProfile';
+import { useGetMyReviews } from 'hooks/query/useGetMyReviews';
 import { useAppSelector } from 'hooks';
 import { selectUserId } from 'store/modules/userId';
-import { useInfiniteQuery, useQuery } from '@tanstack/react-query';
-import { useNavigate } from 'react-router-dom';
-import useNavigateHome from 'hooks/useNavigateHome';
-import { useGetMember } from 'hooks/query/useGetMember';
 
 const Profile = () => {
-  const [shows, setShows] = useState<show[]>([]);
-  const [totalPages, setTotalPage] = useState(0);
-
-  const userId = useAppSelector(selectUserId);
-  const myId = useGetMember().id;
-
+  const navigate = useNavigate();
   const bottomRef = useRef<HTMLDivElement>(null);
 
-  const navigate = useNavigate();
-  useNavigateHome(navigate);
+  const [shows, setShows] = useState<show[]>([]);
 
-  const getProfile = async (id: number) => {
-    const res: fetchProfile = await api.get(
-      `/members/profiles?searchMemberId=${id}`,
-    );
+  const userId = useAppSelector(selectUserId);
 
-    return res.data.data;
-  };
-
-  const getMyReviews = async (page: number, id: number) => {
-    const res: fetchSavedReviews = await api.get(
-      `/dambyeolags/lists/by-member?page=${page}&memberId=${id}`,
-    );
-
-    setTotalPage(res.data.data.totalPages);
-    return res.data.data.content;
-  };
-
-  const userQuery = useQuery({
-    queryKey: ['user', 'profile', userId === 0 ? myId : userId],
-    queryFn: async () => await getProfile(userId === 0 ? myId : userId),
-  });
-  const user = userQuery.data;
-
-  const { data, fetchNextPage } = useInfiniteQuery({
-    queryKey: ['myReview', userId === 0 ? myId : userId],
-    queryFn: async ({ pageParam }) =>
-      await getMyReviews(pageParam, userId === 0 ? myId : userId),
-    getNextPageParam: (lastPage, allPages, lastPageParam, allPageParams) => {
-      const nextPage = lastPageParam + 1;
-      if (nextPage < totalPages) {
-        return nextPage;
-      }
-    },
-    initialPageParam: 0,
-    staleTime: 5 * 60 * 1000,
-  });
+  const user = useGetProfile(userId);
+  const { myReviews, fetchNextPage } = useGetMyReviews(userId);
 
   const observer = new IntersectionObserver((entries) => {
     if (entries[0].isIntersecting) {
@@ -93,11 +54,9 @@ const Profile = () => {
     toastHandler();
   };
 
-  const myReviews = data?.pages.reduce((prev, next) => {
-    return prev.concat(next);
-  });
+  useNavigateHome(navigate);
 
-  if (user === undefined || myReviews === undefined) {
+  if (myReviews === undefined) {
     return <></>;
   }
 

@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import ReviewPostContent from '../components/reviewPost/ReviewPostContent';
 import ReviewPostTitle from '../components/reviewPost/ReviewPostTitle';
-
-import api from 'api';
 import BasicBtn from 'components/common/BasicBtn';
+import { useGetReview } from 'hooks/query/useGetReview';
+import { usePatchReview } from 'hooks/query/usePatchReview';
 
 const ReviewEdit = () => {
   const param = useParams();
@@ -15,42 +14,13 @@ const ReviewEdit = () => {
   const [body, setBody] = useState('');
 
   const navigate = useNavigate();
-  const queryClient = useQueryClient();
 
-  const getReview = async (id: number) => {
-    const res = await api.get(`/dambyeolags?dambyeolagId=${id}`);
-    return res.data.data;
-  };
-
-  const patchReview = async () => {
-    const data = {
-      title,
-      body,
-      dambyeolagId: id,
-    };
-    await api.patch('/dambyeolags', data);
-  };
-
-  const { data } = useQuery<reviewDetail>({
-    queryKey: ['review', id],
-    queryFn: async () => await getReview(id),
-    staleTime: 5 * 60 * 1000,
-  });
-
-  const { mutate } = useMutation({
-    mutationFn: patchReview,
-    onSuccess: async () => {
-      await queryClient.invalidateQueries({
-        queryKey: ['review'],
-      });
-    },
-  });
+  const data = useGetReview(id);
+  const mutate = usePatchReview(id, title, body);
 
   useEffect(() => {
-    if (data !== undefined) {
-      setTitle(data.title);
-      setBody(data.body);
-    }
+    setTitle(data.title);
+    setBody(data.body);
   }, [data]);
 
   return (

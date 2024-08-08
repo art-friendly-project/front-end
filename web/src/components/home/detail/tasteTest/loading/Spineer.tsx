@@ -1,13 +1,7 @@
-import { useQuery } from '@tanstack/react-query';
-import api from 'api';
+import { useGetMember } from 'hooks/query/useGetMember';
 
 const Spineer = () => {
-  const getMember = async () => {
-    const res = await api.get('members');
-    return res.data.data;
-  };
-
-  const { data } = useQuery({ queryKey: ['member'], queryFn: getMember });
+  const data = useGetMember();
 
   return (
     <>

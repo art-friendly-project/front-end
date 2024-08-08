@@ -1,5 +1,4 @@
-import { useMutation, useQueryClient } from '@tanstack/react-query';
-import api from 'api';
+import { useDeleteRank } from 'hooks/query/useDeleteRank';
 import { type Dispatch, type SetStateAction } from 'react';
 
 interface cancelModalBtnContainer {
@@ -11,25 +10,7 @@ const CancelModalBtnContainer = ({
   id,
   setIsModal,
 }: cancelModalBtnContainer) => {
-  const queryClient = useQueryClient();
-
-  const deleteRank = async () => {
-    await api.delete(`/exhibitions/hopes?exhibitionId=${id}`);
-  };
-
-  const { mutate } = useMutation({
-    mutationFn: deleteRank,
-    onSuccess: async () => {
-      await queryClient.invalidateQueries({ queryKey: ['show', 'detail'] });
-      setIsModal(false);
-    },
-    onError: (err) => {
-      console.error(err);
-    },
-  });
-  const btnHandler = async () => {
-    mutate();
-  };
+  const mutate = useDeleteRank(id);
 
   return (
     <div className="mt-4">
@@ -44,7 +25,8 @@ const CancelModalBtnContainer = ({
       <button
         className="w-32 h-12 ml-2 text-white bg-orange-100 rounded-lg text-Subhead active:bg-orange-dark-100"
         onClick={() => {
-          void btnHandler();
+          mutate();
+          setIsModal(false);
         }}
       >
         네

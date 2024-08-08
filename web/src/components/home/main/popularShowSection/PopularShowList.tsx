@@ -1,19 +1,9 @@
 import PopularShow from './PopularShow';
-import api from 'api';
-import { useQuery } from '@tanstack/react-query';
 import Loading from './Loading';
+import { useGetPopularShows } from 'hooks/query/useGetPopularShows';
 
 const PopularShowList = () => {
-  const getPopularShows = async () => {
-    const res = await api.get('/exhibitions/lists/popular');
-    return res.data.data;
-  };
-
-  const { data, isLoading } = useQuery<popularShow[]>({
-    queryKey: ['shows', 'popular'],
-    queryFn: getPopularShows,
-    staleTime: 5 * 60 * 1000,
-  });
+  const { data, isLoading } = useGetPopularShows();
 
   if (isLoading) {
     return <Loading />;

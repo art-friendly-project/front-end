@@ -1,43 +1,23 @@
-import { useMutation, useQueryClient } from '@tanstack/react-query';
-import api from 'api';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAppSelector } from 'hooks';
 import BasicBtn from 'components/common/BasicBtn';
 import WithdrawalConfirmCheckbox from 'components/withdrawalConfirm/WithdrawalConfirmCheckbox';
 import WithdrawalConfirmContentList from 'components/withdrawalConfirm/WithdrawalConfirmContentList';
 import WithdrawalConfirmTitle from 'components/withdrawalConfirm/WithdrawalConfirmTitle';
-import { useAppSelector } from 'hooks';
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { selectWithdrawalReason } from 'store/modules/withdrawalReason';
+import { usePostWithdrawalReason } from 'hooks/query/usePostWithdrawalReason';
+import { useDeleteMember } from 'hooks/query/useDeleteMember';
 
 const WithdrawalConfirm = () => {
   const navigate = useNavigate();
-  const queryClient = useQueryClient();
 
   const [confirm, setConfirm] = useState(false);
   const withdrawalReason = useAppSelector(selectWithdrawalReason);
 
-  const postWithdrawalReason = async () => {
-    await api.post(`/members/withdrawal?reasonId=${withdrawalReason}`);
-  };
+  const postWithdrawalReasonMutate = usePostWithdrawalReason(withdrawalReason);
 
-  const deleteMember = async () => {
-    await api.delete('/members');
-  };
-
-  const postWithdrawalReasonMutaion = useMutation({
-    mutationFn: postWithdrawalReason,
-  });
-
-  const postWithdrawalReasonMutate = postWithdrawalReasonMutaion.mutate;
-
-  const deleteMemberMutation = useMutation({
-    mutationFn: deleteMember,
-    onSuccess: async () => {
-      await queryClient.invalidateQueries({ queryKey: ['user'] });
-    },
-  });
-
-  const deleteMemberMutate = deleteMemberMutation.mutate;
+  const deleteMemberMutate = useDeleteMember();
 
   const btnHandler = () => {
     postWithdrawalReasonMutate();

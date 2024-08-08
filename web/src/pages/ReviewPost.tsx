@@ -6,41 +6,19 @@ import ConfirmModal from 'components/common/ConfirmModal';
 import { useAppDispatch, useAppSelector } from 'hooks';
 import { isReviewTextActions } from 'store/modules/isReviewText';
 import { selectShowId } from 'store/modules/showId';
-import api from 'api';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
 import BasicBtn from 'components/common/BasicBtn';
+import { usePostReview } from 'hooks/query/usePostReview';
 
 const ReviewPost = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const queryClient = useQueryClient();
 
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
 
   const exhibitionId = useAppSelector(selectShowId);
 
-  const postReview = async () => {
-    const data = {
-      title,
-      body,
-      exhibitionId,
-    };
-
-    await api.post('/dambyeolags', data);
-  };
-
-  const { mutate } = useMutation({
-    mutationFn: postReview,
-    onSuccess: async () => {
-      await queryClient.invalidateQueries({
-        queryKey: ['show'],
-      });
-    },
-    onError: (err) => {
-      console.error(err);
-    },
-  });
+  const mutate = usePostReview(exhibitionId, title, body);
 
   useEffect(() => {
     dispatch(
