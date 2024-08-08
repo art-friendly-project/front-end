@@ -7,6 +7,7 @@ import MemoPadStickerComments from './MemoPadStickerComments';
 import EditOrDeleteBtn from './EditOrDeleteBtn';
 import EditorDeleteModal from './EditorDeleteModal';
 import MemoPadMarkingSticker from './MemoPadMarkingSticker';
+import { useGetMember } from 'hooks/query/useGetMember';
 
 interface memoPad {
   review: reviewDetail;
@@ -25,13 +26,13 @@ const MemoPad = ({
   const [isCommentModal, setIsCommentModal] = useState(false);
   const [isEditorDeleteModal, setIsEditorDeleteModal] = useState(false);
 
-  const userId = Number(localStorage.getItem('myId'));
+  const myId = useGetMember().id;
 
   return (
     <>
       <div className="relative flex flex-col w-84 h-108 rounded-2xl shadow-custom">
         <MemoPadMarkingSticker />
-        {userId === review.memberResponseDto.id ? (
+        {myId === review.memberResponseDto.id ? (
           <EditOrDeleteBtn setIsEditorDeleteModal={setIsEditorDeleteModal} />
         ) : null}
         <Profile
@@ -49,7 +50,7 @@ const MemoPad = ({
           selectStickerIdx={selectStickerIdx}
           setSelectStickerIdx={setSelectStickerIdx}
           setSelectStickerId={setSelectStickerId}
-          userId={userId}
+          myId={myId}
         />
         {isCommentModal ? (
           <MemoPadStickerComments

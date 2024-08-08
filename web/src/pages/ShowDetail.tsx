@@ -1,7 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { useQuery } from '@tanstack/react-query';
-import api from 'api';
 import useSaveViewedShow from 'hooks/useSaveViewedShow';
 import ReviewSection from 'components/showDetail/reviewSection/ReviewSection';
 import RankSection from 'components/showDetail/rankSection/RankSection';
@@ -10,23 +8,16 @@ import PosterSection from 'components/showDetail/posterSection/PosterSection';
 import { useAppSelector } from 'hooks';
 import { selectEndpoint } from 'store/modules/endpoint';
 import useScrollHeight from 'hooks/useScrollHeight';
+import { useGetShowDetail } from 'hooks/query/useGetShowDetail';
 
 const ShowDetail = () => {
   const { id: paramId } = useParams();
   const id = Number(paramId);
   const showDetailRef = useRef<HTMLDivElement>(null);
 
+  const data = useGetShowDetail(id);
+
   const [isModal, setIsModal] = useState(false);
-
-  const getShowDetail = async (id: number) => {
-    const res = await api.get(`/exhibitions?exhibitionId=${id}`);
-    return res.data.data;
-  };
-
-  const { data, isLoading } = useQuery<showDetail>({
-    queryKey: ['show', 'detail', id],
-    queryFn: async () => await getShowDetail(id),
-  });
 
   const endpoint = useAppSelector(selectEndpoint);
   const scrollHeight = useScrollHeight(showDetailRef);
@@ -35,14 +26,13 @@ const ShowDetail = () => {
     if (endpoint.includes('reviews')) {
       showDetailRef.current?.scrollTo({
         top: scrollHeight,
-        behavior: 'smooth',
       });
     }
   }, [endpoint, scrollHeight]);
 
   useSaveViewedShow(data);
 
-  if (isLoading || data === undefined) {
+  if (data === undefined) {
     return <></>;
   }
 

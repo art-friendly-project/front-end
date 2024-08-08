@@ -1,27 +1,12 @@
-import { useMutation, useQueryClient } from '@tanstack/react-query';
-import api from 'api';
+import { useDeleteReview } from 'hooks/query/useDeleteReview';
 import { useNavigate, useParams } from 'react-router-dom';
 
 const DeleteBtn = () => {
-  const param = useParams();
-  const { id } = param;
-
   const navigate = useNavigate();
-  const queryClient = useQueryClient();
+  const param = useParams();
+  const id = Number(param.id);
 
-  const deleteReview = async () => {
-    await api.delete(`/dambyeolags?dambyeolagId=${id}`);
-  };
-
-  const { mutate } = useMutation({
-    mutationFn: deleteReview,
-    onSuccess: async () => {
-      await queryClient.invalidateQueries({ queryKey: ['show'] });
-    },
-    onError: (err) => {
-      console.error(err);
-    },
-  });
+  const mutate = useDeleteReview(id);
 
   return (
     <button

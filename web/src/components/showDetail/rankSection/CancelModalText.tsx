@@ -1,17 +1,7 @@
-import { useQuery } from '@tanstack/react-query';
-import api from 'api';
+import { useGetMember } from 'hooks/query/useGetMember';
 
 const CancelModalText = () => {
-  const getMember = async () => {
-    const res = await api.get('/members');
-    return res.data.data;
-  };
-
-  const { data } = useQuery({
-    queryKey: ['user', 'member'],
-    queryFn: getMember,
-    staleTime: 30 * 60 * 1000,
-  });
+  const data = useGetMember();
 
   return (
     <>

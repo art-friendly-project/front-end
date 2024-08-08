@@ -3,25 +3,14 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/scrollbar';
 import 'style/swiper.css';
-
 import GradientBackground from './GradientBackground';
 import PosterImg from 'components/common/PosterImg';
 import PosterInfo from './PosterInfo';
-import api from 'api';
 import PosterLoading from './PosterLoading';
-import { useQuery } from '@tanstack/react-query';
+import { useGetPopularShows } from 'hooks/query/useGetPopularShows';
 
 const PosterSwiper = () => {
-  const getPopularShows = async () => {
-    const res = await api.get('/exhibitions/lists/popular');
-    return res.data.data;
-  };
-
-  const { data, isLoading } = useQuery<popularShow[]>({
-    queryKey: ['shows', 'popular'],
-    queryFn: getPopularShows,
-    staleTime: 5 * 60 * 1000,
-  });
+  const { data, isLoading } = useGetPopularShows();
 
   if (isLoading) {
     return <PosterLoading />;

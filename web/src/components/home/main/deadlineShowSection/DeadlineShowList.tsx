@@ -1,21 +1,11 @@
 import DeadlineShow from './DeadlineShow';
-import api from 'api';
-import { useQuery } from '@tanstack/react-query';
 import Loading from './Loading';
+import { useGetEndShows } from 'hooks/query/useGetEndShows';
 
 const DeadlineShowList = () => {
-  const getEndShows = async () => {
-    const res = await api.get('/exhibitions/lists/end');
-    return res.data.data;
-  };
+  const { data, isLoading } = useGetEndShows();
 
-  const { data, isLoading } = useQuery<show[]>({
-    queryKey: ['shows', 'end'],
-    queryFn: getEndShows,
-    staleTime: 5 * 60 * 1000,
-  });
-
-  if (isLoading || data === undefined) {
+  if (isLoading) {
     return <Loading />;
   }
 

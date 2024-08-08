@@ -1,26 +1,15 @@
-import { useQuery } from '@tanstack/react-query';
-import api from 'api';
+import { useGetLogin } from 'hooks/query/useGetLogin';
 import { useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 
 const Login = () => {
   const navigate = useNavigate();
-
   const [searchParams] = useSearchParams();
+
   const code = searchParams.get('oneTimeUseCode');
   const isSignUp = searchParams.get('isSignUp');
 
-  const getLogin = async (code: string | null) => {
-    if (code !== null) {
-      const res = await api.get(`/oauth/token?code=${code}`);
-      return res.data.data;
-    }
-  };
-
-  const { data } = useQuery<auth>({
-    queryKey: ['login', code],
-    queryFn: async () => await getLogin(code),
-  });
+  const data = useGetLogin(code);
 
   useEffect(() => {
     if (data !== undefined) {

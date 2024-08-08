@@ -1,5 +1,4 @@
-import { useMutation, useQueryClient } from '@tanstack/react-query';
-import api from 'api';
+import { usePostOrPatchRank } from 'hooks/query/usePostOrPatchRank';
 import { type Dispatch, type SetStateAction } from 'react';
 
 interface rankIcon {
@@ -19,31 +18,9 @@ const RankIcon = ({
   setIsModal,
   checkTemperature,
 }: rankIcon) => {
-  const queryClient = useQueryClient();
+  const mutate = usePostOrPatchRank(id, idx, checkTemperature);
 
-  const postOrPatchRank = async () => {
-    if (checkTemperature === null) {
-      return await api.post(
-        `/exhibitions/hopes?exhibitionId=${id}&hopeIndex=${idx + 1}`,
-      );
-    } else {
-      return await api.patch(
-        `/exhibitions/hopes?exhibitionId=${id}&hopeIndex=${idx + 1}`,
-      );
-    }
-  };
-
-  const { mutate } = useMutation({
-    mutationFn: postOrPatchRank,
-    onSuccess: async () => {
-      await queryClient.invalidateQueries({ queryKey: ['show', 'detail'] });
-    },
-    onError: (err) => {
-      console.error(err);
-    },
-  });
-
-  const btnHandler = async () => {
+  const btnHandler = () => {
     if (isSelectedRank) {
       setIsModal(true);
     }
@@ -56,7 +33,7 @@ const RankIcon = ({
   return (
     <button
       onClick={() => {
-        void btnHandler();
+        btnHandler();
       }}
       className="flex items-center justify-center rounded-lg h-28 w-18 active:bg-gray-00"
     >
