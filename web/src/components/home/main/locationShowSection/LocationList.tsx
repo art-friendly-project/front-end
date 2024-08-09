@@ -1,5 +1,5 @@
 import { locationIcons, locations } from 'assets/data/location';
-import LocationIconBtn from './locationIconBtn';
+import LocationIconBtn from './LocationIconBtn';
 
 const LocationList = () => {
   return (
