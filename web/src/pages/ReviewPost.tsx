@@ -1,24 +1,23 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import ReviewPostContent from '../components/reviewPost/ReviewPostContent';
 import ReviewPostTitle from '../components/reviewPost/ReviewPostTitle';
 import ConfirmModal from 'components/common/ConfirmModal';
-import { useAppDispatch, useAppSelector } from 'hooks';
+import { useAppDispatch } from 'hooks';
 import { isReviewTextActions } from 'store/modules/isReviewText';
-import { selectShowId } from 'store/modules/showId';
 import BasicBtn from 'components/common/BasicBtn';
 import { usePostReview } from 'hooks/query/usePostReview';
 
 const ReviewPost = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const param = useParams();
+  const id = Number(param.id);
 
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
 
-  const exhibitionId = useAppSelector(selectShowId);
-
-  const mutate = usePostReview(exhibitionId, title, body);
+  const mutate = usePostReview(id, title, body);
 
   useEffect(() => {
     dispatch(

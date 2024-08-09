@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { IoIosArrowForward } from 'react-icons/io';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { endpointActions } from 'store/modules/endpoint';
-import { showIdActions } from 'store/modules/showId';
 import ReviewWrittenConfirmModal from './ReviewWrittenConfirmModal';
 
 interface reviewPostBtn {
@@ -21,8 +20,7 @@ const ReviewPostBtn = ({ id, hasDambyeolagWritten }: reviewPostBtn) => {
   const postBtnHandler = () => {
     if (!hasDambyeolagWritten) {
       dispatch(endpointActions.current(pathname));
-      dispatch(showIdActions.current(id));
-      navigate('/review-post');
+      navigate(`/review-post/${id}`);
     }
 
     if (hasDambyeolagWritten) {

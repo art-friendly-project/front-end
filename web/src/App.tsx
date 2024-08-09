@@ -81,7 +81,7 @@ const App = () => {
                   />
                   <Route path="/prepare-service" element={<PrepareService />} />
                   <Route path="/reviews/:id" element={<Reviews />} />
-                  <Route path="/review-post" element={<ReviewPost />} />
+                  <Route path="/review-post/:id" element={<ReviewPost />} />
                   <Route path="/review-edit/:id" element={<ReviewEdit />} />
                   <Route path="/profile-edit" element={<ProfileEdit />} />
                   <Route path="/settings" element={<Settings />} />

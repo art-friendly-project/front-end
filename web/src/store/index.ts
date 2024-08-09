@@ -9,7 +9,6 @@ import isReviewTextReducer from './modules/isReviewText';
 import accessPermissionsReducer from './modules/accessPermissions';
 import toastTextReducer from './modules/toastText';
 import userIdReducer from './modules/userId';
-import showIdReducer from './modules/showId';
 import withdrawalReasonReducer from './modules/withdrawalReason';
 
 const store = configureStore({
@@ -24,7 +23,6 @@ const store = configureStore({
     accessPermissions: accessPermissionsReducer,
     toastText: toastTextReducer,
     userId: userIdReducer,
-    showId: showIdReducer,
     withdrawalReason: withdrawalReasonReducer,
   },
 });
