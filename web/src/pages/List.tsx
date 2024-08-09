@@ -8,8 +8,8 @@ import DurationList from 'components/list/DurationList';
 import PageLoadingSpineer from 'components/list/PageLoadingSpineer';
 import useNavigateHome from 'hooks/useNavigateHome';
 import { useAppSelector } from 'hooks';
-import { selectShowsLocation } from 'store/modules/showsLocation';
 import { useGetShowList } from 'hooks/query/useGetShowList';
+import { selectSelectedLocation } from 'store/modules/selectedLocation';
 
 const List = () => {
   const listRef = useRef<HTMLDivElement>(null);
@@ -29,7 +29,7 @@ const List = () => {
 
   const openModalIndex = isModalOpen.indexOf(true);
 
-  const selectLocation = useAppSelector(selectShowsLocation);
+  const selectLocation = useAppSelector(selectSelectedLocation);
 
   useEffect(() => {
     setLocation(selectLocation);
