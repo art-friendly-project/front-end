@@ -3,7 +3,6 @@ import { type RootState } from 'store';
 
 interface StateType {
   accessPermissions: {
-    location: string;
     calendar: string;
     images: string;
     notifications: string;
@@ -12,7 +11,6 @@ interface StateType {
 
 const initialState: StateType = {
   accessPermissions: {
-    location: 'blocked',
     calendar: 'blocked',
     images: 'blocked',
     notifications: 'blocked',
