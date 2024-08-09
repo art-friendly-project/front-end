@@ -69,7 +69,7 @@ const App = () => {
                 </Route>
 
                 <Route element={<DetailLayout />}>
-                  <Route path="/home/nearby" element={<List />} />
+                  <Route path="/home/location" element={<List />} />
                 </Route>
 
                 <Route element={<DetailLayoutWithoutNav />}>

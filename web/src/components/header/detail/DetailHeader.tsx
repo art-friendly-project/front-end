@@ -9,7 +9,7 @@ const DetailHeader = () => {
 
   const outputHeaderBtn = () => {
     if (pathname === '/home/taste-test') return true;
-    if (pathname === '/home/nearby') return true;
+    if (pathname === '/home/location') return true;
     if (pathname === '/prepare-service') return true;
     if (pathname.includes('reviews')) return true;
     if (pathname === '/settings') return true;

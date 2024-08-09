@@ -13,7 +13,7 @@ const LocationIconBtn = ({ locationIcon, location }: locationIconBtn) => {
   const dispatch = useAppDispatch();
   const locationBtnHandler = () => {
     dispatch(showsLocationActions.current(location));
-    navigate('/home/nearby');
+    navigate('/home/location');
   };
 
   return (
