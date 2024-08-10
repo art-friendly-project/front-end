@@ -31,7 +31,6 @@ const Profile = ({ user, lastModifiedTime }: profile) => {
           );
         }
       }
-      console.error(err);
     }
   };
 
