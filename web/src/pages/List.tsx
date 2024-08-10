@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import FilterList from 'components/home/detail/nearbyAndLocationShow/FilterList';
 import ShowList from '../components/home/detail/nearbyAndLocationShow/ShowList';
@@ -9,33 +9,24 @@ import PageLoadingSpineer from 'components/list/PageLoadingSpineer';
 import useNavigateHome from 'hooks/useNavigateHome';
 import { useAppSelector } from 'hooks';
 import { useGetShowList } from 'hooks/query/useGetShowList';
-import { selectSelectedLocation } from 'store/modules/selectedLocation';
+import { selectLocation } from 'store/modules/location';
 
 const List = () => {
   const listRef = useRef<HTMLDivElement>(null);
   const pathname = useLocation().pathname;
   const navigate = useNavigate();
 
-  const [location, setLocation] = useState('서울');
+  const location = useAppSelector(selectLocation);
   const [priority, setPriority] = useState('popular');
   const [duration, setDuration] = useState('inProgress');
   const [isModalOpen, setIsModalOpen] = useState([false, false]);
+  const openModalIndex = isModalOpen.indexOf(true);
 
   const { data, isLoading, isFetchingNextPage, fetchNextPage } = useGetShowList(
     location,
     duration,
     priority,
   );
-
-  const openModalIndex = isModalOpen.indexOf(true);
-
-  const selectLocation = useAppSelector(selectSelectedLocation);
-
-  useEffect(() => {
-    setLocation(selectLocation);
-  }, [selectLocation]);
-
-  const setState = [setLocation, setPriority];
 
   useNavigateHome(navigate);
 
@@ -50,7 +41,7 @@ const List = () => {
           title2={selectModalInfos[openModalIndex].title2}
           selects={selectModalInfos[openModalIndex].selects}
           setIsModalOpen={setIsModalOpen}
-          setState={setState[openModalIndex]}
+          setPriority={openModalIndex === 1 ? setPriority : null}
         />
       ) : null}
       <div className="sticky z-10 bg-white -top-0.5">

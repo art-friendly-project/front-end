@@ -1,7 +1,6 @@
 import { useAppDispatch } from 'hooks';
 import { useNavigate } from 'react-router-dom';
-
-import { selectedLocationActions } from 'store/modules/selectedLocation';
+import { locationActions } from 'store/modules/location';
 
 interface locationIconBtn {
   locationIcon: string;
@@ -12,7 +11,7 @@ const LocationIcon = ({ locationIcon, location }: locationIconBtn) => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const locationBtnHandler = () => {
-    dispatch(selectedLocationActions.current(location));
+    dispatch(locationActions.current(location));
     navigate('/home/location');
   };
 

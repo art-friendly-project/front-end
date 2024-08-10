@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import selectedLocationReducer from './modules/selectedLocation';
+import locationReducer from './modules/location';
 import toastReducer from './modules/toast';
 import isTestReducer from './modules/isTest';
 import endpointReducer from './modules/endpoint';
@@ -13,7 +13,7 @@ import withdrawalReasonReducer from './modules/withdrawalReason';
 
 const store = configureStore({
   reducer: {
-    selectedLocation: selectedLocationReducer,
+    location: locationReducer,
     toast: toastReducer,
     isTest: isTestReducer,
     endpoint: endpointReducer,
