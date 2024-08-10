@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import { useAppDispatch } from 'hooks';
 import { endpointActions } from 'store/modules/endpoint';
 import BannerSection from 'components/home/main/bannerSection/BannerSection';
-
 import TasteTestSeciton from 'components/home/main/tasteSection/TasteTestSeciton';
 import PopularShowSection from 'components/home/main/popularShowSection/PopularShowSection';
 import DeadlineShowSection from 'components/home/main/deadlineShowSection/DeadlineShowSection';
