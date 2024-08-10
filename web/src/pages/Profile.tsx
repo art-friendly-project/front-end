@@ -85,15 +85,15 @@ const Profile = () => {
         <InterestSection
           artPreferenceTypeList={user.memberDetailsRspDto.artPreferenceTypeList}
         />
-        {userId === 0 ? (
+        {userId === myId ? (
+          <ReviewSection myReviews={myReviews} userId={userId} />
+        ) : (
           <ViewedShowAndReviewsSection
             myReviews={myReviews}
             shows={shows}
             setShows={setShows}
             userId={userId}
           />
-        ) : (
-          <ReviewSection myReviews={myReviews} userId={userId} />
         )}
       </div>
     </>
