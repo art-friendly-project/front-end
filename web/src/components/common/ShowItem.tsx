@@ -6,7 +6,7 @@ import PosterInfo from './PosterInfo';
 import FavoriteBtn from './FavoriteBtn';
 import AddScheduleBtn from 'components/like/AddScheduleBtn';
 
-interface prop {
+interface showItem {
   id: number;
   title: string;
   area?: string;
@@ -42,7 +42,7 @@ const ShowItem = ({
   itemStyle,
   posterStyle,
   buttonStyle,
-}: prop) => {
+}: showItem) => {
   const navigate = useNavigate();
 
   const btnHandler = () => {
