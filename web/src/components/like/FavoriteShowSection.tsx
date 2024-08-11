@@ -5,13 +5,13 @@ import {
   type Dispatch,
   type SetStateAction,
 } from 'react';
-import FavoriteShow from './FavoriteShow';
 import LikeEmptyMessage from './LikeEmptyMessage';
 import { useAppDispatch } from 'hooks';
 import { endpointActions } from 'store/modules/endpoint';
 import api from 'api';
 import PageLoadingSpineer from 'components/list/PageLoadingSpineer';
 import { useInfiniteQuery } from '@tanstack/react-query';
+import ShowItem from 'components/common/ShowItem';
 
 interface favoriteShowSection {
   setCalendars: Dispatch<SetStateAction<calendar[]>>;
@@ -94,7 +94,7 @@ const FavoriteShowSection = ({
         <LikeEmptyMessage text="아직 관심 목록이 없어요." />
       ) : (
         likeShows.map((show) => (
-          <FavoriteShow
+          <ShowItem
             key={show.id}
             id={show.id}
             title={show.title}
@@ -102,7 +102,8 @@ const FavoriteShowSection = ({
             endDate={show.endDate}
             imageUrl={show.imageUrl}
             isLike={show.isLike}
-            area={show.area}
+            posterStyle="w-24 h-28"
+            buttonStyle="mb-6"
             setCalendars={setCalendars}
             setIsModal={setIsModal}
             setScheduleName={setScheduleName}

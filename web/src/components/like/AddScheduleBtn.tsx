@@ -2,32 +2,35 @@ import { useAppSelector } from 'hooks';
 import { type Dispatch, type SetStateAction } from 'react';
 import { BsFillPlusCircleFill } from 'react-icons/bs';
 import { selectAccessPermissions } from 'store/modules/accessPermissions';
+import calculateRemainDay from 'utils/calculateRemainDay';
 import isApp from 'utils/isApp';
 
 interface addScheduleBtn {
-  setCalendars: Dispatch<SetStateAction<calendar[]>>;
-  setIsModal: Dispatch<SetStateAction<boolean>>;
   title: string;
-  setScheduleName: Dispatch<SetStateAction<string>>;
-  setLocation: Dispatch<SetStateAction<string>>;
-  area: string;
   startDate: string;
   endDate: string;
-  setCurrentTerm: Dispatch<SetStateAction<string[]>>;
+  area: string | undefined;
+  setCalendars: Dispatch<SetStateAction<calendar[]>> | undefined;
+  setIsModal: Dispatch<SetStateAction<boolean>> | undefined;
+  setScheduleName: Dispatch<SetStateAction<string>> | undefined;
+  setLocation: Dispatch<SetStateAction<string>> | undefined;
+  setCurrentTerm: Dispatch<SetStateAction<string[]>> | undefined;
 }
 
 const AddScheduleBtn = ({
-  setCalendars,
-  setIsModal,
   title,
-  setScheduleName,
-  setLocation,
-  area,
   startDate,
   endDate,
+  area,
+  setCalendars,
+  setIsModal,
+  setScheduleName,
+  setLocation,
   setCurrentTerm,
 }: addScheduleBtn) => {
   const accessPermissions = useAppSelector(selectAccessPermissions);
+
+  const remainDay = calculateRemainDay(endDate);
 
   const btnHandler = () => {
     if (isApp()) {
@@ -42,11 +45,11 @@ const AddScheduleBtn = ({
           } = JSON.parse(e.data);
 
           if (data.calendars !== undefined) {
-            setCalendars(data.calendars);
-            setScheduleName(title);
-            setLocation(area);
-            setCurrentTerm([startDate, endDate]);
-            setIsModal(true);
+            setCalendars && setCalendars(data.calendars);
+            setScheduleName && setScheduleName(title);
+            area && setLocation && setLocation(area);
+            setCurrentTerm && setCurrentTerm([startDate, endDate]);
+            setIsModal && setIsModal(true);
           }
         };
         if (window.platform === 'android') {
@@ -67,13 +70,17 @@ const AddScheduleBtn = ({
   };
 
   return (
-    <button
-      className="absolute right-0 flex items-center justify-center w-20 h-8 rounded-lg bottom-8 active:bg-gray-00"
-      onClick={btnHandler}
-    >
-      <BsFillPlusCircleFill className="text-purple-90" />
-      <span className="ml-1 text-Body1 text-gray-110">일정 추가</span>
-    </button>
+    <>
+      {remainDay < 0 ? null : (
+        <button
+          className="absolute right-0 flex items-center justify-center w-20 h-8 rounded-lg bottom-8 active:bg-gray-00"
+          onClick={btnHandler}
+        >
+          <BsFillPlusCircleFill className="text-purple-90" />
+          <span className="ml-1 text-Body1 text-gray-110">일정 추가</span>
+        </button>
+      )}
+    </>
   );
 };
 

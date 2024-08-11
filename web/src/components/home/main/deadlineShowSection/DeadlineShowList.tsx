@@ -1,4 +1,4 @@
-import DeadlineShow from './DeadlineShow';
+import ShowItem from 'components/common/ShowItem';
 import Loading from './Loading';
 import { useGetEndShows } from 'hooks/query/useGetEndShows';
 
@@ -12,7 +12,7 @@ const DeadlineShowList = () => {
   return (
     <div className="flex flex-col items-center w-9/10">
       {data.map((show) => (
-        <DeadlineShow
+        <ShowItem
           key={show.id}
           id={show.id}
           title={show.title}
@@ -22,6 +22,8 @@ const DeadlineShowList = () => {
           imageUrl={show.imageUrl}
           temperature={show.temperature}
           isLike={show.isLike}
+          posterStyle="w-24 h-32"
+          itemStyle="w-full mb-6"
         />
       ))}
     </div>
