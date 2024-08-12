@@ -1,16 +1,13 @@
 interface posterImg {
-  width: string;
-  height: string;
-  bgColor: string;
   image: string;
-  rounded?: string;
+  posterStyle?: string;
 }
 
-const PosterImg = ({ width, height, bgColor, image, rounded }: posterImg) => {
+const PosterImg = ({ image, posterStyle }: posterImg) => {
   return (
     <img
       src={image}
-      className={`object-cover rounded-lg border border-gray-10 ${width} ${height} ${bgColor} ${rounded}`}
+      className={`object-cover rounded-lg border border-gray-10 bg-gray-100 ${posterStyle}`}
     />
   );
 };

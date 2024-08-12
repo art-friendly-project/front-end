@@ -1,13 +1,13 @@
 import { type Dispatch, type SetStateAction, useEffect } from 'react';
 import ResetBtn from './ResetBtn';
-import Show from './Show';
+import ShowItem from 'components/common/ShowItem';
 
-interface viewedShow {
+interface viewedShowList {
   shows: show[];
   setShows: Dispatch<SetStateAction<show[]>>;
 }
 
-const ViewedShow = ({ shows, setShows }: viewedShow) => {
+const ViewedShowList = ({ shows, setShows }: viewedShowList) => {
   useEffect(() => {
     const localViewedShowList = localStorage.getItem('viewedShowList');
 
@@ -31,7 +31,7 @@ const ViewedShow = ({ shows, setShows }: viewedShow) => {
         </span>
       ) : (
         shows.map((show) => (
-          <Show
+          <ShowItem
             key={show.id}
             id={show.id}
             title={show.title}
@@ -41,6 +41,8 @@ const ViewedShow = ({ shows, setShows }: viewedShow) => {
             imageUrl={show.imageUrl}
             isLike={show.isLike}
             temperature={show.temperature}
+            itemStyle="mb-6 w-9/10"
+            posterStyle="w-24 h-32"
           />
         ))
       )}
@@ -48,4 +50,4 @@ const ViewedShow = ({ shows, setShows }: viewedShow) => {
   );
 };
 
-export default ViewedShow;
+export default ViewedShowList;

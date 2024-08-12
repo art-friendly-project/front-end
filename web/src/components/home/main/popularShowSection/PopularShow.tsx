@@ -41,12 +41,7 @@ const PopularShow = ({ id, idx, title, imageUrl, rankShift }: popularShow) => {
         navigate(`/shows/${id}`);
       }}
     >
-      <PosterImg
-        width="w-16"
-        height="h-16"
-        bgColor="bg-gray-100"
-        image={imageUrl}
-      />
+      <PosterImg posterStyle="w-16 h-16" image={imageUrl} />
       <PosterInfo idx={idx} title={title} rankShift={rankShift} />
     </button>
   );

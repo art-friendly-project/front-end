@@ -4,10 +4,10 @@ import SelectBtn from './SelectBtn';
 interface selectList {
   selects: string[][];
   setIsModalOpen: Dispatch<SetStateAction<boolean[]>>;
-  setState: Dispatch<SetStateAction<string>>;
+  setPriority: Dispatch<SetStateAction<string>> | null;
 }
 
-const SelectList = ({ selects, setIsModalOpen, setState }: selectList) => {
+const SelectList = ({ selects, setIsModalOpen, setPriority }: selectList) => {
   return (
     <div className="flex flex-wrap">
       {selects.map((select, idx) => (
@@ -15,7 +15,7 @@ const SelectList = ({ selects, setIsModalOpen, setState }: selectList) => {
           key={idx}
           select={select}
           setIsModalOpen={setIsModalOpen}
-          setState={setState}
+          setPriority={setPriority}
         />
       ))}
     </div>

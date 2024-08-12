@@ -1,20 +1,18 @@
 import { useAppDispatch } from 'hooks';
 import { useNavigate } from 'react-router-dom';
-import { isNearbyActions } from 'store/modules/isNearby';
-import { showsLocationActions } from 'store/modules/showsLocation';
+import { locationActions } from 'store/modules/location';
 
 interface locationIconBtn {
   locationIcon: string;
   location: string;
 }
 
-const LocationIconBtn = ({ locationIcon, location }: locationIconBtn) => {
+const LocationIcon = ({ locationIcon, location }: locationIconBtn) => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const locationBtnHandler = () => {
-    dispatch(isNearbyActions.current(false));
-    dispatch(showsLocationActions.current(location));
-    navigate('/home/nearby');
+    dispatch(locationActions.current(location));
+    navigate('/home/location');
   };
 
   return (
@@ -27,4 +25,4 @@ const LocationIconBtn = ({ locationIcon, location }: locationIconBtn) => {
   );
 };
 
-export default LocationIconBtn;
+export default LocationIcon;

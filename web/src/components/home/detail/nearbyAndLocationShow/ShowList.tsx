@@ -1,5 +1,4 @@
 import { useEffect, useRef } from 'react';
-import Show from './Show';
 import ShowEmptyMessage from './ShowEmptyMessage';
 import {
   type FetchNextPageOptions,
@@ -7,6 +6,7 @@ import {
   type InfiniteQueryObserverResult,
 } from '@tanstack/react-query';
 import PageLoadingSpineer from 'components/list/PageLoadingSpineer';
+import ShowItem from 'components/common/ShowItem';
 
 interface showList {
   shows: show[];
@@ -47,7 +47,7 @@ const ShowList = ({ shows, fetchNextPage, isFetchingNextPage }: showList) => {
         <ShowEmptyMessage />
       ) : (
         shows.map((show) => (
-          <Show
+          <ShowItem
             id={show.id}
             key={show.id}
             title={show.title}
@@ -57,6 +57,8 @@ const ShowList = ({ shows, fetchNextPage, isFetchingNextPage }: showList) => {
             temperature={show.temperature}
             isLike={show.isLike}
             imageUrl={show.imageUrl}
+            itemStyle="mb-8 w-9/10"
+            posterStyle="w-24 h-32"
           />
         ))
       )}

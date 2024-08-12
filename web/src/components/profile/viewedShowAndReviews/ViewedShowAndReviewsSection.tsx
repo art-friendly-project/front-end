@@ -1,6 +1,6 @@
 import { type Dispatch, type SetStateAction, useEffect, useState } from 'react';
 import ViewedShowAndReviewsSectionMenu from './ViewedShowAndReviewsSectionMenu';
-import ViewedShow from './ViewedShow';
+import ViewedShowList from './ViewedShowList';
 import MyReivews from './MyReivews';
 import { useAppSelector } from 'hooks';
 import { selectEndpoint } from 'store/modules/endpoint';
@@ -35,7 +35,7 @@ const ViewedShowAndReviewsSection = ({
         setCurrentMenu={setCurrentMenu}
       />
       {currentMenu ? (
-        <ViewedShow shows={shows} setShows={setShows} />
+        <ViewedShowList shows={shows} setShows={setShows} />
       ) : (
         <MyReivews myReviews={myReviews} userId={userId} />
       )}

@@ -1,6 +1,4 @@
 import { useNavigate } from 'react-router-dom';
-import { useAppDispatch } from 'hooks';
-import { showIdActions } from 'store/modules/showId';
 import RightArrowBtn from 'components/common/RightArrowBtn';
 import review from 'assets/images/etc/review.svg';
 
@@ -10,10 +8,8 @@ interface noReview {
 
 const NoReview = ({ id }: noReview) => {
   const navigate = useNavigate();
-  const dispatch = useAppDispatch();
   const btnHandler = () => {
-    dispatch(showIdActions.current(id));
-    navigate('/review-post');
+    navigate(`/review-post/${id}`);
   };
 
   return (

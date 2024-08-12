@@ -26,25 +26,26 @@ const MemoPad = ({
   const [isCommentModal, setIsCommentModal] = useState(false);
   const [isEditorDeleteModal, setIsEditorDeleteModal] = useState(false);
 
-  const myId = useGetMember().id;
+  const member = useGetMember();
+  const myId = member?.id;
 
   return (
     <>
       <div className="relative flex flex-col w-84 h-108 rounded-2xl shadow-custom">
         <MemoPadMarkingSticker />
-        {myId === review.memberResponseDto.id ? (
+        {myId === review?.memberResponseDto?.id ? (
           <EditOrDeleteBtn setIsEditorDeleteModal={setIsEditorDeleteModal} />
         ) : null}
         <Profile
-          user={review.memberResponseDto}
-          lastModifiedTime={review.lastModifiedTime}
+          user={review?.memberResponseDto}
+          lastModifiedTime={review?.lastModifiedTime}
         />
         <div className="px-[5%] flex flex-col mt-[10%] h-full overflow-y-scroll scrollbar-hide">
-          <Title title={review.title} />
-          <Content body={review.body} />
+          <Title title={review?.title} />
+          <Content body={review?.body} />
         </div>
         <MemoPadStickerList
-          stickers={review.stickerRspDtos}
+          stickers={review?.stickerRspDtos}
           setStickerComments={setStickerComments}
           setIsCommentModal={setIsCommentModal}
           selectStickerIdx={selectStickerIdx}

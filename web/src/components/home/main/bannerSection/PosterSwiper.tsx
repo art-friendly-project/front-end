@@ -34,10 +34,7 @@ const PosterSwiper = () => {
           <SwiperSlide key={show.exhibitionId}>
             <GradientBackground />
             <PosterImg
-              width="w-full"
-              height="h-96"
-              bgColor="bg-white"
-              rounded="rounded-none"
+              posterStyle="w-full h-96 bg-white rounded-none"
               image={show.imageUrl}
             />
             <PosterInfo

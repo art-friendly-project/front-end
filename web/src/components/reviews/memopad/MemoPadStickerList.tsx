@@ -22,7 +22,7 @@ const MemoPadStickerList = ({
 }: stickerList) => {
   return (
     <div className="flex items-end h-36 mb-[5%] overflow-x-scroll scrollbar-hide">
-      {stickers.map((sticker, idx) => (
+      {stickers?.map((sticker, idx) => (
         <MemoPadSticker
           key={sticker.id}
           id={sticker.id}

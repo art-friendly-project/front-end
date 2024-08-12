@@ -8,7 +8,7 @@ interface filterSelectModal {
   title2: string;
   selects: string[][];
   setIsModalOpen: Dispatch<SetStateAction<boolean[]>>;
-  setState: Dispatch<SetStateAction<string>>;
+  setPriority: Dispatch<SetStateAction<string>> | null;
 }
 
 const FilterSelectModal = ({
@@ -16,7 +16,7 @@ const FilterSelectModal = ({
   title2,
   selects,
   setIsModalOpen,
-  setState,
+  setPriority,
 }: filterSelectModal) => {
   return (
     <>
@@ -32,7 +32,7 @@ const FilterSelectModal = ({
         <SelectList
           selects={selects}
           setIsModalOpen={setIsModalOpen}
-          setState={setState}
+          setPriority={setPriority}
         />
       </div>
     </>

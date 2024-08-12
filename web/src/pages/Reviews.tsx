@@ -21,6 +21,10 @@ const Reviews = () => {
 
   const toastHandler = useToastHandler(true, '', '스티커를 지웠어요');
 
+  if (data === undefined) {
+    return <></>;
+  }
+
   return (
     <>
       {
