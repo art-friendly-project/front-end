@@ -95,3 +95,8 @@ $ npm start
   <summary><b>[ 2024. 08. 08. ] UI, 기능 구현 (10차)</b></summary>
   &nbsp;&nbsp; - &nbsp;react-query custom hook으로 관리
 </details>
+<details>
+  <summary><b>[ 2024. 08. 12. ] UI, 기능 구현 (11차)</b></summary>
+  &nbsp;&nbsp; - &nbsp;redux-persist 도입
+  <br />&nbsp;&nbsp; - &nbsp;개인정보 이용약관 수정
+</details>
