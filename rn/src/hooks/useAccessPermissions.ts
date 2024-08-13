@@ -9,30 +9,11 @@ const useAccessPermissions = (ref: RefObject<any>) => {
 
   useEffect(() => {
     const subscription = AppState.addEventListener('change', nextAppState => {
-      if (appState.current.match(/background/) && nextAppState === 'active') {
+      if (
+        appState.current.match(/inactive|background/) &&
+        nextAppState === 'active'
+      ) {
         if (Platform.OS === 'android') {
-          // check(PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION).then(result => {
-          //   if (result === GRANTED) {
-          //     ref.current?.postMessage(
-          //       JSON.stringify({
-          //         permissions: {
-          //           location: GRANTED,
-          //         },
-          //       }),
-          //     );
-          //   }
-
-          //   if (result === BLOCKED) {
-          //     ref.current?.postMessage(
-          //       JSON.stringify({
-          //         permissions: {
-          //           location: BLOCKED,
-          //         },
-          //       }),
-          //     );
-          //   }
-          // });
-
           check(PERMISSIONS.ANDROID.WRITE_CALENDAR).then(result => {
             if (result === GRANTED) {
               ref.current?.postMessage(

@@ -10,6 +10,7 @@ import accessPermissionsCheck from '../../utils/accessPermissionsCheck';
 import {Platform} from 'react-native';
 import deleteAccount from '../../utils/deleteAccount';
 import appClose from '../../utils/appClose';
+import useCancelTerms from '../../hooks/useCancelTerms';
 
 interface navType {
   url: string;
@@ -27,6 +28,7 @@ const WebViewcontainer = () => {
   );
 
   useAccessPermissions(webViewRef);
+  useCancelTerms(webViewRef);
 
   return (
     <WebView

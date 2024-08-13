@@ -12,6 +12,7 @@ export const useDeleteMember = () => {
     mutationFn: deleteMember,
     onSuccess: async () => {
       await queryClient.invalidateQueries({ queryKey: ['user'] });
+      localStorage.clear();
     },
     onError: (err) => {
       console.error(err);

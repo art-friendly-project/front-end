@@ -29,7 +29,7 @@ const ChecksBtn = ({
   const detailModalOpnBtnHandler = () => {
     setIsModal((prev) =>
       prev.map((_, i) => {
-        if (i === idx) return true;
+        if (i === idx - 1) return true;
         else return false;
       }),
     );
@@ -39,14 +39,13 @@ const ChecksBtn = ({
       <button
         className="flex items-center rounded-lg active:bg-gray-00"
         onClick={detailModalOpnBtnHandler}
+        disabled={idx === 0}
       >
-        <span
-          className={`ml-2 text-Body3-120 ${text[0] === '필수' ? 'text-purple-90' : 'text-gray-80'}`}
-        >
-          {text[0]}
-        </span>
+        <span className="ml-2 text-Body3-120 text-purple-90">{text[0]}</span>
         <span className="ml-2 text-Body3-120 text-gray-110">{text[1]}</span>
-        <IoIosArrowForward className="w-5 h-5 ml-2 text-gray-50" />
+        {idx !== 0 ? (
+          <IoIosArrowForward className="w-5 h-5 ml-2 text-gray-50" />
+        ) : null}
       </button>
       <button className="ml-auto" onClick={checkBtnHandler}>
         <BsCheckCircleFill

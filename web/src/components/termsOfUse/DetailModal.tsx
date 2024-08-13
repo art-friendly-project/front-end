@@ -17,7 +17,7 @@ const DetailModal = ({
   const agreeBtnHandler = () => {
     setIsChecks((prev) => {
       return prev.map((check, i) => {
-        if (i === isSelectModalIdx) return true;
+        if (i === isSelectModalIdx + 1) return true;
         else return check;
       });
     });
