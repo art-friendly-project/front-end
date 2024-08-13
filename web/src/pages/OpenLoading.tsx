@@ -9,15 +9,6 @@ const OpenLoading = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    localStorage.setItem(
-      'accessToken',
-      'eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJVU0VSIl0sImF1ZCI6IjciLCJpYXQiOjE3MjM1MTY1MDEsImV4cCI6MTcyMzU2MTE5OX0.V8puNYuynAeUo3eNiJmFiMr31vHpUnhDCuGL3RhdBGSl8NEUkyl2X42jo-G5mW8WGkiW_AJKHETAOGbid_7O3Q',
-    );
-    localStorage.setItem(
-      'refreshToken',
-      'eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJVU0VSIl0sImF1ZCI6IjciLCJpYXQiOjE3MjM1MTY1MDEsImV4cCI6MTcyMzU2MTE5OX0.V8puNYuynAeUo3eNiJmFiMr31vHpUnhDCuGL3RhdBGSl8NEUkyl2X42jo-G5mW8WGkiW_AJKHETAOGbid_7O3Q',
-    );
-
     setTimeout(() => {
       setDisappearLogo(true);
     }, 2500);

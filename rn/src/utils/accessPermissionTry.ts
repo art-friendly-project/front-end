@@ -6,7 +6,6 @@ const accessPermissionTry = async (e: WebViewMessageEvent) => {
   const type = nativeEvent.type;
 
   const permissions: {[key: string]: string} = {
-    // LOCATION_PERMISSION: '위치 액세스 권한이 필요합니다.',
     CALENDAR_PERMISSON: '캘린더 액세스 권한이 필요합니다.',
   };
 
