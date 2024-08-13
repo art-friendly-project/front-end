@@ -22,7 +22,6 @@ const WithdrawalConfirm = () => {
   const btnHandler = () => {
     postWithdrawalReasonMutate();
     deleteMemberMutate();
-    localStorage.clear();
     navigate('/kakao-login');
   };
 
