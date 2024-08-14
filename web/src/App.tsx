@@ -1,21 +1,19 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import useAccessPermissions from 'hooks/useAccessPermissions';
 import { Suspense, lazy } from 'react';
+import PageLoadingSpineer from 'components/list/PageLoadingSpineer';
+import useAccessPermissions from 'hooks/useAccessPermissions';
 import ShowDetail from 'pages/ShowDetail';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import PageLoadingSpineer from 'components/list/PageLoadingSpineer';
+import DetailLayout from 'layout/DetailLayout';
+import MainLayout from 'layout/MainLayout';
+import DetailLayoutWithoutNav from 'layout/DetailLayoutWithoutNav';
 
-const TasteTestMain = lazy(async () => await import('pages/TasteTestMain'));
-const DetailLayout = lazy(async () => await import('layout/DetailLayout'));
-const DetailLayoutWithoutNav = lazy(
-  async () => await import('layout/DetailLayoutWithoutNav'),
-);
-const MainLayout = lazy(async () => await import('layout/MainLayout'));
 const Like = lazy(async () => await import('pages/Like'));
 const Home = lazy(async () => await import('pages/Home'));
 const List = lazy(async () => await import('pages/List'));
 const Profile = lazy(async () => await import('pages/Profile'));
 const TasteSelect = lazy(async () => await import('pages/TasteSelect'));
+const TasteTestMain = lazy(async () => await import('pages/TasteTestMain'));
 const TasteTest = lazy(async () => await import('pages/TasteTest'));
 const TasteTestResult = lazy(async () => await import('pages/TasteTestResult'));
 const Loading = lazy(async () => await import('pages/Loading'));
