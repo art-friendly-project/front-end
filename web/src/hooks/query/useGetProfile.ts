@@ -3,9 +3,9 @@ import api from 'api';
 
 export const useGetProfile = (
   userId: number,
-  myId: number,
+  myId: number | undefined,
 ): user | undefined => {
-  let currentId = userId;
+  let currentId: number | undefined = userId;
   if (userId === 0) currentId = myId;
 
   const getProfile = async (id: number) => {
@@ -18,7 +18,12 @@ export const useGetProfile = (
 
   const { data, error, isError } = useQuery({
     queryKey: ['user', 'profile', currentId],
-    queryFn: async () => await getProfile(currentId),
+    queryFn: async () => {
+      if (currentId === undefined) {
+        throw new Error('Invalid userId');
+      }
+      return await getProfile(currentId);
+    },
   });
 
   const user = data;
