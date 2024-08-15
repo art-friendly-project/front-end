@@ -24,6 +24,7 @@ export const useGetProfile = (
       }
       return await getProfile(currentId);
     },
+    staleTime: 5 * 60 * 1000,
   });
 
   const user = data;
