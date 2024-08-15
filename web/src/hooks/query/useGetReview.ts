@@ -10,7 +10,7 @@ export const useGetReview = (id: number): reviewDetail => {
   const { data, error, isError } = useQuery({
     queryKey: ['review', id],
     queryFn: async () => await getReview(id),
-    staleTime: 30 * 1000,
+    staleTime: 5 * 60 * 1000,
   });
 
   if (isError) {

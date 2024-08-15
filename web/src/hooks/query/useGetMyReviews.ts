@@ -50,7 +50,7 @@ export const useGetMyReviews = (
     },
     initialPageParam: 0,
     enabled: !!currentId,
-    staleTime: 30 * 1000,
+    staleTime: 5 * 60 * 1000,
   });
 
   const myReviews = data?.pages.reduce((prev, next) => {

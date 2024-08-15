@@ -10,7 +10,7 @@ export const useGetShowDetail = (id: number): showDetail => {
   const { data, error, isError } = useQuery({
     queryKey: ['show', 'detail', id],
     queryFn: async () => await getShowDetail(id),
-    staleTime: 30 * 1000,
+    staleTime: 5 * 60 * 1000,
   });
 
   if (isError) {

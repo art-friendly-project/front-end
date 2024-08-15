@@ -10,7 +10,7 @@ export const useGetPopularShows = () => {
   const { data, isLoading, error, isError } = useQuery<popularShow[]>({
     queryKey: ['shows', 'popular'],
     queryFn: getPopularShows,
-    staleTime: 30 * 1000,
+    staleTime: 5 * 60 * 1000,
   });
 
   if (isError) {

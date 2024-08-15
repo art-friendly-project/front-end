@@ -19,7 +19,7 @@ export const useGetProfile = (
   const { data, error, isError } = useQuery({
     queryKey: ['user', 'profile', currentId],
     queryFn: async () => await getProfile(currentId),
-    staleTime: 30 * 1000,
+    staleTime: 5 * 60 * 1000,
     enabled: !!currentId,
   });
 
