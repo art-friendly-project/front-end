@@ -13,7 +13,7 @@ export const useGetEndShows: () => {
   const { data, isLoading, error, isError } = useQuery({
     queryKey: ['shows', 'end'],
     queryFn: getEndShows,
-    staleTime: 5 * 60 * 1000,
+    staleTime: 30 * 1000,
   });
 
   if (isError) {
