@@ -9,7 +9,7 @@ import {
 
 export const useGetMyReviews = (
   userId: number,
-  myId: number | undefined,
+  myId: number,
 ): {
   myReviews: savedReview[] | undefined;
   fetchNextPage: (options?: FetchNextPageOptions) => Promise<
@@ -27,7 +27,7 @@ export const useGetMyReviews = (
 } => {
   const [totalPages, setTotalPage] = useState(0);
 
-  let currentId: number | undefined = userId;
+  let currentId: number = userId;
   if (userId === 0) currentId = myId;
 
   const getMyReviews = async (page: number, id: number) => {
@@ -41,12 +41,7 @@ export const useGetMyReviews = (
 
   const { data, fetchNextPage, error, isError } = useInfiniteQuery({
     queryKey: ['myReview', currentId],
-    queryFn: async ({ pageParam }) => {
-      if (currentId === undefined) {
-        throw new Error();
-      }
-      return await getMyReviews(pageParam, currentId);
-    },
+    queryFn: async ({ pageParam }) => await getMyReviews(pageParam, currentId),
     getNextPageParam: (lastPage, allPages, lastPageParam, allPageParams) => {
       const nextPage = lastPageParam + 1;
       if (nextPage < totalPages) {
@@ -54,6 +49,7 @@ export const useGetMyReviews = (
       }
     },
     initialPageParam: 0,
+    enabled: !!currentId,
     staleTime: 30 * 1000,
   });
 
