@@ -1,17 +1,10 @@
-import {
-  useEffect,
-  useRef,
-  useState,
-  type Dispatch,
-  type SetStateAction,
-} from 'react';
+import { useEffect, useRef, type Dispatch, type SetStateAction } from 'react';
 import LikeEmptyMessage from './LikeEmptyMessage';
 import { useAppDispatch } from 'hooks';
 import { endpointActions } from 'store/modules/endpoint';
-import api from 'api';
 import PageLoadingSpineer from 'components/list/PageLoadingSpineer';
-import { useInfiniteQuery } from '@tanstack/react-query';
 import ShowItem from 'components/common/ShowItem';
+import { useGetLikeShows } from 'hooks/query/useGetLikeShows';
 
 interface favoriteShowSection {
   setCalendars: Dispatch<SetStateAction<calendar[]>>;
@@ -28,34 +21,11 @@ const FavoriteShowSection = ({
   setLocation,
   setCurrentTerm,
 }: favoriteShowSection) => {
-  const bottomRef = useRef<HTMLDivElement>(null);
-
-  const [totalPages, setTotalPages] = useState(0);
-
   const dispatch = useAppDispatch();
 
-  const getLikeShows = async (page: number) => {
-    const res: fetchShow = await api.get(
-      `/exhibitions/lists/interest?page=${page}`,
-    );
-    setTotalPages(res.data.data.totalPages);
-    return res.data.data.content;
-  };
+  const bottomRef = useRef<HTMLDivElement>(null);
 
-  const { data, isLoading, fetchNextPage } = useInfiniteQuery({
-    queryKey: ['shows', 'like'],
-    queryFn: async ({ pageParam }) => {
-      return await getLikeShows(pageParam);
-    },
-    getNextPageParam: (lastPage, allPages, lastPageParam, allPageParams) => {
-      const nextPage = lastPageParam + 1;
-      if (nextPage < totalPages) {
-        return nextPage;
-      }
-    },
-    initialPageParam: 0,
-    staleTime: 5 * 60 * 1000,
-  });
+  const { data, isLoading, fetchNextPage } = useGetLikeShows();
 
   const observer = new IntersectionObserver((entries) => {
     if (entries[0].isIntersecting) {
