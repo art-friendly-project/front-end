@@ -22,7 +22,7 @@ export const usePostReview = (
     mutationFn: postReview,
     onSuccess: async () => {
       await queryClient.invalidateQueries({
-        queryKey: ['show'],
+        queryKey: ['show', 'reviews'],
       });
     },
     onError: (err) => {
