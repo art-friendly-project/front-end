@@ -11,7 +11,7 @@ const DeadlineShowList = () => {
 
   return (
     <div className="flex flex-col items-center w-9/10">
-      {data.map((show) => (
+      {data?.map((show) => (
         <ShowItem
           key={show.id}
           id={show.id}
