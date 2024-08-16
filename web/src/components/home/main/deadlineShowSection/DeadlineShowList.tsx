@@ -1,17 +1,22 @@
 import ShowItem from 'components/common/ShowItem';
 import Loading from './Loading';
-import { useGetEndShows } from 'hooks/query/useGetEndShows';
 
-const DeadlineShowList = () => {
-  const { data, isLoading } = useGetEndShows();
+interface deadlineShowList {
+  endShowData: show[] | undefined;
+  isEndShowLoading: boolean;
+}
 
-  if (isLoading) {
+const DeadlineShowList = ({
+  endShowData,
+  isEndShowLoading,
+}: deadlineShowList) => {
+  if (isEndShowLoading) {
     return <Loading />;
   }
 
   return (
     <div className="flex flex-col items-center w-9/10">
-      {data.map((show) => (
+      {endShowData?.map((show) => (
         <ShowItem
           key={show.id}
           id={show.id}

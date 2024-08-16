@@ -1,9 +1,20 @@
 import PosterSwiper from './PosterSwiper';
 
-const BannerSection = () => {
+interface bannerSection {
+  popularShowData: popularShow[] | undefined;
+  isPopularShowLoading: boolean;
+}
+
+const BannerSection = ({
+  popularShowData,
+  isPopularShowLoading,
+}: bannerSection) => {
   return (
     <div className="w-full">
-      <PosterSwiper />
+      <PosterSwiper
+        popularShowData={popularShowData}
+        isPopularShowLoading={isPopularShowLoading}
+      />
     </div>
   );
 };

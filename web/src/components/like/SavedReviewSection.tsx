@@ -1,37 +1,13 @@
 import Review from 'components/profile/viewedShowAndReviews/Review';
 import LikeEmptyMessage from './LikeEmptyMessage';
-import { useEffect, useRef, useState } from 'react';
-import api from 'api';
+import { useEffect, useRef } from 'react';
 import PageLoadingSpineer from 'components/list/PageLoadingSpineer';
-import { useInfiniteQuery } from '@tanstack/react-query';
+import { useGetSavedReviews } from 'hooks/query/useGetSavedReviews';
 
 const SavedReviewSection = () => {
-  const [totalPages, setTotalPages] = useState(0);
-
   const bottomRef = useRef<HTMLDivElement>(null);
 
-  const getSavedReviews = async (page: number) => {
-    const res: fetchSavedReviews = await api.get(
-      `dambyeolags/lists/bookmarks?page=${page}`,
-    );
-    setTotalPages(res.data.data.totalPages);
-    return res.data.data.content;
-  };
-
-  const { data, isLoading, fetchNextPage } = useInfiniteQuery({
-    queryKey: ['review', 'saved'],
-    queryFn: async ({ pageParam }) => {
-      return await getSavedReviews(pageParam);
-    },
-    getNextPageParam: (lastPage, allPages, lastPageParam, allPageParams) => {
-      const nextPage = lastPageParam + 1;
-      if (nextPage < totalPages) {
-        return nextPage;
-      }
-    },
-    initialPageParam: 0,
-    staleTime: 5 * 60 * 1000,
-  });
+  const { data, isLoading, fetchNextPage } = useGetSavedReviews();
 
   const observer = new IntersectionObserver((entries) => {
     if (entries[0].isIntersecting) {

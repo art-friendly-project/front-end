@@ -11,7 +11,7 @@ export const useDeleteReview = (id: number) => {
   const { mutate } = useMutation({
     mutationFn: deleteReview,
     onSuccess: async () => {
-      await queryClient.invalidateQueries({ queryKey: ['show'] });
+      await queryClient.invalidateQueries({ queryKey: ['show', 'reviews'] });
     },
     onError: (err) => {
       console.error(err);

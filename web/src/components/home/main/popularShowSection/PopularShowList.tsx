@@ -1,17 +1,22 @@
 import PopularShow from './PopularShow';
 import Loading from './Loading';
-import { useGetPopularShows } from 'hooks/query/useGetPopularShows';
 
-const PopularShowList = () => {
-  const { data, isLoading } = useGetPopularShows();
+interface popularShowList {
+  popularShowData: popularShow[] | undefined;
+  isPopularShowLoading: boolean;
+}
 
-  if (isLoading) {
+const PopularShowList = ({
+  popularShowData,
+  isPopularShowLoading,
+}: popularShowList) => {
+  if (isPopularShowLoading) {
     return <Loading />;
   }
 
   return (
     <div className="flex flex-col items-center w-full">
-      {data
+      {popularShowData
         ?.filter((_, i) => i <= 2)
         .map((show, idx) => (
           <PopularShow

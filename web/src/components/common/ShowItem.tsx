@@ -5,6 +5,7 @@ import PosterImg from './PosterImg';
 import PosterInfo from './PosterInfo';
 import FavoriteBtn from './FavoriteBtn';
 import AddScheduleBtn from 'components/like/AddScheduleBtn';
+import isApp from 'utils/isApp';
 
 interface showItem {
   id: number;
@@ -68,7 +69,7 @@ const ShowItem = ({
         />
       </button>
       <FavoriteBtn isLike={isLike} id={id} />
-      {setCalendars && (
+      {setCalendars && isApp() && (
         <AddScheduleBtn
           title={title}
           endDate={endDate}

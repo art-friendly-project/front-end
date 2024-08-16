@@ -1,11 +1,22 @@
 import DeadlineShowTitle from './DeadlineShowTitle';
 import DeadlineShowList from './DeadlineShowList';
 
-const DeadlineShowSection = () => {
+interface deadlineShowList {
+  endShowData: show[] | undefined;
+  isEndShowLoading: boolean;
+}
+
+const DeadlineShowSection = ({
+  endShowData,
+  isEndShowLoading,
+}: deadlineShowList) => {
   return (
     <div className="flex flex-col items-center w-full">
       <DeadlineShowTitle />
-      <DeadlineShowList />
+      <DeadlineShowList
+        endShowData={endShowData}
+        isEndShowLoading={isEndShowLoading}
+      />
     </div>
   );
 };

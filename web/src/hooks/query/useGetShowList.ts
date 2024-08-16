@@ -1,4 +1,4 @@
-import { useInfiniteQuery } from '@tanstack/react-query';
+import { keepPreviousData, useInfiniteQuery } from '@tanstack/react-query';
 import api from 'api';
 import { useState } from 'react';
 
@@ -34,6 +34,7 @@ export const useGetShowList = (
           return nextPage;
         }
       },
+      placeholderData: keepPreviousData,
       initialPageParam: 0,
       staleTime: 5 * 60 * 1000,
     });

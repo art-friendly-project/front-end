@@ -7,12 +7,17 @@ import GradientBackground from './GradientBackground';
 import PosterImg from 'components/common/PosterImg';
 import PosterInfo from './PosterInfo';
 import PosterLoading from './PosterLoading';
-import { useGetPopularShows } from 'hooks/query/useGetPopularShows';
 
-const PosterSwiper = () => {
-  const { data, isLoading } = useGetPopularShows();
+interface posterSwiper {
+  popularShowData: popularShow[] | undefined;
+  isPopularShowLoading: boolean;
+}
 
-  if (isLoading) {
+const PosterSwiper = ({
+  popularShowData,
+  isPopularShowLoading,
+}: posterSwiper) => {
+  if (isPopularShowLoading) {
     return <PosterLoading />;
   }
 
@@ -28,7 +33,7 @@ const PosterSwiper = () => {
         disableOnInteraction: false,
       }}
     >
-      {data
+      {popularShowData
         ?.filter((_, i) => i >= 3 && i <= 5)
         .map((show) => (
           <SwiperSlide key={show.exhibitionId}>

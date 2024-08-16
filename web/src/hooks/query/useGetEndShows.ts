@@ -1,16 +1,13 @@
 import { useQuery } from '@tanstack/react-query';
 import api from 'api';
 
-export const useGetEndShows: () => {
-  data: show[];
-  isLoading: boolean;
-} = () => {
+export const useGetEndShows = () => {
   const getEndShows = async () => {
     const res = await api.get('/exhibitions/lists/end');
     return res.data.data;
   };
 
-  const { data, isLoading, error, isError } = useQuery({
+  const { data, isLoading, error, isError } = useQuery<show[]>({
     queryKey: ['shows', 'end'],
     queryFn: getEndShows,
     staleTime: 5 * 60 * 1000,
@@ -20,5 +17,8 @@ export const useGetEndShows: () => {
     console.error(error);
   }
 
-  return { data, isLoading };
+  const endShowData = data;
+  const isEndShowLoading = isLoading;
+
+  return { endShowData, isEndShowLoading };
 };
