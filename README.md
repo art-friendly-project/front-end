@@ -30,8 +30,9 @@ $ npm start
 <br />
 
 # 배포 주소
-- https://front-end-seven-eta.vercel.app<br />
-※ 웹 배포 주소 이므로 기능이 원활하게 작동하지 않을 수 있습니다.
+- 웹 배포 : https://front-end-seven-eta.vercel.app
+- 구글 스토어 : https://play.google.com/store/apps/details?id=com.art_friendly<br />
+
 
 <br />
 
