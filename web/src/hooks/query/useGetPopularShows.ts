@@ -17,5 +17,8 @@ export const useGetPopularShows = () => {
     console.error(error);
   }
 
-  return { data, isLoading };
+  const popularShowData = data;
+  const isPopularShowLoading = isLoading;
+
+  return { popularShowData, isPopularShowLoading };
 };

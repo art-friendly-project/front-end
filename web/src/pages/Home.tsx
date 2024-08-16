@@ -7,9 +7,14 @@ import PopularShowSection from 'components/home/main/popularShowSection/PopularS
 import DeadlineShowSection from 'components/home/main/deadlineShowSection/DeadlineShowSection';
 import Footer from 'components/footer/Footer';
 import LocationShowSection from 'components/home/main/locationShowSection/LocationShowSection';
+import { useGetPopularShows } from 'hooks/query/useGetPopularShows';
+import { useGetEndShows } from 'hooks/query/useGetEndShows';
 
 const Home = () => {
   const dispatch = useAppDispatch();
+
+  const { popularShowData, isPopularShowLoading } = useGetPopularShows();
+  const { endShowData, isEndShowLoading } = useGetEndShows();
 
   useEffect(() => {
     dispatch(endpointActions.current('/home'));
@@ -17,11 +22,20 @@ const Home = () => {
 
   return (
     <div className="flex flex-col w-full h-full">
-      <BannerSection />
+      <BannerSection
+        popularShowData={popularShowData}
+        isPopularShowLoading={isPopularShowLoading}
+      />
       <LocationShowSection />
       <TasteTestSeciton />
-      <PopularShowSection />
-      <DeadlineShowSection />
+      <PopularShowSection
+        popularShowData={popularShowData}
+        isPopularShowLoading={isPopularShowLoading}
+      />
+      <DeadlineShowSection
+        endShowData={endShowData}
+        isEndShowLoading={isEndShowLoading}
+      />
       <Footer />
     </div>
   );

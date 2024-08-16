@@ -1,11 +1,22 @@
 import PopularShowTitle from './PopularShowTitle';
 import PopularShowList from './PopularShowList';
 
-const PopularShowSection = () => {
+interface popularShowSection {
+  popularShowData: popularShow[] | undefined;
+  isPopularShowLoading: boolean;
+}
+
+const PopularShowSection = ({
+  popularShowData,
+  isPopularShowLoading,
+}: popularShowSection) => {
   return (
     <div className="flex flex-col items-center w-full mt-10 mb-8">
       <PopularShowTitle />
-      <PopularShowList />
+      <PopularShowList
+        popularShowData={popularShowData}
+        isPopularShowLoading={isPopularShowLoading}
+      />
     </div>
   );
 };

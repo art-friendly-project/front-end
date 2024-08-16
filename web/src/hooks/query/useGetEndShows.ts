@@ -17,5 +17,8 @@ export const useGetEndShows = () => {
     console.error(error);
   }
 
-  return { data, isLoading };
+  const endShowData = data;
+  const isEndShowLoading = isLoading;
+
+  return { endShowData, isEndShowLoading };
 };
