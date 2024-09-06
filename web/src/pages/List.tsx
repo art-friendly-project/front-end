@@ -30,6 +30,8 @@ const List = () => {
 
   useNavigateHome(navigate);
 
+  const setState = [null, setPriority];
+
   return (
     <div
       className="flex flex-col w-full h-full overflow-y-scroll scrollbar-hide"
@@ -41,7 +43,7 @@ const List = () => {
           title2={selectModalInfos[openModalIndex].title2}
           selects={selectModalInfos[openModalIndex].selects}
           setIsModalOpen={setIsModalOpen}
-          setPriority={openModalIndex === 1 ? setPriority : null}
+          setState={setState[openModalIndex]}
         />
       ) : null}
       <div className="sticky z-10 bg-white -top-0.5">

@@ -37,25 +37,23 @@ const ShowDetail = () => {
   }
 
   return (
-    <>
-      <div
-        className="absolute top-0 left-0 z-20 w-full h-full overflow-y-scroll bg-white scrollbar-hide"
-        ref={showDetailRef}
-      >
-        <PosterSection showDetail={data} />
-        <ShowInformationSection showDetail={data} />
-        <RankSection
-          id={data.id}
-          checkTemperature={data.checkTemperature}
-          isModal={isModal}
-          setIsModal={setIsModal}
-        />
-        <ReviewSection
-          id={data.id}
-          hasDambyeolagWritten={data.hasDambyeolagWritten}
-        />
-      </div>
-    </>
+    <div
+      className="absolute top-0 left-0 z-20 w-full h-full overflow-y-scroll bg-white scrollbar-hide"
+      ref={showDetailRef}
+    >
+      <PosterSection showDetail={data} />
+      <ShowInformationSection showDetail={data} />
+      <RankSection
+        id={data.id}
+        checkTemperature={data.checkTemperature}
+        isModal={isModal}
+        setIsModal={setIsModal}
+      />
+      <ReviewSection
+        id={data.id}
+        hasDambyeolagWritten={data.hasDambyeolagWritten}
+      />
+    </div>
   );
 };
 

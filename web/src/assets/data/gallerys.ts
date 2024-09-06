@@ -1,11 +1,28 @@
-export const galleryList = {
+import search from 'assets/images/etc/search.svg';
+
+export interface Gallery {
+  id: number;
+  name: string;
+  sort: string;
+  location: string;
+  detailLocation: string;
+  phone: string;
+  link: string;
+  introduce: string;
+  imgUrl: string;
+}
+
+export type GalleryData = Record<string, Record<string, Gallery[]>>;
+
+export const gallerys: GalleryData = {
   서울특별시: {
     강남구: [
       {
         id: 1,
         name: 'K현대미술관',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '서울특별시 강남구',
+        location: '서울특별시 강남구',
         detailLocation: '서울특별시 강남구 선릉로 807',
         phone: '02-2138-0952',
         link: 'https://www.kmcaseoul.org/',
@@ -15,8 +32,9 @@ export const galleryList = {
       {
         id: 2,
         name: '마이아트뮤지엄',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '서울특별시 강남구',
+        location: '서울특별시 강남구',
         detailLocation: '서울특별시 강남구 테헤란로 518, 섬유센터빌딩 B1층',
         phone: '02-567-8878',
         link: 'http://myartmuseum.co.kr/',
@@ -26,8 +44,9 @@ export const galleryList = {
       {
         id: 3,
         name: '플랫폼엘',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '서울특별시 강남구',
+        location: '서울특별시 강남구',
         detailLocation: '서울특별시 강남구 언주로133길 11',
         phone: '02-6929-4470',
         link: 'https://platform-l.org/',
@@ -39,8 +58,9 @@ export const galleryList = {
       {
         id: 1,
         name: '북서울꿈의숲 상상톡톡미술',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '서울특별시 강북구',
+        location: '서울특별시 강북구',
         detailLocation: '서울특별시 강북구 월계로 173',
         phone: '02-2289-5445',
         link: 'https://www.sejongpac.or.kr/dfac/main/main.do',
@@ -52,8 +72,9 @@ export const galleryList = {
       {
         id: 1,
         name: '겸재정선미술관',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '서울특별시 강서구',
+        location: '서울특별시 강서구',
         detailLocation: '서울특별시 강서구 양천로47길 36',
         phone: '02-2659-2206',
         link: 'https://culture.gangseo.seoul.kr/gsfc/main/contents.do?menuNo=800054',
@@ -63,8 +84,9 @@ export const galleryList = {
       {
         id: 2,
         name: '스페이스K 서울',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '서울특별시 강서구',
+        location: '서울특별시 강서구',
         detailLocation: '서울특별시 강서구 마곡중앙8로 32',
         phone: '02-3665-8918',
         link: 'https://www.spacek.co.kr/index.do',
@@ -76,8 +98,9 @@ export const galleryList = {
       {
         id: 1,
         name: '서울시립 남서울미술관',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '서울특별시 관악구',
+        location: '서울특별시 관악구',
         detailLocation: '서울특별시 관악구 남부순환로 2076',
         phone: '02–2124–8800',
         link: 'https://sema.seoul.go.kr/kr/visit/namseoul',
@@ -87,8 +110,9 @@ export const galleryList = {
       {
         id: 2,
         name: '서울대학교미술관',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '서울특별시 관악구',
+        location: '서울특별시 관악구',
         detailLocation: '서울특별시 관악구 관악로 1, 서울대학교 151동',
         phone: '02-880-9504',
         link: 'http://www.snumoa.org/',
@@ -100,8 +124,9 @@ export const galleryList = {
       {
         id: 1,
         name: '아트센터 예술의 시간',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '서울특별시 금천구',
+        location: '서울특별시 금천구',
         detailLocation: '서울특별시 금천구 범안로9길 23',
         phone: '02-6952-0005',
         link: 'http://artmoment.org/',
@@ -113,8 +138,9 @@ export const galleryList = {
       {
         id: 1,
         name: '서울시립 북서울미술관',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '서울특별시 노원구',
+        location: '서울특별시 노원구',
         detailLocation: '서울특별시 노원구 동일로 1238',
         phone: '02-2124-8800',
         link: 'https://sema.seoul.go.kr/kr/visit/bukseoul',
@@ -126,8 +152,9 @@ export const galleryList = {
       {
         id: 1,
         name: '헬로우뮤지엄',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '서울특별시 성동구',
+        location: '서울특별시 성동구',
         detailLocation: '서울특별시 성동구 성수일로12길 20',
         phone: '0507-1387-4222',
         link: 'http://www.hellomuseum.com/',
@@ -137,8 +164,9 @@ export const galleryList = {
       {
         id: 2,
         name: '뚝섬미술관',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '서울특별시 성동구',
+        location: '서울특별시 성동구',
         detailLocation: '서울특별시 성동구 아차산로 33 지하 1층',
         phone: '02-555-5035',
         link: 'https://ttukseommuseum.modoo.at/',
@@ -149,8 +177,9 @@ export const galleryList = {
       {
         id: 1,
         name: '성북구립미술관',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '서울특별시 성북구',
+        location: '서울특별시 성북구',
         detailLocation: '서울특별시 성북구 성북로 134',
         phone: '02-6925-5011',
         link: 'https://sma.sbculture.or.kr/sma/index.do',
@@ -162,8 +191,9 @@ export const galleryList = {
       {
         id: 1,
         name: '예술의전당한가람디자인미술관',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '서울특별시 서초구',
+        location: '서울특별시 서초구',
         detailLocation: '서울특별시 서초구 남부순환로 2406',
         phone: '1668-1352',
         link: 'http://www.sac.or.kr/',
@@ -173,8 +203,9 @@ export const galleryList = {
       {
         id: 2,
         name: '한전갤러리',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '서울특별시 서초구',
+        location: '서울특별시 서초구',
         detailLocation: '서울특별시 서초구 효령로72길 60, 한전아트센터 1층',
         phone: '02-3456-5096',
         link: 'https://www.instagram.com/p/CzDlSizJX_L/?igshid=MzRlODBiNWFlZA%3D%3D',
@@ -184,8 +215,9 @@ export const galleryList = {
       {
         id: 3,
         name: '한원미술관',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '서울특별시 서초구',
+        location: '서울특별시 서초구',
         detailLocation: '서울특별시 서초구 남부순환로 2423 한원빌딩 본관 B1F',
         phone: '0507-1402-5642',
         link: 'http://www.hanwon.org/',
@@ -197,8 +229,9 @@ export const galleryList = {
       {
         id: 1,
         name: '소마미술관',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '서울특별시 송파구',
+        location: '서울특별시 송파구',
         detailLocation: '서울특별시 송파구 위례성대로 51',
         phone: '02-425-1077',
         link: 'https://soma.kspo.or.kr/main',
@@ -208,8 +241,9 @@ export const galleryList = {
       {
         id: 2,
         name: '롯데뮤지엄',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '서울특별시 송파구',
+        location: '서울특별시 송파구',
         detailLocation: '서울특별시 송파구 올림픽로 300, 롯데월드타워 7층',
         phone: '02-1544-7744',
         link: 'https://www.lottemuseum.com/',
@@ -221,8 +255,9 @@ export const galleryList = {
       {
         id: 1,
         name: '김세중미술',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '서울특별시 용산구',
+        location: '서울특별시 용산구',
         detailLocation: '서울특별시 용산구 효창원로70길 35',
         phone: '02-717-5129',
         link: 'http://www.kimsechoong.com/',
@@ -232,8 +267,9 @@ export const galleryList = {
       {
         id: 2,
         name: '리움미술관',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '서울특별시 용산구',
+        location: '서울특별시 용산구',
         detailLocation: '서울특별시 용산구 이태원로55길 60-16',
         phone: '02-2014-6900',
         link: 'https://www.leeumhoam.org/',
@@ -243,8 +279,9 @@ export const galleryList = {
       {
         id: 3,
         name: '아모레퍼시픽미술관',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '서울특별시 용산구',
+        location: '서울특별시 용산구',
         detailLocation: '서울특별시 용산구 한강대로 100',
         phone: '02-6040-2345',
         link: 'https://apma.amorepacific.com/index.do',
@@ -256,8 +293,9 @@ export const galleryList = {
       {
         id: 1,
         name: '사비나미술관',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '서울특별시 은평구',
+        location: '서울특별시 은평구',
         detailLocation: '서울 은평구 진관1로 93',
         phone: '02-736-4371',
         link: 'https://www.savinamuseum.com/kor/index.action',
@@ -269,8 +307,9 @@ export const galleryList = {
       {
         id: 1,
         name: '김종영미술관',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '서울특별시 종로구',
+        location: '서울특별시 종로구',
         detailLocation: '서울특별시 종로구 평창32길 30',
         phone: '02-3217-6484',
         link: 'http://kimchongyung.com/kimchongyung',
@@ -280,8 +319,9 @@ export const galleryList = {
       {
         id: 2,
         name: '아르코미술관',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '서울특별시 종로구',
+        location: '서울특별시 종로구',
         detailLocation: '서울특별시 종로구 동숭길 3',
         phone: '02-760-4850',
         link: 'https://www.arko.or.kr/artcenter/',
@@ -291,8 +331,9 @@ export const galleryList = {
       {
         id: 3,
         name: '국립현대미술관 서울',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '서울특별시 종로구',
+        location: '서울특별시 종로구',
         detailLocation: '서울특별시 종로구 삼청로 30',
         phone: '02-3701-9500',
         link: 'https://www.mmca.go.kr/',
@@ -302,8 +343,9 @@ export const galleryList = {
       {
         id: 4,
         name: '석파정 서울미술관',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '서울특별시 종로구',
+        location: '서울특별시 종로구',
         detailLocation: '서울특별시 종로구 창의문로11길 4-1',
         phone: '02-6929-4470',
         link: 'https://seoulmuseum.org/',
@@ -313,8 +355,9 @@ export const galleryList = {
       {
         id: 5,
         name: '종로구립 박노수미술관',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '서울특별시 종로구',
+        location: '서울특별시 종로구',
         detailLocation: '서울특별시 종로구 옥인1길 34',
         phone: '02-2148-4171',
         link: 'https://www.jfac.or.kr/site/main/content/parkns01',
@@ -324,8 +367,9 @@ export const galleryList = {
       {
         id: 6,
         name: '종로구립 고희동미술관',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '서울특별시 종로구',
+        location: '서울특별시 종로구',
         detailLocation: '서울특별시 종로구 창덕궁5길 40',
         phone: '02-741-8424',
         link: 'https://www.jfac.or.kr/site/main/content/gohd01',
@@ -335,8 +379,9 @@ export const galleryList = {
       {
         id: 7,
         name: '뮤지엄한미 삼청',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '서울특별시 종로구',
+        location: '서울특별시 종로구',
         detailLocation: '서울특별시 종로구 삼청로9길 45',
         phone: '02-733-1315',
         link: 'https://museumhanmi.or.kr/',
@@ -346,8 +391,9 @@ export const galleryList = {
       {
         id: 8,
         name: '금호미술관',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '서울특별시 종로구',
+        location: '서울특별시 종로구',
         detailLocation: '서울특별시 종로구 삼청로 18',
         phone: '02-720-5114',
         link: 'http://www.kumhomuseum.com/',
@@ -357,8 +403,9 @@ export const galleryList = {
       {
         id: 9,
         name: '탑골미술',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '서울특별시 종로구',
+        location: '서울특별시 종로구',
         detailLocation: '서울특별시 종로구 삼일대로 467, 1층',
         phone: '02-6220-8663',
         link: 'https://seoulnoin.or.kr/senior/museum_finish.asp',
@@ -368,8 +415,9 @@ export const galleryList = {
       {
         id: 10,
         name: '아라리오뮤지엄 인 스페이스',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '서울특별시 종로구',
+        location: '서울특별시 종로구',
         detailLocation: '서울특별시 종로구 율곡로 83',
         phone: '02-736-5700',
         link: 'https://www.arariomuseum.org/main.php',
@@ -379,8 +427,9 @@ export const galleryList = {
       {
         id: 11,
         name: 'OCI 미술관',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '서울특별시 종로구',
+        location: '서울특별시 종로구',
         detailLocation: '서울특별시 종로구 우정국로 45-14',
         phone: '02-734-0440',
         link: 'https://ocimuseum.org/',
@@ -390,8 +439,9 @@ export const galleryList = {
       {
         id: 12,
         name: '일민미술관',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '서울특별시 종로구',
+        location: '서울특별시 종로구',
         detailLocation: '서울특별시 종로구 세종대로 152',
         phone: '02-2020-2050',
         link: 'https://ilmin.org/',
@@ -401,8 +451,9 @@ export const galleryList = {
       {
         id: 13,
         name: '세화미술관',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '서울특별시 종로구',
+        location: '서울특별시 종로구',
         detailLocation: '서울특별시 종로구 새문안로 68, 3층',
         phone: '02-2002-7789',
         link: 'https://www.sehwamuseum.org/main.do',
@@ -412,8 +463,9 @@ export const galleryList = {
       {
         id: 14,
         name: '자하미술관',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '서울특별시 종로구',
+        location: '서울특별시 종로구',
         detailLocation: '서울특별시 종로구 창의문로5가길 46',
         phone: '02-395-3222',
         link: 'https://www.zahamuseum.org/',
@@ -423,8 +475,9 @@ export const galleryList = {
       {
         id: 15,
         name: '대림미술관',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '서울특별시 종로구',
+        location: '서울특별시 종로구',
         detailLocation: '서울특별시 종로구 자하문로4길 21',
         phone: '02-720-0667',
         link: 'https://daelimmuseum.org/',
@@ -436,8 +489,9 @@ export const galleryList = {
       {
         id: 1,
         name: '서울시립미술관',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '서울특별시 중구',
+        location: '서울특별시 중구',
         detailLocation: '서울특별시 중구 덕수궁길 61',
         phone: '02-2124-8800',
         link: 'https://sema.seoul.go.kr/kr/whatson/exhibition/detail?exNo=1308405',
@@ -447,8 +501,9 @@ export const galleryList = {
       {
         id: 2,
         name: '국립현대미술관 덕수궁',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '서울특별시 중구',
+        location: '서울특별시 중구',
         detailLocation: '서울특별시 중구 세종대로 99',
         phone: '02-2022-0600',
         link: 'https://www.mmca.go.kr/visitingInfo/deoksugungInfo.do',
@@ -459,8 +514,9 @@ export const galleryList = {
       {
         id: 1,
         name: '중랑아트센터',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '서울특별시 중랑구',
+        location: '서울특별시 중랑구',
         detailLocation:
           '서울특별시 중랑구 망우로 353, 이노시티 C동 B2F 중랑아트센터',
         phone: '02-3407-6541',
@@ -475,8 +531,9 @@ export const galleryList = {
       {
         id: 1,
         name: '인터렉티브아트뮤지엄',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '경기도 가평군',
+        location: '경기도 가평군',
         detailLocation: '경기도 가평군 가평읍 호반로 1655',
         phone: '070-8899-4251',
         link: 'http://mermont.co.kr',
@@ -488,8 +545,9 @@ export const galleryList = {
       {
         id: 1,
         name: '고양아람누리 아람미술관',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '경기도 고양시',
+        location: '경기도 고양시',
         detailLocation: '경기도 고양시 일산동구 중앙로 1286',
         phone: '1577-7766',
         link: 'https://artgy.or.kr',
@@ -500,8 +558,9 @@ export const galleryList = {
       {
         id: 1,
         name: '과천국립현대미술관',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '경기도 과천시',
+        location: '경기도 과천시',
         detailLocation: '경기도 과천시 상하벌로 50',
         phone: '02-2188-6000',
         link: 'https://mmca.go.kr/visitingInfo/gwacheonInfo.do',
@@ -513,8 +572,9 @@ export const galleryList = {
       {
         id: 1,
         name: '부천아트벙커 B39',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '경기도 부천시',
+        location: '경기도 부천시',
         detailLocation: '경기도 부천시 원미구 평천로 655',
         phone: '032-320-3746',
         link: 'https://artbunkerb39.org/',
@@ -526,8 +586,9 @@ export const galleryList = {
       {
         id: 1,
         name: '성남아트센터',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '경기도 성남시',
+        location: '경기도 성남시',
         detailLocation: '경기도 성남시 분당구 성남대로 808',
         phone: '031-783-8000',
         link: 'https://www.snart.or.kr',
@@ -538,8 +599,9 @@ export const galleryList = {
       {
         id: 1,
         name: '경기아트센터',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '경기도 수원시',
+        location: '경기도 수원시',
         detailLocation: '경기도 수원시 팔달구 효원로 307번길 20',
         phone: '031-230-3200',
         link: 'https://www.ggac.or.kr',
@@ -549,8 +611,9 @@ export const galleryList = {
       {
         id: 2,
         name: '수원시립미술관',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '경기도 수원시',
+        location: '경기도 수원시',
         detailLocation: '경기도 수원시 팔달구 정조로 833',
         phone: '031-228-3800',
         link: 'https://suma.suwon.go.kr',
@@ -562,8 +625,9 @@ export const galleryList = {
       {
         id: 1,
         name: '경기도미술관',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '경기도 안산시',
+        location: '경기도 안산시',
         detailLocation: '경기도 안산시 단원구 동산로 268',
         phone: '031-481-7000',
         link: 'https://ggcf.kr',
@@ -573,8 +637,9 @@ export const galleryList = {
       {
         id: 2,
         name: '안산문화예술의전당 화랑전시관',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '경기도 안산시',
+        location: '경기도 안산시',
         detailLocation: '경기도 안산시 단원구 화랑로 312',
         phone: '031-481-0505',
         link: 'http://ansanart.com/',
@@ -585,8 +650,9 @@ export const galleryList = {
       {
         id: 1,
         name: '양주시립장욱진미술관',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '경기도 양주시',
+        location: '경기도 양주시',
         detailLocation: '경기도 양주시 장흥면 권율로 193',
         phone: '031-8082-4245',
         link: 'https://www.yangju.go.kr',
@@ -596,8 +662,9 @@ export const galleryList = {
       {
         id: 2,
         name: '경기북부예술관',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '경기도 양주시',
+        location: '경기도 양주시',
         detailLocation: '경기도 양주시 고읍남로 153',
         phone: '031-828-5720',
         link: 'https://artgy.or.kr/EH/EH0201L.aspx',
@@ -607,8 +674,9 @@ export const galleryList = {
       {
         id: 3,
         name: '가나아트파크',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '경기도 양주시',
+        location: '경기도 양주시',
         detailLocation: '경기도 양주시 장흥면 권율로 117',
         phone: '0507-1437-0500',
         link: 'http://www.artpark.co.kr',
@@ -620,8 +688,9 @@ export const galleryList = {
       {
         id: 1,
         name: '양평군립미술관',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '경기도 양평군',
+        location: '경기도 양평군',
         detailLocation: '경기도 양평군 양평읍 문화복지길 2',
         phone: '031-775-8515',
         link: 'https://www.ymuseum.org',
@@ -631,8 +700,9 @@ export const galleryList = {
       {
         id: 2,
         name: '구하우스 미술관',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '경기도 양평군',
+        location: '경기도 양평군',
         detailLocation: '경기도 양평군 서종면 무내미길 49-12',
         phone: '031-774-7460',
         link: 'http://koohouse.org',
@@ -644,8 +714,9 @@ export const galleryList = {
       {
         id: 1,
         name: '오산시립미술관',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '경기도 오산시',
+        location: '경기도 오산시',
         detailLocation: '경기도 오산시 경기대로 142',
         phone: '031-379-9932',
         link: 'https://www.osan.go.kr',
@@ -657,8 +728,9 @@ export const galleryList = {
       {
         id: 1,
         name: '백남준아트센터',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '경기도 용인시',
+        location: '경기도 용인시',
         detailLocation: '경기도 용인시 기흥구 백남준로 10',
         phone: '031-201-8571',
         link: 'https://njp.ggcf.kr',
@@ -668,8 +740,9 @@ export const galleryList = {
       {
         id: 2,
         name: '용인포은아트홀',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '경기도 용인시',
+        location: '경기도 용인시',
         detailLocation: '경기도 용인시 수지구 포은대로 499',
         phone: '031-260-3355',
         link: 'https://www.yicf.or.kr',
@@ -679,8 +752,9 @@ export const galleryList = {
       {
         id: 3,
         name: '뮤지엄 그라운드',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '경기도 용인시',
+        location: '경기도 용인시',
         detailLocation: '경기도 용인시 수지구 샘말로 122',
         phone: '031-265-8200',
         link: 'https://museumground.org',
@@ -690,8 +764,9 @@ export const galleryList = {
       {
         id: 4,
         name: '호암미술관',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '경기도 용인시',
+        location: '경기도 용인시',
         detailLocation: '경기도 용인시 처인구 포곡읍 에버랜드로562번길 38',
         phone: '031-320-1801',
         link: 'https://www.leeumhoam.org/hoam',
@@ -703,8 +778,9 @@ export const galleryList = {
       {
         id: 1,
         name: '의정부예술의전당',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '경기도 의정부시',
+        location: '경기도 의정부시',
         detailLocation: '경기도 의정부시 의정로 1',
         phone: '031-828-5841',
         link: 'https://www.uac.or.kr',
@@ -716,8 +792,9 @@ export const galleryList = {
       {
         id: 1,
         name: '이천시립월전미술관',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '경기도 이천시',
+        location: '경기도 이천시',
         detailLocation: '경기도 이천시 경충대로2709번길 185',
         phone: '031-637-0032',
         link: 'http://www.iwoljeon.org',
@@ -729,8 +806,9 @@ export const galleryList = {
       {
         id: 1,
         name: '파주 헤이리 예술마을',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '경기도 파주시',
+        location: '경기도 파주시',
         detailLocation: '경기도 파주시 탄현면 헤이리마을길 70-21',
         phone: '031-946-8551',
         link: 'https://www.heyri.net',
@@ -740,8 +818,9 @@ export const galleryList = {
       {
         id: 2,
         name: '미메시트 아트 뮤지엄',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '경기도 파주시',
+        location: '경기도 파주시',
         detailLocation: '경기도 파주시 문발로 253',
         phone: '031-955-4100',
         link: 'https://www.mimesisartmuseum.co.kr',
@@ -751,8 +830,9 @@ export const galleryList = {
       {
         id: 3,
         name: '아트센터 화이트블럭',
+        imgUrl: search,
         sort: '미술관',
-        locaiton: '경기도 파주시',
+        location: '경기도 파주시',
         detailLocation: '경기도 파주시 탄현면 헤이리마을길 72',
         phone: '031-992-4400',
         link: 'https://whiteblock.org',
