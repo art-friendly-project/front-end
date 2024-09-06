@@ -210,6 +210,7 @@ module.exports = {
         'gray-10': '#EDEDED',
         'gray-00': '#F7F7F7',
         'gray-acitve-100': '#EDEDED',
+        'purple-10': '#F1DBFF',
         'purple-90': '#AC5AFF',
         'purple-100': '#7D3DBD',
       },
