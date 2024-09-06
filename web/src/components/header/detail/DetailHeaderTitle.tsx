@@ -16,6 +16,7 @@ const DetailHeaderTitle = () => {
     if (pathname === '/profile-edit') return '프로필 수정';
     if (pathname.includes('withdrawal')) return '회원 탈퇴';
     if (pathname === '/settings/terms-and-policy') return '약관 및 정책';
+    if (pathname === '/home/search-gallery') return '지역별 전시 공간';
   };
 
   return (

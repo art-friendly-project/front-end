@@ -11,6 +11,8 @@ import DetailLayoutWithoutNav from 'layout/DetailLayoutWithoutNav';
 const Like = lazy(async () => await import('pages/Like'));
 const Home = lazy(async () => await import('pages/Home'));
 const List = lazy(async () => await import('pages/List'));
+const SearchGallery = lazy(async () => await import('pages/SearchGallery'));
+const Gallery = lazy(async () => await import('pages/Gallery'));
 const Profile = lazy(async () => await import('pages/Profile'));
 const TasteSelect = lazy(async () => await import('pages/TasteSelect'));
 const TasteTestMain = lazy(async () => await import('pages/TasteTestMain'));
@@ -58,6 +60,7 @@ const App = () => {
                 <Route path="/access" element={<AccessGuidance />} />
                 <Route path="/loading" element={<Loading />} />
                 <Route path="/shows/:id" element={<ShowDetail />} />
+                <Route path="/home/search-gallery/:id" element={<Gallery />} />
 
                 <Route element={<MainLayout />}>
                   <Route path="/home" element={<Home />} />
@@ -68,6 +71,10 @@ const App = () => {
 
                 <Route element={<DetailLayout />}>
                   <Route path="/home/location" element={<List />} />
+                  <Route
+                    path="/home/search-gallery"
+                    element={<SearchGallery />}
+                  />
                 </Route>
 
                 <Route element={<DetailLayoutWithoutNav />}>

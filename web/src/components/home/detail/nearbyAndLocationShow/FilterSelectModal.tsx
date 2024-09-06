@@ -8,7 +8,7 @@ interface filterSelectModal {
   title2: string;
   selects: string[][];
   setIsModalOpen: Dispatch<SetStateAction<boolean[]>>;
-  setPriority: Dispatch<SetStateAction<string>> | null;
+  setState: Dispatch<SetStateAction<string>> | null;
 }
 
 const FilterSelectModal = ({
@@ -16,12 +16,12 @@ const FilterSelectModal = ({
   title2,
   selects,
   setIsModalOpen,
-  setPriority,
+  setState,
 }: filterSelectModal) => {
   return (
     <>
       <button
-        className="fixed z-20 w-full h-screen bg-black opacity-50 top-1"
+        className="fixed top-0 z-20 w-full h-screen bg-black opacity-50"
         onClick={() => {
           setIsModalOpen([false, false, false]);
         }}
@@ -32,7 +32,7 @@ const FilterSelectModal = ({
         <SelectList
           selects={selects}
           setIsModalOpen={setIsModalOpen}
-          setPriority={setPriority}
+          setState={setState}
         />
       </div>
     </>

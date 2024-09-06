@@ -2,9 +2,9 @@ import { type Dispatch, type SetStateAction } from 'react';
 import SelectBtn from './SelectBtn';
 
 interface selectList {
-  selects: string[][] | string[];
+  selects: string[];
   setIsModalOpen: Dispatch<SetStateAction<boolean[]>>;
-  setState: Dispatch<SetStateAction<string>> | null;
+  setState: Dispatch<SetStateAction<string>>;
 }
 
 const SelectList = ({ selects, setIsModalOpen, setState }: selectList) => {
