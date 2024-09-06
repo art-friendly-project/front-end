@@ -21,7 +21,7 @@ const FilterSelectModal = ({
   return (
     <>
       <button
-        className="fixed z-20 w-full h-screen bg-black opacity-50 top-1"
+        className="fixed top-0 z-20 w-full h-screen bg-black opacity-50"
         onClick={() => {
           setIsModalOpen([false, false, false]);
         }}

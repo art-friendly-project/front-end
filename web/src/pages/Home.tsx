@@ -9,6 +9,7 @@ import Footer from 'components/footer/Footer';
 import LocationShowSection from 'components/home/main/locationShowSection/LocationShowSection';
 import { useGetPopularShows } from 'hooks/query/useGetPopularShows';
 import { useGetEndShows } from 'hooks/query/useGetEndShows';
+import SearchGallerySection from 'components/home/main/searchGallerySection/SearchGallerySection';
 
 const Home = () => {
   const dispatch = useAppDispatch();
@@ -27,6 +28,7 @@ const Home = () => {
         isPopularShowLoading={isPopularShowLoading}
       />
       <LocationShowSection />
+      <SearchGallerySection />
       <TasteTestSeciton />
       <PopularShowSection
         popularShowData={popularShowData}
