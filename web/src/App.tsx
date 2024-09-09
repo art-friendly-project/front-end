@@ -71,10 +71,6 @@ const App = () => {
 
                 <Route element={<DetailLayout />}>
                   <Route path="/home/location" element={<List />} />
-                  <Route
-                    path="/home/search-gallery"
-                    element={<SearchGallery />}
-                  />
                 </Route>
 
                 <Route element={<DetailLayoutWithoutNav />}>
@@ -101,6 +97,10 @@ const App = () => {
                   <Route
                     path="/withdrawal/confirm"
                     element={<WithdrawalConfirm />}
+                  />
+                  <Route
+                    path="/home/search-gallery"
+                    element={<SearchGallery />}
                   />
                 </Route>
               </Routes>
