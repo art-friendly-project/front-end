@@ -11,7 +11,7 @@ const PopularShowSection = ({
   isPopularShowLoading,
 }: popularShowSection) => {
   return (
-    <div className="flex flex-col items-center w-full mt-10 mb-8">
+    <div className="flex flex-col items-center w-full mt-8 mb-8">
       <PopularShowTitle />
       <PopularShowList
         popularShowData={popularShowData}

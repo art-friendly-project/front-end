@@ -3,9 +3,9 @@ import search from 'assets/images/etc/search.svg';
 
 const SearchGallerySection = () => {
   return (
-    <div className="flex items-center w-full py-10 h-36 bg-purple-10">
+    <div className="flex items-center w-full py-10 h-28 bg-purple-10">
       <Title />
-      <img src={search} className="ml-auto mr-[5%] w-28 h-28" />
+      <img src={search} className="ml-auto mr-[5%] w-20 h-20" />
     </div>
   );
 };

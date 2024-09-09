@@ -25,11 +25,10 @@ export default function GalleryList({
         navigate(`${id}?f=${firstLocation}&s=${secondLocation}`);
       }}
     >
-      <img
-        src={imgUrl}
-        className="w-20 h-20 border rounded-full border-gray-10"
-      />
-      <div className="flex flex-col items-start w-full ml-4">
+      <div className="flex items-center justify-center w-18 h-18 bg-white border rounded-full pr-0.5 pb-1 border-gray-20">
+        <img src={imgUrl} className="w-12 h-12" />
+      </div>
+      <div className="flex flex-col items-start ml-4">
         <span className="text-Body3">{name}</span>
         <span className="text-Body2-M text-gray-80">{location}</span>
       </div>

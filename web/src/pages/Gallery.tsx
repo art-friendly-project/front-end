@@ -15,7 +15,7 @@ const Gallery = () => {
   const gallery = gallerys[firstLocation][secondLocation][id - 1];
 
   return (
-    <div className="w-full h-full overflow-y-scroll bg-white scrollbar-hide">
+    <div className="w-full h-full pb-10 overflow-y-scroll bg-white scrollbar-hide">
       <BackBtn />
       <MainSection
         imgUrl={gallery.imgUrl}
