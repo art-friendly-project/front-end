@@ -140,6 +140,7 @@ module.exports = {
       },
       height: {
         18: '4.5rem',
+        21: '5.25rem',
         22.8: '5.7rem',
         34.4: '8.6rem',
         76: '19rem',
@@ -157,6 +158,7 @@ module.exports = {
       },
       width: {
         18: '4.5rem',
+        21: '5.25rem',
         34.4: '8.6rem',
         78: '19.5rem',
         84: '21rem',
@@ -192,9 +194,9 @@ module.exports = {
         'orange-70': '#FFC287',
         'orange-50': '#FFD195',
         'orange-30': '#FFFEC3',
+        'orange-20': '#FFEDD6',
         'orange-10': '#FFFFE1',
         'orange-00': '#FFFFEF',
-        'orange-0': '#FFFFF0',
         kakaoYellow: '#F8D548',
         kakaoDarkYellow: '#E8C94C',
         kakaoBrown: '#47292B',

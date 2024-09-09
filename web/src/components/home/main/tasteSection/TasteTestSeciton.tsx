@@ -13,7 +13,7 @@ const TasteTestSeciton = () => {
   };
 
   return (
-    <div className="relative flex flex-col items-center w-full pb-6 bg-orange-0">
+    <div className="relative flex flex-col items-center w-full pb-8 bg-orange-20">
       <TasteTestTitle />
       <RightArrowBtn fn={btnHandler} name="테스트 하러가기" />
     </div>
