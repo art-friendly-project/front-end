@@ -22,7 +22,7 @@ const InfoSection = ({
   };
 
   return (
-    <div className="flex flex-col mt-10">
+    <div className="flex flex-col mt-8">
       <InfoTitle />
       <InfoContents
         sort={sort}
