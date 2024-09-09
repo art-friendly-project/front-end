@@ -7,10 +7,12 @@ interface title {
 const Title = ({ imgUrl, name, location }: title) => {
   return (
     <div className="flex items-center">
-      <img src={imgUrl} className="rounded-full w-14 h-14 bg-gray-10" />
+      <div className="flex items-center justify-center w-14 h-14 pb-1 pr-0.5 bg-white rounded-full">
+        <img src={imgUrl} className="w-10 h-10" />
+      </div>
       <div className="flex flex-col ml-4">
-        <span className="text-Subhead">{name}</span>
-        <span className="mt-1 text-gray-80 text-Body2">{location}</span>
+        <span className="text-white text-Subhead">{name}</span>
+        <span className="mt-0.5 text-gray-40 text-Body2">{location}</span>
       </div>
     </div>
   );

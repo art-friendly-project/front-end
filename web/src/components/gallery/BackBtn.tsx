@@ -11,7 +11,7 @@ const BackBtn = () => {
         navigate(-1);
       }}
     >
-      <IoIosArrowBack className="w-10 h-10" />
+      <IoIosArrowBack className="w-10 h-10 text-white" />
     </button>
   );
 };

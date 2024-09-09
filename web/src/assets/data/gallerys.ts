@@ -1,4 +1,4 @@
-import search from 'assets/images/etc/search.svg';
+import search2 from 'assets/images/etc/search2.svg';
 
 export interface Gallery {
   id: number;
@@ -20,7 +20,7 @@ export const gallerys: GalleryData = {
       {
         id: 1,
         name: 'K현대미술관',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '서울특별시 강남구',
         detailLocation: '서울특별시 강남구 선릉로 807',
@@ -32,7 +32,7 @@ export const gallerys: GalleryData = {
       {
         id: 2,
         name: '마이아트뮤지엄',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '서울특별시 강남구',
         detailLocation: '서울특별시 강남구 테헤란로 518, 섬유센터빌딩 B1층',
@@ -44,7 +44,7 @@ export const gallerys: GalleryData = {
       {
         id: 3,
         name: '플랫폼엘',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '서울특별시 강남구',
         detailLocation: '서울특별시 강남구 언주로133길 11',
@@ -58,7 +58,7 @@ export const gallerys: GalleryData = {
       {
         id: 1,
         name: '북서울꿈의숲 상상톡톡미술',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '서울특별시 강북구',
         detailLocation: '서울특별시 강북구 월계로 173',
@@ -72,7 +72,7 @@ export const gallerys: GalleryData = {
       {
         id: 1,
         name: '겸재정선미술관',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '서울특별시 강서구',
         detailLocation: '서울특별시 강서구 양천로47길 36',
@@ -84,7 +84,7 @@ export const gallerys: GalleryData = {
       {
         id: 2,
         name: '스페이스K 서울',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '서울특별시 강서구',
         detailLocation: '서울특별시 강서구 마곡중앙8로 32',
@@ -98,7 +98,7 @@ export const gallerys: GalleryData = {
       {
         id: 1,
         name: '서울시립 남서울미술관',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '서울특별시 관악구',
         detailLocation: '서울특별시 관악구 남부순환로 2076',
@@ -110,7 +110,7 @@ export const gallerys: GalleryData = {
       {
         id: 2,
         name: '서울대학교미술관',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '서울특별시 관악구',
         detailLocation: '서울특별시 관악구 관악로 1, 서울대학교 151동',
@@ -124,7 +124,7 @@ export const gallerys: GalleryData = {
       {
         id: 1,
         name: '아트센터 예술의 시간',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '서울특별시 금천구',
         detailLocation: '서울특별시 금천구 범안로9길 23',
@@ -138,7 +138,7 @@ export const gallerys: GalleryData = {
       {
         id: 1,
         name: '서울시립 북서울미술관',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '서울특별시 노원구',
         detailLocation: '서울특별시 노원구 동일로 1238',
@@ -152,7 +152,7 @@ export const gallerys: GalleryData = {
       {
         id: 1,
         name: '헬로우뮤지엄',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '서울특별시 성동구',
         detailLocation: '서울특별시 성동구 성수일로12길 20',
@@ -164,7 +164,7 @@ export const gallerys: GalleryData = {
       {
         id: 2,
         name: '뚝섬미술관',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '서울특별시 성동구',
         detailLocation: '서울특별시 성동구 아차산로 33 지하 1층',
@@ -177,7 +177,7 @@ export const gallerys: GalleryData = {
       {
         id: 1,
         name: '성북구립미술관',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '서울특별시 성북구',
         detailLocation: '서울특별시 성북구 성북로 134',
@@ -191,7 +191,7 @@ export const gallerys: GalleryData = {
       {
         id: 1,
         name: '예술의전당한가람디자인미술관',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '서울특별시 서초구',
         detailLocation: '서울특별시 서초구 남부순환로 2406',
@@ -203,7 +203,7 @@ export const gallerys: GalleryData = {
       {
         id: 2,
         name: '한전갤러리',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '서울특별시 서초구',
         detailLocation: '서울특별시 서초구 효령로72길 60, 한전아트센터 1층',
@@ -215,7 +215,7 @@ export const gallerys: GalleryData = {
       {
         id: 3,
         name: '한원미술관',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '서울특별시 서초구',
         detailLocation: '서울특별시 서초구 남부순환로 2423 한원빌딩 본관 B1F',
@@ -229,7 +229,7 @@ export const gallerys: GalleryData = {
       {
         id: 1,
         name: '소마미술관',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '서울특별시 송파구',
         detailLocation: '서울특별시 송파구 위례성대로 51',
@@ -241,7 +241,7 @@ export const gallerys: GalleryData = {
       {
         id: 2,
         name: '롯데뮤지엄',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '서울특별시 송파구',
         detailLocation: '서울특별시 송파구 올림픽로 300, 롯데월드타워 7층',
@@ -255,7 +255,7 @@ export const gallerys: GalleryData = {
       {
         id: 1,
         name: '김세중미술',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '서울특별시 용산구',
         detailLocation: '서울특별시 용산구 효창원로70길 35',
@@ -267,7 +267,7 @@ export const gallerys: GalleryData = {
       {
         id: 2,
         name: '리움미술관',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '서울특별시 용산구',
         detailLocation: '서울특별시 용산구 이태원로55길 60-16',
@@ -279,7 +279,7 @@ export const gallerys: GalleryData = {
       {
         id: 3,
         name: '아모레퍼시픽미술관',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '서울특별시 용산구',
         detailLocation: '서울특별시 용산구 한강대로 100',
@@ -293,7 +293,7 @@ export const gallerys: GalleryData = {
       {
         id: 1,
         name: '사비나미술관',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '서울특별시 은평구',
         detailLocation: '서울 은평구 진관1로 93',
@@ -307,7 +307,7 @@ export const gallerys: GalleryData = {
       {
         id: 1,
         name: '김종영미술관',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '서울특별시 종로구',
         detailLocation: '서울특별시 종로구 평창32길 30',
@@ -319,7 +319,7 @@ export const gallerys: GalleryData = {
       {
         id: 2,
         name: '아르코미술관',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '서울특별시 종로구',
         detailLocation: '서울특별시 종로구 동숭길 3',
@@ -331,7 +331,7 @@ export const gallerys: GalleryData = {
       {
         id: 3,
         name: '국립현대미술관 서울',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '서울특별시 종로구',
         detailLocation: '서울특별시 종로구 삼청로 30',
@@ -343,7 +343,7 @@ export const gallerys: GalleryData = {
       {
         id: 4,
         name: '석파정 서울미술관',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '서울특별시 종로구',
         detailLocation: '서울특별시 종로구 창의문로11길 4-1',
@@ -355,7 +355,7 @@ export const gallerys: GalleryData = {
       {
         id: 5,
         name: '종로구립 박노수미술관',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '서울특별시 종로구',
         detailLocation: '서울특별시 종로구 옥인1길 34',
@@ -367,7 +367,7 @@ export const gallerys: GalleryData = {
       {
         id: 6,
         name: '종로구립 고희동미술관',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '서울특별시 종로구',
         detailLocation: '서울특별시 종로구 창덕궁5길 40',
@@ -379,7 +379,7 @@ export const gallerys: GalleryData = {
       {
         id: 7,
         name: '뮤지엄한미 삼청',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '서울특별시 종로구',
         detailLocation: '서울특별시 종로구 삼청로9길 45',
@@ -391,7 +391,7 @@ export const gallerys: GalleryData = {
       {
         id: 8,
         name: '금호미술관',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '서울특별시 종로구',
         detailLocation: '서울특별시 종로구 삼청로 18',
@@ -403,7 +403,7 @@ export const gallerys: GalleryData = {
       {
         id: 9,
         name: '탑골미술',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '서울특별시 종로구',
         detailLocation: '서울특별시 종로구 삼일대로 467, 1층',
@@ -415,7 +415,7 @@ export const gallerys: GalleryData = {
       {
         id: 10,
         name: '아라리오뮤지엄 인 스페이스',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '서울특별시 종로구',
         detailLocation: '서울특별시 종로구 율곡로 83',
@@ -427,7 +427,7 @@ export const gallerys: GalleryData = {
       {
         id: 11,
         name: 'OCI 미술관',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '서울특별시 종로구',
         detailLocation: '서울특별시 종로구 우정국로 45-14',
@@ -439,7 +439,7 @@ export const gallerys: GalleryData = {
       {
         id: 12,
         name: '일민미술관',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '서울특별시 종로구',
         detailLocation: '서울특별시 종로구 세종대로 152',
@@ -451,7 +451,7 @@ export const gallerys: GalleryData = {
       {
         id: 13,
         name: '세화미술관',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '서울특별시 종로구',
         detailLocation: '서울특별시 종로구 새문안로 68, 3층',
@@ -463,7 +463,7 @@ export const gallerys: GalleryData = {
       {
         id: 14,
         name: '자하미술관',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '서울특별시 종로구',
         detailLocation: '서울특별시 종로구 창의문로5가길 46',
@@ -475,7 +475,7 @@ export const gallerys: GalleryData = {
       {
         id: 15,
         name: '대림미술관',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '서울특별시 종로구',
         detailLocation: '서울특별시 종로구 자하문로4길 21',
@@ -489,7 +489,7 @@ export const gallerys: GalleryData = {
       {
         id: 1,
         name: '서울시립미술관',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '서울특별시 중구',
         detailLocation: '서울특별시 중구 덕수궁길 61',
@@ -501,7 +501,7 @@ export const gallerys: GalleryData = {
       {
         id: 2,
         name: '국립현대미술관 덕수궁',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '서울특별시 중구',
         detailLocation: '서울특별시 중구 세종대로 99',
@@ -514,7 +514,7 @@ export const gallerys: GalleryData = {
       {
         id: 1,
         name: '중랑아트센터',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '서울특별시 중랑구',
         detailLocation:
@@ -531,7 +531,7 @@ export const gallerys: GalleryData = {
       {
         id: 1,
         name: '인터렉티브아트뮤지엄',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '경기도 가평군',
         detailLocation: '경기도 가평군 가평읍 호반로 1655',
@@ -545,7 +545,7 @@ export const gallerys: GalleryData = {
       {
         id: 1,
         name: '고양아람누리 아람미술관',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '경기도 고양시',
         detailLocation: '경기도 고양시 일산동구 중앙로 1286',
@@ -558,7 +558,7 @@ export const gallerys: GalleryData = {
       {
         id: 1,
         name: '과천국립현대미술관',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '경기도 과천시',
         detailLocation: '경기도 과천시 상하벌로 50',
@@ -572,7 +572,7 @@ export const gallerys: GalleryData = {
       {
         id: 1,
         name: '부천아트벙커 B39',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '경기도 부천시',
         detailLocation: '경기도 부천시 원미구 평천로 655',
@@ -586,7 +586,7 @@ export const gallerys: GalleryData = {
       {
         id: 1,
         name: '성남아트센터',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '경기도 성남시',
         detailLocation: '경기도 성남시 분당구 성남대로 808',
@@ -599,7 +599,7 @@ export const gallerys: GalleryData = {
       {
         id: 1,
         name: '경기아트센터',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '경기도 수원시',
         detailLocation: '경기도 수원시 팔달구 효원로 307번길 20',
@@ -611,7 +611,7 @@ export const gallerys: GalleryData = {
       {
         id: 2,
         name: '수원시립미술관',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '경기도 수원시',
         detailLocation: '경기도 수원시 팔달구 정조로 833',
@@ -625,7 +625,7 @@ export const gallerys: GalleryData = {
       {
         id: 1,
         name: '경기도미술관',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '경기도 안산시',
         detailLocation: '경기도 안산시 단원구 동산로 268',
@@ -637,7 +637,7 @@ export const gallerys: GalleryData = {
       {
         id: 2,
         name: '안산문화예술의전당 화랑전시관',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '경기도 안산시',
         detailLocation: '경기도 안산시 단원구 화랑로 312',
@@ -650,7 +650,7 @@ export const gallerys: GalleryData = {
       {
         id: 1,
         name: '양주시립장욱진미술관',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '경기도 양주시',
         detailLocation: '경기도 양주시 장흥면 권율로 193',
@@ -662,7 +662,7 @@ export const gallerys: GalleryData = {
       {
         id: 2,
         name: '경기북부예술관',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '경기도 양주시',
         detailLocation: '경기도 양주시 고읍남로 153',
@@ -674,7 +674,7 @@ export const gallerys: GalleryData = {
       {
         id: 3,
         name: '가나아트파크',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '경기도 양주시',
         detailLocation: '경기도 양주시 장흥면 권율로 117',
@@ -688,7 +688,7 @@ export const gallerys: GalleryData = {
       {
         id: 1,
         name: '양평군립미술관',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '경기도 양평군',
         detailLocation: '경기도 양평군 양평읍 문화복지길 2',
@@ -700,7 +700,7 @@ export const gallerys: GalleryData = {
       {
         id: 2,
         name: '구하우스 미술관',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '경기도 양평군',
         detailLocation: '경기도 양평군 서종면 무내미길 49-12',
@@ -714,7 +714,7 @@ export const gallerys: GalleryData = {
       {
         id: 1,
         name: '오산시립미술관',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '경기도 오산시',
         detailLocation: '경기도 오산시 경기대로 142',
@@ -728,7 +728,7 @@ export const gallerys: GalleryData = {
       {
         id: 1,
         name: '백남준아트센터',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '경기도 용인시',
         detailLocation: '경기도 용인시 기흥구 백남준로 10',
@@ -740,7 +740,7 @@ export const gallerys: GalleryData = {
       {
         id: 2,
         name: '용인포은아트홀',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '경기도 용인시',
         detailLocation: '경기도 용인시 수지구 포은대로 499',
@@ -752,7 +752,7 @@ export const gallerys: GalleryData = {
       {
         id: 3,
         name: '뮤지엄 그라운드',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '경기도 용인시',
         detailLocation: '경기도 용인시 수지구 샘말로 122',
@@ -764,7 +764,7 @@ export const gallerys: GalleryData = {
       {
         id: 4,
         name: '호암미술관',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '경기도 용인시',
         detailLocation: '경기도 용인시 처인구 포곡읍 에버랜드로562번길 38',
@@ -778,7 +778,7 @@ export const gallerys: GalleryData = {
       {
         id: 1,
         name: '의정부예술의전당',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '경기도 의정부시',
         detailLocation: '경기도 의정부시 의정로 1',
@@ -792,7 +792,7 @@ export const gallerys: GalleryData = {
       {
         id: 1,
         name: '이천시립월전미술관',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '경기도 이천시',
         detailLocation: '경기도 이천시 경충대로2709번길 185',
@@ -806,7 +806,7 @@ export const gallerys: GalleryData = {
       {
         id: 1,
         name: '파주 헤이리 예술마을',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '경기도 파주시',
         detailLocation: '경기도 파주시 탄현면 헤이리마을길 70-21',
@@ -818,7 +818,7 @@ export const gallerys: GalleryData = {
       {
         id: 2,
         name: '미메시트 아트 뮤지엄',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '경기도 파주시',
         detailLocation: '경기도 파주시 문발로 253',
@@ -830,7 +830,7 @@ export const gallerys: GalleryData = {
       {
         id: 3,
         name: '아트센터 화이트블럭',
-        imgUrl: search,
+        imgUrl: search2,
         sort: '미술관',
         location: '경기도 파주시',
         detailLocation: '경기도 파주시 탄현면 헤이리마을길 72',

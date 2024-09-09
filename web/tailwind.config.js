@@ -136,6 +136,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         'memo-pad': 'url(assets/images/etc/memoPad.svg)',
+        gallery: 'url(assets/images/etc/galleryBackground.svg)',
       },
       height: {
         18: '4.5rem',
